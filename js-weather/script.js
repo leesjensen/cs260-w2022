@@ -1,4 +1,5 @@
-const apiKey = "eee30ee681c790618bc05b7129191cef";
+//https://home.openweathermap.org/api_keys
+const apiKey = "";
 
 function init() {
   const defaultLocation = "provo";
