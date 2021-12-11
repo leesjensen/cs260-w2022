@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Vue REST</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Select a City</h1>
+    <form v-on:keyup.prevent="fetchREST">
+      <input type="text" v-model="prefix">
+    </form>
+    <ul>
+      <li v-for="item in cities">
+        {{ item.name }}
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

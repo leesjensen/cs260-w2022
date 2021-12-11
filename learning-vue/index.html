@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Learning Vue</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <div id="root">
+      <input type="text" v-model="message" />
+      <p>The value of the input is: {{ screaming }}.</p>
+
+      <input type="text" v-model="newName" />
+      <button @click="addName">Add Name</button>
+      <ul>
+        <!-- Loop through each name in names and render it. This will create a set of li elements -->
+        <li v-for="name in names">
+          <span v-bind:class="{ highlight: name === newMember }">{{name}}</span>
+        </li>
+      </ul>
+
+      <p v-show="!!newMember">
+        Welcome to our newest member,
+        <span class="highlight">{{ newMember }}</span>!
+      </p>
+
+      <button v-bind:title="title">Hover over me</button>
+
+      <button :class="[isLoading ? 'blue' : 'red']" @click="toggleLoading">
+        Click Me
+      </button>
+
+      <h1>Tasks</h1>
+      <ul>
+        <li v-for="task in incomplete"><span>{{task.description}}</span></li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
