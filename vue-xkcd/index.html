@@ -6,7 +6,7 @@
       href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
       rel="stylesheet"
     />
-    <title>XKCD Browser</title>
+    <title>XKCD Browser</title> 
   </head>
 
   <body>
@@ -14,8 +14,11 @@
     <div id="app">
       <div v-if="loaded">
         <p>
-          <button @click="previousComic">Previous</button>
-          <button @click="nextComic">Next</button>
+          <button :disabled="!hasPrevious()" @click="previousComic">
+            Previous
+          </button>
+          <button :disabled="!hasNext()" @click="nextComic">Next</button>
+          <button @click="randomComic">Random</button>
         </p>
         <h2>{{current.title}}</h2>
         <img :src="current.img" :alt="current.alt" />
@@ -23,6 +26,19 @@
         <p>
           <i>#{{current.num}}, drawn on {{current.date}}</i>
         </p>
+        <h3>Add a Comment</h3>
+        <form v-on:submit.prevent="addComment">
+          <input v-model="addedName" placeholder="Name"></p>
+          <textarea v-model="addedComment"></textarea>
+          <br />
+          <button type="submit">Comment</button>
+        </form>
+        <h3>Comments</h3>
+        <div v-for="comment in comments[current.num]">
+          <hr>
+          <p>{{comment.text}}</p>
+          <p><i>-- {{comment.author}}</i></p>
+        </div>
       </div>
       <div v-else>Loading...</div>
     </div>
