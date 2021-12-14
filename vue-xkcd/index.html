@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+    />
+    <title>XKCD Browser</title>
+  </head>
 
-<head>
-  <link rel="stylesheet" href="/styles.css" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-  <title>XKCD Browser</title>
-</head>
-
-<body>
-  <h1>XKCD Browser</h1>
-  <div id="app">
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/script.js"></script>
-</body>
-
+  <body>
+    <h1>XKCD Browser</h1>
+    <div id="app">
+      <div v-if="loaded">
+        <p>
+          <button @click="previousComic">Previous</button>
+          <button @click="nextComic">Next</button>
+        </p>
+        <h2>{{current.title}}</h2>
+        <img :src="current.img" :alt="current.alt" />
+        <p>{{current.alt}}</p>
+        <p>
+          <i>#{{current.num}}, drawn on {{current.date}}</i>
+        </p>
+      </div>
+      <div v-else>Loading...</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="/script.js"></script>
+  </body>
 </html>
