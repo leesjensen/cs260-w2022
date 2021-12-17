@@ -29,6 +29,12 @@ let app = new Vue({
   created() {
     this.xkcd(-1);
   },
+  computed: {
+    starRating: function () {
+      const ratingInfo = this.ratings[this.current.num];
+      return ratingInfo.sum / ratingInfo.total;
+    },
+  },
   methods: {
     xkcd(comicNumber) {
       if (comicNumber === -1) {
@@ -51,6 +57,7 @@ let app = new Vue({
             this.maxComic = json.num;
           }
           if (!(this.current.num in this.ratings)) {
+            app.ratings[this.current.num] = { sum: 0, total: 0 };
             Vue.set(app.ratings, this.current.num, { sum: 0, total: 0 });
           }
           if (!(this.current.num in this.comments)) {

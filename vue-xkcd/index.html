@@ -28,7 +28,7 @@
         <p>
           <i>#{{current.num}}, drawn on {{current.date}}</i>
         </p>
-        <star-rating @rating-selected="addRating" :rating=3 :show-rating=false :active-color="['#a74444']" :increment=0.5></star-rating>    
+        <star-rating @rating-selected="addRating" :rating="starRating" :show-rating=false :active-color="['#a74444']" :increment=0.5></star-rating>    
         <h3>Add a Comment</h3>
         <form v-on:submit.prevent="addComment">
           <input v-model="addedName" placeholder="Name"></p>
