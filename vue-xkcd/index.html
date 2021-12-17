@@ -14,10 +14,12 @@
     <div id="app">
       <div v-if="loaded">
         <p>
+          <button @click="firstComic">First</button>
           <button :disabled="!hasPrevious()" @click="previousComic">
             Previous
           </button>
           <button :disabled="!hasNext()" @click="nextComic">Next</button>
+          <button @click="lastComic">Last</button>
           <button @click="randomComic">Random</button>
         </p>
         <h2>{{current.title}}</h2>
@@ -26,6 +28,7 @@
         <p>
           <i>#{{current.num}}, drawn on {{current.date}}</i>
         </p>
+        <star-rating @rating-selected="addRating" :rating=3 :show-rating=false :active-color="['#a74444']" :increment=0.5></star-rating>    
         <h3>Add a Comment</h3>
         <form v-on:submit.prevent="addComment">
           <input v-model="addedName" placeholder="Name"></p>
@@ -37,6 +40,7 @@
         <div v-for="comment in comments[current.num]">
           <hr>
           <p>{{comment.text}}</p>
+          <p>{{comment.date}}</p>
           <p><i>-- {{comment.author}}</i></p>
         </div>
       </div>
@@ -44,6 +48,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://unpkg.com/vue-star-rating/dist/VueStarRating.umd.min.js"></script>
     <script src="/script.js"></script>
   </body>
 </html>

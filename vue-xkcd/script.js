@@ -1,3 +1,5 @@
+Vue.component("star-rating", VueStarRating.default);
+
 function getRandom(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -21,6 +23,7 @@ let app = new Vue({
     },
     addedName: "",
     addedComment: "",
+    ratings: {},
     comments: {},
   },
   created() {
@@ -47,6 +50,12 @@ let app = new Vue({
           if (comicNumber === "latest") {
             this.maxComic = json.num;
           }
+          if (!(this.current.num in this.ratings)) {
+            Vue.set(app.ratings, this.current.num, { sum: 0, total: 0 });
+          }
+          if (!(this.current.num in this.comments)) {
+            Vue.set(app.comments, this.current.num, new Array());
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -64,17 +73,24 @@ let app = new Vue({
     nextComic() {
       this.xkcd(this.current.num + 1);
     },
+    firstComic() {
+      return this.xkcd(1);
+    },
+    lastComic() {
+      return this.xkcd(this.maxComic);
+    },
     randomComic() {
-      console.log(getRandom(0, 100));
-      console.log(this.maxComic);
+      this.xkcd(getRandom(1, this.maxComic));
+    },
+    addRating(rating) {
+      this.ratings[this.current.num].sum += rating;
+      this.ratings[this.current.num].total += 1;
     },
     addComment() {
-      if (!(this.current.num in this.comments)) {
-        Vue.set(app.comments, this.current.num, new Array());
-      }
       this.comments[this.current.num].push({
         author: this.addedName,
         text: this.addedComment,
+        date: dayjs().format("dddd, MMMM D, YYYY HH:mm:ss"),
       });
       this.addedName = "";
       this.addedComment = "";
