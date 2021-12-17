@@ -58,7 +58,7 @@ let app = new Vue({
           }
           if (!(this.current.num in this.ratings)) {
             app.ratings[this.current.num] = { sum: 0, total: 0 };
-            Vue.set(app.ratings, this.current.num, { sum: 0, total: 0 });
+            //Vue.set(app.ratings, this.current.num, { sum: 0, total: 0 });
           }
           if (!(this.current.num in this.comments)) {
             Vue.set(app.comments, this.current.num, new Array());
