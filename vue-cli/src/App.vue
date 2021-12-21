@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <div>App content</div>
+    <h1>Ticket System</h1>
     <div id="nav">
       <div>Router nav</div>
-      <router-link to="/">Home</router-link> | <router-link to="/vote">Vote</router-link> |
+      <router-link to="/">Home</router-link> | <router-link to="/create">Create</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
