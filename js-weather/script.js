@@ -1,21 +1,17 @@
 //https://home.openweathermap.org/api_keys
-const apiKey = "";
+const apiKey = '499f95b9358461a3e9f3ac443cbbb33f';
 
 function init() {
-  const defaultLocation = "provo";
+  const defaultLocation = 'provo';
   getCurrentWeather(defaultLocation);
-  getForecast(defaultLocation);
 
-  document
-    .getElementById("weatherSubmit")
-    .addEventListener("click", function (event) {
-      event.preventDefault();
-      const value = document.getElementById("weatherInput").value;
-      if (value === "") return;
+  document.getElementById('weatherSubmit').addEventListener('click', function (event) {
+    event.preventDefault();
+    const value = document.getElementById('weatherInput').value;
+    if (value === '') return;
 
-      getCurrentWeather(value);
-      getForecast(value);
-    });
+    getCurrentWeather(value);
+  });
 }
 
 init();
@@ -28,48 +24,47 @@ function getCurrentWeather(location) {
     })
     .then(function (json) {
       displayCurrentWeather(json);
+      getForecast(location, json.timezone);
     });
 }
 
 function displayCurrentWeather(json) {
-  let results = "";
+  let results = '';
   results += `<h2>Weather in ${json.name}</h2>`;
   for (let i = 0; i < json.weather.length; i++) {
     results += `<img src="http://openweathermap.org/img/w/${json.weather[i].icon}.png"/>`;
   }
   results += `<h2>${json.main.temp} &deg;F</h2>`;
 
-  const description = json.weather.map((e) => e.description).join(", ");
+  const description = json.weather.map((e) => e.description).join(', ');
   results += `<p>${description}</p>`;
 
-  document.getElementById("weatherResults").innerHTML = results;
+  document.getElementById('weatherResults').innerHTML = results;
 }
 
-function getForecast(location) {
+function getForecast(location, timezone) {
   const url = `http://api.openweathermap.org/data/2.5/forecast?q=${location},US&units=imperial&APPID=${apiKey}`;
   fetch(url)
-    .then(function (response) {
+    .then((response) => {
       return response.json();
     })
-    .then(function (json) {
-      displayForecast(json);
+    .then((json) => {
+      displayForecast(json, timezone);
     });
 }
 
-function displayForecast(json) {
-  const dailyForecastMap = convertForecast(json);
+function displayForecast(json, timezone) {
+  const dailyForecastMap = convertForecast(json, timezone);
 
   let forecast = `<div class="container">`;
-  dailyForecastMap.forEach((times, date) => {
-    const dateText = dayjs(date).format("dddd, MMMM D, YYYY");
-
-    forecast += `<div class="date">${dateText}</div>`;
+  dailyForecastMap.forEach((times, dateDisplay) => {
+    forecast += `<div class="date">${dateDisplay}</div>`;
     forecast += `<div class="row">`;
 
     times.forEach((hourlyForecast) => {
       forecast += `<div class="col timeCol">`;
       if (!!hourlyForecast.temp) {
-        const timeText = dayjs().hour(hourlyForecast.time).format("h A");
+        const timeText = hourlyForecast.time.format('h A');
         forecast += `<div class="time">${timeText}</div>`;
         forecast += `<div class="temperature">${hourlyForecast.temp}°F</div>`;
         forecast += `<img src="http://openweathermap.org/img/w/${hourlyForecast.icon}.png"/>`;
@@ -80,23 +75,23 @@ function displayForecast(json) {
   });
   forecast += `</div>`;
 
-  document.getElementById("forecastResults").innerHTML = forecast;
+  document.getElementById('forecastResults').innerHTML = forecast;
 }
 
-function convertForecast(json) {
+function convertForecast(json, timezone) {
   const dailyForecastMap = new Map();
   json.list.forEach((hourlyForecast) => {
-    const date = hourlyForecast.dt_txt.split(" ")[0];
-    let dailyForecast = dailyForecastMap.get(date);
+    const dateTime = dayjs(hourlyForecast.dt_txt);
+    // const dateTime = utcDate.add(timezone, 'seconds');
+
+    const day = dateTime.format('dddd, MMMM D, YYYY');
+    let dailyForecast = dailyForecastMap.get(day);
     if (!dailyForecast) {
       dailyForecast = initializeForecast();
-      dailyForecastMap.set(date, dailyForecast);
+      dailyForecastMap.set(day, dailyForecast);
     }
-
-    const dateTime = dayjs(hourlyForecast.dt_txt);
-
     dailyForecast[dateTime.hour() / 3] = {
-      time: dateTime.hour(),
+      time: dateTime,
       temp: hourlyForecast.main.temp,
       icon: hourlyForecast.weather[0].icon,
     };
@@ -105,11 +100,5 @@ function convertForecast(json) {
 }
 
 function initializeForecast() {
-  const dailyForecast = new Array(8);
-  for (let i = 0; i < dailyForecast.length; i++) {
-    dailyForecast[i] = {
-      time: 3 * i,
-    };
-  }
-  return dailyForecast;
+  return new Array(8).fill({});
 }
