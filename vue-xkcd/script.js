@@ -1,4 +1,4 @@
-Vue.component("star-rating", VueStarRating.default);
+Vue.component('star-rating', VueStarRating.default);
 
 function getRandom(min, max) {
   min = Math.ceil(min);
@@ -7,22 +7,22 @@ function getRandom(min, max) {
 }
 
 let app = new Vue({
-  el: "#app",
+  el: '#app',
   data: {
     loaded: false,
     maxComic: Number.MAX_SAFE_INTEGER,
     current: {
-      title: "",
-      img: "",
-      alt: "",
+      title: '',
+      img: '',
+      alt: '',
       num: -1,
       day: 0,
       month: 0,
       year: 0,
-      date: "",
+      date: '',
     },
-    addedName: "",
-    addedComment: "",
+    addedName: '',
+    addedComment: '',
     ratings: {},
     comments: {},
   },
@@ -38,7 +38,7 @@ let app = new Vue({
   methods: {
     xkcd(comicNumber) {
       if (comicNumber === -1) {
-        comicNumber = "latest";
+        comicNumber = 'latest';
       }
       const url = `https://xkcd.now.sh/?comic=${comicNumber}`;
       console.log(url);
@@ -51,9 +51,9 @@ let app = new Vue({
         .then((json) => {
           this.loaded = true;
           this.current = json;
-          const date = dayjs([json.year, json.month - 1, json.day]);
-          this.current.date = date.format("dddd, MMMM D, YYYY");
-          if (comicNumber === "latest") {
+          const date = dayjs([json.year, json.month, json.day]);
+          this.current.date = date.format('dddd, MMMM D, YYYY');
+          if (comicNumber === 'latest') {
             this.maxComic = json.num;
           }
           if (!(this.current.num in this.ratings)) {
@@ -97,10 +97,10 @@ let app = new Vue({
       this.comments[this.current.num].push({
         author: this.addedName,
         text: this.addedComment,
-        date: dayjs().format("dddd, MMMM D, YYYY HH:mm:ss"),
+        date: dayjs().format('dddd, MMMM D, YYYY HH:mm:ss'),
       });
-      this.addedName = "";
-      this.addedComment = "";
+      this.addedName = '';
+      this.addedComment = '';
     },
   },
 });

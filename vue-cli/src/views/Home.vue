@@ -1,7 +1,8 @@
 <template>
-  <div class="home">
+  <div class="home component">
+    <div>Home view</div>
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <HelloWorld msg="Param from parent of helloworld" />
   </div>
 </template>
 
