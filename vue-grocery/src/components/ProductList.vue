@@ -11,7 +11,9 @@
         </div>
         <div class="price">
           <h2>{{ product.price }}</h2>
-          <button class="auto">Add to Cart</button>
+          <button class="auto" v-on:click="addToCart(product)">
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
@@ -23,6 +25,12 @@ export default {
   name: "ProductList",
   props: {
     products: Array,
+  },
+  methods: {
+    addToCart(product) {
+      console.log("add to cart", product);
+      this.$root.$data.cart.push(product);
+    },
   },
 };
 </script>
