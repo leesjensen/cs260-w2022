@@ -6,10 +6,10 @@
         v-for="(product, index) in cartItems"
         :key="`product-${index}`"
       >
-        <div class="info">{{ product.name }}</div>
         <div class="image">
           <img :src="'/images/products/' + product.image" />
         </div>
+        <div class="info">{{ product.name }}</div>
         <div class="price">{{ format(product.price) }}</div>
         <div class="action">
           <button class="auto" v-on:click="removeFromCart(index)">
@@ -88,5 +88,10 @@ export default {
 
 .totalPrice {
   font-weight: bolder;
+}
+
+.info {
+  font-weight: bolder;
+  color: blue;
 }
 </style>
