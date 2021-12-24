@@ -1,0 +1,75 @@
+#!/usr/bin/env node
+
+// This is the entry point loaded with node on the command line.
+
+// Create and configure the express app
+var app = require('../app');
+
+// set according to environment variable so you can filter debug messages.
+// Way better to just log and let your log viewer filter out the noise.
+// var debug = require('debug')('Node:server');
+
+// Set a port from environment variable or use default
+var port = process.env.PORT || '3000';
+app.set('port', port);
+
+// HTTP server
+var http = require('http');
+var server = http.createServer(app);
+server.listen(port, () => {
+  console.log(`Listening on ${server.address().port}`);
+});
+
+// Overkill - let's keep things simple
+// server.on('error', onError);
+//server.on('listening', onListening);
+
+// We don't use pipes and so this is all overkill
+// function normalizePort(val) {
+//   var port = parseInt(val, 10);
+
+//   if (isNaN(port)) {
+//     // named pipe
+//     return val;
+//   }
+
+//   if (port >= 0) {
+//     // port number
+//     return port;
+//   }
+
+//   return false;
+// }
+
+// /**
+//  * Event listener for HTTP server "error" event.
+//  */
+
+// function onError(error) {
+//   if (error.syscall !== 'listen') {
+//     throw error;
+//   }
+
+//   var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+
+//   // handle specific listen errors with friendly messages
+//   switch (error.code) {
+//     case 'EACCES':
+//       console.error(bind + ' requires elevated privileges');
+//       process.exit(1);
+//       break;
+//     case 'EADDRINUSE':
+//       console.error(bind + ' is already in use');
+//       process.exit(1);
+//       break;
+//     default:
+//       throw error;
+//   }
+// }
+
+// /**
+//  * Event listener for HTTP server "listening" event.
+//  */
+// function onListening() {
+//   console.log(`Listening on ${server.address().port}`);
+// }
