@@ -47,10 +47,11 @@ curl 104.131.72.225 # Replace this with your IP address for your Digital Ocean s
 ```
 
 ## Set up DNS
-I just used my leesjensen.com hostname and created an A record on Route53.
+I just used my leesjensen.com hostname and created an A record on Route53 for *.cs260.leesjensen.com and cs260.leesjensen.com.
 
 ```
 curl http://lab1.cs260.leesjensen.com/
+ssh -i id_rsa root@cs260.leesjensen.com
 ```
 
 ## Set up hostname cert
@@ -66,3 +67,6 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot  # link so you can run cerbot from
 sudo certbot --nginx                           # Provide email and hostname you want the cert for. This automatically configures NGINX
 curl https://lab1.cs260.leesjensen.com
 ```
+
+## Set up NGINX
+Create index.html in ```/var/www/html directory```
