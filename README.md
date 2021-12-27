@@ -42,13 +42,27 @@ sudo apt-get install jq
 ### test that it all works
 ```
 curl 'https://www.boredapi.com/api/activity/' | jq '.'
-curl -4 icanhazip.com
-curl 104.131.72.225
+curl -4 icanhazip.com # Use this service to return back your IPV4 address
+curl 104.131.72.225 # Replace this with your IP address for your Digital Ocean server
 ```
 
-### Set up DNS
+## Set up DNS
 I just used my leesjensen.com hostname and created an A record on Route53.
 
 ```
 curl http://lab1.cs260.leesjensen.com/
+```
+
+## Set up hostname cert
+Follow instructions for DNS wildcard cert found [here](https://certbot.eff.org/).
+Specify the OS and server software. 
+
+Note that you can create a wildcard cert, but you have to create an AWS access token that will allow certbot to modify Route53 with the DNS response.
+
+```
+sudo snap install core; sudo snap refresh core # Snap is automatically installed with Ubuntu 20
+sudo snap install --classic certbot            # install cerbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot  # link so you can run cerbot from anywhere
+sudo certbot --nginx                           # Provide email and hostname you want the cert for. This automatically configures NGINX
+curl https://lab1.cs260.leesjensen.com
 ```
