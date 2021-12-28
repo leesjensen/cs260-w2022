@@ -69,4 +69,11 @@ curl https://lab1.cs260.leesjensen.com
 ```
 
 ## Set up NGINX
+NGINX is installed to ```/etc/nginx```. There you will find the following interesting folders and files:
+
+* **sties-available** - the websites NGINX can host.
+* **sties-enabled** - the websites NGINX is currently hosting.
+* **sites-available/default** - the default config file. Certbot has added cert and website information along with automatic redirects for HTTP.
+q
 Create index.html in ```/var/www/html directory```
+
