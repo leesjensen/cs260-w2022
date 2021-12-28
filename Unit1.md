@@ -76,3 +76,24 @@ NGINX is installed to ```/etc/nginx```. There you will find the following intere
 q
 Create index.html in ```/var/www/html directory```
 
+## VIM
+
+```
+i and ESC
+:q (will close each pane and exit on last)
+:wq - write and quit
+:q! - quit without saving
+dd - delete line
+u - undo
+CTRL-r  - redo
+Gg - top of file
+G - bottom of file
+45G - go to line 45 (putting numbers in front will repeat a command)
+/cats - search for cats
+n (next) N (prev)
+:%s/fish/pig - search and replace
+ZZ - quick save and quit
+:e - open file
+:split to create new pane
+CTRL-W to toggle between panes
+```
