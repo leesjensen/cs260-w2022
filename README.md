@@ -68,7 +68,7 @@ sudo certbot --nginx                           # Provide email and hostname you 
 curl https://lab1.cs260.leesjensen.com
 ```
 
-## Set up NGINX
+## NGINX notes
 NGINX is installed to ```/etc/nginx```. There you will find the following interesting folders and files:
 
 * **sties-available** - the websites NGINX can host.
