@@ -65,7 +65,8 @@ sudo snap install core; sudo snap refresh core # Snap is automatically installed
 sudo snap install --classic certbot            # install cerbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot  # link so you can run cerbot from anywhere
 sudo certbot --nginx                           # Provide email and hostname you want the cert for. This automatically configures NGINX
-curl https://lab1.cs260.leesjensen.com
+sudo certbot --nginx -d cs260.leesjensen.com   # OR specify the hostname you want the cert for on the command line.
+curl https://cs260.leesjensen.com
 ```
 
 ## NGINX notes
