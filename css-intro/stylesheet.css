@@ -1,0 +1,27 @@
+@import url(//fonts.googleapis.com/css?family=Libre+Baskerville|Lobster|UnifrakturMaguntia);
+
+@font-face {
+  font-family: 'roboto';
+  src: url('RobotoCondensed-Light-webfont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'roboto', sans-serif;
+  font-size: 18px;
+  line-height: 1.8em;
+  color: #5d6063;
+}
+
+.baskerville {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.lobster {
+  font-family: 'lobster', serif;
+}
+
+.unifraktur {
+  font-family: 'UnifrakturMaguntia', cursive;
+}

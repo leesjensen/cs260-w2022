@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!-- HTML5 declartion -->
+
+<html>
+  <head>
+    <title>HTML Intro</title>
+    <!-- Metadata is used to provide tools and the browser with information about the page. -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Not used for SEO, but sometimes displays in search results." />
+    <meta name="robots" content="index,nofollow" />
+
+    <!-- Style here only to clarify display of HTML for demonstration. -->
+    <style>
+      section {
+        margin: 150em 0 150em 0;
+      }
+      td,
+      th {
+        border: thin solid rgb(171, 171, 171);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Use of HTML5 page structural elements helps with accessibility readers and SEO. -->
+    <!-- Likewise avoid presentational elements like <b> <i> or <u> -->
+
+    <!-- Common header for website. -->
+    <header>
+      <h1>Learning HTML</h1>
+      <p>From 18 original tags to 110 in HTML5</p>
+      <p>
+        If you think this page is ugly, you should check out the
+        <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">first public web page</a>.
+      </p>
+      <cite>
+        —Some examples are from <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">Mozilla.org</a>, licensed
+        under
+        <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>
+      </cite>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#entity">Entity</a></li>
+        <li><a href="#list">List</a></li>
+        <li><a href="#media">Media</a></li>
+        <li><a href="#canvas">Canvas</a></li>
+        <li><a href="#svg">SVG</a></li>
+        <li><a href="#table">Table</a></li>
+        <li><a href="#iframe">IFrame</a></li>
+        <li><a href="#form">Form</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <aside>
+        <h2>Aside</h2>
+        Aside represents tangental content, like a sidebar. This aside is about the HTML5 structural elements.
+        <img alt="HTML5 Semantic structure elements" src="HTML5SemanticStructure.png" />
+      </aside>
+
+      <article>
+        <!-- Structure -->
+        <section id="structure">
+          <h2>Headings</h2>
+          <h3>&lt;h3&gt;Heading 3&lt;/h3&gt;</h3>
+          <h4>&lt;h4&gt;Heading 4&lt;/h4&gt;</h4>
+          <h5>&lt;h5&gt;Heading 5&lt;/h5&gt;</h5>
+          <h2>Block and Inline</h2>
+          <p><strong>Block level</strong> - content, h1, p, div, ol, img</p>
+          <p><strong>Inline elements</strong> - em, strong, span</p>
+          &lt;p&gt;BLOCK P ELEMENT. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua.
+          <span style="color: green">&lt;span&gt;INLINE SPAN ELEMENT.&lt;/span&gt;</span> Ut enim ad minim veniam
+          voluptate velit. <code>&lt;code&gt;INLINE CODE ELEMENT.&lt;/code&gt;</code>. esse cillum dolore eu fugiat
+          mollit anim id est laborum.&lt;/p&gt;
+
+          <h2>Blockquote &amp; Cite</h2>
+          <blockquote cite="https://www.huxley.net/bnw/four.html">
+            Words can be like X-rays, if you use them properly—they’ll go through anything. You read and you’re pierced.
+            <br />
+            <cite>—Aldous Huxley, Brave New World</cite>
+          </blockquote>
+
+          <h2>Pre - Preformatted text</h2>
+          <pre>
+             ^__^
+             (oo)\_______
+             (__)\       )\/\
+                 ||----w |
+                 ||     ||
+
+            let i = 5;
+
+            if ( i &lt; 10 &amp;&amp; i &gt; 0 )
+              return &quot; Single Digit Number &quot;
+          </pre>
+
+          <h2>DL, DT, DD - Description list, term, detail</h2>
+          <dl>
+            <dt>New Testament</dt>
+            <dd>Church during and after Christ's earthly ministry.</dd>
+
+            <dt>Book of Mormon</dt>
+            <dd>Brach of Isreal in Western Hemisphere.</dd>
+
+            <dt>Doctrine and Covenants</dt>
+            <dd>Restoration of the church in modern times.</dd>
+          </dl>
+
+          <hr />
+          <div><a href="">Menu</a></div>
+        </section>
+
+        <!-- Entity -->
+        <section id="entity">
+          <h2>Entity</h2>
+          <p>This is how you escape reserved characters and add special characters.</p>
+          <p>Use to add text that look like HTML &lt;elements/&gt;</p>
+          <p>Use to add unicode chars. &#9728; &#9730; &#9986; &#38867;&#22283;</p>
+          <hr />
+          <div><a href="">Menu</a></div>
+        </section>
+
+        <!-- List -->
+        <section id="list">
+          <h2>List</h2>
+          <h3>Unordered list</h3>
+          <p>This is usually displayed with bullets because it has no order</p>
+          <ul>
+            <li><strong>chicken</strong> - Comes from eggs</li>
+            <li><strong>egg</strong> - Comes from chickens</li>
+          </ul>
+          <h3>Ordered list</h3>
+          <p>This is usually displayed with numbers to suggest order</p>
+          <ul>
+            <li><strong>faith</strong> - Substance of all things hoped for</li>
+            <li><strong>miracle</strong> - After a trial of your faith</li>
+          </ul>
+          <hr />
+          <div><a href="">Menu</a></div>
+        </section>
+
+        <!-- Media -->
+        <section id="media">
+          <h2>Image</h2>
+          <img alt="Arches" src="https://images.pexels.com:443/photos/164170/pexels-photo-164170.jpeg?w=300" />
+          <h2>Audio</h2>
+          <audio controls src="testAudio.mp3"></audio>
+          <!-- Note the use of crossorigin to control CORS credentials -->
+          <h2>Video</h2>
+          <video controls width="300" crossorigin="anonymous">
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+          </video>
+          <hr />
+          <div><a href="">Menu</a></div>
+        </section>
+
+        <!-- Canvas -->
+        <section id="canvas">
+          <h2>Canvas</h2>
+          <canvas id="canvasDemo" width="300" height="200" style="border: 1px solid #000000"></canvas>
+          <script>
+            const ctx = document.getElementById('canvasDemo').getContext('2d');
+            ctx.beginPath();
+            ctx.arc(150, 100, 50, 0, 2 * Math.PI);
+            ctx.fillStyle = 'red';
+            ctx.strokeStyle = 'red';
+            ctx.fill();
+            ctx.stroke();
+          </script>
+          <hr />
+          <div><a href="">Menu</a></div>
+        </section>
+
+        <!-- SVG -->
+        <section id="svg">
+          <h2>SVG</h2>
+          <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" stroke="red" fill="red">
+            <circle cx="150" cy="100" r="50" />
+          </svg>
+          <hr />
+          <div><a href="">Menu</a></div>
+        </section>
+
+        <!-- Table -->
+        <section id="table">
+          <h2>Table</h2>
+          <table style="border-collapse: collapse; border: 2px solid grey">
+            <caption>
+              Spending
+            </caption>
+            <thead>
+              <tr>
+                <th>Purchase</th>
+                <th>Date</th>
+                <th>Cost (€)</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan="2">SUM</td>
+                <td>70</td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr>
+                <td>Shoes</td>
+                <td>13/09</td>
+                <td>65</td>
+              </tr>
+              <tr>
+                <td>Toothpaste</td>
+                <td>13/09</td>
+                <td>5</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr />
+          <div><a href="">Menu</a></div>
+        </section>
+
+        <!-- IFrame -->
+        <section id="iframe">
+          <h2>iFrame</h2>
+          <iframe src="https://xkcd.com/2561/" width="100%" height="500" sandbox> </iframe>
+          <hr />
+          <div><a href="">Menu</a></div>
+        </section>
+
+        <!-- Form -->
+        <section id="form">
+          <h2>Form</h2>
+          <form action="/formSubmission.html" method="get">
+            <ul>
+              <li>
+                <!-- Includes validation-->
+                <label for="text">Text: </label>
+                <input
+                  type="text"
+                  id="text"
+                  name="varText"
+                  placeholder="text here"
+                  spellcheck
+                  required
+                  pattern="[Aa].*"
+                />
+              </li>
+              <li>
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="varPassword" />
+              </li>
+              <li>
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="varEmail" />
+              </li>
+              <li>
+                <label for="textarea">TextArea: </label>
+                <textarea id="textarea" name="varTextarea"></textarea>
+              </li>
+              <li>
+                <label for="select">Select: </label>
+                <select id="select" name="varSelect">
+                  <option>option1</option>
+                  <option selected>option2</option>
+                  <option>option3</option>
+                </select>
+              </li>
+              <li>
+                <label for="optgroup">OptGroup: </label>
+                <select id="optgroup" name="varOptGroup">
+                  <optgroup label="group1">
+                    <option>option1</option>
+                    <option selected>option2</option>
+                  </optgroup>
+                  <optgroup label="group1">
+                    <option>option3</option>
+                    <option>option4</option>
+                  </optgroup>
+                </select>
+              </li>
+              <li>
+                <fieldset>
+                  <legend>checkbox</legend>
+                  <label for="checkbox1">checkbox1</label>
+                  <input type="checkbox" id="checkbox1" name="varCheckbox" value="checkbox1" checked />
+                  <label for="checkbox2">checkbox2</label>
+                  <input type="checkbox" id="checkbox2" name="varCheckbox" value="checkbox2" />
+                  <label for="checkbox3">checkbox3</label>
+                  <input type="checkbox" id="checkbox3" name="varCheckbox" value="checkbox3" />
+                </fieldset>
+              </li>
+              <li>
+                <fieldset>
+                  <legend>radio</legend>
+                  <label for="radio1">radio1</label>
+                  <input type="radio" id="radio1" name="varRadio" value="radio1" checked />
+                  <label for="radio2">radio2</label>
+                  <input type="radio" id="radio2" name="varRadio" value="radio2" />
+                  <label for="radio3">radio3</label>
+                  <input type="radio" id="radio3" name="varRadio" value="radio3" />
+                </fieldset>
+              </li>
+              <li>
+                <!-- Submit form with POST method and enctype="multipart/form-data" to send file contents. -->
+                <label for="file">File: </label>
+                <input type="file" id="file" name="varFile" accept="image/*" multiple />
+              </li>
+              <li>
+                <label for="search">Search: </label>
+                <input type="search" id="search" name="varSearch" />
+              </li>
+              <li>
+                <label for="tel">Tel: </label>
+                <input type="tel" id="tel" name="varTel" />
+              </li>
+              <li>
+                <label for="url">URL: </label>
+                <input type="url" id="url" name="varUrl" />
+              </li>
+              <li>
+                <label for="number">Number: </label>
+                <input type="number" name="varNumber" id="number" min="1" max="10" step="1" />
+              </li>
+              <li>
+                <label for="range">Range: </label>
+                <input type="range" name="varRange" id="range" min="0" max="100" step="1" value="0" />
+                <output id="rangeOutput" for="range">0</output>
+                <script>
+                  const range = document.querySelector('#range');
+                  const rangeOutput = document.querySelector('#rangeOutput');
+                  range.addEventListener('input', function () {
+                    rangeOutput.textContent = range.value;
+                  });
+                </script>
+              </li>
+              <li>
+                <label for="progress">Progress: </label>
+                <progress id="progress" max="100" value="75"></progress>
+              </li>
+              <li>
+                <label for="meter">Meter: </label>
+                <meter id="meter" min="0" max="100" value="50" low="33" high="66" optimum="50"></meter>
+              </li>
+              <li>
+                <label for="datetime">DateTime: </label>
+                <input type="datetime-local" name="varDatetime" id="datetime" />
+              </li>
+              <li>
+                <label for="time">Time: </label>
+                <input type="time" name="varTime" id="time" />
+              </li>
+              <li>
+                <label for="month">Month: </label>
+                <input type="month" name="varMonth" id="month" />
+              </li>
+              <li>
+                <label for="week">Week: </label>
+                <input type="week" name="varWeek" id="week" />
+              </li>
+              <li>
+                <label for="colore">Color: </label>
+                <input type="color" name="varColor" id="color" />
+              </li>
+            </ul>
+            <!-- This doesn't show up to the user, but allows the form to send associated data. -->
+            <input type="hidden" id="secretData" name="varSecretData" value="1989 - the web was born" />
+            <button type="submit">Submit</button>
+          </form>
+          <hr />
+          <div><a href="">Menu</a></div>
+        </section>
+      </article>
+    </main>
+
+    <!-- Common footer for website -->
+    <footer>
+      <p>© MIT license</p>
+    </footer>
+  </body>
+</html>
