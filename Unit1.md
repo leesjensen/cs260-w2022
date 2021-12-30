@@ -109,6 +109,69 @@ server {
 }
 ```
 
+## HTML
+
+Demonstration index.html file located in html-intro/index.html. This shows many of the most important HTML tags.
+
+## GIT
+
+**Install** git - This was installed for my when I installed the Mac command line tools.
+
+**Setup alias as desired**
+
+```
+git config --global alias.s status
+git config --global alias.l "log --all --graph --decorate --oneline --pretty=format:'%C(bold red)%d%Creset %cr %C(bold yellow)%h%Creset - %C(green)%an%Creset %s'"
+```
+
+### Personal Access tokens
+
+These can be used as a password or an OAuth token. They represent both authentication and authorization.
+Set up personal access token from `Settings/Developer Settings/Personal Access Tokens` (https://github.com/settings/tokens).
+Here are the [docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+```
+$ git clone https://github.com/username/repo.git
+Username: your_username
+Password: your_token
+```
+
+### Create your repo on GitHub
+
+Even if you already have one locally you need to either start from GitHub, or create an empty one on GitHub and then push your local content up to GitHub.
+
+You can create your repo locally and push it up to git.
+
+```
+mkdir git-practice
+git init
+echo "<html><body>Hello</body></html>" > index.html
+git add .
+git status
+git commit -am "Initial commit"
+git remote add origin https://github.com/leesjensen/git-practice
+git remote -v
+git push -u origin master
+```
+
+However it is probably easier to just populate the GitHub repo with the default README.md and .gitignore, and then just clone it.
+
+```
+git clone https://github.com/leesjensen/git-practice.git
+```
+
+### Demonstrate
+
+- Status
+- Add
+- Commit
+- Log
+- Diff
+- Conflict resolution
+- Fetch and rebase
+- Pull
+- Branch
+
 ## VIM
 
 ```
@@ -173,69 +236,6 @@ Status codes
 Headers - Standard and non standard
 CORS
 CSP
-
-## HTML
-
-Demonstration index.html file located in html-intro/index.html. This shows many of the most important HTML tags.
-
-## GIT
-
-**Install** git - This was installed for my when I installed the Mac command line tools.
-
-**Setup alias as desired**
-
-```
-git config --global alias.s status
-git config --global alias.l "log --all --graph --decorate --oneline --pretty=format:'%C(bold red)%d%Creset %cr %C(bold yellow)%h%Creset - %C(green)%an%Creset %s'"
-```
-
-### Personal Access tokens
-
-These can be used as a password or an OAuth token. They represent both authentication and authorization.
-Set up personal access token from `Settings/Developer Settings/Personal Access Tokens` (https://github.com/settings/tokens).
-Here are the [docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-
-```
-$ git clone https://github.com/username/repo.git
-Username: your_username
-Password: your_token
-```
-
-### Create your repo on GitHub
-
-Even if you already have one locally you need to either start from GitHub, or create an empty one on GitHub and then push your local content up to GitHub.
-
-You can create your repo locally and push it up to git.
-
-```
-mkdir git-practice
-git init
-echo "<html><body>Hello</body></html>" > index.html
-git add .
-git status
-git commit -am "Initial commit"
-git remote add origin https://github.com/leesjensen/git-practice
-git remote -v
-git push -u origin master
-```
-
-However it is probably easier to just populate the GitHub repo with the default README.md and .gitignore, and then just clone it.
-
-```
-git clone https://github.com/leesjensen/git-practice.git
-```
-
-### Demonstrate
-
-- Status
-- Add
-- Commit
-- Log
-- Diff
-- Conflict resolution
-- Fetch and rebase
-- Pull
-- Branch
 
 ## CSS
 
