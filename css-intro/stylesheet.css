@@ -1,27 +1,42 @@
-@import url(//fonts.googleapis.com/css?family=Libre+Baskerville|Lobster|UnifrakturMaguntia);
-
-@font-face {
-  font-family: 'roboto';
-  src: url('RobotoCondensed-Light-webfont.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+* {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-  font-family: 'roboto', sans-serif;
-  font-size: 18px;
-  line-height: 1.8em;
-  color: #5d6063;
+  background-color: #302c2a;
 }
 
-.baskerville {
-  font-family: 'Libre Baskerville', serif;
+header {
+  margin-top: 4em;
+  color: #eaebc0;
 }
 
-.lobster {
-  font-family: 'lobster', serif;
+nav {
+  background-color: rgba(226, 153, 58, 0.8);
+  color: #543105;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+main {
+  background-color: rgb(116, 114, 29);
+  padding: 1em;
 }
 
-.unifraktur {
-  font-family: 'UnifrakturMaguntia', cursive;
+article {
+  background-color: rgb(224, 235, 165);
+}
+
+aside {
+  background-color: #919b0d;
+  color: #f7f7db;
+}
+
+.content-holder {
+  border-radius: 5px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.content-heading {
+  margin-top: 0;
 }
