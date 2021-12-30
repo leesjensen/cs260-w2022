@@ -180,9 +180,9 @@ Demonstration index.html file located in html-intro/index.html. This shows many 
 
 ## GIT
 
-**Install** git - This was installed for my when I installed the Mac commandline tools.
+**Install** git - This was installed for my when I installed the Mac command line tools.
 
-** Setup alias as desired **
+**Setup alias as desired**
 
 ```
 git config --global alias.s status
