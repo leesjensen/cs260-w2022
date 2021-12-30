@@ -236,7 +236,3 @@ Status codes
 Headers - Standard and non standard
 CORS
 CSP
-
-## CSS
-
-- **Topography** - [Great guidlines](https://www.internetingishard.com/html-and-css/web-typography/)
