@@ -3,4 +3,5 @@
 [BYU CS 260 Canvas Course](https://byu.instructure.com/courses/13246)
 
 - **Unit 1** - [Introduction, Server setup, and HTML](/Unit1.md)
+- **Unit 2** - [CSS](/Unit2.md)
 
