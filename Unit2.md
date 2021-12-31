@@ -62,7 +62,7 @@ Use debugger to demonstrate.
 
 ### Selectors
 
-** Standard selectors **
+**Standard selectors**
 
 ```
 * { margin:0;padding:0; } /* Default */
