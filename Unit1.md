@@ -1,5 +1,9 @@
 # Unit 1
 
+## Interesting links
+
+- [GitHub Actions and DigitalOcean](https://www.youtube.com/watch?v=uijgmwOdcXQ)
+
 ## Rent Digital Ocean server
 
 - Go to [Digital Ocean](https://www.digitalocean.com/)
