@@ -4,9 +4,6 @@
 
 - **Topography** - [Great guidlines](https://www.internetingishard.com/html-and-css/web-typography/)
 
-## CSS Introduction
-
-
 ## C1 - Learning Part 1
 
 - Read CSS is Hard - Hello CSS, Box Model, CSS Selectors
@@ -16,14 +13,14 @@
 
 [CSS is hard](https://www.internetingishard.com/html-and-css/hello-css/)
 
-### Ways to include styles
-
 **HTML inline**
+
 ```
 <div style="color:red;">I'm red</div>
 ```
 
 **HTML style block**
+
 ```
 <style>
   div { color: red; }
@@ -31,6 +28,7 @@
 ```
 
 **Style file**
+
 ```
 <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
 ```
@@ -39,21 +37,23 @@
 
 Use debugger to demonstrate.
 
+### Ways to include styles
+
 - **unit of measurement** - px, em, vh/vw (1% of viewport), pt (1/72nd of 1in)
 - **common styles**
-    - font-family
-    - font-weight
-    - color
-    - background-color
-    - text-align: start, end, center, justify
+  - font-family
+  - font-weight
+  - color
+  - background-color
+  - text-align: start, end, center, justify
 - Box Model
-    - padding
-          - all: 1em;
-          - top & bottom: 1em, 5em;
-          - clock: 1em, 10em, 5em, 15em;
-    - border: size style color, 1px thin blue;
-    - margin: transparent, no click events
-    - Block and inline boxes
+  - padding
+    - all: 1em;
+    - top & bottom: 1em, 5em;
+    - clock: 1em, 10em, 5em, 15em;
+  - border: size style color, 1px thin blue;
+  - margin: transparent, no click events
+  - Block and inline boxes
 - Vertical margin collapse - sibbling elements, biggest margin used
 - Generic boxes: span, div
 - Box-sizing: content-box, border-box
@@ -62,6 +62,7 @@ Use debugger to demonstrate.
 ### Selectors
 
 ** Standard selectors **
+
 ```
 * { margin:0;padding:0; } /* Default */
 h1 { color: red;} /* only h1 */
