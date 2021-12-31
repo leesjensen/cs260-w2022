@@ -27,8 +27,13 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, ${{ secrets.HOST }}!
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      # Copy files to production server
+      - name: copy file via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: 22
+          key: ${{ secrets.KEY }}
+          source: "README.md"
+          target: "COPIED.md"
