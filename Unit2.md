@@ -77,7 +77,7 @@ section p {} /* descendant */
 
 ### Font Demo
 
-demo of improrting fonts css-intro-font/index.html
+demo of importing fonts css-intro-font/index.html
 
 ## C2 - Learning Part 2
 
@@ -90,5 +90,3 @@ demo of improrting fonts css-intro-font/index.html
 ## C4 - Learning Web Design Principles Part 2
 
 ## CSS Quiz
-
-## Responsive Design
