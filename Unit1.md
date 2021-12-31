@@ -3,6 +3,7 @@
 ## Interesting links
 
 - [GitHub Actions and DigitalOcean](https://www.youtube.com/watch?v=uijgmwOdcXQ)
+- [GitHub Event for SCP](https://github.com/garygrossgarten/github-action-scp)
 
 ## Rent Digital Ocean server
 
@@ -13,6 +14,7 @@
 ### Create as RSA keys
 
 ```
+mkdir ~/keys/digitalocean
 cd ~/keys/digitalocean
 ssh-keygen
 ```
@@ -142,9 +144,7 @@ Password: your_token
 
 ### Create your repo on GitHub
 
-Even if you already have one locally you need to either start from GitHub, or create an empty one on GitHub and then push your local content up to GitHub.
-
-You can create your repo locally and push it up to git.
+Even if you already have one locally you need first need to create an empty repo on GitHub and then push your local content up to GitHub.
 
 ```
 mkdir git-practice
@@ -158,7 +158,7 @@ git remote -v
 git push -u origin master
 ```
 
-However it is probably easier to just populate the GitHub repo with the default README.md and .gitignore, and then just clone it.
+However, it is easier to start with a GitHub repo, clone it, and copy your content in.
 
 ```
 git clone https://github.com/leesjensen/git-practice.git
@@ -277,3 +277,25 @@ Status codes
 Headers - Standard and non standard
 CORS
 CSP
+
+## D9 - Configure Web Server
+
+Backup default config
+`cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak`
+
+Review syntax of server object
+
+`vi /etc/nginx/sites-available/default`
+Note Server section created by certbot
+Unlike D9 instructions you don’t need to create a new website config. Just use the server section created by certbot.
+Alter server section to point to different directory than /var/www/html
+
+```
+mkdir /var/www/lab1.cs260.leesjensen.com
+Vi /var/www/lab1.cs260.leesjensen.com/index.html
+# Add some basic HTML
+vi /etc/nginx/sites-available/default
+# Alter server for lab1.cs260.leesjensen.com object to point to new dir
+sudo service nginx reload
+# View site content
+```
