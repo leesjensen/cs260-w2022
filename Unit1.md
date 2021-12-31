@@ -176,6 +176,43 @@ git clone https://github.com/leesjensen/git-practice.git
 - Pull
 - Branch
 
+## Continuous Deployment
+
+Now that the code is in GitHub we can use `GetHub Actions` to push our checked in files to the production server.
+
+- Add secrets to repository's `Settings|Secrets`.
+- Add a new workflow to the repository's `Actions|New workflow`.
+- Run the workflow or check in code for the defined path.
+
+```
+name: CI - Root website
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'root/*' ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v2
+
+      - name: Copy root folder to production server
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: root
+          remote: /var/www/html
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          privateKey: ${{ secrets.KEY }}
+```
+
 ## VIM
 
 ```
