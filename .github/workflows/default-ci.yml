@@ -36,4 +36,4 @@ jobs:
           port: 22
           key: ${{ secrets.KEY }}
           source: "README.md"
-          target: "COPIED.md"
+          target: "test"
