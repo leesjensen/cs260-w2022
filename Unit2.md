@@ -3,6 +3,7 @@
 ## CSS Interesting Things
 
 - **Topography** - [Great guidlines](https://www.internetingishard.com/html-and-css/web-typography/)
+- **Grid Layout** - [Mozilla Tutorial](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout)
 
 ## C1 - Learning Part 1
 
@@ -82,7 +83,27 @@ demo of importing fonts css-intro-font/index.html
 
 ## C2 - Learning Part 2
 
-- Read CSS is Hard 4, 5, 6
+- Read CSS is Hard - Floats, Flex, Responsive
+- Deploy to website
+
+### Grid layout
+
+A container div defines the number of columns and sizing properies. `fr` specifies a frational unit for the container. The start and stop are defined by the border lines of the grid. The far left is 1, the far right is cols+1. Same with rows. Top is 1, the bottom is rows+1.
+
+```
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* three columns each 1 fractional unit */
+  grid-auto-rows: minmax(100px, auto); /* at least 100px, but allow it to grow */
+}
+
+.box1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+```
 
 ## Lab 1 - Photographer's
 
