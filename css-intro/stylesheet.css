@@ -14,7 +14,6 @@ header {
 nav {
   background-color: rgba(226, 153, 58, 0.8);
   color: #543105;
-  padding: 0.5em;
   margin-bottom: 1em;
 }
 main {
@@ -41,8 +40,34 @@ aside {
   margin-top: 0;
 }
 
+/* W3Schools tutorial. */
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  background-color: #41410a;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+  border-right: 1px solid rgb(94, 83, 25);
+  background: #bebe54;
+}
+
+li a {
+  display: block;
+  color: #525140;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+  color: rgb(213, 211, 211);
 }
