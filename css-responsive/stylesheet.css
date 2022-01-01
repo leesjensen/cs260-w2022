@@ -10,6 +10,10 @@ body {
   color: rgb(198, 198, 198);
 }
 
+h1 {
+  color: burlywood;
+}
+
 article {
   margin: 15px;
 }
