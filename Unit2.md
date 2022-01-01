@@ -8,12 +8,12 @@
 
 ## C1 - Learning Part 1
 
-- Read CSS is Hard - Hello CSS, Box Model, CSS Selectors
+- Read [CSS is hard](https://www.internetingishard.com/html-and-css/hello-css/) - Hello CSS, Box Model, CSS Selectors
 - Add Horizontal menu
 - [W3Schools Tutorial](https://www.w3schools.com/css/css_navbar.asp)
 - Deploy to website
 
-[CSS is hard](https://www.internetingishard.com/html-and-css/hello-css/)
+### Ways to include styles
 
 **HTML inline**
 
@@ -38,8 +38,6 @@
 ### Demonstrate
 
 Use debugger to demonstrate.
-
-### Ways to include styles
 
 - **unit of measurement** - px, em, vh/vw (1% of viewport), pt (1/72nd of 1in)
 - **common styles**

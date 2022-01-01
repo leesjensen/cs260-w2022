@@ -7,12 +7,8 @@ body {
   margin: 0.5em;
 }
 
-h1 {
-  color: #d4c46a;
-}
-
 h2 {
-  color: #9a96b4;
+  color: #a78d50;
 }
 
 ul {
@@ -46,6 +42,29 @@ a:focus {
 
 a:hover {
   background: #804815;
+}
+
+h1 a {
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  padding: 0.25em 0 0.25em 0.5em;
+  margin: 5px;
+  text-align: left;
+  line-height: 2.5em;
+  color: #c0bebe;
+  border-radius: 5px;
+}
+
+h1 a:link,
+h1 a:visited,
+h1 a:focus {
+  background: #aa9839;
+}
+
+h1 a:hover {
+  background: #a58c0e;
 }
 
 .grid-container {
