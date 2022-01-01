@@ -62,6 +62,7 @@ kill
 Control sequences
 
 ```
+CTRL-C
 CTRL-Z, &, and fg
 CTRL-R
 CTRL-A
