@@ -35,7 +35,7 @@ jobs:
       - name: Copy css-responsive
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: css-resonsive
+          local: css-responsive
           remote: /var/www/html/css-responsive
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
