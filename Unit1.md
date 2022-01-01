@@ -5,6 +5,30 @@
 - [GitHub Actions and DigitalOcean](https://www.youtube.com/watch?v=uijgmwOdcXQ)
 - [GitHub Event for SCP](https://github.com/garygrossgarten/github-action-scp)
 
+## Introduction
+
+about:blank HTML, CSS
+
+```
+<html><head></head><body>
+    <h1>Feeling bored?</h1>
+    <p class="message">Learn HTML</p>
+</body></html>
+```
+
+- DNS and HTTP
+- https://www.boredapi.com/api/activity/
+- nslookup
+- Traceroute
+- View with CURL
+- View in Chrome Debug tools
+
+Javascript:
+
+```
+fetch('https://www.boredapi.com/api/activity/').then((r)=>r.json()).then((j)=>document.getElementsByClassName("message")[0].innerText=j.activity)
+```
+
 ## D1 - Command line
 
 Install Iterm2 or Git Bash
