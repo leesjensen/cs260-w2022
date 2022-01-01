@@ -18,9 +18,8 @@ about:blank HTML, CSS
 
 - DNS and HTTP
 - https://www.boredapi.com/api/activity/
-- nslookup
+- host
 - Traceroute
-- View with CURL
 - View in Chrome Debug tools
 
 Javascript:
