@@ -5,7 +5,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-    paths: [ 'root/*' ]
+    paths: [ 'root/*', 'css-responsive' ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,11 +23,20 @@ jobs:
       - name: Checkout files
         uses: actions/checkout@v2
         
-      - name: Copy folder content recursively to remote
+      - name: Copy root files
         uses: garygrossgarten/github-action-scp@release
         with:
           local: root
           remote: /var/www/html
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          privateKey: ${{ secrets.KEY }}        
+        
+      - name: Copy css-responsive
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: css-resonsive
+          remote: /var/www/html/css-responsive
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           privateKey: ${{ secrets.KEY }}        
