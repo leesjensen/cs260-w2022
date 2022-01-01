@@ -106,6 +106,35 @@ A container div defines the number of columns and sizing properies. `fr` specifi
 }
 ```
 
+### Float Layout
+
+The float attribute allows a value of `right` or `left`. Sibling items will stack next to each other.
+
+```
+.float-box2 {
+  float: right;
+}
+```
+
+### Flex Layout
+
+Flexbox allows the children of a container with the attribute of `display: flex` to be oriented and aligned.
+
+```
+.flex-wrapper {
+  display: flex;
+}
+```
+
+- Use display: flex; to create a flex container.
+- Use justify-content to define the horizontal alignment of items.
+- Use align-items to define the vertical alignment of items.
+- Use flex-direction if you need columns instead of rows.
+- Use the row-reverse or column-reverse values to flip item order.
+- Use order to customize the order of individual elements.
+- Use align-self to vertically align individual items.
+- Use flex to create flexible boxes that can stretch and shrink.
+
 ## Lab 1 - Photographer's
 
 ## C3 - Learning Web Design Principles Part 1
