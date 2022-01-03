@@ -5,7 +5,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-    paths: [ 'root/*', 'css-responsive/*' ]
+    paths: [ 'root/*', 'css-responsive/*', 'html-intro/*' ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -37,6 +37,15 @@ jobs:
         with:
           local: css-responsive
           remote: /var/www/html/css-responsive
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USER }}
+          privateKey: ${{ secrets.KEY }}        
+
+      - name: Copy html-intro
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: html-intro
+          remote: /var/www/html/html-into
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           privateKey: ${{ secrets.KEY }}        
