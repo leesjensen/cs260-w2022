@@ -5,6 +5,7 @@
 - **Topography** - [Great guidlines](https://www.internetingishard.com/html-and-css/web-typography/)
 - **Grid Layout** - [Mozilla Tutorial](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout)
 - **Color Scheme Generator** - [Paletton](https://paletton.com)
+- **Responsive Layout** - [Without media queries](https://medium.com/codex/responsive-layouts-without-media-queries-5d7fd989be72)
 
 ## C1 - Learning Part 1
 
