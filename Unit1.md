@@ -122,7 +122,7 @@ sudo apt-get install jq
 ### put something nice on the website
 
 ```
-vi /var/www/html/index.nginx-debian.html # Put something nice on the website
+vi /var/www/html/index.nginx-debian.html
 ```
 
 ### test that it all works
