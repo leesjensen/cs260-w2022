@@ -161,6 +161,38 @@ sudo certbot renew --dry-run                   # Test that auto renew will work
 
 Test security with [SSLLabs](https://www.ssllabs.com/)
 
+## Setting up an AWS server on EC2
+
+1. Create or use PEM file
+    - Restrict access to the key `chmod 600 production.pem`
+1. Set up the security group to allow HTTP and HTTPS traffic
+    - Include rules for HTTP, HTTPS, and SSH
+1. Launch micro instance with security group and PEM
+
+    ```
+    ssh -i production.pem ubuntu@18.221.141.207
+
+    sudo apt-get update
+    sudo apt-get install nginx
+    service status nginx
+
+    sudo apt-get install curl
+    sudo apt-get install jq
+
+    vi /var/www/html/index.nginx-debian.html # Put something nice on the website
+    ```
+
+1. Register DNS and test
+2. Create the hostname cert
+
+    ```
+    sudo snap install core; sudo snap refresh core # Snap is automatically installed with Ubuntu 20
+    sudo snap install --classic certbot            # install cerbot
+    sudo ln -s /snap/bin/certbot /usr/bin/certbot  # link so you can run cerbot from anywhere
+    sudo certbot --nginx -d cs260.leesjensen.com   # OR specify the hostname you want the cert for on the command line.
+    curl https://cs260.leesjensen.com
+    ```
+
 ## D5 - VIM
 
 ```
@@ -241,6 +273,7 @@ git clone https://github.com/leesjensen/git-practice.git
 - Diff
 - Conflict resolution
 - Fetch and rebase
+- merge
 - Pull
 - Branch
 
