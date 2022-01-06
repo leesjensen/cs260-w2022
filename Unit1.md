@@ -4,6 +4,7 @@
 
 - [GitHub Actions and DigitalOcean](https://www.youtube.com/watch?v=uijgmwOdcXQ)
 - [GitHub Event for SCP](https://github.com/garygrossgarten/github-action-scp)
+- [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
 ## Introduction
 
@@ -341,6 +342,15 @@ Status codes
 Headers - Standard and non standard
 CORS
 CSP
+
+## CORS
+
+*Objective*: Keep a website from impersonating another website, or making CSRF attacks.
+
+- **Single Orgin Policy** - Restricts any request that isn't to the same `PROTOCOL://HOST:PORT`
+- Origin specified by request must be allowed by the server in the response.
+- The browser enforces this.
+- Preflight (OPTIONS) to check if origin allowed. Not done if GET, HEAD, or POST, basic headers and content type. Basically always.
 
 ## D9 - Configure Web Server (NGINX)
 
