@@ -136,8 +136,11 @@ curl 104.131.72.225 # Replace this with your IP address for your Digital Ocean s
 
 ## D4 - Set up DNS
 
-I just used my leesjensen.com hostname and created an A record on Route53 for \*.cs260.leesjensen.com and cs260.leesjensen.com.
+Show how this works on Digital Ocean and AWS.
 
+Create A records for both apex and wildcard.
+
+Test it:
 ```
 curl http://lab1.cs260.leesjensen.com/
 ssh -i id_rsa root@cs260.leesjensen.com
