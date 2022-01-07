@@ -154,9 +154,10 @@ Specify the OS and server software.
 Note that you can create a wildcard cert, but you have to create an AWS access token that will allow certbot to modify Route53 with the DNS response.
 
 ```
-sudo snap install core; sudo snap refresh core # Snap is automatically installed with Ubuntu 20
-sudo snap install --classic certbot            # install cerbot
-sudo ln -s /snap/bin/certbot /usr/bin/certbot  # link so you can run cerbot from anywhere
+sudo snap install core
+sudo snap refresh core                         # Snap is automatically installed with Ubuntu 20
+sudo snap install --classic certbot            # install certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot  # link so you can run certbot from anywhere
 sudo certbot --nginx                           # Provide email and hostname you want the cert for. This automatically configures NGINX
 sudo certbot --nginx -d cs260.leesjensen.com   # OR specify the hostname you want the cert for on the command line.
 curl https://cs260.leesjensen.com
