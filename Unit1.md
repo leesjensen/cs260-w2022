@@ -110,7 +110,7 @@ sudo apt-get install nginx
 sudo ufw app list
 sudo ufw allow 'Nginx Full'
 sudo ufw status
-service status nginx
+systemctl status nginx
 ```
 
 ### install other goodies
