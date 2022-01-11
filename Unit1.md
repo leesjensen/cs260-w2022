@@ -408,29 +408,34 @@ Review syntax of server object
 `vi /etc/nginx/sites-available/default`
 
 **Note** - Server section created by certbot
+
+```
+sudo certbot --nginx -d lab1.cs260.leesjensen.com
+```
+
 Unlike D9 instructions you don’t need to create a new website config. Just use the server section created by certbot.
 Alter server section to point to different directory than /var/www/html
 
 ### Make change to point to lab
 
 ```
-mkdir /var/www/lab1.cs260.leesjensen.com
-cd /var/www/lab1.cs260.leesjensen.com
-print "<html><body>hello</body></html>" > index.html
+mkdir /var/www/lab1.cs260.click
+cd /var/www/lab1.cs260.click
+printf "<html><body>hello</body></html>" > index.html
 vi /etc/nginx/sites-available/default
-# Alter server for lab1.cs260.leesjensen.com object to point to new dir
+# Alter server for lab1.cs260.click object to point to new dir
 sudo service nginx reload
-# Open the browser up and hit the lab1 subdomain.
+# Open the browser up and hit the lab1.cs260.click
 ```
 
 **NGINX Server object**
 
 ```
 server {
-root /var/www/lab1.cs260.leesjensen.com;
+root /var/www/lab1.cs260.click;
 
     index index.html
-    server_name lab1.cs260.leesjensen.com; # managed by Certbot
+    server_name lab1.cs260.click; # managed by Certbot
 
     location / {
       try_files $uri $uri/ =404;
@@ -438,8 +443,8 @@ root /var/www/lab1.cs260.leesjensen.com;
 
     listen [::]:443 ssl ipv6only=on; # managed by Certbot
     listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/lab1.cs260.leesjensen.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/lab1.cs260.leesjensen.com/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/lab1.cs260.click/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/lab1.cs260.click/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
@@ -449,15 +454,14 @@ root /var/www/lab1.cs260.leesjensen.com;
 **HTTPS Redirect**
 
 ```
-
 server {
-if ($host = lab1.cs260.leesjensen.com) {
+if ($host = lab1.cs260.click) {
         return 301 https://$host$request_uri;
 } # managed by Certbot
 
     listen 80 ;
     listen [::]:80 ;
-    server_name lab1.cs260.leesjensen.com;
+    server_name lab1.cs260.click;
     return 404; # managed by Certbot
 
 }
