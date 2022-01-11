@@ -188,7 +188,7 @@ Test security with [SSLLabs](https://www.ssllabs.com/)
     ```
 
 1. Register DNS and test
-2. Create the hostname cert
+1. Create the hostname cert
 
     ```
     sudo snap install core; sudo snap refresh core # Snap is automatically installed with Ubuntu 20
@@ -220,13 +220,27 @@ ZZ - quick save and quit
 CTRL-W to toggle between panes
 ```
 
+### Submission
+
+1. SSH into your server.
+1. Edit `~/vi vim-opinions` and give your opinion
+1. Submit some screenshots.
+
+
 ## D6 - HTML
 
 Demonstration index.html file located in html-intro/index.html. This shows many of the most important HTML tags.
 
+### Submission
+
+1. Edit three webpages that link to each other using VI.
+1. Demonstrate the basic elements.
+1. Host these files on your NGINX webserver `/var/www/html`
+1. Submit some screenshots.
+
 ## D7 - GIT
 
-**Install** git - This was installed for my when I installed the Mac command line tools.
+**Install** git - This was installed when I installed the Mac command line tools.
 
 **Setup alias as desired**
 
@@ -281,6 +295,18 @@ git clone https://github.com/leesjensen/git-practice.git
 - merge
 - Pull
 - Branch
+
+
+### Submission
+
+1. Create a repository on GitHub called `portfolio`
+2. Clone it to your development server
+3. Make a `index.html` containing stuff about yourself using only HTML
+4. Push it
+5. On your production machine clone the repo
+6. Copy portfolio to your webserver `/var/www/html/portfolio/index.html`
+7. Modify the file and push it back up to GitHub
+8. On your development server pull it down
 
 ## D7+ Continuous Deployment
 
@@ -355,6 +381,10 @@ CSP
 - Origin specified by request must be allowed by the server in the response.
 - The browser enforces this.
 - Preflight (OPTIONS) to check if origin allowed. Not done if GET, HEAD, or POST, basic headers and content type. Basically always.
+
+### Submission
+
+1. Pictures of the network tab of the developer tools
 
 ## D9 - Configure Web Server (NGINX)
 
