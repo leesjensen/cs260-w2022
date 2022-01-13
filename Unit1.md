@@ -352,6 +352,7 @@ git clone https://github.com/leesjensen/git-practice.git
 6. Copy portfolio to your webserver `/var/www/html/portfolio/index.html`
 7. Modify the file and push it back up to GitHub
 8. On your development server pull it down
+9. Take a screenshot of your portfolio
 
 ## D7+ Continuous Deployment
 
