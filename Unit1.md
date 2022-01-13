@@ -307,7 +307,7 @@ Password: your_token
 
 ### Create your repo on GitHub
 
-Even if you already have one locally you need first need to create an empty repo on GitHub and then push your local content up to GitHub.
+Even if you already have one locally you first need to create an empty repo on GitHub and then push your local content up to GitHub.
 
 ```
 mkdir git-practice
