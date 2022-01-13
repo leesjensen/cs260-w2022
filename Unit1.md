@@ -238,9 +238,52 @@ Demonstration index.html file located in html-intro/index.html. This shows many 
 1. Host these files on your NGINX webserver `/var/www/html`
 1. Submit some screenshots.
 
+
+## D9 - Configure Web Server (NGINX)
+
+NGINX is installed to `/etc/nginx`. Website data is in `/var/www`.
+
+- **/etc/nginx/sties-available** - the websites NGINX can host.
+- **/etc/nginx/sties-enabled** - the websites NGINX is currently hosting.
+- **/etc/nginx/sites-available/default** - the default config file. Certbot has added cert and website information along with automatic redirects for HTTP.
+- **/var/www/** - Where websites are located. html is the default one, but you can add others
+
+Backup default config
+
+`cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak`
+
+Review syntax of server object
+
+`vi /etc/nginx/sites-available/default`
+
+**Note** - Server section created by certbot
+
+```
+sudo certbot --nginx -d lab1.cs260.leesjensen.com
+```
+
+### Make change to point to lab
+
+```
+mkdir /var/www/lab1.cs260.click
+cd /var/www/lab1.cs260.click
+printf "<html><body>hello</body></html>" > index.html
+vi /etc/nginx/sites-available/default
+# Alter server for lab1.cs260.click object to point to new dir
+sudo service nginx reload
+# Open the browser up and hit the lab1.cs260.click
+```
+
+### Submission
+
+1. Screenshot of your of your subdomain hosting content with HTTPS 
+
 ## D7 - GIT
 
-**Install** git - This was installed when I installed the Mac command line tools.
+** Git Repository ** is simply a directory of files with a version history.
+
+1. Make any directory a git repository simply by running `git init`
+2. Create a directory and demonstrate everything locally.
 
 **Setup alias as desired**
 
@@ -251,12 +294,13 @@ git config --global alias.l "log --all --graph --decorate --oneline --pretty=for
 
 ### Personal Access tokens
 
-These can be used as a password or an OAuth token. They represent both authentication and authorization.
+The first time you access GitHub from git you will need to provide credentials. 
+
 Set up personal access token from `Settings/Developer Settings/Personal Access Tokens` (https://github.com/settings/tokens).
 Here are the [docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ```
-$ git clone https://github.com/username/repo.git
+$ git push
 Username: your_username
 Password: your_token
 ```
@@ -285,6 +329,7 @@ git clone https://github.com/leesjensen/git-practice.git
 
 ### Demonstrate
 
+- Clone
 - Status
 - Add
 - Commit
@@ -373,6 +418,12 @@ Headers - Standard and non standard
 CORS
 CSP
 
+
+### Submission
+
+1. Pictures of the network tab of the developer tools
+
+
 ## CORS
 
 *Objective*: Keep a website from impersonating another website, or making CSRF attacks.
@@ -382,87 +433,4 @@ CSP
 - The browser enforces this.
 - Preflight (OPTIONS) to check if origin allowed. Not done if GET, HEAD, or POST, basic headers and content type. Basically always.
 
-### Submission
 
-1. Pictures of the network tab of the developer tools
-
-## D9 - Configure Web Server (NGINX)
-
-NGINX is installed to `/etc/nginx`. Website data is in `/var/www`.
-
-- **/etc/nginx/sties-available** - the websites NGINX can host.
-- **/etc/nginx/sties-enabled** - the websites NGINX is currently hosting.
-- **/etc/nginx/sites-available/default** - the default config file. Certbot has added cert and website information along with automatic redirects for HTTP.
-- **/var/www/** - Where websites are located. html is the default one, but you can add others
-
-Create index.html in `/var/www/html directory`
-
-Modify `/etc/nginx/sites-available/default` to point to different locations by specifying reverse proxy functionality in the `server` objects.
-
-Backup default config
-
-`cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak`
-
-Review syntax of server object
-
-`vi /etc/nginx/sites-available/default`
-
-**Note** - Server section created by certbot
-
-```
-sudo certbot --nginx -d lab1.cs260.leesjensen.com
-```
-
-Unlike D9 instructions you don’t need to create a new website config. Just use the server section created by certbot.
-Alter server section to point to different directory than /var/www/html
-
-### Make change to point to lab
-
-```
-mkdir /var/www/lab1.cs260.click
-cd /var/www/lab1.cs260.click
-printf "<html><body>hello</body></html>" > index.html
-vi /etc/nginx/sites-available/default
-# Alter server for lab1.cs260.click object to point to new dir
-sudo service nginx reload
-# Open the browser up and hit the lab1.cs260.click
-```
-
-**NGINX Server object**
-
-```
-server {
-root /var/www/lab1.cs260.click;
-
-    index index.html
-    server_name lab1.cs260.click; # managed by Certbot
-
-    location / {
-      try_files $uri $uri/ =404;
-    }
-
-    listen [::]:443 ssl ipv6only=on; # managed by Certbot
-    listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/lab1.cs260.click/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/lab1.cs260.click/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-}
-```
-
-**HTTPS Redirect**
-
-```
-server {
-if ($host = lab1.cs260.click) {
-        return 301 https://$host$request_uri;
-} # managed by Certbot
-
-    listen 80 ;
-    listen [::]:80 ;
-    server_name lab1.cs260.click;
-    return 404; # managed by Certbot
-
-}
-```
