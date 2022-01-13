@@ -280,7 +280,7 @@ sudo service nginx reload
 
 ## D7 - GIT
 
-** Git Repository ** is simply a directory of files with a version history.
+**Git Repository** is simply a directory of files with a version history.
 
 1. Make any directory a git repository simply by running `git init`
 2. Create a directory and demonstrate everything locally.
