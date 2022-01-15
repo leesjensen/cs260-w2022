@@ -1,5 +1,4 @@
-# Unit 2
-
+# Unit 2 - CSS
 
 ## CSS Interesting Things
 
@@ -10,6 +9,8 @@
 - **2021 Roundup** - [CSS Tricks](https://css-tricks.com/2021-roundup-of-web-research/)
 
 ## C1 - Learning Part 1
+
+### Submission
 
 - Read [CSS is hard](https://www.internetingishard.com/html-and-css/hello-css/) - Hello CSS, Box Model, CSS Selectors
 - Add Horizontal menu
@@ -35,12 +36,10 @@
 **Style file**
 
 ```
-<link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="stylesheet.css" />
 ```
 
 ### Demonstrate
-
-Use debugger to demonstrate.
 
 - **unit of measurement** - px, em, vh/vw (1% of viewport), pt (1/72nd of 1in)
 - **common styles**
@@ -52,7 +51,7 @@ Use debugger to demonstrate.
 - Box Model
   - padding
     - all: 1em;
-    - top & bottom: 1em, 5em;
+    - top/bottom left/right: 1em, 5em;
     - clock: 1em, 10em, 5em, 15em;
   - border: size style color, 1px thin blue;
   - margin: transparent, no click events
@@ -60,7 +59,7 @@ Use debugger to demonstrate.
 - Vertical margin collapse - sibbling elements, biggest margin used
 - Generic boxes: span, div
 - Box-sizing: content-box, border-box
-- Auto-margin: div { text-align:center; width: 200px, margin: 20px auto;
+- Auto-margin: div { text-align:center; width: 200px, margin: 20px auto;}
 
 ### Selectors
 
@@ -86,6 +85,10 @@ demo of importing fonts css-intro-font/index.html
 ## C2 - Learning Part 2
 
 - Read CSS is Hard - Floats, Flex, Responsive
+
+### Submission
+
+- Website that uses float, flexbox, and media
 - Deploy to website
 
 ### Grid layout
@@ -137,6 +140,13 @@ Flexbox allows the children of a container with the attribute of `display: flex`
 - Use flex to create flexible boxes that can stretch and shrink.
 
 ## Lab 1 - Photographer's
+
+### Submission
+
+- Expected content
+- Bootstrap menu
+- Grid layout
+- Good design (HTML structure and UX)
 
 ## C3 - Learning Web Design Principles Part 1
 

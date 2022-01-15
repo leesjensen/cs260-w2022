@@ -1,4 +1,4 @@
-# Unit 1
+# Unit 1 - Server and HTML
 
 ## Interesting links
 
@@ -141,6 +141,7 @@ Show how this works on Digital Ocean and AWS.
 Create A records for both apex and wildcard.
 
 Test it:
+
 ```
 curl http://lab1.cs260.leesjensen.com/
 ssh -i id_rsa root@cs260.leesjensen.com
@@ -169,34 +170,34 @@ Test security with [SSLLabs](https://www.ssllabs.com/)
 ## Setting up an AWS server on EC2
 
 1. Create or use PEM file
-    - Restrict access to the key `chmod 600 production.pem`
+   - Restrict access to the key `chmod 600 production.pem`
 1. Set up the security group to allow HTTP and HTTPS traffic
-    - Include rules for HTTP, HTTPS, and SSH
+   - Include rules for HTTP, HTTPS, and SSH
 1. Launch micro instance with security group and PEM
 
-    ```
-    ssh -i production.pem ubuntu@18.221.141.207
+   ```
+   ssh -i production.pem ubuntu@18.221.141.207
 
-    sudo apt-get update
-    sudo apt-get install nginx
-    service status nginx
+   sudo apt-get update
+   sudo apt-get install nginx
+   service status nginx
 
-    sudo apt-get install curl
-    sudo apt-get install jq
+   sudo apt-get install curl
+   sudo apt-get install jq
 
-    vi /var/www/html/index.nginx-debian.html # Put something nice on the website
-    ```
+   vi /var/www/html/index.nginx-debian.html # Put something nice on the website
+   ```
 
 1. Register DNS and test
 1. Create the hostname cert
 
-    ```
-    sudo snap install core; sudo snap refresh core # Snap is automatically installed with Ubuntu 20
-    sudo snap install --classic certbot            # install cerbot
-    sudo ln -s /snap/bin/certbot /usr/bin/certbot  # link so you can run cerbot from anywhere
-    sudo certbot --nginx -d cs260.leesjensen.com   # OR specify the hostname you want the cert for on the command line.
-    curl https://cs260.leesjensen.com
-    ```
+   ```
+   sudo snap install core; sudo snap refresh core # Snap is automatically installed with Ubuntu 20
+   sudo snap install --classic certbot            # install cerbot
+   sudo ln -s /snap/bin/certbot /usr/bin/certbot  # link so you can run cerbot from anywhere
+   sudo certbot --nginx -d cs260.leesjensen.com   # OR specify the hostname you want the cert for on the command line.
+   curl https://cs260.leesjensen.com
+   ```
 
 ## D5 - VIM
 
@@ -226,7 +227,6 @@ CTRL-W to toggle between panes
 1. Edit `~/vi vim-opinions` and give your opinion
 1. Submit some screenshots.
 
-
 ## D6 - HTML
 
 Demonstration index.html file located in html-intro/index.html. This shows many of the most important HTML tags.
@@ -237,7 +237,6 @@ Demonstration index.html file located in html-intro/index.html. This shows many 
 1. Demonstrate the basic elements.
 1. Host these files on your NGINX webserver `/var/www/html`
 1. Submit some screenshots.
-
 
 ## D9 - Configure Web Server (NGINX)
 
@@ -276,7 +275,7 @@ sudo service nginx reload
 
 ### Submission
 
-1. Screenshot of your of your subdomain hosting content with HTTPS 
+1. Screenshot of your of your subdomain hosting content with HTTPS
 
 ## D7 - GIT
 
@@ -294,7 +293,7 @@ git config --global alias.l "log --all --graph --decorate --oneline --pretty=for
 
 ### Personal Access tokens
 
-The first time you access GitHub from git you will need to provide credentials. 
+The first time you access GitHub from git you will need to provide credentials.
 
 Set up personal access token from `Settings/Developer Settings/Personal Access Tokens` (https://github.com/settings/tokens).
 Here are the [docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
@@ -340,7 +339,6 @@ git clone https://github.com/leesjensen/git-practice.git
 - merge
 - Pull
 - Branch
-
 
 ### Submission
 
@@ -419,19 +417,15 @@ Headers - Standard and non standard
 CORS
 CSP
 
-
 ### Submission
 
 1. Pictures of the network tab of the developer tools
 
-
 ## CORS
 
-*Objective*: Keep a website from impersonating another website, or making CSRF attacks.
+_Objective_: Keep a website from impersonating another website, or making CSRF attacks.
 
 - **Single Orgin Policy** - Restricts any request that isn't to the same `PROTOCOL://HOST:PORT`
 - Origin specified by request must be allowed by the server in the response.
 - The browser enforces this.
 - Preflight (OPTIONS) to check if origin allowed. Not done if GET, HEAD, or POST, basic headers and content type. Basically always.
-
-
