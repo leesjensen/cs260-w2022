@@ -7,8 +7,9 @@
 - **Color Scheme Generator** - [Paletton](https://paletton.com)
 - **Responsive Layout** - [Without media queries](https://medium.com/codex/responsive-layouts-without-media-queries-5d7fd989be72)
 - **2021 Roundup** - [CSS Tricks](https://css-tricks.com/2021-roundup-of-web-research/)
+- **Media Queriew** - [Mozilla](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries)
 
-## C1 - Learning Part 1
+## C1 - Basics
 
 ### Submission
 
@@ -82,13 +83,13 @@ section p {} /* descendant */
 
 demo of importing fonts css-intro-font/index.html
 
-## C2 - Learning Part 2
+## C2 - Responsive
 
 - Read CSS is Hard - Floats, Flex, Responsive
 
 ### Submission
 
-- Website that uses float, flexbox, and media
+- Website that uses float, flexbox, media. Throw in viewport and grid for fun.
 - Deploy to website
 
 ### Grid layout
@@ -138,6 +139,16 @@ Flexbox allows the children of a container with the attribute of `display: flex`
 - Use order to customize the order of individual elements.
 - Use align-self to vertically align individual items.
 - Use flex to create flexible boxes that can stretch and shrink.
+
+### Viewport Metatag
+
+You can use `viewport` to automatically scale your viewport to compensate for the device scaling the viewport.
+
+```
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+### Media
 
 ## Lab 1 - Photographer's
 

@@ -113,3 +113,15 @@ article {
   order: -1;
   flex: 1;
 }
+
+@media (max-width: 200px) {
+  body {
+    background: blue;
+  }
+}
+
+/* @media screen and (orientation: landscape) {
+  body {
+    background: red;
+  }
+} */
