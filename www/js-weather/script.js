@@ -1,23 +1,26 @@
 //https://home.openweathermap.org/api_keys
-const apiKey = '';
+let apiKey = '';
 
 function init() {
-  const defaultLocation = 'provo';
-  getCurrentWeather(defaultLocation);
+  getApiKey().then((key) => {
+    apiKey = key;
+    const defaultLocation = 'provo';
+    getCurrentWeather(defaultLocation);
 
-  document.getElementById('weatherSubmit').addEventListener('click', function (event) {
-    event.preventDefault();
-    const value = document.getElementById('weatherInput').value;
-    if (value === '') return;
+    document.getElementById('weatherSubmit').addEventListener('click', function (event) {
+      event.preventDefault();
+      const value = document.getElementById('weatherInput').value;
+      if (value === '') return;
 
-    getCurrentWeather(value);
+      getCurrentWeather(value);
+    });
   });
 }
 
 init();
 
 function getCurrentWeather(location) {
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${location},US&units=imperial&APPID=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location},US&units=imperial&APPID=${apiKey}`;
   fetch(url)
     .then(function (response) {
       return response.json();
@@ -43,7 +46,7 @@ function displayCurrentWeather(json) {
 }
 
 function getForecast(location, timezone) {
-  const url = `http://api.openweathermap.org/data/2.5/forecast?q=${location},US&units=imperial&APPID=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location},US&units=imperial&APPID=${apiKey}`;
   fetch(url)
     .then((response) => {
       return response.json();
@@ -101,4 +104,10 @@ function convertForecast(json, timezone) {
 
 function initializeForecast() {
   return new Array(8).fill({});
+}
+
+async function getApiKey() {
+  const response = await fetch('https://cs260.click/data.json');
+  const data = await response.json();
+  return data.weather;
 }
