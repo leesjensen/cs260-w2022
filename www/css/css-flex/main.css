@@ -17,9 +17,8 @@ header {
 }
 
 footer {
-  /* flex: 1; */
+  /* flex: 1 0 5vh; */
   background: rgb(0, 0, 148);
-  box-sizing: border-box;
 }
 
 main {
@@ -35,15 +34,27 @@ section h2 {
 
 /* section:first-child {
   flex: 1;
-  background-color: yellow;
+  background-color: hsl(60, 100%, 84%);
 }
 section:last-child {
   flex: 1;
-  background-color: purple;
+  background-color: hsl(209, 100%, 77%);
 } */
 
-/* @media screen and (orientation: portrait) {
+/* @media (orientation: portrait) {
   main {
     flex-direction: column;
+  }
+} */
+
+/* @media (max-height: 700px) {
+  header {
+    display: none;
+  }
+  footer {
+    display: none;
+  }
+  main {
+    flex: 1 0 100vh;
   }
 } */
