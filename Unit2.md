@@ -58,7 +58,7 @@ h1,h2 {}                   /* both */
 li[selected] {}            /* with attribute */
 div[title="life"] {}       /* attribute value */
 a:hover, a:visited {}
-section:first-child {}     /* User-action pseudo classes */
+h2:first-child {}          /* User-action pseudo classes */
 section > p {}             /* direct child */
 section p {}               /* descendant */
 ```
@@ -95,10 +95,9 @@ px, em, rem, vh/vw (1% of viewport), pt (1/72nd of 1in)
 ### References
 
 ```
-body: {
+body {
   background-image:
-    linear-gradient(to bottom, yellow, green),
-    url('catfront.png');
+    url('PinecreekCanyon.jpg');
 }
 ```
 

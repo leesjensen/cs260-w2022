@@ -1,3 +1,61 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box; /* default content-box */
+}
+
+/* Color: hue, saturation, light */
+h1 {
+  border-left: grey solid 1em;
+  /* padding-left: 1em; */
+  /* background-color: hsl(218deg 65% 53%); */
+  /* text-align: center; */
+  /* width: 500px; */
+  /* margin: 20px auto; */
+}
+
+/* Margin colapse */
+section {
+  padding: 1em;
+  border: 1em;
+  background: rgb(202, 204, 247);
+  margin: 5em;
+}
+
+/* Display block, inline, none, grid, flex */
+section p {
+  color: #302167;
+  padding: 1em;
+  display: block;
+}
+
+/* Pseudo classes */
+/* #section1:hover {
+  background: #f0f099;
+  color: brown;
+} */
+
+#section2:before {
+  display: block;
+  padding: 1em;
+  background: rgb(255, 255, 170);
+  color: black;
+  border-radius: 10px;
+  content: 'New content - please review';
+}
+
+/* Background-image */
+.wallpaper {
+  background-image: url('PinecreekCanyon.jpg');
+  /* width: 100vw;
+  height: 100vh; */
+
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+
+  /* z-index: -100; */
+
+  /* background-size: cover;
+  filter: grayscale(1);
+  opacity: 0.25; */
 }
