@@ -1,0 +1,73 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #302c2a;
+}
+
+header {
+  margin-top: 4em;
+  color: #eaebc0;
+}
+
+nav {
+  background-color: rgba(226, 153, 58, 0.8);
+  color: #543105;
+  margin-bottom: 1em;
+}
+main {
+  background-color: rgb(116, 114, 29);
+  padding: 1em;
+}
+
+article {
+  background-color: rgb(224, 235, 165);
+}
+
+aside {
+  background-color: #919b0d;
+  color: #f7f7db;
+}
+
+.content-holder {
+  border-radius: 5px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.content-heading {
+  margin-top: 0;
+}
+
+/* W3Schools tutorial. */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #41410a;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+li {
+  float: left;
+  border-right: 1px solid rgb(94, 83, 25);
+  background: #bebe54;
+}
+
+li a {
+  display: block;
+  color: #525140;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+  color: rgb(213, 211, 211);
+}

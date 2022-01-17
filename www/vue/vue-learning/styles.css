@@ -1,0 +1,16 @@
+.highlight {
+  color: rgb(78, 109, 177);
+  font-weight: bold;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.blue {
+  color: blue;
+}
+
+.red {
+  color: red;
+}

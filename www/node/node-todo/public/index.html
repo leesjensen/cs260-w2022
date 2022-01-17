@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Vue Todo</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>A List of Things To Do</h1>
+    <p v-show="activeItems.length === 0">You are done with all your tasks! Good job!</p>
+    <form @submit.prevent="addItem">
+      <input type="text" v-model="text">
+      <button type="submit">Add</button>
+    </form>
+    <div class="controls">
+      <button @click="showAll()">Show All</button>
+      <button @click="showActive()">Show Active</button>
+      <button @click="showCompleted()">Show Completed</button>
+      <button @click="deleteCompleted()">Delete Completed</button>
+    </div>
+    <ul>
+      <li v-for="item in filteredItems">
+        <label :class="{ item: true, completed: item.completed }">
+          {{ item.text }}
+          <input type="checkbox" v-model="item.completed" />
+          <span class="checkmark"></span>
+        </label>
+        <button @click="deleteItem(item)" class="delete">X</button>
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js" integrity="sha256-lrZTgsdM1iVdRigETFOU8u8/BmLX1ysQ8bzrULbuVFU=" crossorigin="anonymous"></script>
+  <script src="/script.js"></script>
+</body>
+
+</html>

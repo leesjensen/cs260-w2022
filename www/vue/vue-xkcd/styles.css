@@ -1,0 +1,27 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  padding: 20px 100px 0px 100px;
+  background: #4e4e4e;
+  color: #dbd6d6;
+}
+
+h1 {
+  color: #dce54d;
+}
+
+button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1em;
+}
+
+textarea {
+  width: 100%;
+  max-width: 500px;
+  height: 100px;
+}
+
+img {
+  padding: 1em;
+  background: white;
+}
