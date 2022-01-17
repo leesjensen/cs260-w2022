@@ -115,14 +115,36 @@ article {
   flex: 1;
 }
 
-@media (max-width: 300px) {
-  body {
-    background: blue;
+@media screen and (orientation: landscape) {
+  main::before {
+    font-size: large;
+    color: white;
+    content:'Landscape screen';
   }
 }
 
-@media screen and (orientation: landscape) {
+
+@media screen and (orientation: portrait) {
   body {
-    background: rgb(255, 0, 0);
+    background: rgb(145, 0, 0);
+  }
+
+  main::before {
+    font-size: large;
+    color: white;
+    content:'Portrait screen';
   }
 }
+
+@media (max-width: 300px) {
+  body {
+    background: rgb(0, 0, 131);
+  }
+
+  main::before {
+    font-size: large;
+    color: white;
+    content:'Very narrow screen';
+  }
+}
+
