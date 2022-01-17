@@ -57,8 +57,9 @@ h1,h2 {}                   /* both */
 #id {}                     /* ID */
 li[selected] {}            /* with attribute */
 div[title="life"] {}       /* attribute value */
-a:hover, a:visited {}
-h2:first-child {}          /* User-action pseudo classes */
+a:hover, a:visited {}      /* pseudo classes */
+h2:first-child {}          
+h2:before {}          
 section > p {}             /* direct child */
 section p {}               /* descendant */
 ```
