@@ -150,6 +150,21 @@ You can use `viewport` to automatically scale your viewport to compensate for th
 
 ### Media
 
+Only work correctly if viewport metatag is set. Otherwise the browser lies about the number of pixels.
+```
+@media (max-width: 300px) {
+  body {
+    background: blue;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  body {
+    background: rgb(255, 0, 0);
+  }
+}
+```
+
 ## Lab 1 - Photographer's
 
 ### Submission
@@ -161,6 +176,44 @@ You can use `viewport` to automatically scale your viewport to compensate for th
 
 ## C3 - Learning Web Design Principles Part 1
 
+- Consistency: Branding, colors, navigation
+- Typography: Clean. Minimal number
+- Images: Add to experience, focus on point, match color scheme 
+- Whitespace: Focus and clarity
+- Convention
+- Simplicity: Limit options, drill in for complexity, few click
+- Color: Limited hues, Primary, secondary. Complementary. Dark/Light theme. HSB, RGB
+- Iconography: Standard icons. Explain purpose.
+- Intuative Navigation: Bread crumb, go forward, back, and where you want. Use standards.
+- Responsive: different devices, vertical/horizontal, large/small
+- Interactive: Pop out CTAs, visually show what is happening
+- Accessibility: Color blindness, visually impaired
+- Internationalized: Language and culture
+- Help when needed
+- Walls: pay, registration, login, click paths
+- Less Thinking: Put things where they will be wanted
+- Customize to role of user
+- Alignment
+- Engagement
+
+- Colors: https://color.adobe.com/create/color-wheel
+
+- HSB: Hue (the color 360 RGB), Saturation (Rich to dull), Brightness (full to black, lightbulb) 
+https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html
+
+### Submission
+- Two sites the show good principles
+- Two that don't
+- Write report and give screenshots
+
+
 ## C4 - Learning Web Design Principles Part 2
+
+- Review websites
+
+### Submission
+- Make a single webpage that has good readability, usability, accessibility, and attractiveness
+- Does not have to be responsive
+- Turn in screenshot
 
 ## CSS Quiz

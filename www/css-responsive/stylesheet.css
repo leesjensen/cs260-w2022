@@ -24,6 +24,7 @@ article {
   grid-auto-rows: minmax(100px, auto);
   background: #d6d6d7;
   color: #090037;
+  min-width: 500px;
 }
 
 .grid-box {
@@ -114,14 +115,14 @@ article {
   flex: 1;
 }
 
-@media (max-width: 200px) {
+@media (max-width: 300px) {
   body {
     background: blue;
   }
 }
 
-/* @media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) {
   body {
-    background: red;
+    background: rgb(255, 0, 0);
   }
-} */
+}
