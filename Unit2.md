@@ -26,7 +26,7 @@
 <div style="color:red;">I'm red</div>
 ```
 
-**HTML style block**
+**HTML style element**
 
 ```
 <style>
@@ -37,46 +37,69 @@
 **Style file**
 
 ```
-<link rel="stylesheet" href="stylesheet.css" />
+<link rel="stylesheet" href="style.css" />
 ```
 
-### Demonstrate
+### Box Model
 
-- **unit of measurement** - px, em, vh/vw (1% of viewport), pt (1/72nd of 1in)
-- **common styles**
-  - font-family
-  - font-weight
-  - color
-  - background-color
-  - text-align: start, end, center, justify
-- Box Model
-  - padding
-    - all: 1em;
-    - top/bottom left/right: 1em, 5em;
-    - clock: 1em, 10em, 5em, 15em;
-  - border: size style color, 1px thin blue;
-  - margin: transparent, no click events
-  - Block and inline boxes
-- Vertical margin collapse - sibbling elements, biggest margin used
-- Generic boxes: span, div
-- Box-sizing: content-box, border-box
-- Auto-margin: div { text-align:center; width: 200px, margin: 20px auto;}
+- content
+- padding
+- border
+- margin
 
 ### Selectors
 
-**Standard selectors**
+```
+* { margin:0;padding:0; }  /* Default */
+h1 { color: red;}          /* only h1 */
+h1,h2 {}                   /* both */
+.className {}              /* class attribute */
+#id {}                     /* ID */
+li[selected] {}            /* with attribute */
+div[title="life"] {}       /* attribute value */
+a:hover, a:visited {}
+section:first-child {}     /* User-action pseudo classes */
+section > p {}             /* direct child */
+section p {}               /* descendant */
+```
+
+### Common styles
+
+- background
+- color
+- pading
+  - all: 1em;
+  - clock: 1em, 10em, 5em, 15em;
+  - top/bottom left/right: 1em, 5em;
+- border: size style color, 1px thin blue;
+- margin: transparent, no click events
+- font-family
+- font-weight
+- text-align: start, end, center, justify
+- Vertical margin collapse - sibbling elements, biggest margin used
+- box-sizing: content-box, border-box
+- Auto-margin: div { text-align:center; width: 200px, margin: 20px auto;}
+
+### Display
+
+- block - newline (h1, p)
+- inline - no top/bottom, height/width (strong)
+- inline-block - no newline
+- flex - block with flexbox children
+- inline-flex - inline with flexbox children
+
+### Measurement
+
+px, em, rem, vh/vw (1% of viewport), pt (1/72nd of 1in)
+
+### References
 
 ```
-* { margin:0;padding:0; } /* Default */
-h1 { color: red;} /* only h1 */
-h1,h2 {} /* both */
-.className {} /* class attribute */
-#id {} /* ID */
-li[selected] {} /* with attribute */
-div[title="life"] {} /* attribute value */
-a:hover, a:visited {} /* User-action pseudo classes */
-section > p {} /* direct child */
-section p {} /* descendant */
+body: {
+  background-image:
+    linear-gradient(to bottom, yellow, green),
+    url('catfront.png');
+}
 ```
 
 ### Font Demo
@@ -151,6 +174,7 @@ You can use `viewport` to automatically scale your viewport to compensate for th
 ### Media
 
 Only work correctly if viewport metatag is set. Otherwise the browser lies about the number of pixels.
+
 ```
 @media (max-width: 300px) {
   body {
@@ -178,7 +202,7 @@ Only work correctly if viewport metatag is set. Otherwise the browser lies about
 
 - Consistency: Branding, colors, navigation
 - Typography: Clean. Minimal number
-- Images: Add to experience, focus on point, match color scheme 
+- Images: Add to experience, focus on point, match color scheme
 - Whitespace: Focus and clarity
 - Convention
 - Simplicity: Limit options, drill in for complexity, few click
@@ -198,20 +222,21 @@ Only work correctly if viewport metatag is set. Otherwise the browser lies about
 
 - Colors: https://color.adobe.com/create/color-wheel
 
-- HSB: Hue (the color 360 RGB), Saturation (Rich to dull), Brightness (full to black, lightbulb) 
-https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html
+- HSB: Hue (the color 360 RGB), Saturation (Rich to dull), Brightness (full to black, lightbulb)
+  https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html
 
 ### Submission
+
 - Two sites the show good principles
 - Two that don't
 - Write report and give screenshots
-
 
 ## C4 - Learning Web Design Principles Part 2
 
 - Review websites
 
 ### Submission
+
 - Make a single webpage that has good readability, usability, accessibility, and attractiveness
 - Does not have to be responsive
 - Turn in screenshot
