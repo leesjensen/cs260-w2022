@@ -32,14 +32,14 @@ section h2 {
   color: black;
 }
 
-/* section:first-child {
-  flex: 1;
+section:first-child {
+  /* flex: 1; */
   background-color: hsl(60, 100%, 84%);
 }
 section:last-child {
-  flex: 1;
+  /* flex: 1; */
   background-color: hsl(209, 100%, 77%);
-} */
+}
 
 /* @media (orientation: portrait) {
   main {
