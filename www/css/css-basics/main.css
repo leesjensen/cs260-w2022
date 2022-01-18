@@ -93,7 +93,7 @@ a:focus {
 
 /* Background-image */
 .wallpaper {
-  background-image: url("PinecreekCanyon.jpg");
+  background-image: url('PinecreekCanyon.jpg');
   /* width: 100vw;
   height: 100vh; */
 
