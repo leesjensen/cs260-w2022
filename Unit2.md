@@ -4,10 +4,10 @@
 
 - **Topography** - [Great guidlines](https://www.internetingishard.com/html-and-css/web-typography/)
 - **Grid Layout** - [Mozilla Tutorial](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout)
-- **Color Scheme Generator** - [Paletton](https://paletton.com)
+- **Color Scheme Generator** - [Paletton](https://paletton.com), [Adobe](https://color.adobe.com/create/color-wheel)
 - **Responsive Layout** - [Without media queries](https://medium.com/codex/responsive-layouts-without-media-queries-5d7fd989be72)
 - **2021 Roundup** - [CSS Tricks](https://css-tricks.com/2021-roundup-of-web-research/)
-- **Media Queriew** - [Mozilla](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries)
+- **Media Queries** - [Mozilla](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries)
 
 ## C1 - Basics
 
@@ -58,8 +58,8 @@ h1,h2 {}                   /* both */
 li[selected] {}            /* with attribute */
 div[title="life"] {}       /* attribute value */
 a:hover, a:visited {}      /* pseudo classes */
-h2:first-child {}          
-h2:before {}          
+h2:first-child {}
+h2:before {}
 section > p {}             /* direct child */
 section p {}               /* descendant */
 ```
