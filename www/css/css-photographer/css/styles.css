@@ -1,3 +1,7 @@
+:root {
+  --photo-gutter-x: 5em;
+}
+
 .review-card {
   margin: 1em;
 }
@@ -8,7 +12,7 @@
 }
 
 .portfolio-photo {
-  padding-bottom: calc(var(--bs-gutter-x) * 0.5);
+  padding-bottom: calc(var(--photo-gutter-x, 2em) * 0.5);
 }
 
 .flip-box {
