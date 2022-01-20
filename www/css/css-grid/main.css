@@ -19,14 +19,17 @@ body {
 
 header {
   background: rgb(184, 0, 0);
+  /* grid-area: header; */
 }
 
 footer {
   background: rgb(0, 0, 148);
+  /* grid-area: footer; */
 }
 
 main {
   background: rgb(255, 255, 255);
+  /* grid-area: content; */
 
   /* display: grid;
   grid-template-columns: 1fr 1fr;
