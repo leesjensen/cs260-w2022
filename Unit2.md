@@ -234,6 +234,8 @@ Only work correctly if viewport metatag is set. Otherwise the browser lies about
 ## C4 - Learning Web Design Principles Part 2
 
 - Review websites
+- [Good websites](https://www.creativebloq.com/web-design/examples-css-912710)
+- [Bad websites](https://www.elegantthemes.com/blog/resources/bad-web-design-a-look-at-the-most-hilariously-terrible-websites-from-around-the-web)
 
 ### Submission
 
