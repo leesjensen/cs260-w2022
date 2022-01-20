@@ -3,19 +3,19 @@
     <div id="menu">
       <div id="brand">
         <router-link to="/">
-          <img src="/images/logo.png" />
+          <img src="images/logo.png" />
         </router-link>
       </div>
       <div id="side">
         <router-link to="/browse">
           <div class="menu-item browse">
-            <img src="/images/globe.png" />
+            <img src="images/globe.png" />
             <p>Browse</p>
           </div>
         </router-link>
         <router-link to="/cart">
           <div class="menu-item">
-            <img src="/images/love.png" />
+            <img src="images/love.png" />
             <p>{{ cartItemCount }} items</p>
           </div>
         </router-link>
@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: "App",
+  name: 'App',
   computed: {
     cartItemCount() {
       return this.$root.$data.cart.length;
@@ -49,7 +49,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 5px;
-  grid-template-areas: "none brand side";
+  grid-template-areas: 'none brand side';
   margin-bottom: 50px;
 }
 

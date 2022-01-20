@@ -3,12 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Learning Vue</title>
-    <link rel="stylesheet" href="/styles.css" />
-    <link
-      href="http://fonts.googleapis.com/css?family=Roboto"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
@@ -32,9 +28,7 @@
 
       <button v-bind:title="title">Hover over me</button>
 
-      <button :class="[isLoading ? 'blue' : 'red']" @click="toggleLoading">
-        Click Me
-      </button>
+      <button :class="[isLoading ? 'blue' : 'red']" @click="toggleLoading">Click Me</button>
 
       <h1>Tasks</h1>
       <ul>

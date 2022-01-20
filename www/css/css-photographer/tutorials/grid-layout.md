@@ -8,7 +8,7 @@ Bootstrap uses a [grid system](https://getbootstrap.com/docs/4.1/layout/grid/)fo
   <div class="container">
     <div class="row">
       <div class="col-lg">
-        <img src="/images/horses.jpg">
+        <img src="images/horses.jpg">
       </div>
     </div>
   </div>
@@ -30,8 +30,8 @@ For example, if you want to layout photos on your portfolio page, you can manual
 
 An alternative is to use the CSS Flexbox or Grid. I recommend reading a good article about this:
 
-* [The ultimate CSS battle: Grid vs Flexbox](https://hackernoon.com/the-ultimate-css-battle-grid-vs-flexbox-d40da0449faf)
-* [CSS Grid VS Flexbox: A Practical Comparison](https://tutorialzine.com/2017/03/css-grid-vs-flexbox)
+- [The ultimate CSS battle: Grid vs Flexbox](https://hackernoon.com/the-ultimate-css-battle-grid-vs-flexbox-d40da0449faf)
+- [CSS Grid VS Flexbox: A Practical Comparison](https://tutorialzine.com/2017/03/css-grid-vs-flexbox)
 
 There is also a very good practice site called [CSS Grid Garden](http://cssgridgarden.com/) that will teach you all the details of how to use a grid graphically.
 
@@ -40,16 +40,16 @@ For example, I laid out images with this HTML:
 ```
   <section class="portfolio">
     <div class="image">
-      <img src="/images/emma-senior.jpg" />
+      <img src="images/emma-senior.jpg" />
     </div>
     <div class="image">
-      <img src="/images/DSC_0025.JPG" />
+      <img src="images/DSC_0025.JPG" />
     </div>
     <div class="image">
-      <img src="/images/DSC_0087.JPG" />
+      <img src="images/DSC_0087.JPG" />
     </div>
     <div class="image">
-      <img src="/images/20141005_142107.jpg" />
+      <img src="images/20141005_142107.jpg" />
     </div>
 ...
 ```
@@ -69,16 +69,16 @@ and this CSS grid:
   width: 100%;
 }
 ```
+
 Here is a screenshot:
 
 ![screenshot of grid layout for portfolio](https://github.com/BYU-CS-260-Winter-2019/lab1/blob/master/images/screenshots/portfolio-grid.png)
-
 
 ## Masonry
 
 Sometimes you will have a variety of images with different sizes. In this case, it can be helpful to use a masonry layout. You can do this with pure CSS.
 
-* [Creating a CSS-only Responsive Masonry](https://w3bits.com/css-masonry/)
+- [Creating a CSS-only Responsive Masonry](https://w3bits.com/css-masonry/)
 
 I followed this and got the following result:
 

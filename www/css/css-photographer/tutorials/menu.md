@@ -1,4 +1,3 @@
-
 In this part of the lab, you're going to learn how to use the [Bootstrap](https://getbootstrap.com/) library to build a menu for a website.
 
 ## Preface
@@ -12,10 +11,11 @@ Visit the [Introduction](https://getbootstrap.com/docs/4.1/getting-started/intro
 ```
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
   <title>Your title here</title>
 </head>
 ```
+
 This will give you all of Bootstrap's CSS files.
 
 Next, copy the `script` tags and place them at the bottom of your `body` tag, so they look like this:
@@ -28,11 +28,11 @@ Next, copy the `script` tags and place them at the bottom of your `body` tag, so
 
 ```
 
-These `script` tags contain links to JavaScript code that switches to a different menu system when you browse your site from a mobile device. We call this *responsive design*.
+These `script` tags contain links to JavaScript code that switches to a different menu system when you browse your site from a mobile device. We call this _responsive design_.
 
 ## Use a Menu
 
-On the Bootstrap Introduction page, click on "Components" in the menu on the left, then "Navbar", and you will see Bootstrap's instructions on how to create a menu. Their menu is *responsive*, meaning it will automatically change to a mobile menu when you use a phone, or use the widescreen version if you have enough space.
+On the Bootstrap Introduction page, click on "Components" in the menu on the left, then "Navbar", and you will see Bootstrap's instructions on how to create a menu. Their menu is _responsive_, meaning it will automatically change to a mobile menu when you use a phone, or use the widescreen version if you have enough space.
 
 Scroll down to the [Nav section](https://getbootstrap.com/docs/4.1/components/navbar/#nav) and copy the code you see there. Place it in `index.html`, right after the `body` tag.
 
@@ -60,7 +60,7 @@ The menu also includes a set of links to different pages. They are in an unorder
 
 ```
         <li class="nav-item">
-          <a class="nav-link" href="/pages/portfolio.html">Portfolio</a>
+          <a class="nav-link" href="pages/portfolio.html">Portfolio</a>
         </li>
 ```
 
@@ -96,12 +96,13 @@ If you use this color, you will notice that now the text is a little faint on th
   color: #fff;
 }
 ```
+
 ## Test for responsive design
 
-While viewing your site in a browser, open the developer tools. On Firefox, for example, this is under ``Web Developer:Toggle Tools``. Look for the small icon that shows a mobile phone and a tablet. If you click this, you can test your site and see how it would look on a phone or tablet.
+While viewing your site in a browser, open the developer tools. On Firefox, for example, this is under `Web Developer:Toggle Tools`. Look for the small icon that shows a mobile phone and a tablet. If you click this, you can test your site and see how it would look on a phone or tablet.
 
-* [Responsive design in Firefox](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode)
-* [Responsive design in Chrome](https://developers.google.com/web/tools/chrome-devtools/device-mode/)
+- [Responsive design in Firefox](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode)
+- [Responsive design in Chrome](https://developers.google.com/web/tools/chrome-devtools/device-mode/)
 
 ## On your own
 
