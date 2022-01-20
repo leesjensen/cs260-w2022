@@ -112,7 +112,7 @@ demo of importing fonts css-intro-font/index.html
 
 ### Submission
 
-- Website that uses float, flexbox, media. Throw in viewport and grid for fun.
+- Website that uses float, flexbox, media. Throw in viewport meta tag and grid for fun.
 - Deploy to website
 
 ### Grid layout
