@@ -5,45 +5,41 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  flex: 1 0 5vh;
+}
+
+main {
+  flex: 1 0 95vh;
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(198, 198, 198);
+  color: #e6ecf7;
+  padding: 2em;
 }
 
-
-h1 {
-  color: burlywood;
+main p {
+  max-width: 40em;
+  font-size: calc(1vw * 2);
 }
 
-section {
-  margin: 15px;
-  animation: enterText 8s;
-}
-
-
-.wallpaper {
-  height: 100vh;
-  width: 100vw;
-  background-image: url('shore.jpg');
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  z-index: -100;
+main {
+  height: 100%;
+  background: url('shore.jpg') no-repeat center center fixed;
 
   background-size: cover;
+  z-index: -100;
   /* filter: grayscale(1); */
-  /* opacity: 0.25; */
-
+  /* filter: brightness(50%); */
 
   animation: paintWallpaper 8s;
 }
 
-
-/* Animate */
 @keyframes paintWallpaper {
   0% {
-   opacity: 0;
+    opacity: 0;
   }
   50% {
     opacity: 50;
@@ -55,7 +51,7 @@ section {
 
 @keyframes enterContent {
   0% {
-   opacity: 0;
+    opacity: 0;
   }
   50% {
     opacity: 50;
