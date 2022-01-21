@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(198, 198, 198);
+}
+
+
+h1 {
+  color: burlywood;
+}
+
+section {
+  margin: 15px;
+  animation: enterText 8s;
+}
+
+
+.wallpaper {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('shore.jpg');
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: -100;
+
+  background-size: cover;
+  /* filter: grayscale(1); */
+  /* opacity: 0.25; */
+
+
+  animation: paintWallpaper 8s;
+}
+
+
+/* Animate */
+@keyframes paintWallpaper {
+  0% {
+   opacity: 0;
+  }
+  50% {
+    opacity: 50;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+@keyframes enterContent {
+  0% {
+   opacity: 0;
+  }
+  50% {
+    opacity: 50;
+  }
+  100% {
+    opacity: 100;
+  }
+}
