@@ -1,40 +1,135 @@
+@import url(//fonts.googleapis.com/css?family=Comfortaa);
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  font-family: Comfortaa, Arial, Helvetica, sans-serif;
+}
+
 body {
   display: flex;
   flex-direction: column;
+  overflow-y: hidden;
+  background-color: black;
+  animation: paintWallpaper 3s;
 }
 
 header {
-  flex: 1 0 5vh;
+  flex: 0 0 50px;
 }
 
 main {
-  flex: 1 0 95vh;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #e6ecf7;
+  flex: 1 0 calc(85vh - 50px);
+  color: hsl(218, 73%, 97%);
   padding: 2em;
+  font-size: 14px;
+  overflow-y: auto;
 }
-
-main p {
+section p {
   max-width: 40em;
-  font-size: calc(1vw * 2);
 }
 
-main {
-  height: 100%;
-  background: url('shore.jpg') no-repeat center center fixed;
+footer {
+  flex: 0 0 15vh;
+  border-top: rgb(68, 66, 62) solid thin;
+  background-color: hsl(33deg 100% 91% / 45%);
+  padding: 5px;
 
-  background-size: cover;
+  display: flex;
+  flex-direction: row;
+}
+
+footer .weather {
+  text-align: center;
+  flex: 1 1 50vw;
+  order: 2;
+
+  color: rgb(120 92 2);
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .weather img {
+  height: 80%;
+  background: hsl(235deg 11% 23% / 36%);
+  border-radius: 10px;
+}
+
+footer .contact-info {
+  flex: 1 1 25vw;
+  order: 1;
+  color: #33322d;
+  float: right;
+  font-size: larger;
+}
+
+footer .slideshow {
+  flex: 1 1 25vw;
+  order: 3;
+}
+
+footer .slideshow .carousel {
+  width: calc(1.5*(10vh));
+  float: right;
+  padding: 5px;
+  border-radius: 5px;
+  border: 3px rgb(233, 223, 91) solid;
+}
+
+footer .footer-catch {
+  color: rgb(120 92 2);
+}
+
+.inset-image {
+  border-radius: 100%;
+  margin: 0.5em;
+  border-radius: 100%;
+  shape-outside: circle();
+  margin: 10px 10px 10px 0;
+}
+
+.inset-image-left {
+  float: left;
+}
+
+i:hover {
+  scale:("110%");
+  background-color: blue;
+}
+
+.special-deal {
+  border-left: rgb(156 84 2)  solid 1em;
+  background: hsla(19, 54%, 55%, 0.69);
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.special-deal::before {
+  content: '🎁  Special deal';
+  display: block;
+  color: rgb(90, 48, 1);
+  padding-bottom: .25em;
+}
+
+.wallpaper {
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: -100;
+  height: 100vh;
+  width: 100vw;
+  background: url("beach80-20.jpg") no-repeat center center fixed;
+  transform: rotateY(180deg);
+  background-size: cover;
   /* filter: grayscale(1); */
-  /* filter: brightness(50%); */
-
-  animation: paintWallpaper 8s;
+  filter: brightness(80%);
 }
 
 @keyframes paintWallpaper {
@@ -49,14 +144,11 @@ main {
   }
 }
 
-@keyframes enterContent {
-  0% {
-    opacity: 0;
+@media (max-height: 800px) {
+  footer {
+    display: none;
   }
-  50% {
-    opacity: 50;
-  }
-  100% {
-    opacity: 100;
+  main {
+    flex: 1 0 calc(100vh - 50px);
   }
 }
