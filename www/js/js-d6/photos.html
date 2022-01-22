@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Debugging JavaScript</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <h1>Debugging JavaScript</h1>
+
+  <p>This app uses the <a href="https://picsum.photos/">Lorem Picsum API</a> to
+    get random photos.</p>
+
+  <form class="pure-form>" <fieldset>
+    <label>Enter a width and height:</label>
+    <input placeholder="width" id="width"> <input placeholder="height" id="height">
+    <p></p>
+    <label>Grayscale?</label>
+    <input type="checkbox" id="grayscale">
+    <label>Blur?</label>
+    <input type="checkbox" id="blur">
+    <label>Blur Amount</label>
+    <input type="range" min="1" max="10" value="5" id="blurAmount">
+    <p></p>
+    <button id="get" class="pure-button pure-button-primary">Get New Photo</button>
+    </fieldset>
+  </form>
+  <img id="photo" src="https://picsum.photos/200/300">
+
+  <script text="type/javascript" src="script-photo-solution.js">
+  </script>
+
+</body>
+
+</html>

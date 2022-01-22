@@ -1,0 +1,36 @@
+body {
+  font-size: 16px;
+  padding: 20px 100px 0px 100px;
+  background: #f3f3f3;
+}
+
+/* Form */
+input[type=checkbox] {
+  transform: scale(1.5);
+  margin-right: 10px;
+}
+
+input[type=text] {
+  font-size: 1em;
+}
+
+input[type=checkbox] {
+  margin-left: 5px;
+}
+
+input[type=range] {
+  margin-left: 10px;
+}
+
+button {
+  font-family: 'Arvo';
+  font-size: 1em;
+}
+
+li {
+  margin-top: 10px;
+}
+
+img {
+  margin-top: 50px;
+}
