@@ -135,6 +135,7 @@ footer .footer-catch {
 
 .control-list {
   height: 2em;
+  margin-bottom: 0.5em;
 }
 
 .control-list button {
@@ -226,5 +227,8 @@ footer .footer-catch {
   }
   main {
     flex: 1 0 calc(100vh - 50px);
+  }
+  #bucket-list {
+    height: calc(100vh - 50px);
   }
 }
