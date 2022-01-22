@@ -100,6 +100,46 @@
           tristique nulla aliquet. Luctus accumsan tortor posuere ac ut consequat.
         </p>
       </section>
+      <div id="bucket-list-open">
+        <div class="control-list">
+          <button type="button" class="btn btn-xs" aria-label="Open" onclick="toggleBucketList()">
+            <i class="bi-chevron-left"></i>
+          </button>
+        </div>
+      </div>
+      <aside id="bucket-list">
+        <div class="control-list">
+          <h3>Bucket List</h3>
+          <button type="button" class="btn-close" aria-label="Close" onclick="toggleBucketList()"></button>
+        </div>
+        <ol>
+          <li>
+            <h4>Keawaula</h4>
+            <p class="date">May 20, 2018</p>
+            <p>
+              Got this one in the dead of winter. It was packed with locals. All good and friendly. Can't wait to go
+              back again.
+            </p>
+            <img src="beach1-small.jpg" class="d-block w-100" alt="Waikikiv" />
+          </li>
+          <li>
+            <h4>Makaha</h4>
+            <p>
+              Possibly the best beach on the west shore. A long drive, but well worth it for the serf and sand quality.
+              Very few tourists.
+            </p>
+            <img src="beach4-small.jpg" class="d-block w-100" alt="Hanama" />
+          </li>
+          <li>
+            <h4>Nanakuli</h4>
+            <p>
+              Incredible offshore break, but completely rock covered bed. You also need to climb down some serious
+              cliffs to get in the water. Pro level only!
+            </p>
+            <img src="beach2-small.jpg" class="d-block w-100" alt="Hanama" />
+          </li>
+        </ol>
+      </aside>
     </main>
 
     <footer>
@@ -140,5 +180,7 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+
+    <script src="main.js"></script>
   </body>
 </html>

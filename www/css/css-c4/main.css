@@ -93,6 +93,20 @@ footer .footer-catch {
   color: rgb(120 92 2);
 }
 
+.b-box-row {
+  display: inline;
+}
+
+.b-box {
+  display: inline-block;
+}
+
+.b-box:hover {
+  display: inline-block;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
 .inset-image {
   border-radius: 100%;
   margin: 0.5em;
@@ -119,6 +133,67 @@ footer .footer-catch {
   padding-bottom: 0.25em;
 }
 
+.control-list {
+  height: 2em;
+}
+
+.control-list button {
+  float: right;
+}
+
+.control-list h3 {
+  float: left;
+}
+
+#bucket-list-open {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  background: rgb(249, 184, 44);
+  border: rgb(157, 114, 21) solid thin;
+  border-radius: 10px 0 0 10px;
+}
+
+#bucket-list {
+  position: absolute;
+  display: none;
+  top: 55px;
+  right: 0;
+  color: black;
+  padding: 1em;
+  background: #feeadb;
+  border: rgb(157, 114, 21) solid thin;
+  border-radius: 10px 0 0 10px;
+  width: min(100vw, 300px);
+  height: calc(90vh - 50px);
+  overflow: scroll;
+}
+
+#bucket-list ol {
+  padding: 0;
+}
+
+#bucket-list li {
+  list-style-type: none;
+  border: solid thin black;
+  border-radius: 5px;
+  background: #eaeaea;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+}
+
+#bucket-list li img {
+  border: thin black solid;
+  transform: scale(0.8);
+}
+
+.date {
+  color: #bc940c;
+  font-style: italic;
+  margin: 0;
+  text-align: right;
+}
+
 .wallpaper {
   position: absolute;
   top: 0;
@@ -131,20 +206,6 @@ footer .footer-catch {
   background-size: cover;
   /* filter: grayscale(1); */
   filter: brightness(80%);
-}
-
-.b-box-row {
-  display: inline;
-}
-
-.b-box {
-  display: inline-block;
-}
-
-.b-box:hover {
-  display: inline-block;
-  transform: scale(1.2);
-  cursor: pointer;
 }
 
 @keyframes paintWallpaper {
