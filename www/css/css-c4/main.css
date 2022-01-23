@@ -221,7 +221,7 @@ footer .footer-catch {
   }
 }
 
-@media (max-height: 800px) {
+@media (max-height: 600px) {
   footer {
     display: none;
   }
