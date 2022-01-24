@@ -209,6 +209,15 @@ footer .footer-catch {
   filter: brightness(80%);
 }
 
+@keyframes slideIn {
+  from {
+    width: 0px;
+  }
+  to {
+    width: min(100vw, 300px);
+  }
+}
+
 @keyframes paintWallpaper {
   0% {
     opacity: 0;
