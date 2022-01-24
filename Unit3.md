@@ -18,15 +18,19 @@ for example. the weather app call
 
 ### Concepts
 
-- Using browser interpreter
+- Using browser interpreter and debugger
 - console.log()
-- expressions, variables, if, if/else, while, for, switch, comments functions,
+- equality, weakly typed, statements, comments
 
 ## J2
 
 - Eloquent JS
   - Chapters 3 and 4
-  - Minimum Recursion, Sum of a Range, A List
+  - Minimum, Recursion, Sum of a Range, A List
+
+### Concepts
+
+- functions,
 
 ## J3
 

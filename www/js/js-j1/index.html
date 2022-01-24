@@ -2,15 +2,21 @@
 
 <html>
   <head>
+    <!-- Include a script file -->
     <script src="basics.js"></script>
     <script src="fizzbuzz.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
+    <h1>JavaScript Basics</h1>
     <div id="output"></div>
+
+    <!-- Inline script -->
+    <button onclick="hello('clicked')">Click Me</button>
+
+    <!-- Script block -->
     <script>
-      output = document.getElementById('output');
-      output.innerText = hello();
+      hello('Hello from ECMAScript (ES6)');
     </script>
   </body>
 </html>

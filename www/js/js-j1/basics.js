@@ -1,5 +1,12 @@
-function hello() {
-  return 'hello';
+'use strict';
+//noDeclartion = 3;
+//var undefined = 3;
+//function bad(a, a, b) {}
+//'x'.name = 'rat';
+
+function hello(msg) {
+  const output = document.getElementById('output');
+  output.innerText = msg;
 }
 
 function equality() {
@@ -26,6 +33,29 @@ function equality() {
   1 !== 1;
 }
 
+let g = 0;
+function variables() {
+  var x = 1;
+  let y = 1;
+  const z = 'tacos';
+
+  console.log(g, x, y, z);
+
+  // This is why 'var' is deprecated
+  {
+    var x = 2; // same variable!
+    var g = 2;
+    console.log(x, g); // 2, 2
+  }
+  console.log(x, g); // 2, 2
+
+  {
+    let y = 2; // different variable
+    console.log(y); // 2
+  }
+  console.log(y); // 1
+}
+
 function weaklyTyped() {
   let x = 'fish';
   x = 1;
@@ -37,8 +67,12 @@ function weaklyTyped() {
   console.log(1 * 'rat');
 }
 
-function statements() {
+function conditionals() {
   if (true) {
+    console.log('true');
+  }
+
+  if ((!false && false) || (true && !false)) {
     console.log('true');
   }
 
@@ -49,6 +83,18 @@ function statements() {
   while (true) {
     console.log('while');
     break;
+  }
+
+  const pet = 'fish';
+  switch (pet) {
+    case 'fish':
+      console.log('fish');
+      break; // What happens if you remove this?
+    case 'dog':
+      console.log('dog');
+      break;
+    default:
+      console.log('no pet. Buy one: statements("dog")');
   }
 }
 
@@ -65,7 +111,7 @@ function arrays() {
   console.log('length', numbers.length);
 }
 
-function object() {
+function objects() {
   let obj = {
     animal: 'fish',
   };
@@ -78,14 +124,6 @@ function object() {
 
   console.log(obj);
   console.log(obj.animal);
-
-  obj.print = function () {
-    return `${this.animal} from ${this.location.origin}`;
-  };
-  console.log(obj.print());
-
-  f = (x) => `${this.location.origin} and ${x.location.origin}`;
-  console.log(f(obj));
 }
 
 function arrayOperations() {
@@ -107,6 +145,7 @@ function arrayOperations() {
   return numbers;
 }
 
+// WORK ON THIS
 function objectOperations() {
   let animal = {
     name: 'dog',
@@ -127,4 +166,92 @@ function objectOperations() {
   );
 
   return numbers;
+}
+
+function functions() {
+  // parameters and return value
+  let f = function (i) {
+    return i;
+  };
+  console.log(f(3));
+
+  f = function (i) {
+    i;
+  };
+  console.log(f());
+
+  // arrow
+  f = () => 1;
+  console.log(f());
+
+  // optional parameters
+  f = (a, b, c = 'rat') => console.log(a, b, c);
+  console.log(f(1));
+}
+
+function closures() {
+  function dup(i, sep = ':') {
+    let dupLimit = i;
+    return (t) => {
+      let dupCount = dupLimit;
+      let out = t;
+      while (dupCount-- > 1) {
+        out += sep + t;
+      }
+      return out;
+    };
+  }
+
+  console.log(dup(4)('hello'));
+  console.log(dup(3)('again'));
+}
+
+function spread() {
+  // rest (vaiadic)
+  const sum = (...numbers) => {
+    return numbers.reduce((a, n) => a + n);
+  };
+
+  // spread
+  console.log(sum(...[1, 2, 3], 100));
+}
+
+function destructuringArrays() {
+  let x, y, z;
+
+  const a = [1, 2];
+  [x] = a;
+  console.log(x);
+
+  [x, y] = a;
+  console.log(x, y);
+
+  [x, y, z] = a;
+  console.log(x, y, z);
+
+  [x, y, z = 100] = a;
+  console.log(x, y, z);
+}
+
+function destructuringParameters() {
+  function f({ a = 3, b = { animal: 'rat' } } = {}) {
+    console.log(`${a} ${b.animal}`);
+  }
+
+  f({ a: 10 });
+
+  function af([a = 3, b = 'rat'] = []) {
+    console.log(a, b);
+  }
+
+  af([20, 'dog']);
+}
+
+function destructuringReturns() {
+  function f({ a = 3, b = 'rat' } = {}) {
+    return [a, b, 'cat'];
+  }
+
+  const [x, y, z] = f({ a: 10 });
+  console.log(x, y, z);
 }
