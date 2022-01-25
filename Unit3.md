@@ -2,13 +2,11 @@
 
 ## JS Interesting Things
 
-* [Tutorial on Map/Reduce](https://www.olioapps.com/blog/map-reduce/)
-* [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
-
+- [Tutorial on Map/Reduce](https://www.olioapps.com/blog/map-reduce/)
+- [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
 The weather app and anything else that calls HTTP endpoints needs to be converted to use HTTPS endpoint.
 for example. the weather app call
-
 
 # JS 3.1 - Learning JavaScript Part 1
 
@@ -40,6 +38,7 @@ for example. the weather app call
 
 # JS 3.3 - DOM interacting with HTML, Fetch
 
+**WHAT ABOUT MODULES!!!!**
 
 ## J5
 
@@ -48,6 +47,7 @@ for example. the weather app call
   - Build a Table
 
 # JS 3.4 - REST, CORS, HTTP
+
 ## J5.5 Rest Cities
 
 ## J5.6 Find and Use a Rest API
