@@ -22,3 +22,12 @@
 - Application layer attacks
 - PII leakage
 - Physical security
+- Sessions
+- Cookies
+- Authentication and authorization
+- SSO
+- Federated sign on
+- OAuth
+- Open ID Connect
+- JWT
+- Google/Facebook/GitHub identity providers
