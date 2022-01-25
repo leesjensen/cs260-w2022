@@ -16,7 +16,7 @@ async function pickupPizza() {
 
 function createOrder() {
   const orderElement = document.createElement('li');
-  orderElement.innerText = '🥺 Waiting ...';
+  orderElement.innerHTML = '<span>&#128523; <i>Waiting</i> ...</span>';
   const orders = document.getElementById('orders');
   orders.appendChild(orderElement);
   return { element: orderElement };
@@ -41,12 +41,12 @@ function makeTaco(order) {
 }
 
 function serveOrder(order) {
-  order.element.innerText = `🍕 Order up! cashier: ${order.cashierTime}, cook: ${order.cookTime}`;
+  order.element.innerHTML = `<span>&#127829; <b>Served</b>! cashier: ${order.cashierTime}, cook: ${order.cookTime}</span>`;
 }
 
 function doWork(min, max, work) {
   const workTime = Math.floor(Math.random() * (max - min) + min);
   setTimeout(() => {
-    work(workTime);
+    work(`${Math.round(workTime / 1000)}s`);
   }, workTime);
 }

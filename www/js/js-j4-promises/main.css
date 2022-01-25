@@ -1,0 +1,16 @@
+body {
+  background: #fafad2;
+  font-family: sans-serif;
+}
+
+h1 {
+  border-bottom: solid thin black;
+}
+
+li i {
+  color: orange;
+}
+
+li b {
+  color: green;
+}
