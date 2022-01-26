@@ -43,8 +43,25 @@ for example. the weather app call
 ## J5
 
 - Eloquent JS
+
   - **Chapters 13 and 14** JavaScript and the Browser, The Document Object Model
   - Build a Table
+
+- chapter 13
+
+  - TCP/IP
+  - HTTP
+  - Ports
+  - URLs
+
+- chapter 14
+  - node types
+  - navigating the DOM
+  - creating new elements - createElement, createTextNode
+  - insertBefore, appendChild
+  - finding elements
+  - innerHTML, innerText
+  - document.querySelectorAll(selector)
 
 # JS 3.4 - REST, CORS, HTTP
 
