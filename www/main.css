@@ -43,6 +43,7 @@ h1 a:hover {
 
 h2 {
   color: #e3cb4c;
+  cursor: pointer;
 }
 
 h2:hover {
