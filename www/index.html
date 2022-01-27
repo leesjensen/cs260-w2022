@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>CS260 - Lee S Jensen</title>
     <meta charset="utf-8" />
@@ -10,9 +10,9 @@
     <h1>CS260 - Winter 2022<a href="https://byu.instructure.com/courses/13246">Canvas</a></h1>
     <div class="grid-container">
       <div class="grid-box">
-        <h2>Unit 1: Server &amp; HTML</h2>
-        <p>Webserver and Hypertext Markup Language</p>
-        <ul>
+        <h2 onclick="toggleDisplay(this)">Unit 1: Server &amp; HTML</h2>
+        <p>Webserver and HTML</p>
+        <ul class="expandable">
           <li class="note"><a href="https://github.com/leesjensen/cs260/blob/main/Unit1.md">Notes</a></li>
           <li>
             <a
@@ -43,9 +43,9 @@
         </ul>
       </div>
       <div class="grid-box">
-        <h2>Unit 2: CSS</h2>
-        <p>Cascading Stylesheets and design</p>
-        <ul>
+        <h2 onclick="toggleDisplay(this)">Unit 2: CSS</h2>
+        <p>CSS and design</p>
+        <ul class="expandable expanded">
           <li class="note"><a href="https://github.com/leesjensen/cs260/blob/main/Unit2.md">Notes</a></li>
           <li>
             <a
@@ -82,9 +82,10 @@
         </ul>
       </div>
       <div class="grid-box">
-        <h2>Unit 3: JS</h2>
+        <h2 onclick="toggleDisplay(this)">Unit 3: JS</h2>
         <p>JavaScript/ECMAScript</p>
-        <ul>
+        <ul class="expandable">
+          <li class="note"><a href="https://github.com/leesjensen/cs260/blob/main/Unit3.md">Notes</a></li>
           <li class="project"><a href="js/js-j1-j2-j3-basics/index.html">J1, J2, J3: Basics</a></li>
           <li class="project"><a href="js/js-j4-promises/index.html">J4: Promises</a></li>
           <li class="project"><a href="js/js-j5-rest/index.html">J5: Rest</a></li>
@@ -93,5 +94,6 @@
         </ul>
       </div>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>

@@ -2,6 +2,7 @@
 
 ## Interesting links
 
+- [Pair Programming](https://martinfowler.com/articles/on-pair-programming.html)
 - [GitHub Actions and DigitalOcean](https://www.youtube.com/watch?v=uijgmwOdcXQ)
 - [GitHub Event for SCP](https://github.com/garygrossgarten/github-action-scp)
 - [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)

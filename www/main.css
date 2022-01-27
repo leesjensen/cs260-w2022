@@ -1,7 +1,7 @@
-@import url(//fonts.googleapis.com/css?family=Roboto);
+@import url(//fonts.googleapis.com/css?family=Oxygen);
 
 body {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-family: Oxygen, Arial, Helvetica, sans-serif;
   background: #414657;
   color: #efefef;
   margin: 0.5em;
@@ -25,12 +25,15 @@ a {
   outline: none;
   text-decoration: none;
   display: inline-block;
-  width: 300px;
-  padding: 0.25em 0 0.25em 0.5em;
+  width: 90%;
+  padding: 0.25em 0.5em;
   margin: 5px;
   text-align: left;
   line-height: 2.5em;
   border-radius: 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 a:link,
@@ -45,24 +48,24 @@ a:hover {
   color: #f1e8e8;
 }
 
-li[class='note'] > a:link,
-li[class='note'] > a:visited,
-li[class='note'] > a:focus {
+li[class="note"] > a:link,
+li[class="note"] > a:visited,
+li[class="note"] > a:focus {
   background: #21640b;
 }
 
-li[class='note'] > a:hover {
+li[class="note"] > a:hover {
   background: #1a4301;
   color: #f1e8e8;
 }
 
-li[class='project'] > a:link,
-li[class='project'] > a:visited,
-li[class='project'] > a:focus {
+li[class="project"] > a:link,
+li[class="project"] > a:visited,
+li[class="project"] > a:focus {
   background: #167ad2;
 }
 
-li[class='project'] > a:hover {
+li[class="project"] > a:hover {
   background: #0a365d;
   color: #f1e8e8;
 }
@@ -105,8 +108,8 @@ h1 a:hover {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 400px);
-  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: repeat(auto-fill, min(95vw, 400px));
+  grid-auto-rows: minmax(min-content, max-content);
 }
 
 .grid-box {
@@ -114,4 +117,15 @@ h1 a:hover {
   padding: 0 1em;
   border-radius: 5px;
   margin: 1em;
+  height: 150px;
+  overflow: hidden;
+}
+
+.grid-box ul {
+  display: none;
+}
+
+.grid-box ul.expanded {
+  display: block;
+  height: 100%;
 }
