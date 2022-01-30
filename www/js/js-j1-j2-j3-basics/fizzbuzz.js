@@ -4,17 +4,23 @@
 // When you have that working, modify your program to print "FizzBuzz" for numbers that are divisible by both
 // 3 and 5 (and still print "Fizz" or "Buzz" for numbers divisible by only one of those).
 
-function fizz() {
+function fizzbuzz() {
+  result = "";
+  out = function (output) {
+    console.log(output);
+    result += ` ${output}`;
+  };
   for (let i = 1; i <= 100; i++) {
     if (!(i % 5) && !(i % 3)) {
-      console.log("FizzBuzz");
+      out("FizzBuzz");
     } else if (!(i % 3)) {
-      console.log("Fizz");
+      out("Fizz");
     } else if (!(i % 5)) {
-      console.log("Buzz");
+      out("Buzz");
     } else {
-      console.log(i);
+      out(i);
     }
   }
-  console.log("this");
+
+  return result;
 }

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 //noDeclartion = 3;
 //var undefined = 3;
 //function bad(a, a, b) {}
@@ -6,8 +6,8 @@
 
 /***** 3.1 ******/
 
-function hello(msg) {
-  const output = document.getElementById('output');
+function wo(msg) {
+  const output = document.getElementById("output");
   output.innerText = msg;
 }
 
@@ -18,7 +18,7 @@ function equality() {
 
   // all true
   false == 0;
-  0 == '';
+  0 == "";
   null == undefined;
   [] == false;
   !![0] == true;
@@ -34,14 +34,14 @@ function equality() {
   1 === 2;
   1 !== 1;
 
-  return 'end';
+  return "end";
 }
 
 let g = 0;
 function variables() {
   var x = 1;
   let y = 1;
-  const z = 'tacos';
+  const z = "tacos";
 
   console.log(g, x, y, z);
 
@@ -59,35 +59,35 @@ function variables() {
   }
   console.log(y); // 1
 
-  return 'end';
+  return "end";
 }
 
 function weaklyTyped() {
-  let x = 'fish';
-  console.log('type changed: ', typeof x, x);
+  let x = "fish";
+  console.log("type changed: ", typeof x, x);
   x = 1;
-  console.log('type changed: ', typeof x, x);
+  console.log("type changed: ", typeof x, x);
   x = [1, 2];
-  console.log('type changed: ', typeof x, x);
+  console.log("type changed: ", typeof x, x);
   x = null;
-  console.log('type changed: ', typeof x, x);
+  console.log("type changed: ", typeof x, x);
   x = undefined;
-  console.log('type changed: ', typeof x, x);
+  console.log("type changed: ", typeof x, x);
 
-  console.log('rat' + [' fink']);
-  console.log(1 + 'rat');
-  console.log(1 * 'rat');
+  console.log("rat" + [" fink"]);
+  console.log(1 + "rat");
+  console.log(1 * "rat");
 
-  return 'end';
+  return "end";
 }
 
 function conditionals() {
   if (true) {
-    console.log('true');
+    console.log("true");
   }
 
   if ((!false && false) || (true && !false)) {
-    console.log('true');
+    console.log("true");
   }
 
   for (let i = 1; i < 3; i++) {
@@ -95,23 +95,23 @@ function conditionals() {
   }
 
   while (true) {
-    console.log('while');
+    console.log("while");
     break;
   }
 
-  const pet = 'fish';
+  const pet = "fish";
   switch (pet) {
-    case 'fish':
-      console.log('fish');
+    case "fish":
+      console.log("fish");
       break; // What happens if you remove this?
-    case 'dog':
-      console.log('dog');
+    case "dog":
+      console.log("dog");
       break;
     default:
       console.log('no pet. Buy one: statements("dog")');
   }
 
-  return 'end';
+  return "end";
 }
 
 function functions() {
@@ -126,19 +126,32 @@ function functions() {
   };
   console.log(f());
 
-  // arrow
-  f = () => 1;
-  console.log(f());
-
   // optional parameters
-  f = (a, b, c = 'rat') => console.log(a, b, c);
+  f = (a, b, c = "rat") => console.log(a, b, c);
   console.log(f(1));
 
-  return 'end';
+  return "end";
+}
+
+// single line with implicit return, inherits this binding
+function arrowFunctions() {
+  const arrow = () => 1;
+
+  const arrowWithBlock = (a) => {
+    a;
+  };
+
+  const arrowWithReturn = (a) => {
+    return a;
+  };
+
+  console.log(arrow(), arrowWithBlock(2), arrowWithReturn(3));
+
+  return "end";
 }
 
 function closures() {
-  function dup(i, sep = ':') {
+  function dup(i, sep = ":") {
     let dupLimit = i;
     return (t) => {
       let dupCount = dupLimit;
@@ -150,23 +163,23 @@ function closures() {
     };
   }
 
-  console.log(dup(4)('hello'));
-  console.log(dup(3)('again'));
+  console.log(dup(4)("hello"));
+  console.log(dup(3)("again"));
 
-  return 'end';
+  return "end";
 }
 
 function strings() {
-  const s = 'Cats Dogs Rats Mice';
+  const s = "Cats Dogs Rats Mice";
 
-  console.log('casefold: ', s.toUpperCase(), s.toLowerCase());
-  console.log('split: ', s.split(' '));
-  console.log('endsWith: ', s.endsWith('Mice'));
-  console.log('repalce: ', s.replace('Dogs', 'Puppies'));
-  console.log('replace regex: ', s.replace(/(dogs|cats)/gi, 'Puppies!'));
-  console.log('slice: ', s.slice(3, 7));
+  console.log("casefold: ", s.toUpperCase(), s.toLowerCase());
+  console.log("split: ", s.split(" "));
+  console.log("endsWith: ", s.endsWith("Mice"));
+  console.log("repalce: ", s.replace("Dogs", "Puppies"));
+  console.log("replace regex: ", s.replace(/(dogs|cats)/gi, "Puppies!"));
+  console.log("slice: ", s.slice(3, 7));
 
-  return 'end';
+  return "end";
 }
 
 function arrays() {
@@ -174,59 +187,59 @@ function arrays() {
   for (let i = 1; i < 11; i++) {
     numbers.push(i);
   }
-  console.log('push 10: ', numbers);
-  console.log('pop: ', numbers.pop());
+  console.log("push 10: ", numbers);
+  console.log("pop: ", numbers.pop());
 
-  console.log('numbers[1]:', numbers[1]);
-  console.log('slice:', numbers.slice(2, 5));
-  console.log('length:', numbers.length);
+  console.log("numbers[1]:", numbers[1]);
+  console.log("slice:", numbers.slice(2, 5));
+  console.log("length:", numbers.length);
 
   for (let entry of numbers) {
     console.log(entry);
     if (entry == 3) break;
   }
 
-  return 'end';
+  return "end";
 }
 
 function arrayOperations() {
   let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   console.log(
-    'map',
+    "map",
     numbers.map((n) => n * 100)
   );
   console.log(
-    'reduce',
+    "reduce",
     numbers.reduce((p, c) => p + c)
   );
   console.log(
-    'filter',
+    "filter",
     numbers.filter((n) => n % 2)
   );
   console.log(
-    'some',
+    "some",
     numbers.some((n) => n > 5)
   );
 
-  return 'end';
+  return "end";
 }
 
 function objects() {
   let obj = {
-    animal: 'fish',
+    animal: "fish",
   };
 
   obj.count = 3;
   obj.location = {
-    cities: ['utah', 'new york'],
-    origin: 'ocean',
+    cities: ["utah", "new york"],
+    origin: "ocean",
   };
 
   console.log(obj);
   console.log(obj.animal);
 
-  return 'end';
+  return "end";
 }
 
 function spread() {
@@ -239,41 +252,44 @@ function spread() {
   const input = [1, 2, 3];
   console.log(sum(...input, 100));
 
-  return 'end';
+  return "end";
 }
 
 function objectArrayOperations() {
   let beaches = [
-    { name: 'Sunset', shore: 'north' },
-    { name: 'Kailua', shore: 'east' },
-    { name: 'Makua', shore: 'west' },
-    { name: 'Lanikai', shore: 'east' },
-    { name: 'Hukilau', shore: 'east' },
+    { name: "Sunset", shore: "north" },
+    { name: "Kailua", shore: "east" },
+    { name: "Makua", shore: "west" },
+    { name: "Lanikai", shore: "east" },
+    { name: "Hukilau", shore: "east" },
   ];
 
   for (let beach of beaches) {
     console.log(beach);
-    if (beach.shore == 'west') break;
+    if (beach.shore == "west") break;
   }
 
   console.log(
-    'map',
-    beaches.map((n) => ({ ...n, island: 'Oahu' }))
+    "map",
+    beaches.map((n) => ({ ...n, island: "Oahu" }))
   );
   console.log(
-    'reduce',
-    beaches.reduce((totals, p) => ({ ...totals, [p.shore]: (totals[p.shore] || 0) + 1 }), {})
+    "reduce",
+    beaches.reduce(
+      (totals, p) => ({ ...totals, [p.shore]: (totals[p.shore] || 0) + 1 }),
+      {}
+    )
   );
   console.log(
-    'filter',
-    beaches.filter((n) => n.shore == 'east')
+    "filter",
+    beaches.filter((n) => n.shore == "east")
   );
   console.log(
-    'sort',
+    "sort",
     beaches.sort((a, b) => (a.name > b.name ? 1 : -1))
   );
 
-  return 'end';
+  return "end";
 }
 
 function iteratorsAndGenerators() {
@@ -287,7 +303,7 @@ function iteratorsAndGenerators() {
     console.log(num);
   }
 
-  return 'end';
+  return "end";
 }
 
 function destructuringArrays() {
@@ -312,83 +328,84 @@ function destructuringArrays() {
   [x, y, ...z] = [1, 2, 3, 4, 5, 6, 7];
   console.log(x, y, z);
 
-  return 'end';
+  return "end";
 }
 
 function destructuringParameters() {
   // Destructured array param
-  function af([a = 3, b = 'rat'] = []) {
+  function af([a = 3, b = "rat"] = []) {
     console.log(a, b);
   }
   af([20]);
 
   // Destructured object param
-  function of({ a = 3, b = { animal: 'rat' } } = {}) {
+  function of({ a = 3, b = { animal: "rat" } } = {}) {
     console.log(`${a} ${b.animal}`);
   }
   of({ a: 10 });
 
-  return 'end';
+  return "end";
 }
 
 function destructuringReturns() {
-  function af({ a = 3, b = 'rat' } = {}) {
-    return [a, b, 'cat'];
+  function af({ a = 3, b = "rat" } = {}) {
+    return [a, b, "cat"];
   }
 
   const [x, y, z] = af({ a: 10 });
-  console.log('array return: ', x, y, z);
+  console.log("array return: ", x, y, z);
 
-  function of({ a = 3, b = 'rat' } = {}) {
-    return { a, b, animal: b + ' cat' };
+  function of({ a = 3, b = "rat" } = {}) {
+    return { a, b, animal: b + " cat" };
   }
 
   const { a, animal, ...rest } = of({ a: 10 });
-  console.log('object return: ', a, animal, rest);
+  console.log("object return: ", a, animal, rest);
 
-  return 'end';
+  return "end";
 }
 
 function math() {
-  console.log('max: ', Math.max(3, Math.PI));
-  console.log('random: ', Math.random());
+  console.log("max: ", Math.max(3, Math.PI));
+  console.log("random: ", Math.random());
 
-  return 'end';
+  return "end";
 }
 
 function json() {
   const obj = {
-    name: 'tina',
+    name: "tina",
     alive: true,
     print: () => `${this.name} is ${this.alive}`,
   };
 
-  console.log('object: ', obj);
+  console.log("object: ", obj);
 
   const objText = JSON.stringify(obj);
-  console.log('json: ', objText);
-  console.log('rehydrate: ', JSON.parse(objText));
+  console.log("json: ", objText);
+  console.log("rehydrate: ", JSON.parse(objText));
 
-  return 'end';
+  return "end";
 }
 
 function classes() {
   class Beach {
     constructor(name, location) {
       this.name = name;
-      this.location = location || 'east';
+      this.location = location || "east";
     }
 
     get weather() {
-      return 'sunny';
+      return "sunny";
     }
   }
-  Beach.prototype.rating = 3;
 
-  const beaches = [new Beach('Sunset', 'north'), new Beach('Kailua')];
+  const beaches = [new Beach("Sunset", "north"), new Beach("Kailua")];
   for (let beach of beaches) {
-    console.log(`${beach.weather} weather at ${beach.name} beach on the ${beach.location} shore`);
+    console.log(
+      `${beach.weather} weather at ${beach.name} beach on the ${beach.location} shore`
+    );
   }
 
-  return 'end';
+  return "end";
 }

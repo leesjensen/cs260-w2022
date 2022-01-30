@@ -1,22 +1,14 @@
-
-
-function table() {
-    const output = document.getElementById("output");
-    output.innerText = "build a table";
-   
+function wo(message) {
+  const output = document.getElementById("output");
+  output.innerText = message;
 }
+
 function cities() {
-    const output = document.getElementById("output");
-    output.innerText = "cities";
-      
+  wo("cities");
 }
 function useful() {
-    const output = document.getElementById("output");
-    output.innerText = "useful API";
-      
+  wo("useful API");
 }
 function gitHub() {
-    const output = document.getElementById("output");
-    output.innerText = "gitHub";
-      
+  wo("gitHub");
 }

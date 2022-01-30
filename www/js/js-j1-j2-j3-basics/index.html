@@ -5,6 +5,8 @@
     <!-- Include a script file -->
     <script src="basics.js"></script>
 
+    <link rel="stylesheet" href="main.css" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
   </head>
@@ -12,13 +14,30 @@
     <h1>JavaScript Basics</h1>
 
     <!-- Inline script -->
-    <button onclick="hello('clicked')">Click Me</button>
+    <ul>
+      <li><button onclick="wo('clicked')">Click Me</button></li>
+      <li><button onclick="wo(fizzbuzz())">Fizzbuzz</button></li>
+      <li><button onclick="wo(minimum(3,-1))">Minimum</button></li>
+      <li><button onclick="wo(recursion(331))">Recursion</button></li>
+      <li>
+        <button onclick="wo(sum(range(5, 2, -1)))">Sum(Range)</button>
+      </li>
+      <li>
+        <button onclick="wo(new MyList.List([1,2,3]).list)">list</button>
+      </li>
+      <li>
+        <button onclick="wo(flatten([[1,2],[3],[4,5]]))">Flatten</button>
+      </li>
+      <li>
+        <button onclick="wo(everything([1,2,3],(n)=>n<4))">Everything</button>
+      </li>
+    </ul>
 
     <div id="output"></div>
 
     <!-- Script block -->
     <script>
-      hello("Hello from ECMAScript (ES6)");
+      wo("Hello from ECMAScript (ES6)");
     </script>
 
     <!-- Homework -->
@@ -26,5 +45,8 @@
     <script src="minimum.js"></script>
     <script src="recursion.js"></script>
     <script src="sum.js"></script>
+    <script src="list.js"></script>
+    <script src="flattening.js"></script>
+    <script src="everything.js"></script>
   </body>
 </html>
