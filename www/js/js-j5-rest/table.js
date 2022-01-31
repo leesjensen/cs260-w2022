@@ -109,6 +109,7 @@ function removeAllChildNodes(parent) {
     parent.removeChild(parent.firstChild);
   }
 }
+
 function outputData(title, data) {
   const output = document.getElementById("output");
   output.innerHTML = `<h3>${title}</h3><pre>${JSON.stringify(

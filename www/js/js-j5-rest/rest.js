@@ -3,9 +3,6 @@ function wo(message) {
   output.innerText = message;
 }
 
-function cities() {
-  wo("cities");
-}
 function useful() {
   wo("useful API");
 }
