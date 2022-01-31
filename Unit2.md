@@ -8,7 +8,8 @@
 - **Responsive Layout** - [Without media queries](https://medium.com/codex/responsive-layouts-without-media-queries-5d7fd989be72)
 - **2021 Roundup** - [CSS Tricks](https://css-tricks.com/2021-roundup-of-web-research/)
 - **Media Queries** - [Mozilla](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries)
-* [JoeVeras](https://www.joeverasmexicanfiestaurant.com/) website on the cheap compare to [Los Hermanos](https://www.loshermanosutah.com/)
+- **CSS Levels** - [css.selectors.com](https://css4-selectors.com/selectors/)
+
 ## C1 - Basics
 
 ### Submission

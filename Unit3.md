@@ -2,6 +2,9 @@
 
 ## JS Interesting Things
 
+- [JavaScript for Cats](http://jsforcats.com/)
+- [Eloquent JS](http://eloquentjavascript.net/)
+- [JavaScript Promises for Dummies](https://scotch.io/tutorials/javascript-promises-for-dummies)
 - [Tutorial on Map/Reduce](https://www.olioapps.com/blog/map-reduce/)
 - [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
