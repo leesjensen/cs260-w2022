@@ -95,6 +95,9 @@ Use `fetch` to call `https://api.github.com/users/leesjensen` and display result
 
 ## Lab 2 - Weather
 
+Use `https://api.openweathermap.org` to get the weather for a city and display it.
+Make sure time timezone works properly.
+
 ## Javascript quiz
 
 # JS 3.5 - Debugging JavaScript
