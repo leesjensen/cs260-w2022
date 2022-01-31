@@ -25,3 +25,16 @@
   min-width: 75px;
   min-height: 100px;
 }
+
+header {
+  height: 800px;
+}
+
+footer {
+  height: 60px;
+  background: red;
+}
+main {
+  overflow: scroll;
+  height: calc(100vh - 114px);
+}

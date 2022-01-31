@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -11,7 +14,10 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
 
     <title>Weather Station</title>
   </head>
@@ -41,7 +47,11 @@
               placeholder="enter city,state"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit" id="weatherSubmit">
+            <button
+              class="btn btn-outline-success"
+              type="submit"
+              id="weatherSubmit"
+            >
               <i class="bi-search"></i>
             </button>
           </form>
@@ -49,16 +59,20 @@
       </div>
     </nav>
 
-    <div class="container-fluid content-body">
-      <div id="weatherResults"></div>
-      <div id="forecastResults"></div>
-    </div>
+    <main class="container-fluid content-body">
+      <section id="weatherResults"></section>
+      <section id="forecastResults"></section>
+    </main>
 
-    <div class="navbar fixed-bottom navbar-dark bg-dark">
+    <footer class="navbar fixed-bottom navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="https://github.com/leesjensen/cs260/tree/main/www/js-weather">Source</a>
+        <a
+          class="navbar-brand"
+          href="https://github.com/leesjensen/cs260/tree/main/www/js-weather"
+          >Source</a
+        >
       </div>
-    </div>
+    </footer>
 
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script
