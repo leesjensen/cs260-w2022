@@ -4,8 +4,6 @@
 //function bad(a, a, b) {}
 //'x'.name = 'rat';
 
-/***** 3.1 ******/
-
 function wo(msg) {
   const output = document.getElementById("output");
   output.innerText = msg;
@@ -325,7 +323,7 @@ function destructuringArrays() {
   [x, y, z = 100] = a;
   console.log(x, y, z);
 
-  [x, y, ...z] = [1, 2, 3, 4, 5, 6, 7];
+  [x, , y, ...z] = [1, 2, 3, 4, 5, 6, 7];
   console.log(x, y, z);
 
   return "end";

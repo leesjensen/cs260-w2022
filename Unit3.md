@@ -6,6 +6,8 @@
 - [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 - [Modules](https://www.freecodecamp.org/news/javascript-modules-a-beginner-s-guide-783f7d7a5fcc/)
 - [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [ES6 Features](http://es6-features.org/)
+- [Can I Use](https://caniuse.com/)
 
 The weather app and anything else that calls HTTP endpoints needs to be converted to use HTTPS endpoint.
 for example. the weather app call
