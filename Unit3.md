@@ -43,7 +43,7 @@ for example. the weather app call
 - [JavaScript Promises for Dummies](https://scotch.io/tutorials/javascript-promises-for-dummies)
 - Write an essay about async-await and promises
 
-# JS 3.3 - DOM interacting with HTML, Fetch
+# JS 3.3 - DOM interacting with HTML
 
 ## J5
 
@@ -68,7 +68,7 @@ for example. the weather app call
   - innerHTML, innerText
   - document.querySelectorAll(selector)
 
-# JS 3.4 - REST, CORS, HTTP
+# JS 3.4 - fetch, HTTP, CORS
 
 ## J5.5 Rest Cities
 
@@ -104,12 +104,12 @@ Make sure time timezone works properly.
 
 ## J6 Debugging
 
-# JS 3.6 - Midterm review
+# JS 3.6 - REST, GraphQL, Midterm review
 
 ## Creative Project
 
 ## Midterm
 
 ```
-
+Answers here
 ```
