@@ -2,19 +2,26 @@
 
 <html>
   <head>
-    <!-- Include a script file -->
+    <script src="table.js"></script>
     <script src="rest.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <h1>JavaScript DOM and Rest</h1>
 
-    <button onclick="table()">J5 - Build a table</button>
-    <button onclick="cities()">J5.5 - Cities</button>
-    <button onclick="useful()">J5.6 - Useful</button>
-    <button onclick="gitHub()">J5.7 - GitHub</button>
+    <ul>
+      <li><button onclick="table()">J5 - Build a table</button></li>
+      <li>
+        <button onclick="cities()">J5.5 - Cities</button>
+        <input type="text" id="cityField" placeholder="City Name Filter" />
+      </li>
+      <li><button onclick="useful()">J5.6 - Useful</button></li>
+      <li><button onclick="gitHub()">J5.7 - GitHub</button></li>
+    </ul>
+    <div id="output">Welcome to ECMAScript (ES6)</div>
 
-    <div id="output"></div>
-
+    <script src="rest-cities.js"></script>
   </body>
 </html>
