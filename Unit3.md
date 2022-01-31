@@ -72,9 +72,26 @@ for example. the weather app call
 
 ## J5.5 Rest Cities
 
+Use `fetch` to call `http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q=Al` and display results.
+
+```
+[
+{"city":"Alpine"},
+{"city":"Altamont"},
+{"city":"Alton"},
+{"city":"Altonah"}
+]
+```
+
 ## J5.6 Find and Use a Rest API
 
+Use `fetch` to call `https://api.ipify.org?format=json` and display results.
+
+I liked this one, but it is very unreliable: `https://api.dictionaryapi.dev/api/v2/entries/en/cow`
+
 ## J5.7 GitHub API
+
+Use `fetch` to call `https://api.github.com/users/leesjensen` and display results.
 
 ## Lab 2 - Weather
 
@@ -89,3 +106,7 @@ for example. the weather app call
 ## Creative Project
 
 ## Midterm
+
+```
+
+```
