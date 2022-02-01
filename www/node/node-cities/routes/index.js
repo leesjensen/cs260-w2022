@@ -11,12 +11,19 @@ var router = express.Router();
 
 router.get('/api/city', function (req, res, next) {
   const cityQuery = req.query.q || '.*';
-  const cityQueryRegEx = new RegExp(cityQuery, 'i');
 
-  cities.get().then((data) => {
-    const result = data.filter((item) => cityQueryRegEx.test(item.city));
-    res.json(result);
-  });
+  try {
+    const cityQueryRegEx = new RegExp(cityQuery, 'i');
+
+    cities.get().then((data) => {
+      const result = data.filter((item) => cityQueryRegEx.test(item.city));
+      res.json(result);
+    });
+  } catch (error) {
+    res
+      .status(400)
+      .send({ message: `'${cityQuery}' is not a valid regular expression` });
+  }
 });
 
 module.exports = router;
