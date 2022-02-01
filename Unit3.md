@@ -100,7 +100,7 @@ Make sure time timezone works properly.
 
 ## Javascript quiz
 
-# JS 3.5 - Debugging JavaScript
+# JS 3.5 - Debugging JavaScript & Performance
 
 ## J6 Debugging
 
