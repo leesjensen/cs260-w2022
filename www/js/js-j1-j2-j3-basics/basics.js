@@ -125,7 +125,9 @@ function functions() {
   console.log(f());
 
   // optional parameters
-  f = (a, b, c = 'rat') => console.log(a, b, c);
+  f = function (a, b, c = 'rat') {
+    return [a, b, c];
+  };
   console.log(f(1));
 
   return 'end';
