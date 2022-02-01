@@ -104,6 +104,22 @@ Make sure time timezone works properly.
 
 ## J6 Debugging
 
+**Index.html**
+
+- Fix local links
+- Question Pure CSS
+- Fix missing view port `<meta name="viewport" content="width=device-width, initial-scale=1" />`
+
+**Numbers.html**
+
+- Fix missing view port `<meta name="viewport" content="width=device-width, initial-scale=1" />`
+- Bad HTML on form
+
+**script-numbers.js**
+
+- type is string instead of variable
+- `results` instead of `result`
+
 # JS 3.6 - REST, GraphQL, Midterm review
 
 ## Creative Project
