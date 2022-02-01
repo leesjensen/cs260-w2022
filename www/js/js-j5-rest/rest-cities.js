@@ -2,7 +2,7 @@ function cities() {
   let query = document.getElementById("cityField").value;
   query = normalizeQuery(query);
 
-  const url = "http://bioresearch.byu.edu/cs260/jquery/getcity.cgi?q=" + query;
+  const url = "https://cs260.click/api/city?q=" + query;
   fetch(url)
     .then((response) => response.json())
     .then((json) => {

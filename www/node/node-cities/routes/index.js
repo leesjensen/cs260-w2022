@@ -9,7 +9,7 @@ var router = express.Router();
 //   res.render('index', { title: 'Express' });
 // });
 
-router.get('/city', function (req, res, next) {
+router.get('/api/city', function (req, res, next) {
   const cityQuery = req.query.q || '.*';
   const cityQueryRegEx = new RegExp(cityQuery, 'i');
 

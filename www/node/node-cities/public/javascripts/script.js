@@ -7,7 +7,7 @@ var app = new Vue({
   methods: {
     fetchREST() {
       console.log('In Fetch ' + this.prefix);
-      var url = '/city?q=' + this.prefix;
+      var url = '/api/city?q=' + this.prefix;
       console.log('URL ' + url);
       fetch(url)
         .then((data) => {
