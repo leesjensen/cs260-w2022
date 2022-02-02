@@ -1,4 +1,4 @@
-var fs = require('fs');
+var fs = require("fs");
 
 let cities;
 function get() {
@@ -6,9 +6,10 @@ function get() {
     if (!!cities) {
       resolve(cities);
     } else {
-      fs.readFile(__dirname + '/public/cities.json', function (err, data) {
+      fs.readFile(__dirname + "/public/cities.json", function (err, data) {
         if (err) throw err;
         cities = JSON.parse(data.toString());
+        cities.push({ city: "Leetown" });
         resolve(cities);
       });
     }
