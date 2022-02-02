@@ -13,17 +13,21 @@ const SevenSummits = [
 ];
 
 const UtahCountySevenSummits = [
-  { name: "Nebo", height: 11928, stars: 4.8 },
   { name: "Timpanogos", height: 11750, stars: 4.8 },
+  { name: "Santaquin", height: 10687, stars: 3.8 },
   { name: "Lone Peak", height: 11253, stars: 5 },
   { name: "Provo Peak", height: 11068, stars: 4.1 },
   { name: "Cascade", height: 10908, stars: 3.2 },
-  { name: "Santaquin", height: 10687, stars: 3.8 },
+  { name: "Nebo", height: 11928, stars: 4.8 },
   { name: "Spanish Fork", height: 10192, stars: 3.4 },
 ];
 
+let currentData = SevenSummits;
+let sortDirection = 1;
+
 function table(data = SevenSummits) {
   if (!!data && data.length > 1) {
+    currentData = data;
     const headers = parseHeader(data);
     const tableElement = generateTable(headers, data);
 
@@ -65,7 +69,7 @@ function generateHeader(headers, tableElement) {
   headers.forEach((header) => {
     const cellElement = document.createElement("th");
     rowElement.appendChild(cellElement);
-    cellElement.setAttribute("onclick", `highlightColumn(this)`);
+    cellElement.setAttribute("onclick", `sortColumn(this)`);
     const textNode = document.createTextNode(header.name);
     cellElement.appendChild(textNode);
   });
@@ -100,8 +104,13 @@ function insertRule(rule) {
   sheet.insertRule(rule, sheet.cssRules.length);
 }
 
-function highlightColumn(column) {
-  column.classList.toggle("selected");
+function sortColumn(column) {
+  sortDirection *= -1;
+  const sortBy = column.innerText;
+  const sortedData = currentData.sort(
+    (a, b) => sortDirection * (a[sortBy] > b[sortBy] ? 1 : -1)
+  );
+  table(sortedData);
 }
 
 function removeAllChildNodes(parent) {
