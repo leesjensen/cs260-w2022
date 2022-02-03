@@ -4,8 +4,11 @@
 // function bad(a, a, b) {}
 // 'x'.name = 'rat';
 
+// ---------- equality -------------
 function equality() {
-  // loose equality, does type conversion
+  debugger;
+
+  // loose equality, does type conversion and unobvious equality rules
   1 == '1'; // true
   1 != '2'; // true
   null == undefined; // true
@@ -26,16 +29,17 @@ function equality() {
   null == undefined;
 
   // Always use strict. truthy and falsy
-  null == undefined; // true
-  null != undefined; // false
   null === undefined; // false
   null !== undefined; // true
 
-  return 'end';
+  return variables;
 }
 
+// ---------- variables -------------
 let g = 1000;
 function variables() {
+  debugger;
+
   var x = 1; // deprecated
   let y = 1;
   const z = 'tacos';
@@ -56,10 +60,13 @@ function variables() {
   }
   console.log(y); // 1
 
-  return 'end';
+  return weaklyTyped;
 }
 
+// ---------- weaklyTyped -------------
 function weaklyTyped() {
+  debugger;
+
   let x = 'fish';
   console.log('type changed: ', typeof x, x);
   x = 1;
@@ -75,10 +82,13 @@ function weaklyTyped() {
   console.log(1 + 'rat');
   console.log(1 * 'rat');
 
-  return 'end';
+  return conditionals;
 }
 
+// ---------- conditionals -------------
 function conditionals() {
+  debugger;
+
   if (true) {
     console.log('true');
   }
@@ -108,10 +118,13 @@ function conditionals() {
       console.log('no pet. Buy one: statements("dog")');
   }
 
-  return 'end';
+  return functions;
 }
 
+// ---------- functions -------------
 function functions() {
+  debugger;
+
   // parameters and return value
   let f = function (i) {
     return i;
@@ -129,11 +142,13 @@ function functions() {
   };
   console.log(f(1));
 
-  return 'end';
+  return arrowFunctions;
 }
 
 // single line with implicit return, inherits this binding
 function arrowFunctions() {
+  debugger;
+
   const arrow = () => 1;
 
   const arrowWithBlock = (a) => {
@@ -146,10 +161,13 @@ function arrowFunctions() {
 
   console.log(arrow(), arrowWithBlock(2), arrowWithReturn(3));
 
-  return 'end';
+  return closures;
 }
 
+// ---------- closures -------------
 function closures() {
+  debugger;
+
   function dup(i, sep = ':') {
     let dupLimit = i;
 
@@ -168,10 +186,13 @@ function closures() {
 
   console.log(dup(3)('again'));
 
-  return 'end';
+  return strings;
 }
 
+// ---------- strings -------------
 function strings() {
+  debugger;
+
   const s = 'Cats Dogs Rats Mice';
 
   console.log('casefold: ', s.toUpperCase(), s.toLowerCase());
@@ -181,10 +202,13 @@ function strings() {
   console.log('replace regex: ', s.replace(/(dogs|cats)/gi, 'Puppies!'));
   console.log('slice: ', s.slice(3, 7));
 
-  return 'end';
+  return arrays;
 }
 
+// ---------- arrays -------------
 function arrays() {
+  debugger;
+
   let numbers = [];
   for (let i = 1; i < 11; i++) {
     numbers.push(i);
@@ -201,10 +225,13 @@ function arrays() {
     if (entry == 3) break;
   }
 
-  return 'end';
+  return arrayOperations;
 }
 
+// ---------- arrayOperations -------------
 function arrayOperations() {
+  debugger;
+
   let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   console.log(
@@ -224,27 +251,51 @@ function arrayOperations() {
     numbers.some((n) => n > 5)
   );
 
-  return 'end';
+  return exceptions;
 }
 
+// ---------- start -------------
+function start() {
+  console.log(`%c JavaScript Demo`, 'font-size:2em; color: red;');
+
+  debugger;
+
+  return next(exceptions);
+}
+
+// ---------- exceptions -------------
+function exceptions() {
+  debugger;
+
+  try {
+    (() => {
+      throw 'trouble in river city';
+    })();
+  } catch (error) {
+    console.log('error: ' + error);
+  } finally {
+    console.log('finally!');
+  }
+
+  return templateLiterals;
+}
+
+// ---------- templateLiterals -------------
 function templateLiterals() {
+  debugger;
+
   let name = 'amigo';
   let hello = (n) => 'hola ' + n;
 
-  console.log(`Javascript ${'inline'}! ${hello(name)}`);
+  console.log(`Template ${'lite' + 'rals'}! ${hello(name)}`);
+
+  return specialOperators;
 }
 
-function optionalChain() {
-  const x = {
-    y: () => 3,
-  };
-
-  console.log(x.y?.());
-  console.log(x.r?.());
-  console.log(x.r());
-}
-
+// ---------- specialOperators -------------
 function specialOperators() {
+  debugger;
+
   // Logical OR
   // Uses right if left is falsy
   // falsy: (0, -0, '', NaN, null, undefined)
@@ -252,11 +303,12 @@ function specialOperators() {
   console.log('logical or: ', x);
   x = x || 10;
   console.log('logical or: ', x);
+  console.log(undefined || null || 0 || NaN || 'logical OR');
 
   // Nullish coalescing operator
   // Uses right if left is nullish
   // Nullish: Null or undefined
-  console.log(undefined ?? 'coalescing');
+  console.log(undefined ?? null ?? 'coalescing');
   console.log(0 ?? 'coalescing');
 
   // Short circuit with nullish coalescing
@@ -264,36 +316,21 @@ function specialOperators() {
   z ?? (z = x);
   console.log('short circuit: ', z);
 
-  // Logical nullish assignment
+  // Logical nullish assignment for short circuit
   // Assign if left is nullish
   let y;
   y ??= 30;
   console.log('logical nullish :', y);
   y ??= 40;
   console.log('logical nullish :', y);
+
+  return objects;
 }
 
-function spread() {
-  // spread
-  let input = [1, 2, 3];
-  input = [...input, 4, 5, 6];
-  console.log(input);
-
-  let base = { a: 'rat', b: 'cat' };
-  console.log({ c: 'dog', ...base, d: 'bird' });
-
-  // rest (variadic)
-  const sumAndMultiply = (multiplier, ...numbers) => {
-    console.log(numbers);
-    return numbers.reduce((a, n) => a + multiplier * n);
-  };
-
-  console.log(sumAndMultiply(10, ...input, 7, 8));
-
-  return 'end';
-}
-
+// ---------- objects -------------
 function objects() {
+  debugger;
+
   let obj = {
     animal: 'fish',
   };
@@ -311,14 +348,41 @@ function objects() {
   console.log(obj.animal);
   console.log(obj.print());
 
+  // iterator of properties
   for (const property in obj) {
     console.log(`name:${property}, value:${obj[property]}`);
   }
 
-  return 'end';
+  return spread;
 }
 
+// ---------- spread -------------
+function spread() {
+  debugger;
+
+  // spread
+  let input = [1, 2, 3];
+  input = [...input, 4, 5, 6];
+  console.log(input);
+
+  let base = { a: 'rat', b: 'cat' };
+  console.log({ c: 'dog', ...base, d: 'bird' });
+
+  // rest (variadic)
+  const sumAndMultiply = (multiplier, ...numbers) => {
+    console.log(numbers);
+    return numbers.reduce((a, n) => a + multiplier * n);
+  };
+
+  console.log(sumAndMultiply(10, ...input, 7, 8));
+
+  return objectArrayOperations;
+}
+
+// ---------- objectArrayOperations -------------
 function objectArrayOperations() {
+  debugger;
+
   let beaches = [
     { name: 'Sunset', shore: 'north' },
     { name: 'Kailua', shore: 'east' },
@@ -326,57 +390,79 @@ function objectArrayOperations() {
     { name: 'Lanikai', shore: 'east' },
     { name: 'Hukilau', shore: 'east' },
   ];
+  console.table(beaches);
 
+  // iterator of objects
   for (const beach of beaches) {
-    console.log(beach);
     if (beach.shore == 'west') break;
+    console.log(beach);
   }
 
-  for (const beach in beaches) {
-    console.log(beach);
-    if (beach.shore == 'west') break;
-  }
+  // map the island name to each object
+  console.table(beaches.map((n) => ({ ...n, island: 'Oahu' })));
 
-  console.log(
-    'map',
-    beaches.map((n) => ({ ...n, island: 'Oahu' }))
-  );
-  console.log(
-    'reduce',
+  // reduce down to counts for each shore
+  console.table(
     beaches.reduce(
       (totals, p) => ({ ...totals, [p.shore]: (totals[p.shore] || 0) + 1 }),
       {}
     )
   );
-  console.log(
-    'filter',
-    beaches.filter((n) => n.shore == 'east')
-  );
-  console.log(
-    'sort',
-    beaches.sort((a, b) => (a.name > b.name ? 1 : -1))
-  );
 
-  return 'end';
+  // Filter to the east shore
+  console.table(beaches.filter((n) => n.shore == 'east'));
+
+  // Sort by name
+  console.table(beaches.sort((a, b) => (a.name > b.name ? 1 : -1)));
+
+  return optionalChain;
 }
 
+// ---------- optionalChain -------------
+function optionalChain() {
+  debugger;
+
+  const x = {
+    y: () => 3,
+  };
+
+  console.log(x.y?.());
+  console.log(x.r?.());
+  try {
+    console.log(x.r());
+  } catch (error) {
+    console.log(error.message);
+  }
+
+  const fallback = () => 'fallback called';
+  console.log(x.r?.() || fallback());
+
+  return iteratorsAndGenerators;
+}
+
+// ---------- iteratorsAndGenerators -------------
 function iteratorsAndGenerators() {
+  debugger;
+
   // generator
-  function* numbersMaker(start, end) {
+  function* numberMaker(start, end) {
     for (let i = start; i < end; i++) {
       yield { number: i };
     }
   }
 
   // iterator
-  for (let num of numbersMaker(3, 6)) {
+  for (let num of numberMaker(3, 6)) {
     console.log(num);
   }
 
-  return 'end';
+  return destructuringArrays;
 }
 
+// ---------- destructuringArrays -------------
 function destructuringArrays() {
+  debugger;
+
   let x, y, z;
 
   const a = [1, 2];
@@ -398,10 +484,13 @@ function destructuringArrays() {
   [x, , y, ...z] = [1, 2, 3, 4, 5, 6, 7];
   console.log(x, y, z);
 
-  return 'end';
+  return destructuringParameters;
 }
 
+// ---------- destructuringParameters -------------
 function destructuringParameters() {
+  debugger;
+
   // Destructured array param
   function af([a = 3, b = 'taco'] = []) {
     console.log(a, b);
@@ -416,10 +505,13 @@ function destructuringParameters() {
   of({ a: 10 });
   of({ b: { animal: 'dog' } });
 
-  return 'end';
+  return destructuringReturns;
 }
 
+// ---------- destructuringReturns -------------
 function destructuringReturns() {
+  debugger;
+
   function af({ a = 3, b = 'rat' } = {}) {
     return [a, b, 'cat'];
   }
@@ -434,18 +526,24 @@ function destructuringReturns() {
   const { a, animal, ...rest } = of({ a: 10 });
   console.log('object return: ', a, animal, rest);
 
-  return 'end';
+  return math;
 }
 
+// ---------- math -------------
 function math() {
+  debugger;
+
   console.log('max: ', Math.max(3, Math.PI));
   console.log('random: ', Math.random());
   console.log('floor: ', Math.floor(3.999));
 
-  return 'end';
+  return json;
 }
 
+// ---------- json -------------
 function json() {
+  debugger;
+
   const obj = {
     name: 'tina',
     alive: true,
@@ -458,10 +556,14 @@ function json() {
   console.log('json: ', objText);
   console.log('rehydrate: ', JSON.parse(objText));
 
-  return 'end';
+  return classes;
 }
 
+// ---------- classes -------------
 function classes() {
+  debugger;
+
+  // base class
   class Location {
     static defaultPlace = 'east';
 
@@ -469,6 +571,8 @@ function classes() {
       this.location = location || Location.defaultPlace;
     }
   }
+
+  // derived class
   class Beach extends Location {
     constructor(name, location, weather = 'sunny') {
       super(location);
@@ -485,30 +589,35 @@ function classes() {
     }
   }
 
-  const beaches = [new Beach('Sunset', 'north', 'rainy'), new Beach('Kailua')];
+  const sunsetBeach = new Beach('Sunset', 'north', 'rainy');
+  sunsetBeach.weather = 'snowing';
+  const beaches = [sunsetBeach, new Beach('Kailua')];
+
   for (let beach of beaches) {
     console.log(
       `${beach.weather} weather at ${beach.name} beach on the ${beach.location} shore`
     );
   }
 
-  return 'end';
+  return undefined;
 }
 
-function exceptions() {
-  try {
-    (() => {
-      throw 'trouble in river city';
-    })();
-  } catch (error) {
-    console.log('error: ' + error);
-  } finally {
-    console.log('finally!');
-  }
-}
-
-// Interact with the DOM
+// ---------- document -------------
 function wo(msg) {
+  // Interact with the DOM
   const output = document.getElementById('output');
   output.innerText = msg;
+}
+
+// ---------- next -------------
+function next(fn) {
+  console.time('demo time');
+  while (fn) {
+    console.clear();
+    console.log('%c %s', 'font-size:1.5em; color:red;', fn.name);
+    fn = fn();
+  }
+  console.clear();
+  console.log('%c JavaScript Demo', 'font-size:1.5em; color:green;');
+  console.timeEnd('demo time');
 }

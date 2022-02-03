@@ -9,6 +9,7 @@
 - **2021 Roundup** - [CSS Tricks](https://css-tricks.com/2021-roundup-of-web-research/)
 - **Media Queries** - [Mozilla](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries)
 - **CSS Levels** - [css.selectors.com](https://css4-selectors.com/selectors/)
+- **Unicode Search** - [unicode-table.com](https://unicode-table.com/)
 
 ## C1 - Basics
 

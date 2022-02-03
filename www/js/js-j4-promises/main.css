@@ -8,9 +8,13 @@ h1 {
 }
 
 li i {
-  color: orange;
+  color: rgb(2, 0, 148);
 }
 
 li b {
   color: green;
+}
+
+.failure {
+  color: rgb(128, 0, 0);
 }
