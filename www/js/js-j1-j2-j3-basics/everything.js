@@ -1,5 +1,5 @@
 function everything(a, fn) {
-  var anyBad = false;
+  let anyBad = false;
   a.forEach((item) => {
     anyBad = anyBad || !fn(item);
   });

@@ -5,18 +5,18 @@
 // 3 and 5 (and still print "Fizz" or "Buzz" for numbers divisible by only one of those).
 
 function fizzbuzz() {
-  result = "";
+  result = '';
   out = function (output) {
     console.log(output);
     result += ` ${output}`;
   };
   for (let i = 1; i <= 100; i++) {
     if (!(i % 5) && !(i % 3)) {
-      out("FizzBuzz");
+      out('FizzBuzz');
     } else if (!(i % 3)) {
-      out("Fizz");
+      out('Fizz');
     } else if (!(i % 5)) {
-      out("Buzz");
+      out('Buzz');
     } else {
       out(i);
     }

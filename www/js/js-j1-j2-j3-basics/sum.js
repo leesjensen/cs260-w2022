@@ -13,8 +13,8 @@
 // produces [5, 4, 3, 2].
 
 function range(start, end, step = 1) {
-  var result = [];
-  var current = start;
+  let result = [];
+  let current = start;
   while ((step > 0 && current <= end) || (step < 0 && current >= end)) {
     result.push(current);
     current += step;
