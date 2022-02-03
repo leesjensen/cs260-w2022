@@ -2,16 +2,16 @@ async function pickupPizza() {
   let order = createOrder();
 
   // Promise
-  //   placeOrder(order).then((order) => {
-  //     makeTaco(order).then((order) => {
-  //       serveOrder(order);
-  //     });
-  //   });
+  placeOrder(order).then((order) => {
+    makeTaco(order).then((order) => {
+      serveOrder(order);
+    });
+  });
 
   // async/await
-  order = await placeOrder(order);
-  order = await makeTaco(order);
-  serveOrder(order);
+  // order = await placeOrder(order);
+  // order = await makeTaco(order);
+  // serveOrder(order);
 }
 
 function createOrder() {

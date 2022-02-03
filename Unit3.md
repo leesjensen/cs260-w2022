@@ -24,7 +24,7 @@ for example. the weather app call
   - **Chapters 1 and 2** Values, types, operators
   - **Exercises** Fizzbuzz
 
-# JS 3.2 - Learning JavaScript Part 2 - more JS and Promises
+# JS 3.2 - Learning JavaScript Part 2 - more JS
 
 ## J2 - Functions, Objects, Arrays
 
@@ -43,7 +43,7 @@ for example. the weather app call
 - [JavaScript Promises for Dummies](https://scotch.io/tutorials/javascript-promises-for-dummies)
 - Write an essay about async-await and promises
 
-# JS 3.3 - DOM interacting with HTML
+# JS 3.3 - Promises & DOM interacting with HTML
 
 ## J5
 
