@@ -8,10 +8,13 @@ function equality() {
   // loose equality, does type conversion
   1 == '1'; // true
   1 != '2'; // true
+  null == undefined; // true
 
-  // strict equality, doesn't do type conversion
+  // strict equality
+  // 1. doesn't do type conversion
+  // 2. falsy (0, -0, '', NaN, null, undefined)
   1 === '1'; // false
-  1 !== '2'; // false
+  null === undefined; // false
 
   // all true for loose, all false for strict
   0 == false;
@@ -22,19 +25,11 @@ function equality() {
   [1, 2] == '1,2';
   null == undefined;
 
-  // Always use strict. truthy and falsy (0, '', NaN, null, undefined)
+  // Always use strict. truthy and falsy
   null == undefined; // true
   null != undefined; // false
   null === undefined; // false
   null !== undefined; // true
-
-  // Logical OR uses falsy
-  log.console(null || 3);
-
-  // Nullish - Null or undefined
-  // Nullish coalescing operator
-  log.console(null ?? 3);
-  log.console(0 ?? 3);
 
   return 'end';
 }
@@ -249,6 +244,55 @@ function optionalChain() {
   console.log(x.r());
 }
 
+function specialOperators() {
+  // Logical OR
+  // Uses right if left is falsy
+  // falsy: (0, -0, '', NaN, null, undefined)
+  let x = null || 5;
+  console.log('logical or: ', x);
+  x = x || 10;
+  console.log('logical or: ', x);
+
+  // Nullish coalescing operator
+  // Uses right if left is nullish
+  // Nullish: Null or undefined
+  console.log(undefined ?? 'coalescing');
+  console.log(0 ?? 'coalescing');
+
+  // Short circuit with nullish coalescing
+  let z;
+  z ?? (z = x);
+  console.log('short circuit: ', z);
+
+  // Logical nullish assignment
+  // Assign if left is nullish
+  let y;
+  y ??= 30;
+  console.log('logical nullish :', y);
+  y ??= 40;
+  console.log('logical nullish :', y);
+}
+
+function spread() {
+  // spread
+  let input = [1, 2, 3];
+  input = [...input, 4, 5, 6];
+  console.log(input);
+
+  let base = { a: 'rat', b: 'cat' };
+  console.log({ c: 'dog', ...base, d: 'bird' });
+
+  // rest (variadic)
+  const sumAndMultiply = (multiplier, ...numbers) => {
+    console.log(numbers);
+    return numbers.reduce((a, n) => a + multiplier * n);
+  };
+
+  console.log(sumAndMultiply(10, ...input, 7, 8));
+
+  return 'end';
+}
+
 function objects() {
   let obj = {
     animal: 'fish',
@@ -267,22 +311,9 @@ function objects() {
   console.log(obj.animal);
   console.log(obj.print());
 
-  return 'end';
-}
-
-function spread() {
-  // spread
-  let input = [1, 2, 3];
-  input = [...input, 4, 5, 6];
-  console.log(input);
-
-  // rest (variadic)
-  const sumAndMultiply = (multiplier, ...numbers) => {
-    console.log(numbers);
-    return numbers.reduce((a, n) => a + multiplier * n);
-  };
-
-  console.log(sumAndMultiply(10, ...input, 7, 8));
+  for (const property in obj) {
+    console.log(`name:${property}, value:${obj[property]}`);
+  }
 
   return 'end';
 }
@@ -296,7 +327,12 @@ function objectArrayOperations() {
     { name: 'Hukilau', shore: 'east' },
   ];
 
-  for (let beach of beaches) {
+  for (const beach of beaches) {
+    console.log(beach);
+    if (beach.shore == 'west') break;
+  }
+
+  for (const beach in beaches) {
     console.log(beach);
     if (beach.shore == 'west') break;
   }
@@ -307,7 +343,10 @@ function objectArrayOperations() {
   );
   console.log(
     'reduce',
-    beaches.reduce((totals, p) => ({ ...totals, [p.shore]: (totals[p.shore] || 0) + 1 }), {})
+    beaches.reduce(
+      (totals, p) => ({ ...totals, [p.shore]: (totals[p.shore] || 0) + 1 }),
+      {}
+    )
   );
   console.log(
     'filter',
@@ -448,10 +487,24 @@ function classes() {
 
   const beaches = [new Beach('Sunset', 'north', 'rainy'), new Beach('Kailua')];
   for (let beach of beaches) {
-    console.log(`${beach.weather} weather at ${beach.name} beach on the ${beach.location} shore`);
+    console.log(
+      `${beach.weather} weather at ${beach.name} beach on the ${beach.location} shore`
+    );
   }
 
   return 'end';
+}
+
+function exceptions() {
+  try {
+    (() => {
+      throw 'trouble in river city';
+    })();
+  } catch (error) {
+    console.log('error: ' + error);
+  } finally {
+    console.log('finally!');
+  }
 }
 
 // Interact with the DOM
