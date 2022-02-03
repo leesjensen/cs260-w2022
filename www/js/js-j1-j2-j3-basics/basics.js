@@ -225,6 +225,13 @@ function arrayOperations() {
   return 'end';
 }
 
+function templateLiterals() {
+  let name = 'amigo';
+  let hello = (n) => 'hola ' + n;
+
+  console.log(`Javascript ${'inline'}! ${hello(name)}`);
+}
+
 function objects() {
   let obj = {
     animal: 'fish',
@@ -235,22 +242,30 @@ function objects() {
     cities: ['utah', 'new york'],
     origin: 'ocean',
   };
+  obj.print = function () {
+    return `${this.animal} live in ${this.location.cities.join(' and ')}`;
+  };
 
   console.log(obj);
   console.log(obj.animal);
+  console.log(obj.print());
 
   return 'end';
 }
 
 function spread() {
+  // spread
+  let input = [1, 2, 3];
+  input = [...input, 4, 5, 6];
+  console.log(input);
+
   // rest (variadic)
-  const sum = (...numbers) => {
-    return numbers.reduce((a, n) => a + n);
+  const sumAndMultiply = (multiplier, ...numbers) => {
+    console.log(numbers);
+    return numbers.reduce((a, n) => a + multiplier * n);
   };
 
-  // spread
-  const input = [1, 2, 3];
-  console.log(sum(...input, 100));
+  console.log(sumAndMultiply(10, ...input, 7, 8));
 
   return 'end';
 }
@@ -275,7 +290,10 @@ function objectArrayOperations() {
   );
   console.log(
     'reduce',
-    beaches.reduce((totals, p) => ({ ...totals, [p.shore]: (totals[p.shore] || 0) + 1 }), {})
+    beaches.reduce(
+      (totals, p) => ({ ...totals, [p.shore]: (totals[p.shore] || 0) + 1 }),
+      {}
+    )
   );
   console.log(
     'filter',
@@ -290,13 +308,15 @@ function objectArrayOperations() {
 }
 
 function iteratorsAndGenerators() {
-  function* numMaker(start, end) {
+  // generator
+  function* numbersMaker(start, end) {
     for (let i = start; i < end; i++) {
       yield { number: i };
     }
   }
 
-  for (let num of numMaker(3, 6)) {
+  // iterator
+  for (let num of numbersMaker(3, 6)) {
     console.log(num);
   }
 
@@ -330,16 +350,18 @@ function destructuringArrays() {
 
 function destructuringParameters() {
   // Destructured array param
-  function af([a = 3, b = 'rat'] = []) {
+  function af([a = 3, b = 'taco'] = []) {
     console.log(a, b);
   }
+  af();
   af([20]);
 
   // Destructured object param
   function of({ a = 3, b = { animal: 'rat' } } = {}) {
-    console.log(`${a} ${b.animal}`);
+    console.log(`a: ${a} b: ${b.animal}`);
   }
   of({ a: 10 });
+  of({ b: { animal: 'dog' } });
 
   return 'end';
 }
@@ -365,6 +387,7 @@ function destructuringReturns() {
 function math() {
   console.log('max: ', Math.max(3, Math.PI));
   console.log('random: ', Math.random());
+  console.log('floor: ', Math.floor(3.999));
 
   return 'end';
 }
@@ -386,20 +409,34 @@ function json() {
 }
 
 function classes() {
-  class Beach {
-    constructor(name, location) {
+  class Location {
+    static defaultPlace = 'east';
+
+    constructor(location) {
+      this.location = location || Location.defaultPlace;
+    }
+  }
+  class Beach extends Location {
+    constructor(name, location, weather = 'sunny') {
+      super(location);
       this.name = name;
-      this.location = location || 'east';
+      this._weather = weather;
     }
 
     get weather() {
-      return 'sunny';
+      return this._weather;
+    }
+
+    set weather(weather) {
+      this._weather = weather;
     }
   }
 
-  const beaches = [new Beach('Sunset', 'north'), new Beach('Kailua')];
+  const beaches = [new Beach('Sunset', 'north', 'rainy'), new Beach('Kailua')];
   for (let beach of beaches) {
-    console.log(`${beach.weather} weather at ${beach.name} beach on the ${beach.location} shore`);
+    console.log(
+      `${beach.weather} weather at ${beach.name} beach on the ${beach.location} shore`
+    );
   }
 
   return 'end';
