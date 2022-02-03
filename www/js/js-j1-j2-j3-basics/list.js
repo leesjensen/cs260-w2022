@@ -1,7 +1,7 @@
 // Write a list
 
 const MyList = (function () {
-  var arrayToList = function (array) {
+  const arrayToList = function (array) {
     const [firstValue, ...rest] = array;
     if (firstValue) {
       return { value: firstValue, rest: arrayToList(rest) };
@@ -9,18 +9,18 @@ const MyList = (function () {
     return null;
   };
 
-  var listToArray = function (list) {
+  const listToArray = function (list) {
     if (list) {
       return [list.value, ...listToArray(list.rest)];
     }
     return [];
   };
 
-  var prepend = function (item, list) {
+  const prepend = function (item, list) {
     return { value: item, rest: list };
   };
 
-  var nth = function (pos, list) {
+  const nth = function (pos, list) {
     if (!!list) {
       if (pos > 0) {
         return nth(pos - 1, list.rest);

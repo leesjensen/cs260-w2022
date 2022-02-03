@@ -5,32 +5,36 @@
 // 'x'.name = 'rat';
 
 function equality() {
-  1 + 1;
-  1 == 1;
-  1 != 2;
+  // loose equality, does type conversion
+  1 == '1'; // true
+  1 != '2'; // true
 
-  // all true
-  false == 0;
-  0 == '';
+  // strict equality, doesn't do type conversion
+  1 === '1'; // false
+  1 !== '2'; // false
+
+  // all true for loose, all false for strict
+  0 == false;
+  '' == false;
+  '' == 0;
+  '0' == 0;
+  '17' == 17;
+  [1, 2] == '1,2';
   null == undefined;
-  [] == false;
-  !![0] == true;
 
-  // all false
-  false == null;
-  NaN == NaN;
-  Infinity == true;
-  [] == true;
-  [0] == true;
+  // Always use strict. truthy and falsy (0, '', NaN, null, undefined)
+  null == undefined; // true
+  null != undefined; // false
+  null === undefined; // false
+  null !== undefined; // true
 
-  /* truthy and falsy */
-  x = null;
-  y = undefined;
-  x == y;
-  x === y;
+  // Logical OR uses falsy
+  log.console(null || 3);
 
-  1 === 2;
-  1 !== 1;
+  // Nullish - Null or undefined
+  // Nullish coalescing operator
+  log.console(null ?? 3);
+  log.console(0 ?? 3);
 
   return 'end';
 }
@@ -233,6 +237,16 @@ function templateLiterals() {
   let hello = (n) => 'hola ' + n;
 
   console.log(`Javascript ${'inline'}! ${hello(name)}`);
+}
+
+function optionalChain() {
+  const x = {
+    y: () => 3,
+  };
+
+  console.log(x.y?.());
+  console.log(x.r?.());
+  console.log(x.r());
 }
 
 function objects() {
