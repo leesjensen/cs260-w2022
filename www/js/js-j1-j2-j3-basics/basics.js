@@ -153,6 +153,7 @@ function arrowFunctions() {
 function closures() {
   function dup(i, sep = ':') {
     let dupLimit = i;
+
     return (t) => {
       let dupCount = dupLimit;
       let out = t;
@@ -163,7 +164,9 @@ function closures() {
     };
   }
 
-  console.log(dup(4)('hello'));
+  const duplicate4 = dup(4);
+  console.log(duplicate4('hello'));
+
   console.log(dup(3)('again'));
 
   return 'end';
@@ -290,10 +293,7 @@ function objectArrayOperations() {
   );
   console.log(
     'reduce',
-    beaches.reduce(
-      (totals, p) => ({ ...totals, [p.shore]: (totals[p.shore] || 0) + 1 }),
-      {}
-    )
+    beaches.reduce((totals, p) => ({ ...totals, [p.shore]: (totals[p.shore] || 0) + 1 }), {})
   );
   console.log(
     'filter',
@@ -434,9 +434,7 @@ function classes() {
 
   const beaches = [new Beach('Sunset', 'north', 'rainy'), new Beach('Kailua')];
   for (let beach of beaches) {
-    console.log(
-      `${beach.weather} weather at ${beach.name} beach on the ${beach.location} shore`
-    );
+    console.log(`${beach.weather} weather at ${beach.name} beach on the ${beach.location} shore`);
   }
 
   return 'end';
