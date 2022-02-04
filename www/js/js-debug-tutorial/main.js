@@ -1,5 +1,5 @@
 function debugMe() {
-  // Put a breakpoint on the line below by click to the left of the line.
+  // Put a breakpoint on the line below by clicking to the left of the line.
   console.log('%c I am debugging!', 'color: red; font-size:2em;');
 
   let x = 3;
