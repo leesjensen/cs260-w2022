@@ -1,0 +1,17 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(240, 240, 240);
+}
+
+p,
+li {
+  line-height: 1.1em;
+}
+
+code {
+  background-color: rgb(210, 210, 210);
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: smaller;
+}
