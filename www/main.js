@@ -158,6 +158,11 @@ const content = [
         link: 'js/js-j4-promises',
       },
       {
+        class: 'demo',
+        title: 'DOM Tutorial',
+        link: 'js/js-dom-tutorial',
+      },
+      {
         class: 'slide',
         title: '&#127910; 3.3 - DOM',
         link: 'https://docs.google.com/presentation/d/1D6K024GRaRQl8dMQqe4VMtN4RBUZgto1_mYhkeIT7mA/edit?usp=sharing',

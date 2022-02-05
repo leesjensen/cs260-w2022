@@ -16,9 +16,15 @@ function injectDOMHTML(title) {
   parentElement.innerHTML = `<h3>${title}</h3>`;
 }
 
-function injectHTMLFromInput(title) {
+// <b style="color:red">hello</b>
+// <script>alert("danger")</script>
+// <img src='x' onerror='alert("danger")'/>
+// <img src='x' onerror="fetch('https://cs260.click/hacked.json').then(r=>r.json()).then(j=>console.log(j))"/>
+// <img src='x' onerror="fetch('https://cs260.click/hacked.json').then(r=>r.json()).then(j=>document.getElementById('output').innerHTML =j.msg)"/>
+
+function injectHTMLFromInput() {
   const inputElement = document.getElementById('html-text');
   const parentElement = document.getElementById('output');
 
-  parentElement.innerHTML = inputElement;
+  parentElement.innerHTML = inputElement.value;
 }
