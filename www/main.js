@@ -58,7 +58,7 @@ const content = [
   {
     name: 'Unit 2: CSS',
     description: 'CSS and design',
-    collapsed: false,
+    collapsed: true,
     item: [
       {
         class: 'note',
