@@ -87,25 +87,47 @@ a:hover {
   color: #f1e8e8;
 }
 
-li[class="note"] > a:link,
-li[class="note"] > a:visited,
-li[class="note"] > a:focus {
+li[class='note'] > a:link,
+li[class='note'] > a:visited,
+li[class='note'] > a:focus {
   background: #21640b;
 }
 
-li[class="note"] > a:hover {
+li[class='note'] > a:hover {
   background: #1a4301;
   color: #f1e8e8;
 }
 
-li[class="project"] > a:link,
-li[class="project"] > a:visited,
-li[class="project"] > a:focus {
-  background: #167ad2;
+li[class='project'] > a:link,
+li[class='project'] > a:visited,
+li[class='project'] > a:focus {
+  background: #0c4272;
 }
 
-li[class="project"] > a:hover {
-  background: #0a365d;
+li[class='project'] > a:hover {
+  background: #0d2e4b;
+  color: #f1e8e8;
+}
+
+li[class='demo'] > a:link,
+li[class='demo'] > a:visited,
+li[class='demo'] > a:focus {
+  background: #b10000;
+}
+
+li[class='demo'] > a:hover {
+  background: #6e0006;
+  color: #f1e8e8;
+}
+
+li[class='exercise'] > a:link,
+li[class='exercise'] > a:visited,
+li[class='exercise'] > a:focus {
+  background: #6e4b00;
+}
+
+li[class='exercise'] > a:hover {
+  background: #4e3500;
   color: #f1e8e8;
 }
 
