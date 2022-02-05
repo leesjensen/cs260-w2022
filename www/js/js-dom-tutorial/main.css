@@ -31,4 +31,5 @@ li button {
   background: rgb(232 232 185);
   padding: 1em;
   white-space: pre;
+  overflow: scroll;
 }

@@ -8,6 +8,8 @@
   <body>
     <h1>JavaScript DOM Manipulation</h1>
 
+    <div id="output">pending...</div>
+
     <ul>
       <li>
         <button onclick="injectDOMOperations('Injected with DOM operations')">Inject with operations</button>
@@ -20,10 +22,8 @@
         <textarea id="html-text" rows="5" cols="33" placeholder="Enter any HTML"></textarea>
       </li>
     </ul>
-    <div id="output">pending...</div>
 
-    <section>
-      <pre class="code">
+    <pre class="code">
 try these hacks
 
 &lt;b style="color:red">hello&lt;/b&gt;
@@ -31,8 +31,7 @@ try these hacks
 &lt;img src='x' onerror='alert("danger")'/&gt;
 &lt;img src='x' onerror="fetch('https://cs260.click/hacked.json').then(r=&gt;r.json()).then(j=&gt;console.log(j))"/&gt;
 &lt;img src='x' onerror="fetch('https://cs260.click/hacked.json').then(r=&gt;r.json()).then(j=&gt;document.getElementById('output').innerHTML =j.msg)"/&gt;
-      </pre>
-    </section>
+    </pre>
 
     <script src="dom.js"></script>
   </body>
