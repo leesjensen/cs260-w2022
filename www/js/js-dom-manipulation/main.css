@@ -1,0 +1,25 @@
+body {
+  background: #fafad2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#output {
+  font-family: "Courier New", Courier, monospace;
+  color: rgb(185, 185, 185);
+  background: rgb(0, 0, 0);
+  padding: 1em;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin: 0.5em;
+}
+
+li button {
+  width: 200px;
+  text-align: left;
+}
