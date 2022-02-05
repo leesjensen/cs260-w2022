@@ -6,21 +6,27 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <h1>JavaScript Rest</h1>
+    <h1>JavaScript REST</h1>
+    <p>Demonstration of calling RESTful services.</p>
 
     <ul>
       <li>
+        <button onclick="genericFetch(document.getElementById('restUrl').value)">Fetch</button>
+        <input type="text" id="restUrl" placeholder="REST URL" />
+      </li>
+      <li>
         <button onclick="cities()">J5.5 - Cities</button>
-        <input type="text" id="cityField" placeholder="Enter a city prefix" />
+        <input type="text" id="cityField" placeholder="City prefix" />
       </li>
       <li><button onclick="useful()">J5.6 - Useful (public IP)</button></li>
       <li>
         <button onclick="gitHub()">J5.7 - GitHub</button>
-        <input type="text" id="gitField" placeholder="Enter a GitHub ID" />
+        <input type="text" id="gitField" placeholder="GitHub ID" />
       </li>
     </ul>
     <div id="output">Welcome to ECMAScript (ES6)</div>
 
+    <script src="fetch.js"></script>
     <script src="rest-cities.js"></script>
     <script src="rest-useful.js"></script>
     <script src="rest-github.js"></script>
