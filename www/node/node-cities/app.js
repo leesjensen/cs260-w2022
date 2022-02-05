@@ -19,13 +19,6 @@ var app = express();
 // Simplify the body parsing of application/json content types
 app.use(bodyParser.json());
 
-app.use(function (req, res, next) {
-  if (!res.getHeader('Access-Control-Allow-Origin')) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-  }
-  next();
-});
-
 // Not doing URLEncoded requests
 // app.use(bodyParser.urlencoded({ extended: false }));
 
