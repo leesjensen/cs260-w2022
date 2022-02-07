@@ -39,7 +39,7 @@ function createOrder() {
   const order = { element: orderElement, id: id };
 
   // Insert the order into the HTML list
-  orderElement.innerHTML = `<span>&#128523; <i>Waiting</i> [${id}] ...</span>`;
+  orderElement.innerHTML = `<span>[${order.id}] &#128523; <i>Waiting</i> ...</span>`;
   const orders = document.getElementById('orders');
   orders.appendChild(orderElement);
 
@@ -72,9 +72,9 @@ function doWork(order, min, max, resolve, reject, errMsg) {
 }
 
 function serveOrder(order) {
-  order.element.innerHTML = `<span>&#127829; <b>Served</b>! [${order.id}]</span>`;
+  order.element.innerHTML = `<span>[${order.id}] &#127829; <b>Served</b>!</span>`;
 }
 
 function orderFailure(order) {
-  order.element.innerHTML = `<span>&#128544; <b class='failure'>Failure</b>! [${order.id}] ${order.error}</span>`;
+  order.element.innerHTML = `<span> [${order.id}] &#128544; <b class='failure'>Failure</b>! ${order.error}</span>`;
 }
