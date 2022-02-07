@@ -130,7 +130,7 @@ const content = [
   {
     name: 'Unit 3: JS',
     description: 'JavaScript/ECMAScript',
-    collapsed: false,
+    collapsed: true,
     item: [
       {
         class: 'note',
@@ -183,6 +183,11 @@ const content = [
         link: 'js/js-j5-rest',
       },
       {
+        class: 'project',
+        title: 'Lab 2: Weather',
+        link: 'https://lab2.cs260.click',
+      },
+      {
         class: 'slide',
         title: '3.5 - Debugging &amp; Performance',
         link: 'https://docs.google.com/presentation/d/12TwA11lXpqqUudhnxqchmANkL33jKH0zNJIVxtsYA18/edit?usp=sharing',
@@ -201,11 +206,6 @@ const content = [
         class: 'slide',
         title: '3.6 - REST, GraphQL, Midterm Review',
         link: 'https://docs.google.com/presentation/d/1dPFbDGXnaU9EfhK-P_FKNpeB-Jlvxq0akKY0X8R5ES0/edit?usp=sharing',
-      },
-      {
-        class: 'project',
-        title: 'Lab 2: Weather',
-        link: 'https://lab2.cs260.click',
       },
     ],
   },
