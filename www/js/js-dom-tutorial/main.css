@@ -27,9 +27,9 @@ li button {
 
 .code {
   font-family: 'Courier New', Courier, monospace;
-  color: rgb(185, 185, 185);
-  background: rgb(232 232 185);
+  color: rgb(221, 221, 221);
+  background: rgb(0, 0, 0);
   padding: 1em;
   white-space: pre;
-  overflow: scroll;
+  overflow: auto;
 }

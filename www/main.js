@@ -130,7 +130,7 @@ const content = [
   {
     name: 'Unit 3: JS',
     description: 'JavaScript/ECMAScript',
-    collapsed: true,
+    collapsed: false,
     item: [
       {
         class: 'note',
@@ -149,8 +149,13 @@ const content = [
       },
       {
         class: 'slide',
-        title: '3.2 - JS Basics &amp; Promises',
+        title: '3.2 - JS Basics',
         link: 'https://docs.google.com/presentation/d/1jM_oat95mWhjVev-1RbEpaYnhQrT8nwQ3lSWJu9dElQ/edit?usp=sharing',
+      },
+      {
+        class: 'slide',
+        title: '3.3 - Promises &amp; DOM',
+        link: 'https://docs.google.com/presentation/d/1D6K024GRaRQl8dMQqe4VMtN4RBUZgto1_mYhkeIT7mA/edit?usp=sharing',
       },
       {
         class: 'exercise',
@@ -161,11 +166,6 @@ const content = [
         class: 'demo',
         title: 'DOM Tutorial',
         link: 'js/js-dom-tutorial',
-      },
-      {
-        class: 'slide',
-        title: '3.3 - DOM',
-        link: 'https://docs.google.com/presentation/d/1D6K024GRaRQl8dMQqe4VMtN4RBUZgto1_mYhkeIT7mA/edit?usp=sharing',
       },
       {
         class: 'exercise',

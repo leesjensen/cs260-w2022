@@ -124,10 +124,6 @@ li[class='demo'] > a:hover {
   color: #f1e8e8;
 }
 
-li[class='exercise'] > a:before {
-  content: '\1F538\0020';
-}
-
 li[class='exercise'] > a:link,
 li[class='exercise'] > a:visited,
 li[class='exercise'] > a:focus {
