@@ -1,3 +1,5 @@
+'use strict';
+
 function genericFetch(url) {
   fetch(url)
     .then((response) => {

@@ -1,3 +1,5 @@
+'use strict';
+
 // Use published attributes to find elements that this module works with and then callback
 // on button action.
 function buttonAction(action) {

@@ -1,3 +1,5 @@
+'use strict';
+
 function cities() {
   let query = document.getElementById('cityField').value;
   query = normalizeQuery(query);

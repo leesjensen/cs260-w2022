@@ -1,3 +1,5 @@
+'use strict';
+
 function useful() {
   outputResult(`Looking up your public IP address`);
 
@@ -13,5 +15,5 @@ function useful() {
 }
 
 function outputResult(result) {
-  document.getElementById("output").innerHTML = result;
+  document.getElementById('output').innerHTML = result;
 }

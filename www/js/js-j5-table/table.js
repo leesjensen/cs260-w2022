@@ -1,3 +1,5 @@
+'use strict';
+
 // Build table by reading an array of object
 // Column names from first object
 // Right align cells that contain number values (text-align:right)
@@ -115,7 +117,9 @@ function insertRule(rule) {
 function sortColumn(column) {
   sortDirection *= -1;
   const sortBy = column.innerText;
-  const sortedData = currentData.sort((a, b) => sortDirection * (a[sortBy] > b[sortBy] ? 1 : -1));
+  const sortedData = currentData.sort(
+    (a, b) => sortDirection * (a[sortBy] > b[sortBy] ? 1 : -1)
+  );
   table(sortedData);
 }
 
@@ -127,5 +131,9 @@ function removeAllChildNodes(parent) {
 
 function outputData(title, data) {
   const output = document.getElementById('output');
-  output.innerHTML = `<h3>${title}</h3><pre>${JSON.stringify(data, null, 2)}</pre>`;
+  output.innerHTML = `<h3>${title}</h3><pre>${JSON.stringify(
+    data,
+    null,
+    2
+  )}</pre>`;
 }

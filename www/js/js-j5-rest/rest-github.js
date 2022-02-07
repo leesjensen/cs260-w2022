@@ -1,5 +1,7 @@
+'use strict';
+
 function gitHub() {
-  let query = document.getElementById("gitField").value;
+  let query = document.getElementById('gitField').value;
   if (!!query) {
     outputResult(`Looking up GitHub user '${query}'`);
 
@@ -21,5 +23,5 @@ function gitHub() {
 }
 
 function outputResult(result) {
-  document.getElementById("output").innerHTML = result;
+  document.getElementById('output').innerHTML = result;
 }
