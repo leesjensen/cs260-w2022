@@ -87,6 +87,10 @@ a:hover {
   color: #f1e8e8;
 }
 
+li[class='slide'] > a:before {
+  content: '\1F537\0020';
+}
+
 li[class='note'] > a:link,
 li[class='note'] > a:visited,
 li[class='note'] > a:focus {
