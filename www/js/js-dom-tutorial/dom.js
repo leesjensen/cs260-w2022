@@ -1,3 +1,5 @@
+'use strict';
+
 function injectDOMHTML(title) {
   const parentElement = document.querySelector('#output');
 

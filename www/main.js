@@ -1,3 +1,5 @@
+'use strict';
+
 function toggleDisplay(e) {
   const expandableElement = e.parentElement.querySelector('.expandable');
   console.log(expandableElement);
