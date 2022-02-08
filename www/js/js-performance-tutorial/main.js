@@ -2,7 +2,7 @@
 
 // PEFORMANCE: Unnecessary repeating
 // PERFORMANCE: Blocking calculation
-function backgroundCompute() {
+function loadComponent() {
   setInterval(() => {
     const loadElement = document.querySelector('#loadComplete');
     loadElement.innerText = 'loading in process... ';
