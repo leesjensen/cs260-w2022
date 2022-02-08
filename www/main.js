@@ -200,6 +200,11 @@ const content = [
         link: 'js/js-debug-tutorial',
       },
       {
+        class: 'demo',
+        title: 'Performance Tutorial',
+        link: 'js/js-performance-tutorial',
+      },
+      {
         class: 'exercise',
         title: 'J6: Debugging',
         link: 'js/js-j6-debugging',

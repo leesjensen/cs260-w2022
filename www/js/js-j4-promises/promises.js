@@ -1,6 +1,6 @@
 'use strict';
 
-async function pickupPizza() {
+function pickupPizza() {
   const order = createOrder();
 
   // Promise
