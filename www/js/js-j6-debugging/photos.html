@@ -19,19 +19,18 @@
     <label>Enter a width and height:</label>
     <input placeholder="width" id="width"> <input placeholder="height" id="height">
     <p></p>
-    <label>Grayscale?</label>
-    <input type="checkbox" id="grayscale">
-    <label>Blur?</label>
-    <input type="checkbox" id="blur">
-    <label>Blur Amount</label>
-    <input type="range" min="1" max="10" value="5" id="blurAmount">
+    <ul>
+    <li><label>Grayscale?</label> <input type="checkbox" id="grayscale"></li>
+    <li><label>Blur?</label> <input type="checkbox" id="blur"></li>
+    <li><label>Blur Amount</label> <input type="range" min="1" max="10" value="5" id="blurAmount"></li>
+  </ul>
     <p></p>
     <button id="get" class="pure-button pure-button-primary">Get New Photo</button>
     </fieldset>
   </form>
   <img id="photo" src="https://picsum.photos/200/300">
 
-  <script text="type/javascript" src="script-photo-solution.js">
+  <script text="type/javascript" src="script-photo.js">
   </script>
 
 </body>
