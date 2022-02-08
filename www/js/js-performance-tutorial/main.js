@@ -3,17 +3,15 @@
 // PEFORMANCE: Unnecessary repeating
 // PERFORMANCE: Blocking calculation
 function backgroundCompute() {
-  let count = 0;
   setInterval(() => {
     const loadElement = document.querySelector('#loadComplete');
     if (loadElement) {
-      loadElement.innerText = 'loading... ';
+      loadElement.innerText = 'loading component... ';
       for (var i = Math.pow(2, 32); i >= 0; i--) {
         Math.atan(i) * Math.tan(i);
       }
 
-      console.log(`loading background content ${count}`);
-      loadElement.innerText = 'load completed ' + count++;
+      loadElement.innerText = 'component loaded';
     }
   }, 1000);
 }
