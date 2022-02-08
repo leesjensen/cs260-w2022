@@ -45,8 +45,6 @@ function table(data = SevenSummits) {
 
     removeAllChildNodes(output);
     output.appendChild(tableElement);
-
-    // outputData("parse", { headers: headers, rows: rows });
   } else {
     outputData('invalid input', data);
   }
