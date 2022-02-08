@@ -1,25 +1,73 @@
 'use strict';
 
-function startup() {
+// PEFORMANCE: Unnecessary repeating
+// PERFORMANCE: Blocking calculation
+function backgroundCompute() {
   let count = 0;
   setInterval(() => {
     const loadElement = document.querySelector('#loadComplete');
     if (loadElement) {
-      for (var i = Math.pow(15, 7); i >= 0; i--) {
+      loadElement.innerText = 'loading... ';
+      for (var i = Math.pow(2, 32); i >= 0; i--) {
         Math.atan(i) * Math.tan(i);
       }
 
-      console.log('loading background content');
+      console.log(`loading background content ${count}`);
       loadElement.innerText = 'load completed ' + count++;
     }
   }, 1000);
 }
 
-function getWords() {
+// PERFORMANCE: Unnecessary listeners
+function respondToAction() {
+  const elements = document.querySelectorAll('*');
+  for (const element of elements) {
+    element.addEventListener('mouseover', (e) => {
+      console.log(`mouse over ${e.target.tagName}`);
+      if (e.target.tagName === 'IMG') {
+        e.target.animate(
+          [{ transform: 'rotate(2deg)' }, { transform: 'rotate(-4deg)' }],
+          { duration: 200 }
+        );
+      }
+    });
+  }
+}
+
+// PERFORMANCE: Unnecessary pounding of service
+async function getWords() {
+  const words = ['cow', 'rat', 'dog', 'fish'];
+
+  while (true) {
+    for (let word of words) {
+      try {
+        const r = await fetch(
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+        );
+        if (r.status !== 200) throw r.status;
+
+        displayWord(await r.json());
+      } catch (error) {
+        console.error(error);
+      }
+      // sleep(5000);
+    }
+  }
+}
+
+// PERFORMANCE: Blocking calculation
+function sleep(sleepTime) {
+  console.log('sleeping');
+  var start = new Date().getTime();
+  while (new Date().getTime() < start + sleepTime);
+  //      await new Promise((resolve) => setTimeout(resolve, sleepTime));
+  console.log('slept for ' + sleepTime);
+}
+
+function displayWord(wordInfo) {
+  const word = wordInfo[0].word;
+  const definition = wordInfo[0].meanings[0].definitions[0].definition;
   const definitionElement = document.querySelector('#definition');
-  fetch('https://api.dictionaryapi.dev/api/v2/entries/en/cow').then((r) =>
-    r.json().then((j) => {
-      definitionElement.innerHTML = `<pre>${JSON.stringify(j, null, 2)}</pre>`;
-    })
-  );
+  definitionElement.innerHTML = `<b>${word}</b>: ${definition}`;
+  console.log('definition loaded');
 }
