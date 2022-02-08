@@ -4,6 +4,7 @@ main {
   background-color: white;
   opacity: 0.7;
   padding: 1em;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* PERFORMANCE: complicated selector */
@@ -22,6 +23,13 @@ li {
   padding: 1em;
   border: grey thin solid;
   max-height: 15em;
+}
+
+#component {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5em;
+  margin: 0.25em 0;
+  border: grey thin solid;
 }
 
 /* PERFORMANCE: Large base64 image */

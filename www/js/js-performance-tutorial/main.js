@@ -4,9 +4,8 @@
 // PERFORMANCE: Blocking calculation
 function loadComponent() {
   setInterval(() => {
-    const loadElement = document.querySelector('#loadComplete');
+    const loadElement = document.querySelector('#component');
     if (loadElement) {
-      loadElement.innerText = 'loading in process... ';
       for (var i = Math.pow(2, 32); i >= 0; i--) {
         Math.atan(i) * Math.tan(i);
       }
@@ -15,6 +14,17 @@ function loadComponent() {
     }
   }, 1000);
 }
+
+// function loadComponent() {
+//   window.requestIdleCallback(() => {
+//     console.log('ON LOAD');
+//     for (var i = Math.pow(2, 32); i >= 0; i--) {
+//       Math.atan(i) * Math.tan(i);
+//     }
+//     const loadElement = document.querySelector('#component');
+//     loadElement.innerText = 'component loaded';
+//   });
+// }
 
 // PERFORMANCE: Unnecessary listeners
 function respondToAction() {
@@ -58,9 +68,14 @@ function sleep(sleepTime) {
   console.log('sleeping');
   var start = new Date().getTime();
   while (new Date().getTime() < start + sleepTime);
-  //      await new Promise((resolve) => setTimeout(resolve, sleepTime));
   console.log('slept for ' + sleepTime);
 }
+
+// async function sleep(sleepTime) {
+//   console.log('sleeping');
+//   await new Promise((resolve) => setTimeout(resolve, sleepTime));
+//   console.log('slept for ' + sleepTime);
+// }
 
 function displayWord(wordInfo) {
   const word = wordInfo[0].word;
@@ -69,15 +84,3 @@ function displayWord(wordInfo) {
   definitionElement.innerHTML = `<b>${word}</b>: ${definition}`;
   console.log('definition loaded');
 }
-
-// function loadComponent() {
-//   const loadElement = document.querySelector('#loadComplete');
-//   loadElement.innerText = 'loading in process... ';
-
-//   window.onload = () => {
-//     for (var i = Math.pow(2, 32); i >= 0; i--) {
-//       Math.atan(i) * Math.tan(i);
-//     }
-//     loadElement.innerText = 'component loaded';
-//   };
-// }
