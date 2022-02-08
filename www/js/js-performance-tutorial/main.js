@@ -5,12 +5,14 @@
 function loadComponent() {
   setInterval(() => {
     const loadElement = document.querySelector('#loadComplete');
-    loadElement.innerText = 'loading in process... ';
-    for (var i = Math.pow(2, 32); i >= 0; i--) {
-      Math.atan(i) * Math.tan(i);
-    }
+    if (loadElement) {
+      loadElement.innerText = 'loading in process... ';
+      for (var i = Math.pow(2, 32); i >= 0; i--) {
+        Math.atan(i) * Math.tan(i);
+      }
 
-    loadElement.innerText = 'component loaded';
+      loadElement.innerText = 'component loaded';
+    }
   }, 1000);
 }
 
@@ -67,3 +69,15 @@ function displayWord(wordInfo) {
   definitionElement.innerHTML = `<b>${word}</b>: ${definition}`;
   console.log('definition loaded');
 }
+
+// function loadComponent() {
+//   const loadElement = document.querySelector('#loadComplete');
+//   loadElement.innerText = 'loading in process... ';
+
+//   window.onload = () => {
+//     for (var i = Math.pow(2, 32); i >= 0; i--) {
+//       Math.atan(i) * Math.tan(i);
+//     }
+//     loadElement.innerText = 'component loaded';
+//   };
+// }
