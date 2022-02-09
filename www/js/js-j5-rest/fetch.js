@@ -1,9 +1,9 @@
 'use strict';
 
-function genericFetch(url) {
+function genericJsonFetch(url) {
   fetch(url)
     .then((response) => {
-      if (response.status === 200) {
+      if (response.ok) {
         return response.json();
       }
       throw `Invalid response: [${response.status}] ${response.statusText}`;

@@ -6,13 +6,17 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <h1>JavaScript REST</h1>
-    <p>Demonstration of calling RESTful services.</p>
+    <h1>JavaScript Fetch</h1>
+    <p>Demonstration of calling service endpoints.</p>
 
     <ul>
       <li>
-        <button onclick="genericFetch(document.getElementById('restUrl').value)">Fetch</button>
-        <input type="text" id="restUrl" placeholder="REST URL" />
+        <button
+          onclick="genericJsonFetch(document.getElementById('url').value)"
+        >
+          Generic Fetch
+        </button>
+        <input type="text" id="url" placeholder="URL" />
       </li>
       <li>
         <button onclick="cities()">J5.5 - Cities</button>
