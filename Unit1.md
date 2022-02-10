@@ -7,6 +7,7 @@
 - [GitHub Event for SCP](https://github.com/garygrossgarten/github-action-scp)
 - [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 - [Can I Use](https://caniuse.com/)
+- [Google HTML Guidelines](https://google.github.io/styleguide/htmlcssguide.html)
 
 ## Introduction
 
