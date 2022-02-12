@@ -15,7 +15,7 @@ All the examples use Vue 2. The current version is 3.
 
 ## V0 - Vue-Rest
 
-Simple Vue component for loading cities
+Step through simple Vue component for loading cities
 vue-v0-rest
 
 ## V1 - Learning Vue

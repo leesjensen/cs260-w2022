@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vue REST</title>
+    <link rel="stylesheet" href="main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Vue REST</title>
-</head>
-
-<body>
-  <div id="app">
-    <h1>Select a City</h1>
-    <form v-on:keyup.prevent="fetchREST">
-      <input type="text" v-model="prefix">
-    </form>
-    <ul>
-      <li v-for="item in cities">
-        {{ item.name }}
-      </li>
-    </ul>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
-  <script src="script.js"></script>
-</body>
-
+  <body>
+    <div id="app">
+      <h1>List Utah Cities</h1>
+      <form v-on:keyup.prevent="fetchCities">
+        <input type="text" v-model="prefix" />
+      </form>
+      <ul>
+        <li v-for="item in cities">{{ item.name }}</li>
+      </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>
