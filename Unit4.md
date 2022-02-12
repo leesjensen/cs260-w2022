@@ -47,5 +47,3 @@ vue-v2-todo
 # Vue 4.6 -
 
 ## Vue Quiz
-
-## Creative Lab #3
