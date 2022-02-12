@@ -226,6 +226,41 @@ const content = [
         title: 'Notes',
         link: 'https://github.com/leesjensen/cs260/blob/main/Unit4.md',
       },
+      {
+        class: 'exercise',
+        title: 'V0: Rest Cities',
+        link: 'vue/vue-v0-rest',
+      },
+      {
+        class: 'exercise',
+        title: 'V1: Learning Vue',
+        link: 'vue/vue-v1-learning',
+      },
+      {
+        class: 'exercise',
+        title: 'V2: Todo List',
+        link: 'vue/vue-v2-todo',
+      },
+      {
+        class: 'exercise',
+        title: 'V3: CLI',
+        link: 'vue/vue-v3-cli',
+      },
+      {
+        class: 'exercise',
+        title: 'V4: Router',
+        link: 'vue/vue-v4-router',
+      },
+      {
+        class: 'project',
+        title: 'Lab 3a: XKCD Browser',
+        link: 'https://lab3a.cs260.click',
+      },
+      {
+        class: 'project',
+        title: 'Lab 3b: Grocery Store',
+        link: 'https://lab3b.cs260.click',
+      },
     ],
   },
   {
@@ -247,6 +282,18 @@ const content = [
         class: 'exercise',
         title: 'N2.6: Cities',
         link: 'node-cities',
+      },
+    ],
+  },
+  {
+    name: 'Unit 6: Security',
+    description: 'Authentication, Exploit Prevention',
+    collapsed: true,
+    item: [
+      {
+        class: 'note',
+        title: 'Notes',
+        link: 'https://github.com/leesjensen/cs260/blob/main/Unit6.md',
       },
     ],
   },
