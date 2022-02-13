@@ -1,3 +1,8 @@
+body {
+  background: #fafad2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .todo {
   border: solid thin black;
   padding: 0.5em 0.5em;
