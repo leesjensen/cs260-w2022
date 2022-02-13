@@ -1,0 +1,32 @@
+h1 {
+  border-bottom: solid thin black;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+.highlight {
+  color: rgb(78, 109, 177);
+  font-weight: bold;
+}
+
+body {
+  background: #fafad2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.inColor {
+  color: green;
+  background-color: yellow;
+}
+
+.noColor {
+  color: black;
+}
+
+#programmaticDiv {
+  border: solid thin black;
+  padding: 5px;
+  margin: 1em;
+}

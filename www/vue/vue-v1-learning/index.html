@@ -3,40 +3,49 @@
   <head>
     <meta charset="utf-8" />
     <title>Learning Vue</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
 
   <body>
+    <h1>Learning Vue</h1>
     <div id="root">
+      <h2>Model Binding</h2>
       <input type="text" v-model="message" />
+
+      <h2>Computed manipulation</h2>
       <p>The value of the input is: {{ screaming }}.</p>
 
+      <h2>Method calls</h2>
       <input type="text" v-model="newName" />
       <button @click="addName">Add Name</button>
+
+      <h2>For loop</h2>
       <ul>
-        <!-- Loop through each name in names and render it. This will create a set of li elements -->
         <li v-for="name in names">
           <span v-bind:class="{ highlight: name === newMember }">{{name}}</span>
         </li>
       </ul>
 
+      <h2>Show</h2>
       <p v-show="!!newMember">
         Welcome to our newest member,
         <span class="highlight">{{ newMember }}</span>!
       </p>
 
-      <button v-bind:title="title">Hover over me</button>
+      <h2>Attribute binding</h2>
+      <div id="programmaticDiv" v-bind:align="divAlign">Programmatic Align</div>
 
-      <button :class="[isLoading ? 'blue' : 'red']" @click="toggleLoading">Click Me</button>
+      <h2>Class manipulation</h2>
+      <button :class="[isInColor ? 'inColor' : 'noColor']" @click="toggleColor">Click Me</button>
 
-      <h1>Tasks</h1>
+      <h2>Computed filtering</h2>
       <ul>
         <li v-for="task in incomplete"><span>{{task.description}}</span></li>
       </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="script.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

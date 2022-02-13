@@ -244,7 +244,7 @@ const content = [
       {
         class: 'exercise',
         title: 'V3: CLI',
-        link: 'vue/vue-v3-cli',
+        link: 'vue/vue-v3-cli/dist',
       },
       {
         class: 'exercise',
