@@ -10,10 +10,6 @@ function gitHub() {
       .then((response) => response.json())
       .then((json) => {
         const html = JSON.stringify(json, null, 2);
-        //   var html = "";
-        //   for (let i = 0; i < json.length; i++) {
-        //     html += `<li>${json[i].city}</li>`;
-        //   }
         outputResult(`<pre>${html}</pre>`);
       })
       .catch((error) => {
