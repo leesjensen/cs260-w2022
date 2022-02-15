@@ -86,6 +86,7 @@ Watch when something changes
 **Mixins**
 
 **Reactivity in Depth**
+https://v2.vuejs.org/v2/guide/reactivity.html
 
 ## V0 - Vue-Rest
 

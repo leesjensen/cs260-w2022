@@ -47,6 +47,8 @@ label {
   color: #ffb700;
 }
 
-.hl-light {
-  color: #0254a9;
+.hlb {
+  color: #00b8ff;
+  color: #ffb700;
+  font-weight: bold;
 }

@@ -9,15 +9,13 @@
     <header><h1>Basic Vue Instance</h1></header>
     <main>
       <div id="app">
-        Message from Vue: <span class="hl-light">{{ message }}</span>
+        Message from Vue: <span class="hlb">{{ message }}</span>
       </div>
 
       <script>
         var app = new Vue({
           el: '#app',
-          data: {
-            message: 'Hello!',
-          },
+          data: { message: 'Hello!' },
         });
       </script>
     </main>

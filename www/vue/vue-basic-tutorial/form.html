@@ -46,12 +46,12 @@
           <input v-model="comment" />
         </fieldset>
 
-        <p class="hl-light">
+        <p class="hlb">
           <span v-if="pStates && pRating && pAction">
             I {{pAction}} {{pStates.join(' and ')}} because of the {{pRating}}
-            rating. {{comment}}.
+            rating. {{comment}}
           </span>
-          <span v-else>pending ...</span>
+          <span v-else>pending...</span>
         </p>
       </div>
 
@@ -61,7 +61,7 @@
           data: {
             comment: '',
             actions: ['plan to visit', 'have visited', 'will avoid'],
-            states: ['Utah', 'New York', 'Texas'],
+            states: ['Utah', 'New York', 'Texas', 'Iowa'],
             ratings: ['Awesome', 'Good', 'OK'],
             pStates: [],
             pRating: '',

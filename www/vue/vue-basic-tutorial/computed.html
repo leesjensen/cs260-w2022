@@ -7,12 +7,42 @@
   <body>
     <header><h1>Computed</h1></header>
     <main>
-      <div id="app">{{todo}}</div>
+      <div id="app">
+        <p>Date: {{date}}</p>
+        <p>
+          Locale:
+          <template v-for="(val, key) in locales">
+            <input
+              type="radio"
+              v-bind:id="key"
+              v-bind:value="val"
+              v-model="localeCode"
+            />
+            <label v-bind:for="key">{{key}}</label>
+          </template>
+        </p>
+        <p><span class="hlb">{{localizedDate}}</span></p>
+      </div>
 
       <script>
+        const standardLocales = {
+          English: 'en-US',
+          German: 'de-DE',
+          Arabic: 'ar-EG',
+          Japanese: 'ja-JP-u-ca-japanese',
+        };
         var app = new Vue({
           el: '#app',
-          data: { message: 'todo' },
+          data: {
+            date: new Date(),
+            locales: standardLocales,
+            localeCode: 'de-DE',
+          },
+          computed: {
+            localizedDate: function () {
+              return this.date.toLocaleString(this.localeCode);
+            },
+          },
         });
       </script>
     </main>

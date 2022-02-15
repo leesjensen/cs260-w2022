@@ -8,9 +8,9 @@
     <header><h1>Text &amp; HTML Content</h1></header>
     <main>
       <div id="app">
-        <label>Text:</label>
+        <label>textContent:</label>
         <div v-text="content"></div>
-        <label>HTML:</label>
+        <label>innerHTML:</label>
         <div v-html="content"></div>
         <textarea v-model="content">hello</textarea>
       </div>
@@ -18,9 +18,7 @@
       <script>
         var app = new Vue({
           el: '#app',
-          data: {
-            content: 'generic text',
-          },
+          data: { content: 'text' },
         });
       </script>
     </main>
@@ -28,9 +26,9 @@
     <!--- Code for display-->
     <pre class="code-display">
 &lt;div id="app">
-  &lt;label>Text:&lt;/label>
+  &lt;label>textContent:&lt;/label>
   &lt;div <span class='hl'>v-text="content"</span>>&lt;/div>
-  &lt;label>HTML:&lt;/label>
+  &lt;label>innerHTML:&lt;/label>
   &lt;div <span class='hl'>v-html="content"</span>>&lt;/div>
   &lt;textarea <span class='hl'>v-model="content"</span>>hello&lt;/textarea>
 &lt;/div>
@@ -38,9 +36,7 @@
 &lt;script>
   var app = new Vue({
     el: '#app',
-    data: {
-      <span class='hl'>content</span>: 'generic text',
-    },
+    data: {<span class='hl'>content</span>: 'text'},
   });
 &lt;/script></pre>
     <script src="main.js"></script>

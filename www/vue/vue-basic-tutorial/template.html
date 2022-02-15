@@ -8,10 +8,16 @@
     <header><h1>Template</h1></header>
     <main>
       <div id="app">
-        <p>App data: {{message + ' friend'}}</p>
-        <p>JavaScript expression: {{true ? 'correct':'wrong'}}</p>
-        <p>JavaScript functions: {{'a b c'.split(' ').reverse().join('-')}}</p>
-        <p>Some libraries: {{Math.PI}}</p>
+        <p>App data: <span class="hlb">{{message + ' friend'}}</span></p>
+        <p>
+          JavaScript expression:
+          <span class="hlb">{{true ? 'correct':'wrong'}}</span>
+        </p>
+        <p>
+          JavaScript functions:
+          <span class="hlb">{{'a b c'.split(' ').reverse().join('-')}}</span>
+        </p>
+        <p>Some libraries: <span class="hlb">{{Math.PI}}</span></p>
       </div>
 
       <script>
