@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <header><h1>Attribute Binding</h1></header>
+    <main>
+      <div id="app">
+        <p>Current State: <span v-bind:class="{hl: state}">{{state}}</span></p>
+        <button v-bind:disabled="!state" v-on:click="state = false">
+          {{state}}
+        </button>
+        <button :disabled="state" v-on:click="state = true">{{!state}}</button>
+      </div>
+
+      <script>
+        var app = new Vue({
+          el: '#app',
+          data: {
+            state: false,
+          },
+        });
+      </script>
+    </main>
+
+    <!--- Code for display-->
+    <pre class="code-display">&lt;!-- Need some code--&gt;</pre>
+    <script src="main.js"></script>
+    <div class="next-lesson"><a href="for.html">Next: For</a></div>
+  </body>
+</html>

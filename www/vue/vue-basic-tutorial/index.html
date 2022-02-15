@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <header><h1>Basic Vue Instance</h1></header>
+    <main>
+      <div id="app">
+        Message from Vue: <span class="hl-light">{{ message }}</span>
+      </div>
+
+      <script>
+        var app = new Vue({
+          el: '#app',
+          data: {
+            message: 'Hello!',
+          },
+        });
+      </script>
+    </main>
+
+    <pre class="code-display">
+&lt;div <span class='hl'>id="app"</span>>Message from Vue: <span class='hl'>{{ message }}</span>&lt;/div&gt;
+
+&lt;script&gt;
+    var app = new Vue({
+        el: <span class='hl'>'#app'</span>,
+        data: {
+            <span class='hl'>message: 'Hello!'</span>,
+        },
+    });
+&lt;/script&gt;</pre>
+    <div class="next-lesson"><a href="on.html">Next: On</a></div>
+  </body>
+</html>

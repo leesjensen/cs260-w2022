@@ -1,0 +1,52 @@
+body {
+  background: #fafad2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  border: dashed black 3px;
+  background: white;
+  padding: 1em;
+}
+
+.code-display {
+  font-family: 'Courier New', Courier, monospace;
+  color: whitesmoke;
+  background: rgb(53, 53, 53);
+  border-radius: 5px;
+  padding: 1em;
+  margin-top: 1em;
+}
+
+.next-lesson {
+  border-radius: 5px;
+  background-color: #be710b;
+  padding: 5px;
+  margin-top: 1em;
+  text-align: right;
+}
+
+a:link,
+a:visited,
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: #efefef;
+}
+
+textarea {
+  width: 50em;
+  height: 5em;
+}
+
+label {
+  font-weight: bold;
+}
+
+.hl {
+  color: #ffb700;
+}
+
+.hl-light {
+  color: #004280;
+}

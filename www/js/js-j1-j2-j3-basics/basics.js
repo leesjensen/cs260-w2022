@@ -4,6 +4,13 @@
 // function bad(a, a, b) {}
 // 'x'.name = 'rat';
 
+// ---------- start -------------
+function start() {
+  console.log(`%c JavaScript Demo`, 'font-size:2em; color: red;');
+
+  return next(equality);
+}
+
 // ---------- equality -------------
 function equality() {
   debugger;
@@ -252,15 +259,6 @@ function arrayOperations() {
   );
 
   return exceptions;
-}
-
-// ---------- start -------------
-function start() {
-  console.log(`%c JavaScript Demo`, 'font-size:2em; color: red;');
-
-  debugger;
-
-  return next(exceptions);
 }
 
 // ---------- exceptions -------------

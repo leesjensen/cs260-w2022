@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <header><h1>Text, HTML, &amp; Model</h1></header>
+    <main>
+      <div id="app">
+        <label>Text:</label>
+        <div v-text="content"></div>
+        <label>HTML:</label>
+        <div v-html="content"></div>
+        <textarea v-model="content">hello</textarea>
+      </div>
+
+      <script>
+        var app = new Vue({
+          el: '#app',
+          data: {
+            content: 'generic text',
+          },
+        });
+      </script>
+    </main>
+
+    <!--- Code for display-->
+    <pre class="code-display">
+&lt;div id="app">
+  &lt;label>Text:&lt;/label>
+  &lt;div <span class='hl'>v-text="content"</span>>&lt;/div>
+  &lt;label>HTML:&lt;/label>
+  &lt;div <span class='hl'>v-html="content"</span>>&lt;/div>
+  &lt;textarea <span class='hl'>v-model="content"</span>>hello&lt;/textarea>
+&lt;/div>
+
+&lt;script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      <span class='hl'>content</span>: 'generic text',
+    },
+  });
+&lt;/script></pre>
+    <script src="main.js"></script>
+    <div class="next-lesson"><a href="binding.html">Next: Binding</a></div>
+  </body>
+</html>
