@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <header><h1>Form</h1></header>
+    <main>
+      <div id="app">
+        <fieldset>
+          <legend>Action</legend>
+          <template v-for="action in actions">
+            <input
+              type="radio"
+              v-bind:id="action"
+              v-bind:value="action"
+              v-model="pAction"
+            />
+            <label v-bind:for="action">{{action}}</label>
+          </template>
+        </fieldset>
+
+        <fieldset>
+          <legend>State</legend>
+          <template v-for="state in states">
+            <input
+              type="checkbox"
+              v-bind:id="state"
+              v-bind:value="state"
+              v-model="pStates"
+            />
+            <label v-bind:for="state">{{state}}</label>
+          </template>
+        </fieldset>
+
+        <fieldset>
+          <legend>Rating</legend>
+          <select v-model="pRating">
+            <option v-for="rating in ratings">{{rating}}</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Comment</legend>
+          <input v-model="comment" />
+        </fieldset>
+
+        <p class="hl-light">
+          <span v-if="pStates && pRating && pAction">
+            I {{pAction}} {{pStates.join(' and ')}} because of the {{pRating}}
+            rating. {{comment}}.
+          </span>
+          <span v-else>pending ...</span>
+        </p>
+      </div>
+
+      <script>
+        var app = new Vue({
+          el: '#app',
+          data: {
+            comment: '',
+            actions: ['plan to visit', 'have visited', 'will avoid'],
+            states: ['Utah', 'New York', 'Texas'],
+            ratings: ['Awesome', 'Good', 'OK'],
+            pStates: [],
+            pRating: '',
+            pAction: '',
+          },
+        });
+      </script>
+    </main>
+
+    <!--- Code for display-->
+    <pre class="code-display">Put something here</pre>
+    <script src="main.js"></script>
+    <div class="next-lesson"><a href="content.html">Next 🡆 Content</a></div>
+  </body>
+</html>

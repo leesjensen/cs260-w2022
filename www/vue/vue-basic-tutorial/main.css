@@ -4,7 +4,7 @@ body {
 }
 
 main {
-  border: dashed black 3px;
+  border: dashed rgb(53, 53, 53) 3px;
   background: white;
   padding: 1em;
 }
@@ -19,9 +19,8 @@ main {
 }
 
 .next-lesson {
-  border-radius: 5px;
   background-color: #be710b;
-  padding: 5px;
+  padding: 0.8em;
   margin-top: 1em;
   text-align: right;
 }
@@ -35,8 +34,9 @@ a:focus {
 }
 
 textarea {
-  width: 50em;
+  width: 100%;
   height: 5em;
+  margin: 1em 0;
 }
 
 label {
@@ -48,5 +48,5 @@ label {
 }
 
 .hl-light {
-  color: #004280;
+  color: #0254a9;
 }

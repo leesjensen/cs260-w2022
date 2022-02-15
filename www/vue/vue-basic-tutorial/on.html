@@ -2,13 +2,13 @@
 <html>
   <head>
     <link rel="stylesheet" href="main.css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
     <header><h1>On</h1></header>
     <main>
       <div id="app">
-        <p>Currently: {{order}}</p>
+        <p>Currently: <span class="hl-light">{{order}}</span></p>
         <button v-on:click="set('pork')">Pork</button>
         <button @click="set('chicken')">Chicken</button>
         <input v-on:keyup.enter="onEnter" />
@@ -25,7 +25,6 @@
               this.order = value;
             },
             onEnter: function (e) {
-              debugger;
               this.set(e.target.value);
             },
           },
@@ -34,8 +33,9 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">&lt;!-- Need some code--&gt;</pre>
+    <pre class="code-display">Put something here</pre>
+
+    <div class="next-lesson"><a href="binding.html">Next 🡆 Binding</a></div>
     <script src="main.js"></script>
-    <div class="next-lesson"><a href="content.html">Next: Content</a></div>
   </body>
 </html>
