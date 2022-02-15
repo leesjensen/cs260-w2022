@@ -7,12 +7,26 @@
   <body>
     <header><h1>Watcher</h1></header>
     <main>
-      <div id="app">{{todo}}</div>
+      <div id="app">
+        <p>Path: <input v-model="input" /></p>
+        <p>Security Log:</p>
+        <div class="hlb" v-for="entry in securityLog">{{entry}}</div>
+      </div>
 
       <script>
         var app = new Vue({
           el: '#app',
-          data: { message: 'todo' },
+          data: {
+            input: '',
+            securityLog: [],
+          },
+          watch: {
+            input: function (newInput, oldInput) {
+              if (/(^\/|\.\.\/)/.test(newInput)) {
+                this.securityLog.push(newInput);
+              }
+            },
+          },
         });
       </script>
     </main>
