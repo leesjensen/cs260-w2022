@@ -2,22 +2,20 @@
 <html>
   <head>
     <link rel="stylesheet" href="main.css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@2"></script>
     <script src="main.js"></script>
   </head>
   <body>
     <header><h1>Basic Vue Instance</h1></header>
     <main>
       <div id="app">
-        Message from Vue: <span class="hl-light">{{ message }}</span>
+        Message from Vue: <span class="hlb">{{ message }}</span>
       </div>
 
       <script>
         var app = new Vue({
           el: '#app',
-          data: {
-            message: 'Hello!',
-          },
+          data: { message: 'Hello!' },
         });
       </script>
     </main>
@@ -33,6 +31,6 @@
         },
     });
 &lt;/script&gt;</pre>
-    <div class="next-lesson"><a href="on.html">Next: On</a></div>
+    <div class="next-lesson"><a href="template.html">Next 🡆 Template</a></div>
   </body>
 </html>

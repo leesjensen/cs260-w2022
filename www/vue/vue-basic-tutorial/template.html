@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <header><h1>Template</h1></header>
+    <main>
+      <div id="app">
+        <p>App data: <span class="hlb">{{message + ' friend'}}</span></p>
+        <p>
+          JavaScript expression:
+          <span class="hlb">{{true ? 'correct':'wrong'}}</span>
+        </p>
+        <p>
+          JavaScript functions:
+          <span class="hlb">{{'a b c'.split(' ').reverse().join('-')}}</span>
+        </p>
+        <p>Some libraries: <span class="hlb">{{Math.PI}}</span></p>
+      </div>
+
+      <script>
+        var app = new Vue({
+          el: '#app',
+          data: { message: 'Hello' },
+        });
+      </script>
+    </main>
+
+    <pre class="code-display">
+&lt;div id="app">
+  &lt;p>App data: <span class='hl'>{{message + ' friend'}}</span>&lt;/p>
+  &lt;p>JavaScript expression: <span class='hl'>{{true ? 'correct':'wrong'}}</span>&lt;/p>
+  &lt;p>JavaScript functions: <span class='hl'>{{'a b c'.split(' ').reverse().join('-')}}</span>&lt;/p>
+  &lt;p>Some libraries: <span class='hl'>{{Math.PI}}</span>&lt;/p>
+&lt;/div>
+
+&lt;script>
+  var app = new Vue({
+    el: '#app',
+    data: { message: 'Hello' },
+  });
+&lt;/script>
+</pre>
+    <script src="main.js"></script>
+    <div class="next-lesson">
+      <a href="conditional.html">Next 🡆 Conditional</a>
+    </div>
+  </body>
+</html>

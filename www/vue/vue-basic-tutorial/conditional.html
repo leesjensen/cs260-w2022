@@ -2,13 +2,13 @@
 <html>
   <head>
     <link rel="stylesheet" href="main.css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
     <header><h1>Conditional</h1></header>
     <main>
       <div id="app">
-        <p>Current Number: <span class="hl-light">{{clickCount}}</span></p>
+        <p>Current Number: <span class="hlb">{{clickCount}}</span></p>
         <button v-on:click="++clickCount">Increment</button>
         <p>
           The number is:
@@ -28,10 +28,9 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">&lt;!-- Need some code--&gt;</pre>
+    <pre class="code-display">Put something here</pre>
+
     <script src="main.js"></script>
-    <div class="next-lesson">
-      <a href="method.html">Next: Method</a>
-    </div>
+    <div class="next-lesson"><a href="method.html">Next 🡆 Method</a></div>
   </body>
 </html>

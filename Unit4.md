@@ -79,6 +79,15 @@ Watch when something changes
 - You can put full javascript in the template.
 - Only a single expresssion.
 
+**Filters**
+
+**Animation**
+
+**Mixins**
+
+**Reactivity in Depth**
+https://v2.vuejs.org/v2/guide/reactivity.html
+
 ## V0 - Vue-Rest
 
 Step through simple Vue component for loading cities
@@ -89,7 +98,7 @@ vue-v0-rest
 This tutorial steps through much of the basics fo Vue
 vue-v1-learning
 
-# Vue 4.2
+# Vue 4.2 Vetur development support
 
 ## V2 - Todo List
 
@@ -98,20 +107,20 @@ vue-v2-todo
 
 ## Lab 3a - Vue XKCD Browser
 
-# Vue 4.3 -
+# Vue 4.3 - Build toolchain CLI
 
-## V3 - Learnign Vue CLI
+## V3 - Learning Vue CLI
 
 # Vue 4.4 -
 
 ## Lab 3b - Grocery Store
 
-# Vue 4.5 -
+# Vue 4.5 - SPA & Router
 
 ## V4 - Vue Router
 
 This is a non-graded activity. I actually disabled it. It is covered in the CLI activity V3.
 
-# Vue 4.6 -
+# Vue 4.6 - TypeScript
 
 ## Vue Quiz

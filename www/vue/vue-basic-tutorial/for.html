@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="main.css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
     <header><h1>For</h1></header>
@@ -10,8 +10,14 @@
       <div id="app">
         <ul>
           <li v-for="(item, i) in items">[{{i}}] {{item}}</li>
-          <li v-for="(val, key) in obj">{{key}} → {{val}}</li>
+          <li><span v-for="n in 5" v-if="n != 3">{{n}} </span></li>
         </ul>
+
+        <template v-for="(val, key) in obj">
+          <label>{{ key }}</label>
+          <span>🡆 Created by {{val.by}} in {{val.date}}.</span>
+          <br />
+        </template>
       </div>
 
       <script>
@@ -20,9 +26,9 @@
           data: {
             items: ['Lee', 'Lie', 'Linus'],
             obj: {
-              html: 'Lee',
-              css: 'Lie',
-              git: 'Linus',
+              html: { by: 'Lee', date: '1993' },
+              css: { by: 'Lie', date: '1996' },
+              git: { by: 'Linus', date: '2005' },
             },
           },
         });
@@ -30,26 +36,11 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">
-      &lt;div id="app"&gt;
-        &lt;ul&gt;
-          &lt;li v-for="item in items">{{item}}&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/div&gt;
+    <pre class="code-display">Put something here</pre>
 
-      &lt;script&gt;
-        var app = new Vue({
-          el: '#app',
-          data: {
-            items: ['Lee', 'Lie', 'Linus'],
-          },
-        });
-      &lt;/script&gt;
-</pre
-    >
-    <script src="main.js"></script>
     <div class="next-lesson">
-      <a href="conditional.html">Next: Conditional</a>
+      <a href="computed.html">Next 🡆 Computed</a>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>

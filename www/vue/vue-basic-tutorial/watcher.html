@@ -2,26 +2,41 @@
 <html>
   <head>
     <link rel="stylesheet" href="main.css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
     <header><h1>Watcher</h1></header>
     <main>
-      <div id="app">{{todo}}</div>
+      <div id="app">
+        <p>Path: <input v-model="input" /></p>
+        <p>Security Log:</p>
+        <div class="hlb" v-for="entry in securityLog">{{entry}}</div>
+      </div>
 
       <script>
         var app = new Vue({
           el: '#app',
-          data: { message: 'todo' },
+          data: {
+            input: '',
+            securityLog: [],
+          },
+          watch: {
+            input: function (newInput, oldInput) {
+              if (/(^\/|\.\.\/)/.test(newInput)) {
+                this.securityLog.push(newInput);
+              }
+            },
+          },
         });
       </script>
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">&lt;!-- Need some code--&gt;</pre>
+    <pre class="code-display">Put something here</pre>
+
     <script src="main.js"></script>
     <div class="next-lesson">
-      <a href="lifecycle.html">Next: Lifecycle</a>
+      <a href="lifecycle.html">Next 🡆 Lifecycle</a>
     </div>
   </body>
 </html>
