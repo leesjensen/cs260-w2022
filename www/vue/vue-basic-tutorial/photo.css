@@ -1,21 +1,29 @@
 * {
   box-sizing: border-box;
 }
+
+section.gallery {
+  background: #68899f;
+}
+
 figure.photo {
   display: inline-block;
   padding: 5px;
   border: solid hsl(44, 100%, 60%) 2px;
-  background: hsla(44, 100%, 38%, 0.377);
+  background: hsl(44, 100%, 38%);
   margin: 1em;
   position: relative;
 }
 
 figure.photo > img {
   border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  background: hsl(44, 100%, 27%);
 }
 
 figure.photo > figcaption {
-  background: #be8703;
+  background: #634600;
   color: #fff;
   font: italic smaller sans-serif;
   padding: 3px;
@@ -25,8 +33,9 @@ figure.photo > figcaption {
 figure.photo > div.price {
   width: 90%;
   text-align: right;
-  background: #779fff;
-  color: #e8e9f8;
+  background: #e8e9f8;
+  color: black;
+  border: solid rgb(104, 104, 104) thin;
   position: absolute;
   right: -6px;
   top: 3px;
@@ -37,6 +46,7 @@ figure.photo > div.price {
 
 figure.photo > div.promote {
   color: white;
-  background: #d00000;
+  background: #1f5f91;
+  border: solid rgb(58, 54, 105) thin;
   text-transform: uppercase;
 }

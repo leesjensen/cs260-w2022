@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="photo.css" />
     <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
@@ -13,33 +14,45 @@
     </header>
     <main>
       <div id="app">
-        <app-photo></app-photo>
-        <app-photo></app-photo>
-        <app-photo></app-photo>
+        <app-gallery>
+          <app-photo caption="Beauty" price="$99.99"></app-photo>
+          <app-photo caption="Joy" price="$2,000"></app-photo>
+          <app-photo caption="Fear" price="free"></app-photo>
+          <app-photo caption="Solitude" price="$1,300"></app-photo>
+          <app-photo caption="Anger" price="Inquire"></app-photo>
+        </app-gallery>
       </div>
 
-      <!--
-  parent children, passying informaiton. listening to child events.
-  https://v2.vuejs.org/v2/guide/components.html#Listening-to-Child-Components-Events
--->
-
       <script>
-        Vue.component('app-photo', {
+        Vue.component('app-gallery', {
           data: function () {
-            return {
-              seed: Math.floor(Math.random() * 1000),
-              width: 100,
-              height: 100,
-            };
+            return { selected: [] };
           },
           template: `
-          <div class='photo'>
-            <img v-bind:src="imageUrl" />
-          </div>
+            <section class='gallery'>
+              <slot></slot>
+            </section>
+          `,
+        });
+
+        Vue.component('app-photo', {
+          props: ['caption', 'price'],
+          data: function () {
+            return { seed: Math.floor(Math.random() * 1000), selected: false };
+          },
+          template: `
+            <figure class='photo'>
+              <img :src="imageUrl" />
+              <figcaption>{{caption}}</figcaption>
+              <div :class="['price', {promote:promoted}]">{{price}}</div>
+            </figure>
           `,
           computed: {
             imageUrl: function () {
-              return `https://picsum.photos/seed/${this.seed}/${this.width}/${this.height}`;
+              return `https://picsum.photos/seed/${this.seed}/100/100`;
+            },
+            promoted: function () {
+              return !this.price.startsWith('$');
             },
           },
         });
