@@ -15,12 +15,7 @@
         <p>
           Locale:
           <template v-for="(val, key) in locales">
-            <input
-              type="radio"
-              v-bind:id="key"
-              v-bind:value="val"
-              v-model="localeCode"
-            />
+            <input type="radio" v-bind:id="key" v-bind:value="val" v-model="localeCode" />
             <label v-bind:for="key">{{key}}</label>
           </template>
         </p>
@@ -55,7 +50,7 @@
 
     <script src="main.js"></script>
     <div class="next-lesson">
-      <a href="watcher.html">Next 🡆 Watcher</a>
+      <a href="watcher.html">Next &#10140; Watcher</a>
     </div>
   </body>
 </html>

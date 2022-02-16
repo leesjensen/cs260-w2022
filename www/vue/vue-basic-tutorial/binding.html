@@ -10,9 +10,7 @@
       <div id="app">
         <p>
           Current State:
-          <span v-bind:class="{hl: state}" v-bind:style="labelStyle"
-            >{{state}}</span
-          >
+          <span v-bind:class="{hl: state}" v-bind:style="labelStyle">{{state}}</span>
         </p>
         <button v-bind:disabled="!state" v-on:click="toggle">false</button>
         <button :disabled="state" v-on:click="toggle">true</button>
@@ -41,6 +39,6 @@
     <pre class="code-display">Put something here</pre>
 
     <script src="main.js"></script>
-    <div class="next-lesson"><a href="form.html">Next 🡆 Form</a></div>
+    <div class="next-lesson"><a href="form.html">Next &#10140; Form</a></div>
   </body>
 </html>

@@ -5,14 +5,29 @@
     <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
-    <header><h1>Conditional</h1></header>
+    <header>
+      <h1>Basic Component</h1>
+    </header>
     <main>
-      <div id="app">{{todo}}</div>
+      <div id="app">
+        <random-photo></random-photo>
+        <random-photo></random-photo>
+        <random-photo></random-photo>
+      </div>
 
       <script>
+        Vue.component('random-photo', {
+          template: '<img v-bind:src="getURL()" />',
+          methods: {
+            getURL: function () {
+              const seed = Math.floor(Math.random() * 1000);
+              return `https://picsum.photos/seed/${seed}/100/100`;
+            },
+          },
+        });
+
         var app = new Vue({
           el: '#app',
-          data: { message: 'todo' },
         });
       </script>
     </main>
@@ -21,8 +36,6 @@
     <pre class="code-display">Put something here</pre>
 
     <script src="main.js"></script>
-    <div class="next-lesson">
-      <a href="index.html">Next 🡆 basic</a>
-    </div>
+    <div class="next-lesson"><a href="component-props.html">Next &#10140; Component Props</a></div>
   </body>
 </html>
