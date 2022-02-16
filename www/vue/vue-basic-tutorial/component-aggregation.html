@@ -7,7 +7,7 @@
   </head>
   <body>
     <nav class="next-lesson">
-      <a href="component-slot.html">Next &#10140; Component Slots</a>
+      <a href="index.html">Back to beginning</a>
     </nav>
     <header>
       <h1>Component Aggregation</h1>
@@ -25,12 +25,10 @@
 
       <script>
         Vue.component('app-gallery', {
-          data: function () {
-            return { selected: [] };
-          },
           template: `
             <section class='gallery'>
-              <slot></slot>
+              <h2>Welcome to the gallery</h2>
+              <slot>The gallery is currently empty</slot>
             </section>
           `,
         });
@@ -64,7 +62,29 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">Put something here</pre>
+    <pre class="code-display">
+&lt;div id="app">
+  <span class='hl'>&lt;app-gallery></span>
+    &lt;app-photo caption="Beauty" price="$99.99">&lt;/app-photo>
+    &lt;app-photo caption="Joy" price="$2,000">&lt;/app-photo>
+    &lt;app-photo caption="Fear" price="free">&lt;/app-photo>
+    &lt;app-photo caption="Solitude" price="$1,300">&lt;/app-photo>
+    &lt;app-photo caption="Anger" price="Inquire">&lt;/app-photo>
+  <span class='hl'>&lt;/app-gallery></span>
+&lt;/div>
+
+&lt;script>
+  Vue.component('<span class='hl'>app-gallery</span>', {
+    template: `
+      &lt;section class='gallery'>
+        &lt;h2>{{welcomeMessage}}&lt;/h2>
+        <span class='hl'>&lt;slot>The gallery is currently empty&lt;/slot></span>
+      &lt;/section>`,
+  });
+
+  // app-photo component as before ...
+&lt;/script>
+    </pre>
 
     <script src="main.js"></script>
   </body>

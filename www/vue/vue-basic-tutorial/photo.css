@@ -4,6 +4,8 @@
 
 section.gallery {
   background: #68899f;
+  color: white;
+  padding: 1em;
 }
 
 figure.photo {
@@ -11,7 +13,7 @@ figure.photo {
   padding: 5px;
   border: solid hsl(44, 100%, 60%) 2px;
   background: hsl(44, 100%, 38%);
-  margin: 1em;
+  margin: 0.25em 0.5em;
   position: relative;
 }
 
