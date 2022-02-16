@@ -227,6 +227,11 @@ const content = [
         link: 'https://github.com/leesjensen/cs260/blob/main/Unit4.md',
       },
       {
+        class: 'demo',
+        title: 'Basic View Tutorial',
+        link: 'vue/vue-basic-tutorial',
+      },
+      {
         class: 'exercise',
         title: 'V0: Rest Cities',
         link: 'vue/vue-v0-rest',
