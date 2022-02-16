@@ -5,18 +5,21 @@
     <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
+    <nav class="next-lesson">
+      <a href="component-template.html">Next &#10140; Component Template</a>
+    </nav>
     <header>
       <h1>Component Properties</h1>
     </header>
     <main>
       <div id="app">
-        <random-photo grayscale></random-photo>
-        <random-photo height="200"></random-photo>
-        <random-photo width="200" grayscale blur></random-photo>
+        <app-photo grayscale></app-photo>
+        <app-photo height="200"></app-photo>
+        <app-photo width="200" grayscale blur></app-photo>
       </div>
 
       <script>
-        Vue.component('random-photo', {
+        Vue.component('app-photo', {
           props: {
             height: { type: Number, default: 100 },
             width: { type: Number, default: 100 },
@@ -33,8 +36,10 @@
             imageUrl: function () {
               const params = [];
               if (this.grayscale) params.push('grayscale');
-              if (this.blur) params.push('blur');
-              return `https://picsum.photos/seed/${this.seed}/${this.width}/${this.height}?${params.join('&')}`;
+              if (this.blur) params.push('blur=3');
+              return `https://picsum.photos/seed/${this.seed}/${this.width}/${
+                this.height
+              }?${params.join('&')}`;
             },
           },
         });
@@ -49,6 +54,5 @@
     <pre class="code-display">Put something here</pre>
 
     <script src="main.js"></script>
-    <div class="next-lesson"><a href="component-props.html">Next &#10140; Component Props</a></div>
   </body>
 </html>

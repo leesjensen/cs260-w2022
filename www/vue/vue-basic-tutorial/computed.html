@@ -5,6 +5,9 @@
     <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
+    <nav class="next-lesson">
+      <a href="watcher.html">Next &#10140; Watcher</a>
+    </nav>
     <header>
       <h1>Computed</h1>
       <p>Values cached</p>
@@ -15,7 +18,12 @@
         <p>
           Locale:
           <template v-for="(val, key) in locales">
-            <input type="radio" v-bind:id="key" v-bind:value="val" v-model="localeCode" />
+            <input
+              type="radio"
+              v-bind:id="key"
+              v-bind:value="val"
+              v-model="localeCode"
+            />
             <label v-bind:for="key">{{key}}</label>
           </template>
         </p>
@@ -49,8 +57,5 @@
     <pre class="code-display">Put something here</pre>
 
     <script src="main.js"></script>
-    <div class="next-lesson">
-      <a href="watcher.html">Next &#10140; Watcher</a>
-    </div>
   </body>
 </html>

@@ -5,12 +5,15 @@
     <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
+    <nav class="next-lesson"><a href="form.html">Next &#10140; Form</a></nav>
     <header><h1>Attribute Binding</h1></header>
     <main>
       <div id="app">
         <p>
           Current State:
-          <span v-bind:class="{hl: state}" v-bind:style="labelStyle">{{state}}</span>
+          <span v-bind:class="{hl: state}" v-bind:style="labelStyle"
+            >{{state}}</span
+          >
         </p>
         <button v-bind:disabled="!state" v-on:click="toggle">false</button>
         <button :disabled="state" v-on:click="toggle">true</button>
@@ -39,6 +42,5 @@
     <pre class="code-display">Put something here</pre>
 
     <script src="main.js"></script>
-    <div class="next-lesson"><a href="form.html">Next &#10140; Form</a></div>
   </body>
 </html>

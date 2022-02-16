@@ -38,6 +38,39 @@ All the examples use Vue 2. The current version is 3.
   ```
 - v-model - form inputs to components
 
+**Computed**
+vue instance properties that get computed
+
+**Methods**
+create a method on the vue instance
+
+**Watchers**
+Watch when something changes
+
+**Lifecycle hooks**
+
+- created, mounted, updated, destroyed
+
+**Template**
+
+- {{mustache}} - text output from the expression
+- You can put full javascript in the template.
+- Only a single expresssion.
+
+**Filters**
+
+## V0 - Vue-Rest
+
+Step through simple Vue component for loading cities
+vue-v0-rest
+
+## V1 - Learning Vue
+
+This tutorial steps through much of the basics for Vue
+vue-v1-learning
+
+# Vue 4.2 Components, Router
+
 **Components**
 reusable component - picture display
 You can have properties on a component that you can bind.
@@ -53,52 +86,14 @@ Vue.component('todo-item', {
 </ol>
 ```
 
-**Computed**
-vue instance properties that get computed
+**Transitions & Animation**
+https://v2.vuejs.org/v2/guide/transitions.html
 
-**Methods**
-create a method on the vue instance
-
-**Watchers**
-Watch when something changes
-
-**Lifecycle hooks**
-
-- created, mounted, updated, destroyed
-
-- Vue Google extension
-- Components
-- Templates
-- Reactivity
-- Transitions
-- Routing
-
-**Template**
-
-- {{mustache}} - text output from the expression
-- You can put full javascript in the template.
-- Only a single expresssion.
-
-**Filters**
-
-**Animation**
+**Routing**
+https://v2.vuejs.org/v2/guide/routing.html
 
 **Mixins**
-
-**Reactivity in Depth**
-https://v2.vuejs.org/v2/guide/reactivity.html
-
-## V0 - Vue-Rest
-
-Step through simple Vue component for loading cities
-vue-v0-rest
-
-## V1 - Learning Vue
-
-This tutorial steps through much of the basics fo Vue
-vue-v1-learning
-
-# Vue 4.2 Vetur development support
+https://v2.vuejs.org/v2/guide/mixins.html
 
 ## V2 - Todo List
 
@@ -107,20 +102,24 @@ vue-v2-todo
 
 ## Lab 3a - Vue XKCD Browser
 
-# Vue 4.3 - Build toolchain CLI
+# Vue 4.3 - Build toolchain CLI, Vetur development support
+
+** Single File Components**
+This is a xx.vue file that contains the template, script and css
+
+> One important thing to note is that separation of concerns is not equal to separation of file types. In modern UI development, we have found that instead of dividing the codebase into three huge layers that interweave with one another, it makes much more sense to divide them into loosely-coupled components and compose them. Inside a component, its template, logic and styles are inherently coupled, and collocating them actually makes the component more cohesive and maintainable. - https://v2.vuejs.org/v2/guide/single-file-components.html#What-About-Separation-of-Concerns
 
 ## V3 - Learning Vue CLI
 
-# Vue 4.4 -
+A simple cli created app. This is the first transpiled project. The dist directory must be deployed.
+
+# Vue 4.4 - How would you build Vue?
+
+**Reactivity in Depth**
+https://v2.vuejs.org/v2/guide/reactivity.html
 
 ## Lab 3b - Grocery Store
 
-# Vue 4.5 - SPA & Router
-
-## V4 - Vue Router
-
-This is a non-graded activity. I actually disabled it. It is covered in the CLI activity V3.
-
-# Vue 4.6 - TypeScript
+# Vue 4.5 - TypeScript
 
 ## Vue Quiz

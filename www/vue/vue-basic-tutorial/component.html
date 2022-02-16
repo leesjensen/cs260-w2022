@@ -5,18 +5,21 @@
     <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
+    <nav class="next-lesson">
+      <a href="component-props.html">Next &#10140; Component Props</a>
+    </nav>
     <header>
       <h1>Basic Component</h1>
     </header>
     <main>
       <div id="app">
-        <random-photo></random-photo>
-        <random-photo></random-photo>
-        <random-photo></random-photo>
+        <app-photo></app-photo>
+        <app-photo></app-photo>
+        <app-photo></app-photo>
       </div>
 
       <script>
-        Vue.component('random-photo', {
+        Vue.component('app-photo', {
           template: '<img v-bind:src="getURL()" />',
           methods: {
             getURL: function () {
@@ -36,6 +39,5 @@
     <pre class="code-display">Put something here</pre>
 
     <script src="main.js"></script>
-    <div class="next-lesson"><a href="component-props.html">Next &#10140; Component Props</a></div>
   </body>
 </html>

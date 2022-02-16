@@ -5,13 +5,21 @@
     <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
+    <nav class="next-lesson">
+      <a href="content.html">Next &#10140; Content</a>
+    </nav>
     <header><h1>Form</h1></header>
     <main>
       <div id="app">
         <fieldset>
           <legend>Action</legend>
           <template v-for="action in actions">
-            <input type="radio" v-bind:id="action" v-bind:value="action" v-model="pAction" />
+            <input
+              type="radio"
+              v-bind:id="action"
+              v-bind:value="action"
+              v-model="pAction"
+            />
             <label v-bind:for="action">{{action}}</label>
           </template>
         </fieldset>
@@ -19,7 +27,12 @@
         <fieldset>
           <legend>State</legend>
           <template v-for="state in states">
-            <input type="checkbox" v-bind:id="state" v-bind:value="state" v-model="pStates" />
+            <input
+              type="checkbox"
+              v-bind:id="state"
+              v-bind:value="state"
+              v-model="pStates"
+            />
             <label v-bind:for="state">{{state}}</label>
           </template>
         </fieldset>
@@ -38,7 +51,8 @@
 
         <p class="hlb">
           <span v-if="pStates && pRating && pAction">
-            I {{pAction}} {{pStates.join(' and ')}} because of the {{pRating}} rating. {{comment}}
+            I {{pAction}} {{pStates.join(' and ')}} because of the {{pRating}}
+            rating. {{comment}}
           </span>
           <span v-else>pending...</span>
         </p>
@@ -63,6 +77,5 @@
     <!--- Code for display-->
     <pre class="code-display">Put something here</pre>
     <script src="main.js"></script>
-    <div class="next-lesson"><a href="content.html">Next &#10140; Content</a></div>
   </body>
 </html>

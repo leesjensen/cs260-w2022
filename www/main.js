@@ -242,19 +242,14 @@ const content = [
         link: 'vue/vue-v2-todo',
       },
       {
-        class: 'exercise',
-        title: 'V3: CLI',
-        link: 'vue/vue-v3-cli/dist',
-      },
-      {
-        class: 'exercise',
-        title: 'V4: Router',
-        link: 'vue/vue-v4-router',
-      },
-      {
         class: 'project',
         title: 'Lab 3a: XKCD Browser',
         link: 'https://lab3a.cs260.click',
+      },
+      {
+        class: 'exercise',
+        title: 'V3: CLI',
+        link: 'vue/vue-v3-cli/dist',
       },
       {
         class: 'project',

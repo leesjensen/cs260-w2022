@@ -5,16 +5,19 @@
     <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
+    <nav class="next-lesson">
+      <a href="component.html">Next &#10140; Component</a>
+    </nav>
     <header><h1>Lifecycle</h1></header>
     <main>
-      <div id="app">{{5 + 5}}</div>
+      <div id="app">Nothing here</div>
 
       <script>
         var app = new Vue({
           el: '#app',
           beforeCreate: function () {
             const appDiv = document.querySelector('#app');
-            appDiv.textContent = '{{10+10}}';
+            appDiv.textContent = 'The answer: {{30+12}}';
           },
         });
       </script>
@@ -24,8 +27,5 @@
     <pre class="code-display">Put something here</pre>
 
     <script src="main.js"></script>
-    <div class="next-lesson">
-      <a href="component.html">Next &#10140; Component</a>
-    </div>
   </body>
 </html>
