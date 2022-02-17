@@ -287,6 +287,11 @@ const content = [
         link: 'https://docs.google.com/presentation/d/1dZpn822ZIchuKixoo3zjRuU944zMYNVKB6D07DIfNzY/edit?usp=sharing',
       },
       {
+        class: 'demo',
+        title: 'Basic Router',
+        link: 'vue/vue-basic-tutorial',
+      },
+      {
         class: 'slide',
         title: '4.5 - Vue Inside',
         link: 'https://docs.google.com/presentation/d/1QoXvqO6ZeoEwNPNKL97yh66r_-GRqs7EJ2gZIhB8Ils/edit?usp=sharing',

@@ -6,69 +6,8 @@
     <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
-    <main>
-      <div id="app">
-        <nav class="next-lesson">
-          <app-a href="/">Home</app-a>
-          <app-a href="/about">About</app-a>
-        </nav>
-        <header><h1>Basic Vue Instance</h1></header>
-      </div>
-
-      <script>
-        Vue.component('app-a', {
-          template: `
-            <a v-bind:href="href" v-bind:class="{ active: isActive }" v-on:click="go">
-                <slot></slot>
-            </a>`,
-          props: {
-            href: {
-              type: String,
-              required: true,
-            },
-          },
-          computed: {
-            isActive() {
-              return this.href === this.$root.currentRoute;
-            },
-          },
-          methods: {
-            go(event) {
-              event.preventDefault();
-              this.$root.currentRoute = this.href;
-              window.history.pushState(null, routes[this.href], this.href);
-            },
-          },
-        });
-      </script>
-
-      <script>
-        const NotFound = { template: '<p>Page not found</p>' };
-        const Home = { template: '<p>home page</p>' };
-        const About = { template: '<p>about page</p>' };
-
-        const routes = {
-          '/': Home,
-          '/about': About,
-        };
-
-        new Vue({
-          el: '#app',
-          data: {
-            currentRoute: window.location.pathname,
-          },
-          computed: {
-            ViewComponent() {
-              return routes[this.currentRoute] || NotFound;
-            },
-          },
-          //   render(h) {
-          //     return h(this.ViewComponent);
-          //   },
-        });
-      </script>
-    </main>
-
+    <div id="app"></div>
     <pre class="code-display">Put something here</pre>
   </body>
+  <script src="main.js"></script>
 </html>

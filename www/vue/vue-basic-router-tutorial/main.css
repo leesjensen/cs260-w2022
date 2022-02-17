@@ -9,6 +9,39 @@ main {
   padding: 1em;
 }
 
+.nav-bar {
+  background-color: #be710b;
+  padding: 0.8em;
+  margin-top: 1em;
+  text-align: left;
+  color: #aaaaaa;
+}
+
+.nav-bar a {
+  padding: 0.2em 1em;
+}
+
+a:link,
+a:visited {
+  outline: none;
+  text-decoration: none;
+  color: #efefef;
+}
+
+a.active {
+  background: hsl(0deg 64% 35% / 47%);
+}
+
+textarea {
+  width: 100%;
+  height: 5em;
+  margin: 1em 0;
+}
+
+.hl {
+  color: #ffb700;
+}
+
 .code-display {
   font-family: 'Courier New', Courier, monospace;
   color: whitesmoke;
@@ -18,37 +51,13 @@ main {
   margin-top: 1em;
 }
 
-.next-lesson {
-  background-color: #be710b;
-  padding: 0.8em;
-  margin-top: 1em;
-  text-align: right;
-}
-
-a:link,
-a:visited,
-a:focus {
-  outline: none;
-  text-decoration: none;
-  color: #efefef;
-}
-
-textarea {
-  width: 100%;
+.router-page {
   height: 5em;
-  margin: 1em 0;
-}
+  background: rgb(103, 103, 146);
+  color: white;
+  font-size: 2em;
 
-label {
-  font-weight: bold;
-}
-
-.hl {
-  color: #ffb700;
-}
-
-.hlb {
-  color: #00b8ff;
-  color: #ffb700;
-  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
