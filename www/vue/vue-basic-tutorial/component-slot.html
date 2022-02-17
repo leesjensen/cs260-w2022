@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="photo.css" />
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <nav class="next-lesson">
+      <a href="component-aggregation.html">Next &#10140; Component Aggregation</a>
+    </nav>
+
+    <header>
+      <h1>Component Slots</h1>
+    </header>
+    <main>
+      <div id="app">
+        <app-layout>
+          <template v-slot:header><div>Header</div></template>
+          <template v-slot:sidenav><div>Side Navigation</div></template>
+          <template v-slot:content><div>Content Body</div></template>
+        </app-layout>
+      </div>
+
+      <script>
+        Vue.component('app-photo', {
+          template: `
+            <section>
+              <slot name="header"></slot>
+              <div>
+                <slot name="sidenav"></slot>
+                <slot name="content"></slot>
+              </div>
+              <slot name="footer">Default footer content</slot>
+            </section>
+          `,
+        });
+
+        var app = new Vue({
+          el: '#app',
+        });
+      </script>
+    </main>
+
+    <!--- Code for display-->
+    <pre class="code-display">Put something here</pre>
+
+    <script src="main.js"></script>
+  </body>
+</html>
