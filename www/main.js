@@ -108,6 +108,11 @@ const content = [
         title: 'C2: Responsive',
       },
       {
+        class: 'demo',
+        link: 'https://git.cs260.click/',
+        title: 'Hosting on GitHub pages',
+      },
+      {
         class: 'project',
         link: 'https://lab1.cs260.click',
         title: 'Lab 1: Photographer',
