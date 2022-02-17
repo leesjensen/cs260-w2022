@@ -157,6 +157,12 @@ Changing the NGINX config to point to the right directory.
 
 # Vue 4.4 - Vue Router
 
+https://v2.vuejs.org/v2/guide/routing.html
+https://github.com/vuejs/vue-router
+https://github.com/chrisvfritz/vue-2.0-simple-routing-example
+
+maybe build a simple router
+
 ## Lab 3b - Grocery Store
 
 # Vue 4.5 - Vue Inside
