@@ -2,12 +2,15 @@
 <html>
   <head>
     <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="photo.css" />
+    <link rel="stylesheet" href="slot.css" />
     <script src="https://unpkg.com/vue@2"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <nav class="next-lesson">
-      <a href="component-aggregation.html">Next &#10140; Component Aggregation</a>
+      <a href="component-aggregation.html"
+        >Next &#10140; Component Aggregation</a
+      >
     </nav>
 
     <header>
@@ -23,15 +26,23 @@
       </div>
 
       <script>
-        Vue.component('app-photo', {
+        Vue.component('app-layout', {
           template: `
-            <section>
-              <slot name="header"></slot>
-              <div>
-                <slot name="sidenav"></slot>
-                <slot name="content"></slot>
+            <section class='layout'>
+              <div class="layout-header">
+                <slot name="header"></slot>
               </div>
-              <slot name="footer">Default footer content</slot>
+              <div class="layout-main">
+                <div class="layout-sidenav">
+                  <slot name="sidenav"></slot>
+                </div>
+                <div class="layout-content">
+                  <slot name="content"></slot>
+                </div>
+              </div>
+              <div class="layout-footer">
+                <slot name="footer">Default footer content</slot>
+              </div>
             </section>
           `,
         });
