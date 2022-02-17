@@ -232,6 +232,11 @@ const content = [
         link: 'https://github.com/leesjensen/cs260/blob/main/Unit4.md',
       },
       {
+        class: 'slide',
+        title: '4.1 - Vue Intro',
+        link: 'https://docs.google.com/presentation/d/1TcQm6sVcxXXmgQLWwAm7X3fIYPr2KGGGLh2p0KBlna0/edit?usp=sharing',
+      },
+      {
         class: 'demo',
         title: 'Basic View Tutorial',
         link: 'vue/vue-basic-tutorial',
@@ -257,6 +262,16 @@ const content = [
         link: 'https://lab3a.cs260.click',
       },
       {
+        class: 'slide',
+        title: '4.2 - Vue Components',
+        link: 'https://docs.google.com/presentation/d/1lzcKt6aPJSsPcdzYC72icbe7HQSwGF9_Ely6qq0uVX4/edit?usp=sharing',
+      },
+      {
+        class: 'slide',
+        title: '4.3 - Vue CLI',
+        link: 'https://docs.google.com/presentation/d/1gfb6afyhari2bZTEHvWMrYIpAGoL1AH1iNTTdVDew_M/edit?usp=sharing',
+      },
+      {
         class: 'exercise',
         title: 'V3: CLI',
         link: 'vue/vue-v3-cli/dist',
@@ -265,6 +280,16 @@ const content = [
         class: 'project',
         title: 'Lab 3b: Grocery Store',
         link: 'https://lab3b.cs260.click',
+      },
+      {
+        class: 'slide',
+        title: '4.4 - Vue Router',
+        link: 'https://docs.google.com/presentation/d/1dZpn822ZIchuKixoo3zjRuU944zMYNVKB6D07DIfNzY/edit?usp=sharing',
+      },
+      {
+        class: 'slide',
+        title: '4.5 - Vue Inside',
+        link: 'https://docs.google.com/presentation/d/1QoXvqO6ZeoEwNPNKL97yh66r_-GRqs7EJ2gZIhB8Ils/edit?usp=sharing',
       },
     ],
   },

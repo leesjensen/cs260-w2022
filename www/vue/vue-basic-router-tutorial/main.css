@@ -1,0 +1,54 @@
+body {
+  background: #fafad2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  border: dashed rgb(53, 53, 53) 3px;
+  background: white;
+  padding: 1em;
+}
+
+.code-display {
+  font-family: 'Courier New', Courier, monospace;
+  color: whitesmoke;
+  background: rgb(53, 53, 53);
+  border-radius: 5px;
+  padding: 1em;
+  margin-top: 1em;
+}
+
+.next-lesson {
+  background-color: #be710b;
+  padding: 0.8em;
+  margin-top: 1em;
+  text-align: right;
+}
+
+a:link,
+a:visited,
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: #efefef;
+}
+
+textarea {
+  width: 100%;
+  height: 5em;
+  margin: 1em 0;
+}
+
+label {
+  font-weight: bold;
+}
+
+.hl {
+  color: #ffb700;
+}
+
+.hlb {
+  color: #00b8ff;
+  color: #ffb700;
+  font-weight: bold;
+}
