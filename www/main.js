@@ -137,7 +137,7 @@ const content = [
   {
     name: 'Unit 3: JS',
     description: 'JavaScript/ECMAScript',
-    collapsed: false,
+    collapsed: true,
     item: [
       {
         class: 'note',
@@ -224,7 +224,7 @@ const content = [
   {
     name: 'Unit 4: Frontend',
     description: 'Vue - Web framework',
-    collapsed: true,
+    collapsed: false,
     item: [
       {
         class: 'note',

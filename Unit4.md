@@ -114,6 +114,12 @@ https://v2.vuejs.org/v2/guide/mixins.html
 
 # Vue 4.3 - Build toolchain CLI, Vetur development support
 
+install cli
+
+```
+npm install -g @vue/cli
+```
+
 ** Single File Components**
 This is a xx.vue file that contains the template, script, and css for a component.
 
@@ -169,7 +175,6 @@ maybe build a simple router
 
 - Render
 - Reactivity - how does it work?
-- build a simple router
 
 How would you build Vue? TypeScript? Maybe WebSockets?
 

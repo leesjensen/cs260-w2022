@@ -11,6 +11,7 @@
 - [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 - [ES6 Features](http://es6-features.org/)
 - [Can I Use](https://caniuse.com/)
+- [Roy Fielding's Misappropriated REST Dissertation](https://twobithistory.org/2020/06/28/rest.html)
 
 The weather app and anything else that calls HTTP endpoints needs to be converted to use HTTPS endpoint.
 for example. the weather app call
