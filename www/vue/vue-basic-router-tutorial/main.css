@@ -42,15 +42,6 @@ textarea {
   color: #ffb700;
 }
 
-.code-display {
-  font-family: 'Courier New', Courier, monospace;
-  color: whitesmoke;
-  background: rgb(53, 53, 53);
-  border-radius: 5px;
-  padding: 1em;
-  margin-top: 1em;
-}
-
 .router-page {
   height: 5em;
   background: rgb(103, 103, 146);

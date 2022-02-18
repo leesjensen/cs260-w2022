@@ -20,10 +20,26 @@ router.get('/api/city', function (req, res, next) {
       res.json(result);
     });
   } catch (error) {
-    res
-      .status(400)
-      .send({ message: `'${cityQuery}' is not a valid regular expression` });
+    res.status(400).send({ message: `'${cityQuery}' is not a valid regular expression` });
   }
+});
+
+const axios = require('axios');
+router.get('/api/xkcd', function (req, res, next) {
+  const comicNumber = req.query.comic || 'latest';
+
+  const xkcdUrl = `https://xkcd.now.sh/?comic=${comicNumber}`;
+
+  axios
+    .get(xkcdUrl)
+    .then((response) => res.json(response.data))
+    .catch((error) => {
+      res.status(500).send({ message: `failed to get result from XKCD` });
+    });
+  // fetch(xkcdUrl)
+  //   .then((result) => result.json())
+  //   .then((json) => res.json(json))
+  //   .catch((error) => res.status(500).send({ message: `failed to get result from XKCD` }));
 });
 
 module.exports = router;

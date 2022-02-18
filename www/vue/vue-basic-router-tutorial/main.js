@@ -21,24 +21,19 @@ const routes = {
 
 Vue.component('app-a', {
   template: `
-      <a v-bind:href="href" v-bind:class="{ active: isActive }" v-on:click="go">
+      <a v-bind:href="href" v-bind:class="{ active: isActive }" v-on:click.prevent="go">
           <slot></slot>
       </a>`,
   props: {
-    href: {
-      type: String,
-      required: true,
-    },
+    href: { type: String, required: true },
   },
   computed: {
     isActive() {
-      console.log('isActive', this.href, this.$root.currentRoute);
       return this.href === this.$root.currentRoute;
     },
   },
   methods: {
     go(event) {
-      event.preventDefault();
       if (!this.isActive) {
         this.$root.currentRoute = this.href;
         const path = `${this.$root.basePath}#${this.href}`;

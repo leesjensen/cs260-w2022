@@ -19,3 +19,7 @@ body {
 .todo:focus {
   background-color: blue;
 }
+
+li {
+  list-style-type: none;
+}
