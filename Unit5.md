@@ -22,4 +22,7 @@ sudo npm install pm2@latest -g
 - **List servcies** - `pm2 ls`
 - **Run on reboot** - `pm2 startup systemd`
 
+You still need to do 'npm install' when you first deploy a new dependency for the node application.
+Also I don't think the --watch is working.
+
 ### N2.6 Node Cities
