@@ -289,7 +289,7 @@ const content = [
       {
         class: 'demo',
         title: 'Basic Router',
-        link: 'vue/vue-basic-tutorial',
+        link: 'vue/vue-basic-router-tutorial',
       },
       {
         class: 'slide',
