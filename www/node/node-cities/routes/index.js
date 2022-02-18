@@ -1,6 +1,7 @@
-var express = require('express');
-var cities = require('../cities.js');
-var router = express.Router();
+const express = require('express');
+const axios = require('axios');
+const cities = require('../cities.js');
+const router = express.Router();
 
 /* GET home page. */
 // - From express template. Not used since we expose the entire public directory in app.js
@@ -20,16 +21,20 @@ router.get('/api/city', function (req, res, next) {
       res.json(result);
     });
   } catch (error) {
-    res.status(400).send({ message: `'${cityQuery}' is not a valid regular expression` });
+    res
+      .status(400)
+      .send({ message: `'${cityQuery}' is not a valid regular expression` });
   }
 });
 
-const axios = require('axios');
-router.get('/api/xkcd', function (req, res, next) {
-  const comicNumber = req.query.comic || 'latest';
+router.get('/api/xkcd/:number?', function (req, res, next) {
+  let comicNumber = req.query.number || '';
+  if (comicNumber) {
+    comicNumber += '/';
+  }
 
-  const xkcdUrl = `https://xkcd.now.sh/?comic=${comicNumber}`;
-
+  const xkcdUrl = `https://xkcd.com/${comicNumber}info.0.json`;
+  console.log(xkcdUrl);
   axios
     .get(xkcdUrl)
     .then((response) => res.json(response.data))
