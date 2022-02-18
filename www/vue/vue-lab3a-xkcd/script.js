@@ -40,7 +40,7 @@ let app = new Vue({
       if (comicNumber === -1) {
         comicNumber = 'latest';
       }
-      const url = `https://xkcd.now.sh/?comic=${comicNumber}`;
+      const url = `https://cs260.click/api/xkcd/${comicNumber}`;
       console.log(url);
 
       this.loaded = false;
