@@ -28,7 +28,7 @@ router.get('/api/city', function (req, res, next) {
 });
 
 router.get('/api/xkcd/:number?', function (req, res, next) {
-  let comicNumber = req.query.number || '';
+  let comicNumber = req.params.number || '';
   if (comicNumber === 'latest') {
     comicNumber = '';
   } else if (comicNumber) {
