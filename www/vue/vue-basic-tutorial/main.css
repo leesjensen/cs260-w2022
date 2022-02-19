@@ -20,6 +20,7 @@ main {
 }
 
 .code-inline {
+  display: inline-block;
   font-family: 'Courier New', Courier, monospace;
   color: whitesmoke;
   background: rgb(53, 53, 53);
