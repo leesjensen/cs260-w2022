@@ -176,7 +176,9 @@ maybe build a simple router
 - Render
 - Reactivity - how does it work?
 
-How would you build Vue? TypeScript? Maybe WebSockets?
+How would you build Vue?
+
+TypeScript? Maybe WebSockets?
 
 **Reactivity in Depth**
 https://v2.vuejs.org/v2/guide/reactivity.html

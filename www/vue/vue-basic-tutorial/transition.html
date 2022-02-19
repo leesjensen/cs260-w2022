@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://unpkg.com/vue@2"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <nav class="next-lesson">
+      <a href="method.html">Next &#10140; Method</a>
+    </nav>
+    <header>
+      <h1>Transition</h1>
+      <p>
+        Transitions automatically associate specially named CSS selectors with
+        an element based on
+        <spand class="code-inline">v-if</spand> and
+        <spand class="code-inline">v-show</spand> transitions.
+      </p>
+    </header>
+    <main>
+      <style>
+        .fancy-enter {
+          transform: rotate(0deg) scale(0);
+        }
+
+        .fancy-enter-to {
+          transform: rotate(362deg) scale(1);
+          transition: transform 1s;
+        }
+
+        .fancy-leave-to {
+          transform: scale(0);
+          transition: transform 1s;
+        }
+      </style>
+
+      <div id="app">
+        <button v-on:click="show = !show">Toggle</button>
+        <transition name="fancy">
+          <div class="code-inline" v-if="show">I am exciting</div>
+        </transition>
+      </div>
+
+      <script>
+        var app = new Vue({
+          el: '#app',
+          data: { show: true },
+        });
+      </script>
+    </main>
+
+    <!--- Code for display-->
+    <pre class="code-display">
+&lt;style>
+  <span class='hl'>.fancy-enter {
+    transform: rotate(0deg) scale(0);
+  }
+
+  .fancy-enter-to {
+    transform: rotate(362deg) scale(1);
+    transition: transform 1s;
+  }
+
+  .fancy-leave-to {
+    transform: scale(0);
+    transition: transform 1s;
+  }</span>
+&lt;/style>
+
+&lt;div id="app">
+  &lt;button v-on:click="show = !show">Toggle&lt;/button>
+  <span class='hl'>&lt;transition name="fancy"></span>
+    &lt;div v-if="show">I am exciting&lt;/div>
+  &lt;/transition>
+&lt;/div>
+    </pre>
+
+    <script src="main.js"></script>
+  </body>
+</html>
