@@ -16,6 +16,15 @@ main {
   border-radius: 5px;
   padding: 1em;
   margin-top: 1em;
+  overflow: auto;
+}
+
+.code-inline {
+  font-family: 'Courier New', Courier, monospace;
+  color: whitesmoke;
+  background: rgb(53, 53, 53);
+  border-radius: 5px;
+  padding: 0 0.25em;
 }
 
 .next-lesson {
@@ -35,7 +44,7 @@ a:focus {
 
 textarea {
   width: 100%;
-  height: 5em;
+  height: 7em;
   margin: 1em 0;
 }
 
@@ -51,4 +60,13 @@ label {
   color: #00b8ff;
   color: #ffb700;
   font-weight: bold;
+}
+
+.trooper {
+  display: inline-block;
+  border: thin solid gray;
+  background: black;
+  padding: 1em;
+  font-weight: bold;
+  color: white;
 }

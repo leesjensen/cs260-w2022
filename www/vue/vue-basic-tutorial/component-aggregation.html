@@ -12,6 +12,10 @@
     </nav>
     <header>
       <h1>Component Aggregation</h1>
+      <p>
+        Component may contain other components that communicate with events or
+        callbacks.
+      </p>
     </header>
     <main>
       <div id="app">
@@ -37,7 +41,7 @@
         Vue.component('app-photo', {
           props: ['caption', 'price'],
           data: function () {
-            return { seed: Math.floor(Math.random() * 1000), selected: false };
+            return { selected: false };
           },
           template: `
             <figure class='photo'>
@@ -48,7 +52,7 @@
           `,
           computed: {
             imageUrl: function () {
-              return `https://picsum.photos/seed/${this.seed}/100/100`;
+              return `https://picsum.photos/seed/${Math.random()}/100/100`;
             },
             promoted: function () {
               return !this.price.startsWith('$');

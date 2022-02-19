@@ -11,10 +11,16 @@
     <nav class="next-lesson">
       <a href="template.html">Next &#10140; Template</a>
     </nav>
-    <header><h1>Basic Vue Instance</h1></header>
+    <header>
+      <h1>Basic Vue Instance</h1>
+      <p>
+        You can modify the message in the debug console with
+        <span class="code-inline">app.message="Goodbye!"</span>
+      </p>
+    </header>
     <main>
       <div id="app">
-        Message from Vue: <span class="hlb">{{ message }}</span>
+        <p>Message from Vue: <span class="hlb">{{ message }}</span></p>
       </div>
 
       <script>
@@ -26,6 +32,8 @@
     </main>
 
     <pre class="code-display">
+&lt;script src="<span class='hl'>https://unpkg.com/vue@2"</span>>&lt;/script>
+
 &lt;div <span class='hl'>id="app"</span>>Message from Vue: <span class='hl'>{{ message }}</span>&lt;/div&gt;
 
 &lt;script&gt;

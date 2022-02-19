@@ -11,22 +11,25 @@
     </nav>
     <header>
       <h1>Basic Component</h1>
+      <p>
+        Components modularize functionality that is represented by new HTML
+        elements.
+      </p>
     </header>
     <main>
       <div id="app">
-        <app-photo></app-photo>
-        <app-photo></app-photo>
-        <app-photo></app-photo>
+        <app-trooper></app-trooper>
+        <app-trooper></app-trooper>
+        <app-trooper></app-trooper>
       </div>
 
       <script>
-        Vue.component('app-photo', {
-          template: '<img v-bind:src="getURL()" />',
-          methods: {
-            getURL: function () {
-              const seed = Math.floor(Math.random() * 1000);
-              return `https://picsum.photos/seed/${seed}/100/100`;
-            },
+        Vue.component('app-trooper', {
+          template: '<div class="trooper">{{operatingNumber}}</div>',
+          data: function () {
+            return {
+              operatingNumber: `TK-${Math.floor(Math.random() * 1000)}`,
+            };
           },
         });
 
@@ -37,7 +40,28 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">Put something here</pre>
+    <pre class="code-display">
+&lt;div id="app">
+  &lt;<span class='hl'>app-trooper</span>>&lt;/app-trooper>
+  &lt;app-trooper>&lt;/app-trooper>
+  &lt;app-trooper>&lt;/app-trooper>
+&lt;/div>
+
+&lt;script>
+  Vue.<span class='hl'>component</span>('app-trooper', {
+    <span class='hl'>template</span>: '&lt;div class="trooper">{{operatingNumber}}&lt;/div>',
+    data: function () {
+      return {
+        operatingNumber: `TK-${Math.floor(Math.random() * 1000)}`,
+      };
+    },
+  });
+
+  var app = new Vue({
+    el: '#app',
+  });
+&lt;/script>
+    </pre>
 
     <script src="main.js"></script>
   </body>

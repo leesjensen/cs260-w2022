@@ -10,7 +10,20 @@
       <a href="computed.html">Next &#10140; Computed</a>
     </nav>
 
-    <header><h1>Text &amp; HTML Content</h1></header>
+    <header>
+      <h1>Text &amp; HTML Content</h1>
+      <p>
+        You can modify DOM content. Do not allow injection of external scripts.
+        Such as:
+      </p>
+      <pre>
+    &lt;img src='x'
+      onerror='fetch("https://cs260.click/hacked.json")
+                .then(r=>r.json())
+                .then(j=>alert(j.code))'
+    />
+      </pre>
+    </header>
     <main>
       <div id="app">
         <label>textContent:</label>

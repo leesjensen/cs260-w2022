@@ -7,10 +7,18 @@
   </head>
   <body>
     <nav class="next-lesson"><a href="on.html">Next &#10140; On</a></nav>
-    <header><h1>Filter</h1></header>
+    <header>
+      <h1>Filter</h1>
+      <p>
+        You can chain filters in a template to modify the output. Custom filters
+        are created on the Vue instance.
+      </p>
+    </header>
     <main>
       <div id="app">
-        <p>Result: <span class="hlb">{{message | reverse | capitalize}}</span></p>
+        <p>
+          Result: <span class="hlb">{{message | reverse | capitalize}}</span>
+        </p>
         <input v-model="message" />
       </div>
 

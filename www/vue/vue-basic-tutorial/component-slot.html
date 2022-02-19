@@ -15,6 +15,11 @@
 
     <header>
       <h1>Component Slots</h1>
+      <p>
+        Components can define content children as represented by template slots.
+        There is always a default slot. Slots can be named and have default
+        content.
+      </p>
     </header>
     <main>
       <div id="app">
@@ -54,7 +59,42 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">Put something here</pre>
+    <pre class="code-display">
+&lt;div id="app">
+  &lt;app-layout>
+    <span class='hl'>&lt;template v-slot:header</span>>&lt;div>Header&lt;/div>&lt;/template>
+    &lt;template v-slot:sidenav>&lt;div>Side Navigation&lt;/div>&lt;/template>
+    &lt;template v-slot:content>&lt;div>Content Body&lt;/div>&lt;/template>
+  &lt;/app-layout>
+&lt;/div>
+
+&lt;script>
+  Vue.component('app-layout', {
+    template: `
+      &lt;section class='layout'>
+        &lt;div class="layout-header">
+          <span class='hl'>&lt;slot name="header">&lt;/slot></span>
+        &lt;/div>
+        &lt;div class="layout-main">
+          &lt;div class="layout-sidenav">
+            &lt;slot name="sidenav">&lt;/slot>
+          &lt;/div>
+          &lt;div class="layout-content">
+            &lt;slot name="content">&lt;/slot>
+          &lt;/div>
+        &lt;/div>
+        &lt;div class="layout-footer">
+          &lt;slot name="footer">Default footer content&lt;/slot>
+        &lt;/div>
+      &lt;/section>
+    `,
+  });
+
+  var app = new Vue({
+    el: '#app',
+  });
+&lt;/script>
+    </pre>
 
     <script src="main.js"></script>
   </body>

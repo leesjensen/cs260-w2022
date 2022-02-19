@@ -13,6 +13,7 @@
 
     <header>
       <h1>Component Enhanced Template</h1>
+      <p>The template for a component can be very complicated.</p>
     </header>
     <main>
       <div id="app">
@@ -26,9 +27,6 @@
       <script>
         Vue.component('app-photo', {
           props: ['caption', 'price'],
-          data: function () {
-            return { seed: Math.floor(Math.random() * 1000) };
-          },
           template: `
             <figure class='photo'>
               <img :src="imageUrl" />
@@ -38,7 +36,7 @@
           `,
           computed: {
             imageUrl: function () {
-              return `https://picsum.photos/seed/${this.seed}/100/100`;
+              return `https://picsum.photos/seed/${Math.random()}/100/100`;
             },
             promoted: function () {
               return !this.price.startsWith('$');
@@ -53,7 +51,41 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">Put something here</pre>
+    <pre class="code-display">
+&lt;div id="app">
+  &lt;app-photo caption="Beauty" price="$99.99">&lt;/app-photo>
+  &lt;app-photo caption="Joy" price="$2,000">&lt;/app-photo>
+  &lt;app-photo caption="Fear" price="free">&lt;/app-photo>
+  &lt;app-photo caption="Solitude" price="$1,300">&lt;/app-photo>
+  &lt;app-photo caption="Anger" price="Inquire">&lt;/app-photo>
+&lt;/div>
+
+&lt;script>
+  Vue.component('app-photo', {
+    props: <span class='hl'>['caption', 'price']</span>,
+    <span class='hl'>template: `
+      &lt;figure class='photo'>
+        &lt;img :src="imageUrl" />
+        &lt;figcaption>{{caption}}&lt;/figcaption>
+        &lt;div :class="['price', {promote:promoted}]">{{price}}&lt;/div>
+      &lt;/figure>
+    `,</span>
+    computed: {
+      imageUrl: function () {
+        return `https://picsum.photos/seed/${Math.random()}/100/100`;
+      },
+      promoted: function () {
+        return !this.price.startsWith('$');
+      },
+    },
+  });
+
+  var app = new Vue({
+    el: '#app',
+  });
+&lt;/script>
+
+    </pre>
 
     <script src="main.js"></script>
   </body>
