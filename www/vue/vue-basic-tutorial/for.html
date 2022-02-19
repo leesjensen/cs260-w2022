@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <nav class="next-lesson">
-      <a href="computed.html">Next &#10140; Computed</a>
-    </nav>
+    <nav class="next-lesson"><a href="form.html">Next &#10140; Form</a></nav>
+
     <header><h1>For</h1></header>
     <main>
       <div id="app">
@@ -40,7 +39,34 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">Put something here</pre>
+    <pre class="code-display">
+      &lt;div id="app">
+        &lt;ul>
+          &lt;li <span class="hl">v-for="(item, i) in items"</span>>[{{i}}] {{item}}&lt;/li>
+          &lt;li>&lt;span <span class="hl">v-for="n in 5" v-if="n != 3"</span>{{n}} &lt;/span>&lt;/li>
+        &lt;/ul>
+
+        &lt;template <span class="hl">v-for="(val, key) in obj"</span>
+          &lt;label>{{ key }}&lt;/label>
+          &lt;span>&#10140; Created by {{val.by}} in {{val.date}}.&lt;/span>
+          &lt;br />
+        &lt;/template>
+      &lt;/div>
+
+      &lt;script>
+        var app = new Vue({
+          el: '#app',
+          data: {
+            items: ['Lee', 'Lie', 'Linus'],
+            obj: {
+              html: { by: 'Lee', date: '1993' },
+              css: { by: 'Lie', date: '1996' },
+              git: { by: 'Linus', date: '2005' },
+            },
+          },
+        });
+      &lt;/script>
+    </pre>
 
     <script src="main.js"></script>
   </body>

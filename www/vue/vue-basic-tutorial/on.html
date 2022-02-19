@@ -35,7 +35,29 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">Put something here</pre>
+    <pre class="code-display">
+&lt;div id="app">
+  &lt;p>Currently: {{order}}&lt;/p>
+  &lt;button <span class="hl">v-on:click</span>="set('pork')">Pork&lt;/button>
+  &lt;button <span class="hl">@click</span>="set('chicken')">Chicken&lt;/button>
+  &lt;input <span class="hl">v-on:keyup.enter</span>="onEnter" />
+&lt;/div>
+
+&lt;script>
+  var app = new Vue({
+    el: '#app',
+    data: { order: 'not set' },
+    methods: {
+      <span class="hl">set</span>: function (value) {
+        this.order = value;
+      },
+      <span class="hl">onEnter</span>: function (e) {
+        this.set(e.target.value);
+      },
+    },
+  });
+&lt;/script>
+    </pre>
 
     <script src="main.js"></script>
   </body>

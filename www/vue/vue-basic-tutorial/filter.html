@@ -10,7 +10,7 @@
     <header><h1>Filter</h1></header>
     <main>
       <div id="app">
-        <p><span class="hlb">{{message | reverse | capitalize}}</span></p>
+        <p>Result: <span class="hlb">{{message | reverse | capitalize}}</span></p>
         <input v-model="message" />
       </div>
 
@@ -31,7 +31,28 @@
       </script>
     </main>
 
-    <pre class="code-display">something here</pre>
+    <pre class="code-display">
+&lt;div id="app">
+  &lt;p>Result: {{message <span class="hl">| reverse | capitalize</span>}}&lt;/p>
+  &lt;input v-model="message" />
+&lt;/div>
+
+&lt;script>
+  <span class="hl">Vue.filter('capitalize', function (value) {
+    return value.toUpperCase();
+  });</span>
+
+  var app = new Vue({
+    el: '#app',
+    data: { message: '' },
+    <span class="hl">filters</span>: {
+      <span class="hl">reverse: function (value) {
+        return value.split('').reverse().join('');
+      }</span>,
+    },
+  });
+&lt;/script>
+    </pre>
     <script src="main.js"></script>
   </body>
 </html>

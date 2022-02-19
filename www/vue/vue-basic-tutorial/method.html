@@ -27,7 +27,21 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">Put something here</pre>
+    <pre class="code-display">
+&lt;div id="app">{{<span class="hl">format('Hey')</span>}}&lt;/div>
+
+&lt;script>
+  var app = new Vue({
+    el: '#app',
+    data: { message: `i'm alive` },
+    <span class="hl">methods</span>: {
+      <span class="hl">format</span>: function (prefix) {
+        return prefix + ' ' + this.message.toUpperCase();
+      },
+    },
+  });
+&lt;/script>      
+    </pre>
 
     <script src="main.js"></script>
   </body>

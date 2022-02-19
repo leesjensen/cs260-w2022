@@ -15,12 +15,7 @@
         <fieldset>
           <legend>Action</legend>
           <template v-for="action in actions">
-            <input
-              type="radio"
-              v-bind:id="action"
-              v-bind:value="action"
-              v-model="pAction"
-            />
+            <input type="radio" v-bind:id="action" v-bind:value="action" v-model="pAction" />
             <label v-bind:for="action">{{action}}</label>
           </template>
         </fieldset>
@@ -28,12 +23,7 @@
         <fieldset>
           <legend>State</legend>
           <template v-for="state in states">
-            <input
-              type="checkbox"
-              v-bind:id="state"
-              v-bind:value="state"
-              v-model="pStates"
-            />
+            <input type="checkbox" v-bind:id="state" v-bind:value="state" v-model="pStates" />
             <label v-bind:for="state">{{state}}</label>
           </template>
         </fieldset>
@@ -52,8 +42,7 @@
 
         <p class="hlb">
           <span v-if="pStates && pRating && pAction">
-            I {{pAction}} {{pStates.join(' and ')}} because of the {{pRating}}
-            rating. {{comment}}
+            I {{pAction}} {{pStates.join(' and ')}} because of the {{pRating}} rating. {{comment}}
           </span>
           <span v-else>pending...</span>
         </p>
@@ -76,7 +65,62 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">Put something here</pre>
+    <pre class="code-display">
+&lt;div id="app">
+  &lt;fieldset>
+    &lt;legend>Action&lt;/legend>
+    &lt;template v-for="action in actions">
+    <span class="hl">&lt;input type="radio" 
+      v-bind:id="action" v-bind:value="action" v-model="pAction" /></span>
+      &lt;label v-bind:for="action">{{action}}&lt;/label>
+    &lt;/template>
+  &lt;/fieldset>
+
+  &lt;fieldset>
+    &lt;legend>State&lt;/legend>
+    &lt;template v-for="state in states">
+    <span class="hl">&lt;input type="checkbox" 
+      v-bind:id="state" v-bind:value="state" v-model="pStates" /></span>
+      &lt;label v-bind:for="state">{{state}}&lt;/label>
+    &lt;/template>
+  &lt;/fieldset>
+
+  &lt;fieldset>
+    &lt;legend>Rating&lt;/legend>
+    &lt;select v-model="pRating">
+    <span class="hl">&lt;option v-for="rating in ratings">{{rating}}&lt;/option></span>
+    &lt;/select>
+  &lt;/fieldset>
+
+  &lt;fieldset>
+    &lt;legend>Comment&lt;/legend>
+    <span class="hl">&lt;input v-model="comment" /></span>
+  &lt;/fieldset>
+
+  &lt;p class="hlb">
+    &lt;span v-if="pStates && pRating && pAction">
+      I {{pAction}} {{pStates.join(' and ')}} because of the {{pRating}}
+      rating. {{comment}}
+    &lt;/span>
+    &lt;span v-else>pending...&lt;/span>
+  &lt;/p>
+&lt;/div>
+
+&lt;script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      comment: '',
+      actions: ['plan to visit', 'have visited', 'will avoid'],
+      states: ['Utah', 'New York', 'Texas', 'Iowa'],
+      ratings: ['Awesome', 'Good', 'OK'],
+      pStates: [],
+      pRating: '',
+      pAction: '',
+    },
+  });
+&lt;/script>      
+    </pre>
     <script src="main.js"></script>
   </body>
 </html>

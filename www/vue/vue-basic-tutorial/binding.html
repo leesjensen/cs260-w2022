@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <nav class="next-lesson"><a href="form.html">Next &#10140; Form</a></nav>
+    <nav class="next-lesson"><a href="for.html">Next &#10140; For</a></nav>
+
     <header><h1>Attribute Binding</h1></header>
     <main>
       <div id="app">
         <p>
           Current State:
-          <span v-bind:class="{hl: state}" v-bind:style="labelStyle"
-            >{{state}}</span
-          >
+          <span v-bind:class="{hl: state}" v-bind:style="labelStyle">{{state}}</span>
         </p>
         <button v-bind:disabled="!state" v-on:click="toggle">false</button>
         <button :disabled="state" v-on:click="toggle">true</button>
@@ -40,8 +39,34 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">Put something here</pre>
+    <pre class="code-display">
+&lt;div id="app">
+  &lt;p>
+    Current State:
+    &lt;span <span class="hl">v-bind:class</span>="{hl: state}" <span class="hl">v-bind:style</span>="labelStyle">{{state}}&lt;/span>
+  &lt;/p>
+  &lt;button <span class="hl">v-bind:disabled="!state"</span> v-on:click="toggle">false&lt;/button>
+  &lt;button <span class="hl">:disabled="state"</span> v-on:click="toggle">true&lt;/button>
+&lt;/div>
 
+&lt;script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      <span class="hl">state</span>: true,
+      <span class="hl">labelStyle</span>: {
+        fontWeight: 'lighter',
+      },
+    },
+    methods: {
+      <span class="hl">toggle</span>: function () {
+        this.state = !this.state;
+        this.labelStyle.fontWeight = this.state ? 'bolder' : 'lighter';
+      },
+    },
+  });
+&lt;/script>
+  </pre>
     <script src="main.js"></script>
   </body>
 </html>

@@ -32,7 +32,26 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">Put something here</pre>
+    <pre class="code-display">
+&lt;div id="app">
+  &lt;p>Current Number: {{clickCount}}&lt;/p>
+  &lt;button v-on:click="++clickCount">Increment&lt;/button>
+  &lt;p>
+    The number is:
+    &lt;span <span class="hl">v-if</span>="clickCount === 0">Zero&lt;/span>
+    &lt;span <span class="hl">v-else-if</span>="clickCount % 2 === 0">Even&lt;/span>
+    &lt;span <span class="hl">v-else</span>>Odd&lt;/span>
+    &lt;span <span class="hl">v-show</span>="clickCount &lt; 10"> and below 10&lt;/span>
+  &lt;/p>
+&lt;/div>
+
+&lt;script>
+  var app = new Vue({
+    el: '#app',
+    data: { clickCount: 0 },
+  });
+&lt;/script>
+    </pre>
 
     <script src="main.js"></script>
   </body>

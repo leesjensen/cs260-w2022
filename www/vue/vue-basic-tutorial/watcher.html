@@ -36,7 +36,30 @@
     </main>
 
     <!--- Code for display-->
-    <pre class="code-display">Put something here</pre>
+    <pre class="code-display">
+&lt;div id="app">
+  &lt;p>Path: &lt;input <span class="hl">v-model="input"</span> />&lt;/p>
+  &lt;p>Security Log:&lt;/p>
+  &lt;div class="hlb" v-for="entry in securityLog">{{entry}}&lt;/div>
+&lt;/div>
+
+&lt;script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      input: '',
+      securityLog: [],
+    },
+    <span class="hl">watch</span>: {
+      <span class="hl">input</span>: function (newInput, oldInput) {
+        if (/(^\/|\.\.\/)/.test(newInput)) {
+          this.securityLog.push(newInput);
+        }
+      },
+    },
+  });
+&lt;/script>
+    </pre>
 
     <script src="main.js"></script>
   </body>
