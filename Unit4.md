@@ -127,8 +127,20 @@ This is a xx.vue file that contains the template, script, and css for a componen
 
 **Cover the vue file format.**
 
+This is the first transpiled project and so we need a build chain.
+
+### CLI demo
+
+```
+npm install -g @vue/cli
+vue --version
+vue create demo
+```
+
+Select manuel features. Choose Babel, Linter, Vue 2.x, EsLint with error prevention only, lint on save, dedicated config files
+
 **Package.json**
-It's node.js time@!
+It's node.js time!
 Explain how NPM uses this file. also package-lock.json, dependencies and such.
 
 **Deploying a webpacked code base**
@@ -156,7 +168,7 @@ that can be hosted in the browser.
 
 ## V3 - Learning Vue CLI
 
-A simple cli created app. This is the first transpiled project. The dist directory must be deployed.
+A simple cli created app. The dist directory must be deployed.
 
 Talk about just deploying the dist directory.
 Changing the NGINX config to point to the right directory.
