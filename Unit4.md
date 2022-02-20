@@ -139,6 +139,8 @@ vue create demo
 
 Select manuel features. Choose Babel, Linter, Vue 2.x, EsLint with error prevention only, lint on save, dedicated config files
 
+Walk through all of the file that are generated.
+
 **Package.json**
 It's node.js time!
 Explain how NPM uses this file. also package-lock.json, dependencies and such.
