@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "type": "chrome",
+      "name": "http://localhost:8080",
+      "request": "launch",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}/src",
+      "breakOnLoad": true,
+      "sourceMapPathOverrides": {
+        // "webpack:///./~/*": "${workspaceFolder}/node_modules/*",
+        // "webpack://?:*/*": "${workspaceFolder}/*",
+        "webpack:////./src/*": "${webRoot}/*"
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <CenteredDiv class="fill-screen">I am simple.</CenteredDiv>
+    <CenteredDiv class="fill-screen" @click="clicked">I am simple.</CenteredDiv>
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   name: 'App',
   components: {
     CenteredDiv,
+  },
+  methods: {
+    clicked() {
+      console.log('clicked');
+    },
   },
 };
 </script>
