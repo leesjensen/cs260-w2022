@@ -168,6 +168,18 @@ that can be hosted in the browser.
 <script src="js/app.16271a96.js"></script>
 ```
 
+###Debugging###
+
+https://v2.vuejs.org/v2/cookbook/debugging-in-vscode.html
+
+####Using Chrome debug extension####
+
+1. Chrome debug extension. Installed by default under @builtin
+1. Set a breakpoint on some JavaScript
+1. Launch the websrever with `http-server -c-1` or use the live-server extension.
+1. `SHIFT-CMD P` and type `Debug: Open Link`, paste in the URL from launching the server. This will attach to the given URL.
+1. You breakpoint should now activate.
+
 ## V3 - Learning Vue CLI
 
 A simple cli created app. The dist directory must be deployed.

@@ -19,6 +19,7 @@
 
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Param from parent of helloworld" />
+    <a @click="clicker">click</a>
   </div>
 </template>
 
@@ -37,6 +38,11 @@ export default {
   computed: {
     tickets() {
       return this.$root.$data.getTickets();
+    },
+  },
+  methods: {
+    clicker() {
+      console.log('clicked');
     },
   },
 };
