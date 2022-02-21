@@ -145,27 +145,49 @@ Walk through all of the file that are generated.
 It's node.js time!
 Explain how NPM uses this file. also package-lock.json, dependencies and such.
 
-**Deploying a webpacked code base**
-[webpack](https://webpack.github.io/) - Package JavaScript modules into static assests that can be hosted on a browser.
-[vueloader](https://vue-loader-v14.vuejs.org/en/) - Loader for webpack that can transform vue files into javascript
-
-**webpack.config.js**
-Talk about how it pulls it all together. Loaders for vue and babel.
-
-```html
-<div>App</div>
-<div id="app"></div>
-<!-- built files will be auto injected -->
+```json
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
 ```
 
-Running `npm build` executes `webpack` with the `vueloader` to transform all the `.vue` files into static resources
-that can be hosted in the browser.
+**Deploying a webpacked code base**
+
+- [vue-cli-service](https://cli.vuejs.org/guide/cli-service.html) - Will use webpack to build a distribution bundle
+- [webpack](https://webpack.github.io/) - Package JavaScript modules into static assests that can be hosted on a browser.
+- [vueloader](https://vue-loader-v14.vuejs.org/en/) - Loader for webpack that can transform vue files into javascript
+
+```
+npm run build
+```
+
+Executes `vue-cli-service` whihc calls `webpack` with the `vueloader` to transform all the `.vue` files into static resources
+that can be hosted in the browser. Takes this:
 
 ```html
 <div>App</div>
 <div id="app"></div>
+<!-- build files will be auto injected -->
+```
+
+Into something like:
+
+```html
+<div>App</div>
+<div id="app"></div>
+<!-- Injected -->
 <script src="js/chunk-vendors.ce2ca14e.js"></script>
 <script src="js/app.16271a96.js"></script>
+```
+
+If you want to host the dist directory under something other than root, then modify `vue.config.js` to set a different public path.
+
+```javascript
+module.exports = {
+  publicPath: '',
+};
 ```
 
 ###Debugging###
