@@ -272,11 +272,6 @@ const content = [
         link: 'https://docs.google.com/presentation/d/1gfb6afyhari2bZTEHvWMrYIpAGoL1AH1iNTTdVDew_M/edit?usp=sharing',
       },
       {
-        class: 'exercise',
-        title: 'V3: CLI',
-        link: 'vue/vue-v3-cli/dist',
-      },
-      {
         class: 'demo',
         title: 'CLI Demo',
         link: 'vue/vue-cli-demo/dist',
@@ -285,6 +280,11 @@ const content = [
         class: 'demo',
         title: 'CLI Users',
         link: 'vue/vue-cli-users/dist',
+      },
+      {
+        class: 'exercise',
+        title: 'V3: CLI',
+        link: 'vue/vue-v3-cli/dist',
       },
       {
         class: 'project',
