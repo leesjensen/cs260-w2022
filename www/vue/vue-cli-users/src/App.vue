@@ -1,36 +1,36 @@
 <template>
-<user-grid :userData="userData" :onClose="deleteUser" />
+  <user-grid :userData="userData" :onClose="deleteUser" />
 </template>
 
 <script>
-import userGrid from './components/UserGrid'
+import userGrid from "./components/UserGrid";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    userGrid
+    userGrid,
   },
-  data: function() {
-      return {
-        count: 30,
-        userData: []
-      }
+  data: function () {
+    return {
+      count: 30,
+      userData: [],
+    };
   },
-  created: function(){
+  created: function () {
     const randomUserURL = `https://randomuser.me/api/?results=${this.count}`;
     fetch(randomUserURL)
-    .then((r) => r.json())
-    .then((j) => {
-      this.userData = j.results;
-    })
+      .then((r) => r.json())
+      .then((j) => {
+        this.userData = j.results;
+      });
   },
   methods: {
-    deleteUser: function(user) {
-      console.log(user.id)
-      this.userData = this.userData.filter((n) => n.email !== user.email)
-    }
-  }
-}
+    deleteUser: function (user) {
+      console.log(user.id);
+      this.userData = this.userData.filter((n) => n.email !== user.email);
+    },
+  },
+};
 </script>
 
 <style>
