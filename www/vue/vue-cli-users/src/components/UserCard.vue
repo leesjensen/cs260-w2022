@@ -1,6 +1,6 @@
 <template>
 <div class="user-card">
-  <button class="right-align" v-if="onClose" @click="onClose(userData)">x</button>
+  <div class="close-btn" v-if="onClose" @click="onClose(userData)"></div>
   <img :src="userData.picture.large" :alt="name" :title="name" />
   <div class="attr attr-title">{{name}}</div>
   <div class="attr attr-small"><a :href="`mailto:${userData.email}`">{{userData.email}}</a></div>
@@ -34,6 +34,7 @@ export default {
 
 <style scoped>
 .user-card {
+  position: relative;
   display: inline-block;
   border: solid #586160 thin;
   border-radius: 10px;
@@ -48,8 +49,42 @@ img {
   border:thick solid whitesmoke;
 }
 
-.right-align {
-  float:right;
+a {
+  color:inherit;
+  outline: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 20px;
+  height: 20px;
+  background:rgb(87, 87, 87);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.close-btn:after {
+  content: '';
+  width: 55%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  top: 48%;
+  left: 22%;
+  transform: rotate(-45deg);
+}
+
+.close-btn:before {
+  content: '';
+  width: 55%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  top: 48%;
+  left: 22%;
+  transform: rotate(45deg);
 }
 
 .attr {
