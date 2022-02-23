@@ -26,13 +26,20 @@ export default {
   },
   methods: {
     deleteUser: function(user) {
-      this.userData = this.userData.filter((n) => n.id.value !== user.id.value)
+      console.log(user.id)
+      this.userData = this.userData.filter((n) => n.email !== user.email)
     }
   }
 }
 </script>
 
 <style>
+body {
+  color: whitesmoke;
+  background: #798584;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }

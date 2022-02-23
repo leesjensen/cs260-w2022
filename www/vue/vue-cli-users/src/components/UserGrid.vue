@@ -43,7 +43,8 @@ export default {
 <style scoped>
 h2 {
   text-align: left;
-  border-top: grey solid thick;
+  padding-top: .5em;
+  border-top: #586167 solid .5em;
 }
  .card-container {
    display: flex;
@@ -58,6 +59,7 @@ dl.inline {
   flex-flow: row;
   flex-wrap: wrap;
   width: 300px;
+  margin-left: 1em;
   overflow: visible;
 }
 dl.inline dt {
@@ -65,6 +67,7 @@ dl.inline dt {
   text-overflow: ellipsis;
   overflow: hidden;
   font-weight: bold;
+  color: #becbd3;
 }
 dl.inline dd {
   flex:0 0 75%;

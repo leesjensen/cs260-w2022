@@ -277,6 +277,16 @@ const content = [
         link: 'vue/vue-v3-cli/dist',
       },
       {
+        class: 'demo',
+        title: 'CLI Demo',
+        link: 'vue/vue-cli-demo/dist',
+      },
+      {
+        class: 'demo',
+        title: 'CLI Users',
+        link: 'vue/vue-cli-users/dist',
+      },
+      {
         class: 'project',
         title: 'Lab 3b: Grocery Store',
         link: 'https://lab3b.cs260.click',

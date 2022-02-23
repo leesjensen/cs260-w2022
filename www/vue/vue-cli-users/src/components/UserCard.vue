@@ -1,6 +1,6 @@
 <template>
 <div class="user-card">
-  <button v-if="onClose" @click="onClose(userData)">x</button>
+  <button class="right-align" v-if="onClose" @click="onClose(userData)">x</button>
   <img :src="userData.picture.large" :alt="name" :title="name" />
   <div class="attr attr-title">{{name}}</div>
   <div class="attr attr-small"><a :href="`mailto:${userData.email}`">{{userData.email}}</a></div>
@@ -35,18 +35,23 @@ export default {
 <style scoped>
 .user-card {
   display: inline-block;
-  border: solid hsl(174deg 8% 62%) thin;
+  border: solid #586160 thin;
   border-radius: 10px;
   padding: .5em;
   margin: 10px;
   max-width: 140px;
-  background: rgb(184 204 202);
+  background: #d1dddc;
   color:#505050;
 }
 img {
   border-radius: 50%;
   border:thick solid whitesmoke;
 }
+
+.right-align {
+  float:right;
+}
+
 .attr {
   max-height: 1.25em;
   white-space: nowrap;
