@@ -1,24 +1,11 @@
 # vue-cli-demo
 
-## Project setup
+This is a very simple Vue application build with the Vue CLI. It has one component `CenteredDiv` that displays its content centered within a div. There is also a click handler that toggles the style of component from the vue instance.
+
+## Basic project actions
+
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
-```
-
-### Compiles and minifies for production
-```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
