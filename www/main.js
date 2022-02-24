@@ -238,7 +238,7 @@ const content = [
       },
       {
         class: 'demo',
-        title: 'Basic View Tutorial',
+        title: 'Basic Vue Tutorial',
         link: 'vue/vue-basic-tutorial',
       },
       {
