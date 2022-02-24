@@ -10,14 +10,12 @@
   <body>
     <div id="app">
       <h1>List Utah Cities</h1>
-      <form v-on:keyup.prevent="fetchCities">
-        <input type="text" v-model="prefix" />
-      </form>
+      <input type="text" v-model="prefix" v-on:keyup="fetchCities" />
       <ul>
-        <li v-for="item in cities">{{ item.name }}</li>
+        <li v-for="city in cities">{{ city }}</li>
       </ul>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@2"></script>
     <script src="main.js"></script>
   </body>
 </html>

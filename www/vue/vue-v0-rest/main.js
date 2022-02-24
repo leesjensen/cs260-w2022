@@ -10,10 +10,7 @@ var app = new Vue({
       fetch(url)
         .then((d) => d.json())
         .then((citylist) => {
-          this.cities = [];
-          for (let i = 0; i < citylist.length; i++) {
-            this.cities.push({ name: citylist[i].city });
-          }
+          this.cities = citylist.map((entry) => entry.city);
         });
     },
   },
