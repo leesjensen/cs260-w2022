@@ -4,7 +4,7 @@ const app = express();
 // LESSON 1
 app.get('/', (req, res) => {
   //  res.send({ msg: 'Hello Worlds and more!' });
-  res.sendFile('index.html', { root: __dirname + '/public' });
+  res.sendFile('index.html', { root: __dirname + '/front-end/dist' });
 });
 
 app.get('/secret', (req, res) => {
@@ -37,7 +37,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static('public'));
+// Server up the front-end through the back-end server rather than
+// hosting two servers like the exercise instructions say.
+app.use(express.static('front-end/dist'));
 
 let tickets = [];
 let id = 0;
@@ -72,12 +74,14 @@ app.delete('/api/tickets/:id', (req, res) => {
   res.status(200).send({ msg: `Ticket ${id} was deleted` });
 });
 
-//fetch("http://localhost:3000/api/tickets", {method:'GET'}).then(x => x.json()).then(y => console.log(y))
-//fetch("http://localhost:3000/api/tickets", {method:'POST', body:'{"name":"lee","problem":"out of gas"}',headers:{'Content-Type':'application/json'}}).then(x => x.json()).then(y => console.log(y))
-//fetch("http://localhost:3000/api/tickets/1", {method:'DELETE'}).then(x => x.json()).then(y => console.log(y))
+const port = 3101;
 
-// curl -X POST http://localhost:3000/api/tickets -d='{"name":"lee","problem":"flat tire"}'
-// curl http://localhost:3000/api/tickets/
-// curl -X DELETE http://localhost:3000/api/tickets/1
+//fetch(`http://localhost:${port}/api/tickets`, {method:'GET'}).then(x => x.json()).then(y => console.log(y))
+//fetch(`http://localhost:${port}/api/tickets`, {method:'POST', body:'{"name":"lee","problem":"out of gas"}',headers:{'Content-Type':'application/json'}}).then(x => x.json()).then(y => console.log(y))
+//fetch(`http://localhost:${port}/api/tickets/1`, {method:'DELETE'}).then(x => x.json()).then(y => console.log(y))
 
-app.listen(3000, () => console.log('Server listening on port 3000!'));
+// curl -X POST http://localhost:3101/api/tickets -d='{"name":"lee","problem":"flat tire"}'
+// curl http://localhost:3101/api/tickets/
+// curl -X DELETE http://localhost:3101/api/tickets/1
+
+app.listen(3101, () => console.log('Server listening on port 3101'));
