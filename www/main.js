@@ -311,7 +311,7 @@ const content = [
   {
     name: 'Unit 5: Backend',
     description: 'Node &amp; MongoDB',
-    collapsed: true,
+    collapsed: false,
     item: [
       {
         class: 'note',
@@ -319,14 +319,84 @@ const content = [
         link: 'https://github.com/leesjensen/cs260/blob/main/Unit5.md',
       },
       {
+        class: 'slide',
+        title: '5.1 - Node',
+        link: 'https://docs.google.com/presentation/d/16VE0WOabUwNPNY7Yxw3tW_hgzFuKSDDgl3m9c4CYjfQ/edit?usp=sharing',
+      },
+      {
         class: 'demo',
         title: 'Cities API',
         link: 'api/city?q=.*',
       },
       {
+        class: 'demo',
+        title: 'XKCD API',
+        link: 'api/xkcd/latest',
+      },
+      {
+        class: 'exercise',
+        title: 'N1: Learning Node',
+        link: 'node/node-n1-learning-node',
+      },
+      {
+        class: 'exercise',
+        title: 'N2: Todo',
+        link: 'node/node-n2-todo/public',
+      },
+      {
+        class: 'slide',
+        title: '5.2 - Express',
+        link: 'https://docs.google.com/presentation/d/14SPYZvPVLt_RjeXTRCODxoHS10Z-MJvrvPwwV5gPaY4/edit?usp=sharing',
+      },
+      {
+        class: 'exercise',
+        title: 'N2.5: Node Pokemon',
+        link: 'node/node-n2.5-pokemon',
+      },
+      {
         class: 'exercise',
         title: 'N2.6: Cities',
-        link: 'node-cities',
+        link: 'node/node-n2.6-cities',
+      },
+      {
+        class: 'slide',
+        title: '5.3 - Mongo',
+        link: 'https://docs.google.com/presentation/d/1Eccr3K68CUAPQmHPxGUrx9-_-_M5LDbT6TyTo3jEb1Q/edit?usp=sharing',
+      },
+      {
+        class: 'exercise',
+        title: 'N3: Learning Mongo',
+        link: 'node/node-n3-learning-mongo',
+      },
+      {
+        class: 'slide',
+        title: '5.4 - Mongo',
+        link: 'https://docs.google.com/presentation/d/1lGupKtWmX7xD88_getu8gGv0ORnfm98p8K-RcPcSdIU/edit?usp=sharing',
+      },
+      {
+        class: 'exercise',
+        title: 'N4: Mongo Pokemon',
+        link: 'node/node-n4-mongo-pokemon',
+      },
+      {
+        class: 'exercise',
+        title: 'N5: Full Stack',
+        link: 'node/node-n5-full-stack',
+      },
+      {
+        class: 'slide',
+        title: '5.5 - Backend',
+        link: 'https://docs.google.com/presentation/d/1oZyDQqWHszTMlbNOb4yL1qk5eEKLI3X8J81mjqoHlSc/edit?usp=sharing',
+      },
+      {
+        class: 'project',
+        title: 'Lab 4: Museum of Objects',
+        link: 'https://lab4.cs260.click',
+      },
+      {
+        class: 'slide',
+        title: '5.6 - Backend',
+        link: 'https://docs.google.com/presentation/d/1sAgGf_oMJqbkmThUmULstVYwK91kKWibtpLSd6DFZWo/edit?usp=sharing',
       },
     ],
   },
@@ -339,6 +409,26 @@ const content = [
         class: 'note',
         title: 'Notes',
         link: 'https://github.com/leesjensen/cs260/blob/main/Unit6.md',
+      },
+      {
+        class: 'slide',
+        title: '6.1 - Security',
+        link: 'https://docs.google.com/presentation/d/1-cTYrCur48ra4bT2QYanjRFJwfrHUg1BBeFXYQYDNgs/edit?usp=sharing',
+      },
+      {
+        class: 'slide',
+        title: '6.2 - Auth & Final Prep',
+        link: 'https://docs.google.com/presentation/d/1MlsyQjK6mbKl_kIq1t5ZixzJC8eieXcLjnoPpfjMkE0/edit?usp=sharing',
+      },
+      {
+        class: 'exercise',
+        title: 'A2: Authenticating',
+        link: 'security/security-a2-auth',
+      },
+      {
+        class: 'slide',
+        title: '6.3 - Demo Day',
+        link: 'https://docs.google.com/presentation/d/1Xgs9R8o5C4Fx-qtqqXUeQEh1pXwpaakeFiX52N1ILrk/edit?usp=sharing',
       },
     ],
   },
