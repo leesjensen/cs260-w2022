@@ -1,4 +1,4 @@
-# learning-vue-cli-solution
+# N1 learning-node
 
 The exercise builds a backend server found in `server.js` and front end written in Vue that is located in the `front-end` directory. The exercise is
 set up to run locally with the server hosted on port 3000. The client then runs on 8080. The Vue CLI
@@ -14,6 +14,15 @@ module.exports = {
 
 I changed this so I could run in production and only run a single server listening on port 3101. These are the steps I followed.
 
+1. Make sure Vue doesn't prefix path to the root.
+   ```
+   module.exports = {
+       publicPath: '',
+       configureWebpack: {
+           devtool: 'source-map',
+       },
+   };
+   ```
 1. Build the front end distribution `npm run build` in the `front-end` directory. Commit the `dist` directory.
 1. Change the server router `/server.js` to point to the `front-end/dist` directory for the route path.
 1. The server is set to run on port 3101.
