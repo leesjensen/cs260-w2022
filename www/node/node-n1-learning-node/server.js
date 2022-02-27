@@ -35,7 +35,9 @@ app.delete('api/n1', (req, res) => {
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+
+// I can't image we are going to use this.
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 // Server up the front-end through the back-end server rather than
 // hosting two servers like the exercise instructions say.

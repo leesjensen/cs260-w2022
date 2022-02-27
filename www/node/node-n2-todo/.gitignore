@@ -2,9 +2,6 @@
 back-end/node_modules
 back-end/public
 front-end/node_modules
-front-end/dist
-node_modules
-/dist
 
 # local env files
 .env.local

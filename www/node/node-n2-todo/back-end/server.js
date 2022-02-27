@@ -14,18 +14,20 @@ const app = express();
 // parse application/json
 app.use(bodyParser.json());
 
+app.use(express.static('../front-end/dist'));
+
 let items = [];
 let id = 0;
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: __dirname + '/public' });
+  res.sendFile('index.html', { root: __dirname + '/../front-end/dist' });
 });
 
-app.get('/api/items', (req, res) => {
+app.get('/api/n2/todo/items', (req, res) => {
   res.send(items);
 });
 
-app.post('/api/items', (req, res) => {
+app.post('/api/n2/todo/items', (req, res) => {
   id = id + 1;
   let item = {
     id: id,
@@ -36,7 +38,7 @@ app.post('/api/items', (req, res) => {
   res.send(item);
 });
 
-app.put('/api/items/:id', (req, res) => {
+app.put('/api/n2/todo/items/:id', (req, res) => {
   let id = parseInt(req.params.id);
   let itemsMap = items.map((item) => {
     return item.id;
@@ -52,7 +54,7 @@ app.put('/api/items/:id', (req, res) => {
   res.send(item);
 });
 
-app.delete('/api/items/:id', (req, res) => {
+app.delete('/api/n2/todo/items/:id', (req, res) => {
   let id = parseInt(req.params.id);
   let removeIndex = items
     .map((item) => {
@@ -67,13 +69,11 @@ app.delete('/api/items/:id', (req, res) => {
   res.sendStatus(200);
 });
 
-app.use(express.static('public'));
+app.listen(3102, () => console.log('Server listening on port 3102'));
 
-app.listen(3000, () => console.log('Server listening on port 3000!'));
+// curl -X POST -d '{"text":"get an A on the exam", "completed":false}' -H "Content-Type: application/json" localhost:3102/api/n2/todo/items
+// curl -X POST -d '{"text":"party all night", "completed":false}' -H "Content-Type: application/json" localhost:3102/api/n2/todo/items
+// curl -X GET localhost:3102/api/n2/todo/items
 
-// curl -X POST -d '{"text":"get an A on the exam", "completed":false}' -H "Content-Type: application/json" localhost:3000/api/items
-// curl -X POST -d '{"text":"party all night", "completed":false}' -H "Content-Type: application/json" localhost:3000/api/items
-// curl -X GET localhost:3000/api/items
-
-//fetch('http://localhost:3000/api/items', {method:'POST', body:'{"text":"lee","completed":"false"}',headers:{'Content-Type':'application/json'}}).then(r => r.json()).then(j => console.log(j))
-//fetch('http://localhost:3000/api/items').then(r => r.json()).then(j => console.log(j))
+//fetch('http://localhost:3102/api/n2/todo/items', {method:'POST', body:'{"text":"lee","completed":"false"}',headers:{'Content-Type':'application/json'}}).then(r => r.json()).then(j => console.log(j))
+//fetch('http://localhost:3102/api/n2/todo/items').then(r => r.json()).then(j => console.log(j))
