@@ -60,6 +60,7 @@ export default {
   methods: {
     async getItems() {
       try {
+        console.log('calling getItems');
         const response = await axios.get('/api/n2/todo/items');
         this.items = response.data;
       } catch (error) {
