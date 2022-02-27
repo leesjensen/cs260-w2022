@@ -15,7 +15,7 @@ sudo npm install pm2@latest -g
 ```
 
 - **Start node service** - `pm2 start app.js`
-- **Start advanced** - `pm2 --name cities bin/www --watch --ignore-watch="node_modules"`
+- **Start advanced** - `pm2 start --name cities bin/www --watch --ignore-watch="node_modules"`
 - **restart** - `pm2 restart app_name`
 - **reload** - `pm2 reload app_name`
 - **stop** - `pm2 stop app_name`

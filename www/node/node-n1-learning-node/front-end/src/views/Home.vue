@@ -31,7 +31,7 @@ export default {
   methods: {
     async getTickets() {
       try {
-        let response = await axios.get('/api/tickets');
+        let response = await axios.get('/api/n1/tickets');
         this.tickets = response.data;
         return true;
       } catch (error) {
@@ -40,7 +40,7 @@ export default {
     },
     async deleteTicket(ticket) {
       try {
-        await axios.delete('/api/tickets/' + ticket.id);
+        await axios.delete('/api/n1/tickets/' + ticket.id);
         this.getTickets();
         return true;
       } catch (error) {

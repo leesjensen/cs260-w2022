@@ -32,7 +32,7 @@ export default {
     },
     async addTicket() {
       try {
-        await axios.post('/api/tickets', {
+        await axios.post('/api/n1/tickets', {
           name: this.name,
           problem: this.problem,
         });
