@@ -63,7 +63,7 @@ export default {
         const response = await axios.get('/api/n2/todo/items');
         this.items = response.data;
       } catch (error) {
-        //        console.log(error);
+        console.log(error);
       }
     },
     async completeItem(item) {
@@ -74,7 +74,7 @@ export default {
         });
         this.getItems();
       } catch (error) {
-        //console.log(error);
+        console.log(error);
       }
     },
     async addItem() {
@@ -86,7 +86,7 @@ export default {
         this.text = '';
         this.getItems();
       } catch (error) {
-        //        console.log(error);
+        console.log(error);
       }
     },
     async deleteItem(item) {
@@ -94,7 +94,7 @@ export default {
         await axios.delete('/api/n2/todo/items/' + item.id);
         this.getItems();
       } catch (error) {
-        //        console.log(error);
+        console.log(error);
       }
     },
     showAll() {
