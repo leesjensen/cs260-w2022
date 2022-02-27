@@ -24,6 +24,7 @@ I changed this so I could run in production and only run a single server listeni
 
 This is installed on the production server using PM2. (See Unit5.md for details.)
 
+1. cd /var/www/html/node/node-n2-todo/back-end; npm install
 1. pm2 start --name tickets server.js --watch --ignore-watch="node_modules"
 1. pm2 save
 
@@ -32,13 +33,14 @@ The NGINX config is then modified to pass requests for this execise through to t
 1. Edit `/etc/nginx/sites-available/default` and add the following to the main server config section.
 
    ```
-    location ~ ^/api/n2/.+ {
-        proxy_pass    http://localhost:3102;
-    }
-
    location /node/node-n2-todo/ {
        proxy_pass http://localhost:3102/;
    }
+
+   location ~ ^/api/n2/.+ {
+       proxy_pass    http://localhost:3102;
+   }
+
    ```
 
 1. `service nginx reload`

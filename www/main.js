@@ -341,7 +341,7 @@ const content = [
       {
         class: 'exercise',
         title: 'N2: Todo',
-        link: 'node/node-n2-todo/public',
+        link: 'node/node-n2-todo',
       },
       {
         class: 'slide',
