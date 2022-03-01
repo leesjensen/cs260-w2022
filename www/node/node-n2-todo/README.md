@@ -27,6 +27,7 @@ I changed this so I could run in production and only run a single server listeni
    };
    ```
 1. Build the front end distribution `npm run build` in the `front-end` directory. Commit the `dist` directory.
+1. Changed router mode to `hash` from `history` so that it works with relative URLs.
 1. Change the server router `/server.js` to point to the `front-end/dist` directory for the route path.
 1. The server is set to run on port 3102.
 1. Change all the API endpoints to be prefixed with `/api/n1` so that they don't conflict with my other endpoints (`/api/cities` or `/api/xkcd`).
