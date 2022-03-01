@@ -17,7 +17,7 @@ const routes = [
 console.log('loaded router');
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes,
 });

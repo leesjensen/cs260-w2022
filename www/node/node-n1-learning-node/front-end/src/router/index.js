@@ -1,26 +1,27 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Create from '../views/Create.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
+import Create from '../views/Create.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-const routes = [{
+const routes = [
+  {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
   },
   {
     path: '/create',
     name: 'create',
     component: Create,
-  }
-]
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

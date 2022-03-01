@@ -37,6 +37,7 @@ export default {
     };
   },
   created: function() {
+    console.log('Home vue loaded');
     this.getItems();
   },
   computed: {
