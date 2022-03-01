@@ -14,7 +14,7 @@ var app = new Vue({
   },
   methods: {
     addItem() {
-      var url = 'http://localhost:3000/pokemon';
+      var url = 'pokemon';
       axios
         .post(url, {
           name: this.pokiName,
@@ -31,7 +31,7 @@ var app = new Vue({
     async getpokis() {
       // `this` points to the vm instance
       console.log('get pokis');
-      var url = 'http://localhost:3000/pokemon';
+      var url = 'pokemon';
       try {
         let response = await axios.get(url);
         this.pokis = response.data;
@@ -44,7 +44,7 @@ var app = new Vue({
     async getpolitics() {
       // `this` points to the vm instance
       console.log('politics');
-      var url = 'http://localhost:3000/politics';
+      var url = 'politics';
       try {
         let response = await axios.get(url);
         this.politics = response.data;
