@@ -4,6 +4,11 @@
     <link rel="stylesheet" href="main.css" />
     <script src="https://unpkg.com/vue@2"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .sel {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
     <nav class="next-lesson"><a href="for.html">Next &#10140; For</a></nav>
@@ -11,22 +16,16 @@
     <header>
       <h1>Attribute Binding</h1>
       <p>
-        <span class="code-inline">v-bind</span> allows bind a element property
-        to Vue instance data or any expression. It may be abbreviated as
-        <span class="code-inline">:</span>. Binding the element's class property
-        allows for the specification of multiple classes that are each applied
-        based upon an expression.
+        <span class="code-inline">v-bind</span> allows bind a element property to Vue instance data or any expression.
+        It may be abbreviated as <span class="code-inline">:</span>. Binding the element's class property allows for the
+        specification of multiple classes that are each applied based upon an expression.
       </p>
     </header>
     <main>
       <div id="app">
         <p>
           Current State:
-          <span
-            v-bind:class="['trooper', {hl: state}]"
-            v-bind:style="labelStyle"
-            >{{state}}</span
-          >
+          <span v-bind:class="['trooper', {sel: state}]" v-bind:style="labelStyle">{{state}}</span>
         </p>
         <button v-bind:disabled="!state" v-on:click="toggle">false</button>
         <button :disabled="state" v-on:click="toggle">true</button>
@@ -44,9 +43,7 @@
           methods: {
             toggle: function () {
               this.state = !this.state;
-              this.labelStyle.textTransform = this.state
-                ? 'uppercase'
-                : 'capitalize';
+              this.labelStyle.textTransform = this.state ? 'uppercase' : 'capitalize';
             },
           },
         });
@@ -58,7 +55,7 @@
 &lt;div id="app">
   &lt;p>
     Current State:
-    &lt;span <span class="hl">v-bind:class</span>=="['trooper', {hl: state}]"
+    &lt;span <span class="hl">v-bind:class</span>=="['trooper', {sel: state}]"
           <span class="hl">v-bind:style</span>="labelStyle">{{state}}&lt;/span>
   &lt;/p>
   &lt;button <span class="hl">v-bind:disabled="!state"</span> v-on:click="toggle">false&lt;/button>
