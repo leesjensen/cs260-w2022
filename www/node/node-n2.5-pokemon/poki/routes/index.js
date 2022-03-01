@@ -21,16 +21,6 @@ router.post('/pokemon', function (req, res) {
   res.end('{"success" : "Updated Successfully", "status" : 200}');
 });
 
-var politics = 'https://zlzlap7j50.execute-api.us-east-1.amazonaws.com/prod';
-router.get('/politics', function (req, res) {
-  axios
-    .get(politics)
-    .then((r) => {
-      res.send(r.data);
-    })
-    .catch((error) => console.log(error));
-});
-
 module.exports = router;
 
 var pokemon = [
@@ -59,3 +49,14 @@ var pokemon = [
     avatarUrl: 'https://s-media-cache-ak0.pinimg.com/originals/7e/3b/67/7e3b67c53469cc4302035be70a7f2d60.gif',
   },
 ];
+
+// Proxy to Politics endpoint that doesn't support CORS.
+var politics = 'https://zlzlap7j50.execute-api.us-east-1.amazonaws.com/prod';
+router.get('/politics', function (req, res) {
+  axios
+    .get(politics)
+    .then((r) => {
+      res.send(r.data);
+    })
+    .catch((error) => console.log(error));
+});
