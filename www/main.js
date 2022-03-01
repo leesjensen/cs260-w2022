@@ -336,12 +336,12 @@ const content = [
       {
         class: 'exercise',
         title: 'N1: Learning Node',
-        link: 'node/node-n1-learning-node',
+        link: 'node-n1-learning-node',
       },
       {
         class: 'exercise',
         title: 'N2: Todo',
-        link: 'node/node-n2-todo',
+        link: 'node-n2-todo',
       },
       {
         class: 'slide',
@@ -351,12 +351,12 @@ const content = [
       {
         class: 'exercise',
         title: 'N2.5: Node Pokemon',
-        link: 'node/node-n2.5-pokemon',
+        link: 'node-n2.5-pokemon',
       },
       {
         class: 'exercise',
         title: 'N2.6: Cities',
-        link: 'node/node-n2.6-cities',
+        link: 'node-n2.6-cities',
       },
       {
         class: 'slide',
