@@ -16,6 +16,7 @@ module.exports = {
 
 I changed this so I could run in production and only run a single server listening on port 3102. These are the steps I followed.
 
+1. Moved the server into the root of the project. There is no need for `back-end` and it messed up the relative pathing.
 1. Make sure Vue doesn't prefix path to the root.
    ```
    module.exports = {

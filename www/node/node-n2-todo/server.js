@@ -14,13 +14,13 @@ const app = express();
 // parse application/json
 app.use(bodyParser.json());
 
-app.use(express.static('../front-end/dist'));
+app.use(express.static('front-end/dist'));
 
 let items = [];
 let id = 0;
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: __dirname + '/../front-end/dist' });
+  res.sendFile('index.html', { root: __dirname + 'front-end/dist' });
 });
 
 app.get('/api/n2/todo/items', (req, res) => {
