@@ -13,9 +13,8 @@
       <h1>Form</h1>
       <p>
         Bindings can be made bidirectional with
-        <span class="code-inline">v-model</span>. Based upon the type of
-        <span class="code-inline">input</span> element, the model binding with
-        generated different values.
+        <span class="code-inline">v-model</span>. Based upon the type of <span class="code-inline">input</span> element,
+        the model binding with generated different values.
       </p>
     </header>
     <main>
@@ -23,12 +22,7 @@
         <fieldset>
           <legend>Action</legend>
           <template v-for="action in actions">
-            <input
-              type="radio"
-              v-bind:id="action"
-              v-bind:value="action"
-              v-model="pAction"
-            />
+            <input type="radio" v-bind:id="action" v-bind:value="action" v-model="pAction" />
             <label v-bind:for="action">{{action}}</label>
           </template>
         </fieldset>
@@ -36,12 +30,7 @@
         <fieldset>
           <legend>State</legend>
           <template v-for="state in states">
-            <input
-              type="checkbox"
-              v-bind:id="state"
-              v-bind:value="state"
-              v-model="pStates"
-            />
+            <input type="checkbox" v-bind:id="state" v-bind:value="state" v-model="pStates" />
             <label v-bind:for="state">{{state}}</label>
           </template>
         </fieldset>
@@ -60,8 +49,7 @@
 
         <p class="hlb">
           <span v-if="pStates && pRating && pAction">
-            I {{pAction}} {{pStates.join(' and ')}} because of the {{pRating}}
-            rating. {{comment}}
+            I {{pAction}} {{pStates.join(' and ')}} because of the {{pRating}} rating. {{comment}}
           </span>
           <span v-else>pending...</span>
         </p>
@@ -89,8 +77,8 @@
   &lt;fieldset>
     &lt;legend>Action&lt;/legend>
     &lt;template v-for="action in actions">
-    <span class="hl">&lt;input type="radio" 
-      v-bind:id="action" v-bind:value="action" v-model="pAction" /></span>
+      <span class="hl">&lt;input type="radio" 
+        v-bind:id="action" v-bind:value="action" v-model="pAction" /></span>
       &lt;label v-bind:for="action">{{action}}&lt;/label>
     &lt;/template>
   &lt;/fieldset>
@@ -98,8 +86,8 @@
   &lt;fieldset>
     &lt;legend>State&lt;/legend>
     &lt;template v-for="state in states">
-    <span class="hl">&lt;input type="checkbox" 
-      v-bind:id="state" v-bind:value="state" v-model="pStates" /></span>
+      <span class="hl">&lt;input type="checkbox" 
+        v-bind:id="state" v-bind:value="state" v-model="pStates" /></span>
       &lt;label v-bind:for="state">{{state}}&lt;/label>
     &lt;/template>
   &lt;/fieldset>
@@ -107,7 +95,7 @@
   &lt;fieldset>
     &lt;legend>Rating&lt;/legend>
     &lt;select v-model="pRating">
-    <span class="hl">&lt;option v-for="rating in ratings">{{rating}}&lt;/option></span>
+      <span class="hl">&lt;option v-for="rating in ratings">{{rating}}&lt;/option></span>
     &lt;/select>
   &lt;/fieldset>
 
