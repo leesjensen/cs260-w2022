@@ -302,6 +302,16 @@ const content = [
         link: 'vue/vue-basic-router-tutorial',
       },
       {
+        class: 'demo',
+        title: 'Vue Router',
+        link: 'vue/vue-router-demo',
+      },
+      {
+        class: 'demo',
+        title: 'Vue Router Examples',
+        link: 'https://vue-router.cs260.click',
+      },
+      {
         class: 'slide',
         title: '4.5 - Vue Inside',
         link: 'https://docs.google.com/presentation/d/1QoXvqO6ZeoEwNPNKL97yh66r_-GRqs7EJ2gZIhB8Ils/edit?usp=sharing',

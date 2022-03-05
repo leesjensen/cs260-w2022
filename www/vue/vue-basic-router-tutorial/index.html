@@ -8,7 +8,14 @@
     <script src="https://unpkg.com/vue@2"></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <nav class="nav-bar">
+        <app-a href="/">Home</app-a> | <app-a href="/about">About</app-a> |
+        <app-a href="/settings">Settings</app-a>
+      </nav>
+      <header><h1>Basic Router</h1></header>
+      <app-router> </app-router>
+    </div>
   </body>
   <script src="main.js"></script>
 </html>

@@ -30,15 +30,15 @@ const routes = [
 // MODES
 // history or hash
 
-// const router = new VueRouter({
-//   mode: 'history',
-//   base: process.env.BASE_URL,
-//   routes,
-// });
-
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes,
 });
+
+// const router = new VueRouter({
+//   mode: 'hash',
+//   routes,
+// });
 
 export default router;
