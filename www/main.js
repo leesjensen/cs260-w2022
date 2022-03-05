@@ -304,7 +304,7 @@ const content = [
       {
         class: 'demo',
         title: 'Vue Router',
-        link: 'vue/vue-router-demo',
+        link: 'vue/vue-router-demo/dist',
       },
       {
         class: 'demo',
