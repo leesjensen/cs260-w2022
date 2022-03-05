@@ -7,7 +7,10 @@ Vue.component('app-a', {
         <slot></slot>
     </a>`,
   data: function () {
-    return { router: null };
+    return {
+      basePath: window.location.pathname.slice(0, -1),
+      router: null,
+    };
   },
   props: {
     href: { type: String, required: true },
@@ -27,7 +30,7 @@ Vue.component('app-a', {
     go(event) {
       if (!this.isActive && this.router) {
         this.router.currentRoute = this.href;
-        const path = `${this.href}`;
+        const path = `${this.basePath}${this.href}`;
         window.history.pushState(this.href, '', path);
       }
     },
