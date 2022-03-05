@@ -1,19 +1,8 @@
-# vue-router-hash
+# vue-router-demo
 
-## Project setup
-```
-npm install
-```
+This demonstrates the following:
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. `Vue.use(VueRouter)`
+2. Hash routing
+3. History routing
+4. Lazy loading

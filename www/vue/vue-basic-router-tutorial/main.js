@@ -19,6 +19,7 @@ const routes = {
   '/settings': Settings,
 };
 
+// Component that simulates HTML anchor elements with custom routing.
 Vue.component('app-a', {
   template: `
       <a v-bind:href="href" v-bind:class="{ active: isActive }" v-on:click.prevent="go">
@@ -28,15 +29,17 @@ Vue.component('app-a', {
     href: { type: String, required: true },
   },
   computed: {
+    // Set the active class if this is the current route
     isActive() {
       return this.href === this.$root.currentRoute;
     },
   },
   methods: {
+    // On the click event change the current route and update the browser history.
     go(event) {
       if (!this.isActive) {
         this.$root.currentRoute = this.href;
-        const path = `${this.$root.basePath}#${this.href}`;
+        const path = `${this.href}`;
         window.history.pushState(this.href, '', path);
       }
     },
@@ -46,10 +49,10 @@ Vue.component('app-a', {
 new Vue({
   el: '#app',
   data: {
-    basePath: document.location.pathname,
     currentRoute: '/',
   },
   computed: {
+    // Dynamically compute what is displayed by the router.
     ViewComponent() {
       let component = routes[this.currentRoute] || Home;
       component = `<main>${appFrame}${component.template}</main>`;
@@ -57,11 +60,13 @@ new Vue({
     },
   },
   created: function () {
+    // Listen for the browser history back event and change the route.
     window.addEventListener('popstate', (event) => {
       this.currentRoute = event.state;
     });
   },
   render(h) {
+    // Render the dynamically calculated component.
     return h(this.ViewComponent);
   },
 });
