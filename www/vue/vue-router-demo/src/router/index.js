@@ -11,6 +11,7 @@ import NotFoundView from '../views/NotFoundView.vue';
 Vue.use(VueRouter);
 
 const routes = [
+  // Root
   {
     path: '/',
     component: HomeView,
