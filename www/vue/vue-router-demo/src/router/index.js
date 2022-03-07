@@ -66,7 +66,7 @@ const router = new VueRouter({
   // Use history mode
   mode: 'history',
   // mode: 'hash',
-  base: process.env.BASE_URL,
+  base: window.location.pathname.replace(/\/+$/, ''),
   routes,
 });
 
