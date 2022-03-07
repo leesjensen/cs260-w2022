@@ -1,17 +1,17 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Settings" />
+    <OutputBox msg="Our house" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import OutputBox from "@/components/OutputBox.vue";
 
 export default {
-  name: 'Settings',
+  name: "HomeView",
   components: {
-    HelloWorld,
+    OutputBox,
   },
 };
 </script>

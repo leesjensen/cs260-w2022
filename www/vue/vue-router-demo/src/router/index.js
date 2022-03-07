@@ -1,44 +1,71 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import HomeView from '../views/HomeView.vue';
+import InfoView from '../views/InfoView.vue';
+import UserView from '../views/User/UserView.vue';
+import UserPostsView from '../views/User/UserPostsView.vue';
+import UserProfileView from '../views/User/UserProfileView.vue';
+import NotFoundView from '../views/NotFoundView.vue';
 
-// ADD ROUTER PLUGIN
 Vue.use(VueRouter);
 
-// DEFINE ROUTES
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    component: HomeView,
   },
-  {
-    path: '/about',
-    name: 'About',
 
-    // ROUTE LEVEL CODE-SPLITTING WITH LAZY LOAD
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
+  // Parameterize the path
   {
-    path: '/settings',
-    name: 'Settings',
-    component: () => import('../views/Settings.vue'),
+    path: '/info/:category',
+    component: InfoView,
+  },
+
+  // Lazy load the view
+  {
+    path: '/login',
+    name: 'login',
+    props: true,
+    component: () => import('../views/LoginView.vue'),
+  },
+
+  // Parameterize the path
+  {
+    path: '/user/:userId',
+    name: 'user',
+    props: true,
+    component: UserView,
+
+    // Child routing
+    children: [
+      {
+        path: 'profile',
+        name: 'profile',
+        props: true,
+        component: UserProfileView,
+      },
+      {
+        path: 'posts',
+        name: 'posts',
+        props: true,
+        component: UserPostsView,
+      },
+    ],
+  },
+
+  // Default with wildcards
+  {
+    path: '*',
+    name: 'notFound',
+    component: NotFoundView,
   },
 ];
 
-// MODES
-// history or hash
-
+// Use history mode
 const router = new VueRouter({
   mode: 'history',
-  base: window.location.pathname.slice(0, -1),
+  base: process.env.BASE_URL,
   routes,
 });
-
-// const router = new VueRouter({
-//   mode: 'hash',
-//   routes,
-// });
 
 export default router;
