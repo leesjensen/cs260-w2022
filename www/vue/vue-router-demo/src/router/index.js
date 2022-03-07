@@ -7,6 +7,7 @@ import UserPostsView from '../views/User/UserPostsView.vue';
 import UserProfileView from '../views/User/UserProfileView.vue';
 import NotFoundView from '../views/NotFoundView.vue';
 
+// Inject the router plugin
 Vue.use(VueRouter);
 
 const routes = [
@@ -24,8 +25,6 @@ const routes = [
   // Lazy load the view
   {
     path: '/login',
-    name: 'login',
-    props: true,
     component: () => import('../views/LoginView.vue'),
   },
 
@@ -61,9 +60,11 @@ const routes = [
   },
 ];
 
-// Use history mode
+// Create a router
 const router = new VueRouter({
+  // Use history mode
   mode: 'history',
+  // mode: 'hash',
   base: process.env.BASE_URL,
   routes,
 });

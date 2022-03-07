@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div>User: {{ userId }}</div>
+    <div>User: {{ auth.user }}</div>
     <nav>
       <!-- Create internal router links -->
       <router-link to="/">Home</router-link> |
@@ -10,7 +10,7 @@
       <router-link to="/info/product">Product</router-link> |
 
       <!-- Named route with parameter -->
-      <router-link :to="{ name: 'posts', params: { userId: userId } }">
+      <router-link :to="{ name: 'posts', params: { userId: auth.user } }">
         User
       </router-link>
       |
@@ -20,27 +20,37 @@
     </nav>
 
     <!-- Inject the router output here -->
-    <transition name="bonkers">
-      <router-view />
-    </transition>
+    <router-view />
     <pre>{{ routeInfo }}</pre>
   </div>
 </template>
 
 <script>
+// @ is an alias to /src
+import Auth from "@/Authorization.js";
+
 export default {
   name: "App",
   data: function () {
-    return { userId: "logged out" };
+    return {
+      auth: Auth,
+    };
   },
   computed: {
+    // Simplify the route information
     routeInfo() {
-      // Display the route information.
-      const info = (({ name, fullPath, params }) => ({
-        name,
-        fullPath,
-        params,
-      }))(this.$route);
+      const r = this.$route;
+      const info = {
+        name: r.name,
+        fullPath: r.fullPath,
+        params: r.params,
+        matched: r.matched.map((n) => {
+          return {
+            path: n.path,
+            component: n.components.default.name,
+          };
+        }),
+      };
       return JSON.stringify(info, undefined, 2);
     },
   },
@@ -48,18 +58,6 @@ export default {
 </script>
 
 <style>
-.bonkers-enter-active {
-  transition: all 0.3s ease;
-}
-.bonkers-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.bonkers-enter, .bonkers-leave-to
-/* .bonkers-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   color: #2c3e50;

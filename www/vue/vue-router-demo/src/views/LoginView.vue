@@ -5,9 +5,9 @@
       <div>
         <label>
           User ID:
-          <input type="edit" v-model="enteredId" :placeholder="userId" />
+          <input type="edit" v-model="userId" :placeholder="userId" />
         </label>
-        <button class="submit-btn" @click="submit" :disabled="!enteredId">
+        <button class="submit-btn" @click="submit" :disabled="!userId">
           Enter
         </button>
       </div>
@@ -16,17 +16,19 @@
 </template>
 
 <script>
+import Auth from "@/Authorization.js";
+import Router from "@/router/index.js";
+
 export default {
   name: "LoginView",
-  props: ["userId"],
   data: function () {
-    return { enteredId: "" };
+    return { userId: "" };
   },
   methods: {
     submit() {
-      console.log(this.enteredId);
-      this.$root.$children[0].userId = this.enteredId;
-      this.$root.$router.push(`/user/${this.enteredId}/posts`);
+      console.log(this.userId);
+      Auth.user = this.userId;
+      Router.push(`/user/${Auth.user}/posts`);
     },
   },
 };

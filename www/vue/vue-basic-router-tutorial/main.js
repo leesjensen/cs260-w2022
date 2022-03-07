@@ -8,7 +8,7 @@ Vue.component('app-a', {
     </a>`,
   data: function () {
     return {
-      basePath: window.location.pathname.slice(0, -1),
+      basePath: window.location.pathname.replace(/\/+$/, ''),
       router: null,
     };
   },

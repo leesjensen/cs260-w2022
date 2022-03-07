@@ -8,15 +8,15 @@
     </nav>
 
     <!-- Transition -->
-    <transition name="slide">
+    <transition name="fade">
       <router-view></router-view>
     </transition>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import OutputBox from "@/components/OutputBox.vue";
+import Auth from "@/Authorization.js";
 
 export default {
   name: "UserView",
@@ -24,10 +24,10 @@ export default {
 
   //  Navigation guard to ensure login
   beforeRouteEnter: (to, from, next) => {
-    if (to.params.userId !== "logged out") {
+    if (Auth.authorized) {
       next();
     } else {
-      next({ name: "login", params: { userId: to.params.userId } });
+      next("/login");
     }
   },
 
@@ -38,24 +38,16 @@ export default {
 </script>
 
 <style scoped>
-/* .fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.75s ease;
+.fade-enter {
+  opacity: 0.25;
 }
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
-} */
 
-.slide-enter-active {
-  transition: all 0.3s ease;
+.fade-enter-to {
+  transition: opacity 0.75s ease;
+  opacity: 1;
 }
-.slide-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-enter, .slide-leave-to
-/* .slide-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
+
+.fade-leave {
+  display: none;
 }
 </style>
