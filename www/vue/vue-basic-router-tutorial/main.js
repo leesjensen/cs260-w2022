@@ -1,5 +1,24 @@
 'use strict';
 
+// Simple components for our SPA views.
+const Home = { template: '<p class="router-page home">Home</p>' };
+const About = { template: '<p class="router-page about">About</p>' };
+const Settings = {
+  template: '<p class="router-page settings">Settings</p>',
+};
+
+// Provide the data for our router.
+const Router = {
+  currentRoute: '/',
+  notFoundRoute: Home,
+  basePath: window.location.pathname.replace(/\/+$/, ''),
+  routes: {
+    '/': Home,
+    '/about': About,
+    '/settings': Settings,
+  },
+};
+
 // Component that simulates HTML anchor elements with custom routing.
 Vue.component('app-a', {
   template: `
@@ -8,66 +27,49 @@ Vue.component('app-a', {
     </a>`,
   data: function () {
     return {
-      basePath: window.location.pathname.replace(/\/+$/, ''),
-      router: null,
+      router: Router,
     };
   },
   props: {
     href: { type: String, required: true },
   },
-  mounted() {
-    this.router = this.$root.$router;
-    this.isActive;
-  },
   computed: {
     // Set the active class if this is the current route
     isActive() {
-      return this.href === this.router?.currentRoute;
+      return this.href === this.router.currentRoute;
     },
   },
   methods: {
     // On the click event change the current route and update the browser history.
     go(event) {
-      if (!this.isActive && this.router) {
+      if (!this.isActive) {
         this.router.currentRoute = this.href;
-        const path = `${this.basePath}${this.href}`;
+        const path = `${this.router.basePath}${this.href}`;
         window.history.pushState(this.href, '', path);
       }
     },
   },
 });
 
-// Static content for our views. This could point to other components.
-const Home = { template: '<p class="router-page">Home page</p>' };
-const About = { template: '<p class="router-page">About page</p>' };
-const Settings = { template: '<p class="router-page">Settings page</p>' };
-
-// Define the map between paths and content.
-const routes = {
-  '/': Home,
-  '/about': About,
-  '/settings': Settings,
-};
-
 // The router dynamically loads the current component.
 Vue.component('app-router', {
-  template: ``,
   data: function () {
-    return { currentRoute: '/' };
+    return { router: Router };
   },
   computed: {
     // Dynamically compute what is displayed by the router.
     ViewComponent() {
-      let component = routes[this.currentRoute] || Home;
+      let component =
+        this.router.routes[this.router.currentRoute] ||
+        this.router.notFoundRoute;
       component = `<main>${component.template}</main>`;
       return { template: component };
     },
   },
   created: function () {
-    this.$root.$router = this;
     // Listen for the browser history back event and change the route.
     window.addEventListener('popstate', (event) => {
-      this.currentRoute = event.state;
+      this.router.currentRoute = event.state;
     });
   },
   render(h) {

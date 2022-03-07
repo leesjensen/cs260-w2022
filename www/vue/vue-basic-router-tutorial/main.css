@@ -52,3 +52,15 @@ textarea {
   justify-content: center;
   align-items: center;
 }
+
+.home {
+  background: rgb(10, 104, 2);
+}
+
+.about {
+  background: rgb(107, 1, 1);
+}
+
+.settings {
+  background: rgb(103, 103, 146);
+}
