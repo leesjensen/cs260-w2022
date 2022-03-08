@@ -316,6 +316,16 @@ const content = [
         title: '4.5 - Vue Inside',
         link: 'https://docs.google.com/presentation/d/1QoXvqO6ZeoEwNPNKL97yh66r_-GRqs7EJ2gZIhB8Ils/edit?usp=sharing',
       },
+      {
+        class: 'demo',
+        title: 'TypeScript',
+        link: 'vue/vue-typescript/dist',
+      },
+      {
+        class: 'demo',
+        title: 'VueUse',
+        link: 'https://vueuse.org',
+      },
     ],
   },
   {
