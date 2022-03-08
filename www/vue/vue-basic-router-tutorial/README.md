@@ -10,5 +10,5 @@ Functionality:
 To run:
 
 ```
-node -c-1
+http-server -c-1
 ```
