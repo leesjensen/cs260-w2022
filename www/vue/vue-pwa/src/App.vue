@@ -32,34 +32,15 @@ export default {
   },
   methods: {
     upload() {
-      const filePicker = document.querySelector('input');
-      console.log(filePicker);
-
-      if (!filePicker || !filePicker.files || filePicker.files.length <= 0) {
-        console.log('No file selected.');
-        return;
-      }
-      const myFile = filePicker.files[0];
-      console.log(myFile);
-
-      const fileReader = new FileReader();
-      if (fileReader && myFile) {
-        fileReader.readAsDataURL(myFile);
+      const filePicker = document.querySelector('#file-upload');
+      if (filePicker?.files?.length > 0) {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(filePicker.files[0]);
         fileReader.onload = () => {
-          console.log(fileReader.result);
-
           const img = document.querySelector('img');
           img.setAttribute('src', fileReader.result);
         };
-
-        fileReader.onerror = (error) => {
-          console.log(error);
-        };
-      } else {
-        console.log('No file provided');
       }
-
-      console.log('blah');
     },
   },
 };
@@ -77,11 +58,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1em;
 }
 
 .img-viewer img {
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 60vh;
+}
+
+.chooser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
 }
 
 input[type='file'] {
