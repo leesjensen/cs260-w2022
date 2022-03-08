@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "OutputBox",
   props: {
     color: { type: String, default: "#525d75" },
     msg: String,

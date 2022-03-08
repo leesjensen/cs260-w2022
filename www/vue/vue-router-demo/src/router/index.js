@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import LoginView from '../views/LoginView.vue';
 import InfoView from '../views/InfoView.vue';
 import UserView from '../views/User/UserView.vue';
 import UserPostsView from '../views/User/UserPostsView.vue';
@@ -11,10 +11,10 @@ import NotFoundView from '../views/NotFoundView.vue';
 Vue.use(VueRouter);
 
 const routes = [
-  // Root
+  // Lazy load the root view
   {
     path: '/',
-    component: HomeView,
+    component: () => import('../views/HomeView.vue'),
   },
 
   // Parameterize the path
@@ -23,13 +23,12 @@ const routes = [
     component: InfoView,
   },
 
-  // Lazy load the view
   {
     path: '/login',
-    component: () => import('../views/LoginView.vue'),
+    component: LoginView,
   },
 
-  // Parameterize the path
+  // Named view with props
   {
     path: '/user/:userId',
     name: 'user',

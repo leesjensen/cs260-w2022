@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_router_demo"]=self["webpackChunkvue_router_demo"]||[]).push([[181],{9181:function(e,t,u){u.r(t),u.d(t,{default:function(){return i}});var n=function(){var e=this,t=e.$createElement,u=e._self._c||t;return u("div",{staticClass:"home"},[u("OutputBox",{attrs:{msg:"Our house"}})],1)},r=[],o=u(8301),s={name:"HomeView",components:{OutputBox:o.Z}},l=s,a=u(1001),c=(0,a.Z)(l,n,r,!1,null,null,null),i=c.exports}}]);
+//# sourceMappingURL=181-legacy.2fe568a6.js.map
