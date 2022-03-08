@@ -6,8 +6,7 @@
     <p>
       Just tap <img src="@/assets/ios-action.png" /> then 'Add to Home Screen'
     </p>
-    <p>{{ info }}</p>
-    <div class="button" @click="close">Close</div>
+    <div class="button" @click="display = false">Close</div>
   </div>
 </template>
 
@@ -19,11 +18,6 @@ export default {
       display: true,
     };
   },
-  methods: {
-    close() {
-      this.display = false;
-    },
-  },
   computed: {
     show() {
       return (
@@ -31,14 +25,6 @@ export default {
         !window.navigator.standalone &&
         this.display
       );
-    },
-    info() {
-      const info = {
-        platform: window.navigator.platform || 'undefined',
-        standalone: window.navigator.standalone || 'undefined',
-      };
-      const x = JSON.stringify(info, undefined, 2);
-      return x;
     },
   },
 };
@@ -49,6 +35,7 @@ export default {
   padding: 1em;
   margin: 1em;
   background: #fdffee;
+  border: solid #b38c8c 2px;
   color: rgb(46, 46, 46);
 }
 </style>
