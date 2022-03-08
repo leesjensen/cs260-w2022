@@ -1,21 +1,25 @@
 <template>
   <div id="app">
-    <h1>PWA Demo</h1>
+    <h1>&#128515; PWA Demo</h1>
 
     <div class="chooser">
-      <label for="file-upload" class="custom-file-upload">
-        <i class="fa fa-cloud-upload"></i> Capture Image
-      </label>
+      <label for="file-upload" class="button">Capture</label>
       <input
         id="file-upload"
         type="file"
         accept="image/x-png,image/jpeg,image/gif"
-        v-on:change="upload"
+        @change="captureImage"
       />
+      <div :class="['button', { disabled: !image }]" @click="storeImage">
+        Save
+      </div>
+      <div :class="['button', { disabled: !image }]" @click="deleteImage">
+        Delete
+      </div>
     </div>
 
     <div class="img-viewer">
-      <img src="" id="preview" />
+      <img :src="image" id="preview" />
     </div>
 
     <BouncyBall />
@@ -30,17 +34,34 @@ export default {
   components: {
     BouncyBall,
   },
+  data: function () {
+    return { image: '', store: window.localStorage };
+  },
+  created: function () {
+    this.readImage();
+  },
   methods: {
-    upload() {
+    captureImage() {
       const filePicker = document.querySelector('#file-upload');
       if (filePicker?.files?.length > 0) {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(filePicker.files[0]);
         fileReader.onload = () => {
-          const img = document.querySelector('img');
-          img.setAttribute('src', fileReader.result);
+          this.image = fileReader.result;
         };
       }
+    },
+    storeImage() {
+      if (this.image) {
+        this.store.setItem('image', this.image);
+      }
+    },
+    readImage() {
+      this.image = this.store.getItem('image');
+    },
+    deleteImage() {
+      this.store.removeItem('image');
+      this.image = '';
     },
   },
 };
@@ -73,15 +94,22 @@ body {
   margin: 1em;
 }
 
-input[type='file'] {
-  display: none;
-}
-.custom-file-upload {
+.button {
   border: 1px solid #ccc;
   background: whitesmoke;
   color: black;
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
+  margin: 5px;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+input[type='file'] {
+  display: none;
 }
 </style>
