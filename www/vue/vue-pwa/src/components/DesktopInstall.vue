@@ -39,36 +39,3 @@ export default {
   color: rgb(46, 46, 46);
 }
 </style>
-
-<!-- showHomeScreenPrompt() {
-    // Only show on iOS
-    if (!['iPhone', 'iPad', 'iPod'].includes(this.window.navigator.platform)) {
-      return;
-    }
-    // Do not show if launching from home screen
-    const parameters = new URLSearchParams(this.window.location.search);
-    if (
-      this.window.navigator.standalone ||
-      parameters.get('utm_source') === 'homescreen'
-    ) {
-      return;
-    }
-    // Only show once a week
-    const lastPrompt = this.localStorage.get('lastHomescreenPrompt');
-    if (lastPrompt && differenceInDays(new Date(), new Date(lastPrompt)) < 7) {
-      return;
-    }
-
-    Util.getImageData(`${this.assetBase}/customer-icon.png`).subscribe(
-      dataUrl => {
-        this.homeIcon = this.sanitizer.bypassSecurityTrustStyle(
-          `url('${dataUrl}')`,
-        );
-      },
-    );
-
-    timer(3000).subscribe(() => {
-      this.localStorage.set('lastHomescreenPrompt', new Date().toISOString());
-      this.dialog.open(this.showHomeScreenTemplate);
-    });
-  } -->
