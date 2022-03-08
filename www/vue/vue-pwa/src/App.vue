@@ -23,16 +23,19 @@
     </div>
 
     <BouncyBall />
+    <DesktopInstall />
   </div>
 </template>
 
 <script>
 import BouncyBall from './components/BouncyBall.vue';
+import DesktopInstall from './components/DesktopInstall.vue';
 
 export default {
   name: 'App',
   components: {
     BouncyBall,
+    DesktopInstall,
   },
   data: function () {
     return { image: '', store: window.localStorage };
@@ -102,6 +105,9 @@ body {
   padding: 6px 12px;
   cursor: pointer;
   margin: 5px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
 .disabled {
