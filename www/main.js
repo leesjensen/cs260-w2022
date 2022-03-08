@@ -326,6 +326,11 @@ const content = [
         title: 'VueUse',
         link: 'https://vueuse.org',
       },
+      {
+        class: 'demo',
+        title: 'Progressive Web App',
+        link: 'https://pwa.cs260.click',
+      },
     ],
   },
   {
