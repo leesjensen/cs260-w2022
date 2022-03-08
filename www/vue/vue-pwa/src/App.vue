@@ -1,11 +1,22 @@
 <template>
   <div id="app">
-    <input
-      type="file"
-      accept="image/x-png,image/jpeg,image/gif"
-      v-on:change="upload"
-    />
-    <img src="" id="preview" />
+    <h1>PWA Demo</h1>
+
+    <div class="chooser">
+      <label for="file-upload" class="custom-file-upload">
+        <i class="fa fa-cloud-upload"></i> Capture Image
+      </label>
+      <input
+        id="file-upload"
+        type="file"
+        accept="image/x-png,image/jpeg,image/gif"
+        v-on:change="upload"
+      />
+    </div>
+
+    <div class="img-viewer">
+      <img src="" id="preview" />
+    </div>
 
     <BouncyBall />
   </div>
@@ -57,6 +68,31 @@ export default {
 <style>
 body {
   margin-top: 0;
-  background: #a3d9ff;
+  background: #432c29;
+  color: whitesmoke;
+  font-family: Montserrat;
+}
+
+.img-viewer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-viewer img {
+  max-width: 100%;
+  max-height: 80vh;
+}
+
+input[type='file'] {
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  background: whitesmoke;
+  color: black;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
 }
 </style>

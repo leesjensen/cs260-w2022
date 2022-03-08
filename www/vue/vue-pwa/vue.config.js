@@ -7,7 +7,7 @@ module.exports = defineConfig({
   pwa: {
     name: 'Bouncy Red Ball',
     short_name: 'Bouncy',
-    themeColor: '#00FF00',
+    themeColor: '#5F5F5F',
     msTileColor: '#000000',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',
