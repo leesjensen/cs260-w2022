@@ -5,18 +5,31 @@ module.exports = defineConfig({
   },
   transpileDependencies: true,
   pwa: {
-    name: 'Bouncy Red Ball',
-    short_name: 'Bouncy',
     themeColor: '#5F5F5F',
     msTileColor: '#000000',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',
-    icons: {
-      favicon32: 'img/icons/favicon-32x32.png',
-      favicon16: 'img/icons/favicon-16x16.png',
-      appleTouchIcon: 'img/icons/apple-touch-icon.png',
-      msTileImage: 'img/icons/msapplication-icon-150x150.png',
+    iconPaths: {
+      maskicon: null,
+      favicon32: './img/icons/favicon-32x32.png',
+      favicon16: './img/icons/favicon-16x16.png',
+      appleTouchIcon: null,
+      msTileImage: null,
     },
-    display: 'standalone',
+    manifestOptions: {
+      name: 'Bouncy Red Ball',
+      short_name: 'Bouncy',
+      start_url: './',
+      display: 'standalone',
+      themeColor: '#5F5F5F',
+      icons: [
+        {
+          src: './img/icons/favicon-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'any maskable',
+        },
+      ],
+    },
   },
 });
