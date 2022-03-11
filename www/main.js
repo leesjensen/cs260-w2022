@@ -224,7 +224,7 @@ const content = [
   {
     name: 'Unit 4: Frontend',
     description: 'Vue - Web framework',
-    collapsed: false,
+    collapsed: true,
     item: [
       {
         class: 'note',
