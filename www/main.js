@@ -364,6 +364,11 @@ const content = [
         link: 'node-n1-learning-node',
       },
       {
+        class: 'demo',
+        title: 'Joke server',
+        link: 'jokes',
+      },
+      {
         class: 'exercise',
         title: 'N2: Todo',
         link: 'node-n2-todo',
