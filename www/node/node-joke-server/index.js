@@ -24,9 +24,10 @@ const server = http.createServer(function (req, res) {
     res.write(`<meta http-equiv="refresh" content="15">`);
     res.write(`<meta charset="UTF-8">`);
     res.write(
-      `<style>body {padding:30px;margin:0;background:#444444;color:whitesmoke;font-size:30px;font-family:sans-serif;}</style>`
+      `<style>body {padding:2vh;margin:0;background:#444444;font-family:sans-serif;}</style>`
     );
-    res.write(`<body>${joke}</body>`);
+    res.write(`<style>p {font-size:8vh;color:whitesmoke;}</style>`);
+    res.write(`<body><p>${joke}</p></body>`);
     res.end();
   });
 });
