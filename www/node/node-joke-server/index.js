@@ -22,9 +22,11 @@ const server = http.createServer(function (req, res) {
   giveMeAJoke.getRandomDadJoke((joke) => {
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.write(`<meta http-equiv="refresh" content="15">`);
-    res.write(`<p style="font-size:30px;font-family:sans-serif;">
-        ${joke}
-    </p>`);
+    res.write(`<meta charset="UTF-8">`);
+    res.write(
+      `<style>body {padding:30px;margin:0;background:#444444;color:whitesmoke;font-size:30px;font-family:sans-serif;}</style>`
+    );
+    res.write(`<body>${joke}</body>`);
     res.end();
   });
 });
