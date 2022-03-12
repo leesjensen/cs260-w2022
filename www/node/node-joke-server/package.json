@@ -1,0 +1,14 @@
+{
+  "name": "joke-server",
+  "version": "1.0.0",
+  "description": "Serves up the jokes",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "give-me-a-joke": "^0.5.1"
+  }
+}

@@ -1,9 +1,15 @@
 #Unit 5 - Node and Express
 
+## Work to do
+
+- Build and host lab 4
+- Setup Mongo local and on server
+
 ## Interesting Things
 
 - [Node as service under nginx](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-18-04)
 - [PM2 node services](https://pm2.keymetrics.io/)
+- [Node and Express Overview](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction_)
 
 ## PM2
 

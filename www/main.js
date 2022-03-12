@@ -313,7 +313,7 @@ const content = [
       },
       {
         class: 'slide',
-        title: '4.5 - Vue Inside',
+        title: '4.5 - Vue+',
         link: 'https://docs.google.com/presentation/d/1QoXvqO6ZeoEwNPNKL97yh66r_-GRqs7EJ2gZIhB8Ils/edit?usp=sharing',
       },
       {
@@ -335,7 +335,7 @@ const content = [
   },
   {
     name: 'Unit 5: Backend',
-    description: 'Node &amp; MongoDB',
+    description: 'Node, Express &amp; MongoDB',
     collapsed: false,
     item: [
       {
@@ -410,7 +410,7 @@ const content = [
       },
       {
         class: 'slide',
-        title: '5.5 - Backend',
+        title: '5.5 - Production Hosting',
         link: 'https://docs.google.com/presentation/d/1oZyDQqWHszTMlbNOb4yL1qk5eEKLI3X8J81mjqoHlSc/edit?usp=sharing',
       },
       {
@@ -420,7 +420,7 @@ const content = [
       },
       {
         class: 'slide',
-        title: '5.6 - Backend',
+        title: '5.6 - WebSockets',
         link: 'https://docs.google.com/presentation/d/1sAgGf_oMJqbkmThUmULstVYwK91kKWibtpLSd6DFZWo/edit?usp=sharing',
       },
     ],

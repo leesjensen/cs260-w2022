@@ -1,10 +1,11 @@
 # N2 todo
 
+**LSJ Notes**
 This is the front end for the Todo List app. See the tutorials for how it
 is built. This is very similar to the N1 ticket activity.
 
 The exercise builds a backend server found in `back-end/server.js` and front end written in Vue that is located in the `front-end` directory. The exercise is set up to run locally with the server hosted on port 3000. The client then runs on 8080. The Vue CLI
-proxies server requests in order to avoid CORS errors.
+proxies server requests in order to avoid CORS errors due to the changing port.
 
 ```
 module.exports = {
@@ -56,4 +57,4 @@ The NGINX config is then modified to pass requests for this execise through to t
 
 1. `service nginx reload`
 
-Note that the Vue Router will manipulate the URL so that everything appears at the root path.
+Note that the Vue Router will manipulate the URL so that everything appears at the root path unless you set the vue router mode to hash.
