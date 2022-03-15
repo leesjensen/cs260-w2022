@@ -5,6 +5,9 @@
 - Setup Mongo local and on server
   > I did this on cs260.click and on MongoCloud Atlas. I installed mongodbsh and also the vs code extension.
 - N3: Learning Mongo
+  > The quiz is horrible. Really bad JavaScript. Everything else is really simplistic and confusing. I rewrote the quiz.
+  > Done all of this except Lesson 3: ticket database. This looks like a simple step through.
+  > I need to learn mongoose better as it does seem to help with converting data to objects.
 - N4: Mongo Pokemon
 - N5: Full stack
 - Lab4: Museum

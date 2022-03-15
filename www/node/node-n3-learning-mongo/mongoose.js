@@ -1,39 +1,45 @@
 /*
-This folows the tutorial found here:
+This was derived from the tutorial found here:
 https://mongoosejs.com/docs/index.html
 
-Wow. really bad.
- */
+However, it is really bad and so I rewrote it.
+*/
 
 const mongoose = require('mongoose');
 
-main().catch((err) => console.log(err));
+const userName = process.env.MONGOUSER;
+const password = process.env.MONGOPASSWORD;
+const mongoHostname = 'cluster0.2iaao.mongodb.net';
 
 async function main() {
+  // Connect to the server and set the database to cats
   await mongoose.connect(
-    `mongodb+srv://${process.env.MONGOUSER}:${process.env.MONGOPASSWORD}@cluster0.2iaao.mongodb.net/myFirstDatabase`
+    `mongodb+srv://${userName}:${password}@${mongoHostname}/cats`
   );
 
+  // Create a schema to represent the collection%
   const kittySchema = new mongoose.Schema({
     name: String,
   });
 
+  // Create a function that is associated with the schema
   kittySchema.methods.speak = function speak() {
-    const greeting = this.name
-      ? 'Meow name is ' + this.name
-      : "I don't have a name";
-    console.log(greeting);
+    console.log('Meow name is ' + (this.name || 'secret'));
   };
 
-  const Kitten = mongoose.model('Kitten', kittySchema);
+  // Bind the schema to a Mongo collection name
+  const Kitten = mongoose.model('kitten', kittySchema);
 
-  const silence = new Kitten({ name: 'Silence' });
-  console.log(silence.name); // 'Silence'
+  // Add some kittens
+  await new Kitten({ name: 'hairball' }).save();
+  await new Kitten({ name: 'fluffy' }).save();
+  await new Kitten().save();
 
-  const fluffy = new Kitten({ name: 'fluffy' });
-  await fluffy.save();
-  fluffy.speak();
-
+  // Do a query on the kitten colection and speak the name of each kitten that is found
   const kittens = await Kitten.find();
-  console.log(kittens);
+  kittens.forEach((kitten) => {
+    kitten.speak();
+  });
 }
+
+main().catch(console.error);
