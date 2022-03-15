@@ -5,7 +5,7 @@
 - Setup Mongo local and on server
   > I did this on cs260.click and on MongoCloud Atlas. I installed mongodbsh and also the vs code extension.
 - N3: Learning Mongo
-  > The quiz is horrible. Really bad JavaScript. Everything else is really simplistic and confusing. I rewrote the quiz.
+  > The quiz has some problems. It should really use async/await. I rewrote the quiz.
   > Done all of this except Lesson 3: ticket database. This looks like a simple step through.
   > I need to learn mongoose better as it does seem to help with converting data to objects.
 - N4: Mongo Pokemon
@@ -17,6 +17,29 @@
 - [Node as service under nginx](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-18-04)
 - [PM2 node services](https://pm2.keymetrics.io/)
 - [Node and Express Overview](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction)
+
+## Modules
+
+The problem of mixing ES Modules and CommonJS Modules is that
+ES Modules load asynchronously. So we need to wrap them in a
+promise in order to load them in generic JS files. Alternatively
+you can import them into an existing Module or make your JS file
+into a module with the file extension `.mjs` or `<script module>`
+This won't work unless it is loaded in a module
+
+```
+import chalk from 'chalk';
+console.log(chalk.white.bgBlue.underline(' 😀 BYU 😀 '));
+```
+
+You can work around it by doing a dynamic import through a promise
+
+```
+import('chalk').then((c) => {
+const chalk = c.default;
+console.log(chalk.white.bgBlue.underline(' 😀 BYU 😀 '));
+});
+```
 
 ## PM2
 
