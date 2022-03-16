@@ -62,8 +62,6 @@ sudo npm install pm2@latest -g
 You still need to do 'npm install' when you first deploy a new dependency for the node application.
 Also I don't think the --watch is working.
 
-### N2.6 Node Cities
-
 ## Install Mongosh
 
 https://docs.mongodb.com/mongodb-shell/install/
