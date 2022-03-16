@@ -1,0 +1,15 @@
+{
+  "name": "lesson2",
+  "version": "1.0.0",
+  "description": "We're going to use the [Mongoose](https://mongoosejs.com/) library with Node. Mongoose provides an *object data model* for MongoDB, so that you can access Mongo documents as if they were JavaScript objects.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.4.18"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "lesson3",
+  "version": "1.0.0",
+  "description": "In this directory you will find a help ticket web application. This includes a ticket server in `tickets.js` and a Vue front end for submitting tickets in the `public` folder. I recommend cloning this repository so you can easily get this code.",
+  "main": "tickets.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.18"
+  }
+}
