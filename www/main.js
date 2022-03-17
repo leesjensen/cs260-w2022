@@ -396,7 +396,7 @@ const content = [
       {
         class: 'exercise',
         title: 'N3: Learning Mongo',
-        link: 'node/node-n3-learning-mongo',
+        link: 'node-n3-learning-mongo',
       },
       {
         class: 'slide',

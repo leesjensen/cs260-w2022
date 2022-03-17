@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-var path = require('path');
 
 const app = express();
 app.use(bodyParser.json());
@@ -10,8 +9,11 @@ app.use(bodyParser.json());
 //   extended: false
 // }));
 
-// LSJ added for static frontend hosting on server port
-app.use(express.static(path.join(__dirname, 'public')));
+// LSJ added for debugging
+app.use(function (req, res, next) {
+  console.log(req.method, req.url);
+  next();
+});
 
 const mongoose = require('mongoose');
 
@@ -83,5 +85,8 @@ app.delete('/api/tickets/:id', async (req, res) => {
     res.sendStatus(500);
   }
 });
+
+// LSJ added for static frontend hosting on server port
+app.use(express.static('../public'));
 
 app.listen(5030, () => console.log('Server listening on port 5030!'));

@@ -49,8 +49,8 @@ server {
     }
 
 
-    location ~ ^/node-n3-tickets/ {
-        proxy_pass    http://localhost:5030;
+    location /node-n3-learning-mongo/ {
+        proxy_pass    http://localhost:5030/;
     }
 
     location ~ ^/api/tickets/.* {
