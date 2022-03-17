@@ -1,5 +1,22 @@
 # Lesson 3: Building a help ticket database
 
+## LSJ
+
+There are actually two front ends in lesson3. One in public and the other in front-end. The public one needed to be tweaked since it wasn't reading the correct field on the [get] api/tickets endpoint. I also had to add `use(express.static('../public'))` in order to load the local files.
+
+Moved to port 5030
+
+Had to change the URL for mongo to dynamically load from env since I am using MongoDB atlas and didn't want to check in my variables.
+
+Installed on Prod server using `pm2`.
+
+```sh
+pm2 start --name mongotickets tickets.js --watch --ignore-watch="node_modules"
+pm2 save
+```
+
+## Regular scheduled program
+
 In this directory you will find a help ticket web application. This
 is split into a front end and a back end.
 
@@ -56,20 +73,22 @@ and add the following:
 
 ```javascript
 const express = require('express');
-const bodyParser = require("body-parser");
+const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
 
 const mongoose = require('mongoose');
 
 // connect to the database
 mongoose.connect('mongodb://localhost:27017/test', {
   useUnifiedTopology: true,
-  useNewUrlParser: true
+  useNewUrlParser: true,
 });
 ```
 
@@ -93,10 +112,9 @@ This says that a ticket will include a `name` and a `problem`, both strings.
 Next, we create a virtual parameter for the schema called `id`:
 
 ```javascript
-ticketSchema.virtual('id')
-  .get(function() {
-    return this._id.toHexString();
-  });
+ticketSchema.virtual('id').get(function () {
+  return this._id.toHexString();
+});
 ```
 
 We're doing this because by default every document in Mongo has a property called `_id`,
@@ -108,7 +126,7 @@ properties are included:
 
 ```javascript
 ticketSchema.set('toJSON', {
-  virtuals: true
+  virtuals: true,
 });
 ```
 
@@ -130,7 +148,7 @@ from the database:
 app.get('/api/tickets', async (req, res) => {
   try {
     let tickets = await Ticket.find();
-    res.send({tickets: tickets});
+    res.send({ tickets: tickets });
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
@@ -152,8 +170,8 @@ The function takes the array of tickets returned from the database and sends the
 If you look in the front end in `src/Home.vue`, you will see the front end calling this API:
 
 ```javascript
-    let response = await axios.get("/api/tickets");
-    this.tickets = response.data.tickets;
+let response = await axios.get('/api/tickets');
+this.tickets = response.data.tickets;
 ```
 
 Because the server returns a JSON object, which is converted back into a JavaScript object, the front end can get the tickets using `response.data.tickets`.
@@ -165,13 +183,13 @@ to the database:
 
 ```javascript
 app.post('/api/tickets', async (req, res) => {
-    const ticket = new Ticket({
+  const ticket = new Ticket({
     name: req.body.name,
-    problem: req.body.problem
+    problem: req.body.problem,
   });
   try {
     await ticket.save();
-    res.send({ticket:ticket});
+    res.send({ ticket: ticket });
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
@@ -194,9 +212,9 @@ the Mongo database. It also sends the ticket to the front end with
 Note that our front end doesn't actually use the returned ticket. In `src/Create.vue`, it calls the API with:
 
 ```javascript
-await axios.post("/api/tickets", {
-    name: this.name,
-    problem: this.problem
+await axios.post('/api/tickets', {
+  name: this.name,
+  problem: this.problem,
 });
 ```
 
@@ -211,7 +229,7 @@ them from the database:
 app.delete('/api/tickets/:id', async (req, res) => {
   try {
     await Ticket.deleteOne({
-      _id: req.params.id
+      _id: req.params.id,
     });
     res.sendStatus(200);
   } catch (error) {

@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+var path = require('path');
 
 const app = express();
 app.use(bodyParser.json());
@@ -10,7 +11,8 @@ app.use(bodyParser.json());
 // }));
 
 // LSJ added for static frontend hosting on server port
-app.use(express.static('../public/'));
+console.log(__dirname);
+app.use(express.static(path.join(__dirname, '../public')));
 
 const mongoose = require('mongoose');
 

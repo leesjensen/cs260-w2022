@@ -23,14 +23,48 @@ server {
     location / {
         try_files $uri $uri/ =404;
     }
-    
-    location /api/city  {
+ 
+    location /node-n1-learning-node/ {
+        proxy_pass http://localhost:3101/;
+    }
+
+    location ~ ^/api/n1/.+ {
+        proxy_pass    http://localhost:3101;
+    }
+
+    location /node-n2-todo/ {
+        proxy_pass http://localhost:3102/;
+    }
+
+    location ~ ^/api/n2/.+ {
+        proxy_pass    http://localhost:3102;
+    }
+
+    location /node-n2.5-pokemon/ {
+        proxy_pass http://localhost:3103/;
+    }
+ 
+    location /node-n2.6-cities/ {
+        proxy_pass http://localhost:3000/;
+    }
+
+
+    location ~ ^/node-n3-tickets/ {
+        proxy_pass    http://localhost:5030;
+    }
+
+    location ~ ^/api/tickets/.* {
+        proxy_pass    http://localhost:5030;
+    }
+
+    location /jokes/ {
+        proxy_pass http://localhost:3106/;
+    }
+
+    location ~ ^/api/.+ {
         proxy_pass    http://localhost:3000;
     }
 
-    location /node-cities/ {
-        proxy_pass http://localhost:3000/;
-    }
 
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/cs260.click/fullchain.pem; # managed by Certbot
@@ -57,7 +91,7 @@ server {
 
 server {
 
-    root /var/www/html/css/css-photographer;
+    root /var/www/html/css/css-lab1-photographer;
 
     index index.html;
     server_name lab1.cs260.click; # managed by Certbot
@@ -89,7 +123,7 @@ server {
 
 server {
 
-    root /var/www/html/js/js-weather;
+    root /var/www/html/js/js-lab2-weather;
 
     index index.html;
     server_name lab2.cs260.click; # managed by Certbot
@@ -118,12 +152,13 @@ server {
     return 404; # managed by Certbot
 }
 
+
 server {
 
-    root /var/www/html;
+    root /var/www/html/vue/vue-lab3a-xkcd;
 
     index index.html;
-    server_name lab3.cs260.click; # managed by Certbot
+    server_name lab3a.cs260.click; # managed by Certbot
 
 
     location / {
@@ -132,19 +167,79 @@ server {
 
 
     listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/lab3.cs260.click/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/lab3.cs260.click/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/lab3a.cs260.click/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/lab3a.cs260.click/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-}
-server {
-    if ($host = lab3.cs260.click) {
-    return 301 https://$host$request_uri;
+}server {
+    if ($host = lab3a.cs260.click) {
+        return 301 https://$host$request_uri;
     } # managed by Certbot
 
 
     listen 80 ;
-    server_name lab3.cs260.click;
+    server_name lab3a.cs260.click;
+    return 404; # managed by Certbot
+
+
+}server {
+
+    root /var/www/html/vue/vue-lab3b-grocery/dist;
+
+    index index.html;
+    server_name lab3b.cs260.click; # managed by Certbot
+
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/lab3b.cs260.click/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/lab3b.cs260.click/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}server {
+    if ($host = lab3b.cs260.click) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80 ;
+    server_name lab3b.cs260.click;
+    return 404; # managed by Certbot
+
+
+}
+server {
+
+    root /var/www/html/vue/vue-pwa/dist;
+
+    index index.html;
+    server_name pwa.cs260.click; # managed by Certbot
+
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/pwa.cs260.click/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/pwa.cs260.click/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}server {
+    if ($host = pwa.cs260.click) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80 ;
+    server_name pwa.cs260.click;
     return 404; # managed by Certbot
 }
