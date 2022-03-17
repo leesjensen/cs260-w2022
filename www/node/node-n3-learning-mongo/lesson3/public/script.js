@@ -11,7 +11,8 @@ var app = new Vue({
   methods: {
     async getTickets() {
       try {
-        let response = await axios.get('http://localhost:3000/api/tickets');
+        // LSJ - Changed this so it would work as a relative path
+        let response = await axios.get('api/tickets');
 
         // LSJ - I had to fix this since the response actually has a ticket field at the root.
         // this.tickets = response.data;
@@ -23,7 +24,8 @@ var app = new Vue({
     },
     async addTicket() {
       try {
-        let response = await axios.post('http://localhost:3000/api/tickets', {
+        // LSJ - Changed this so it would work as a relative path
+        let response = await axios.post('api/tickets', {
           name: this.addedName,
           problem: this.addedProblem,
         });
@@ -37,9 +39,8 @@ var app = new Vue({
     },
     async deleteTicket(ticket) {
       try {
-        let response = axios.delete(
-          'http://localhost:3000/api/tickets/' + ticket.id
-        );
+        // LSJ - Changed this so it would work as a relative path
+        let response = axios.delete('api/tickets/' + ticket.id);
         this.getTickets();
         return true;
       } catch (error) {
