@@ -41,12 +41,10 @@ router.get('/api/xkcd/:number?', function (req, res, next) {
     .get(xkcdUrl)
     .then((response) => res.json(response.data))
     .catch((error) => {
-      res.status(500).send({ message: `failed to get result from XKCD` });
+      res
+        .status(500)
+        .send({ message: `failed to get result from XKCD: ${error}` });
     });
-  // fetch(xkcdUrl)
-  //   .then((result) => result.json())
-  //   .then((json) => res.json(json))
-  //   .catch((error) => res.status(500).send({ message: `failed to get result from XKCD` }));
 });
 
 module.exports = router;
