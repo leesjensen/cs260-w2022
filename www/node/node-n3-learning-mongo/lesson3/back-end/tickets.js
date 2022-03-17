@@ -11,8 +11,7 @@ app.use(bodyParser.json());
 // }));
 
 // LSJ added for static frontend hosting on server port
-console.log(__dirname);
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const mongoose = require('mongoose');
 
