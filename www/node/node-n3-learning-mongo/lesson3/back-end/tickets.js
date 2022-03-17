@@ -9,6 +9,9 @@ app.use(bodyParser.json());
 //   extended: false
 // }));
 
+// LSJ added for static frontend hosting on server port
+app.use(express.static('../public/'));
+
 const mongoose = require('mongoose');
 
 const userName = process.env.MONGOUSER;
