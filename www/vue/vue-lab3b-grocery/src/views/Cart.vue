@@ -7,7 +7,7 @@
         :key="`product-${index}`"
       >
         <div class="image">
-          <img :src="'/images/products/' + product.image" />
+          <img :src="'images/products/' + product.image" />
         </div>
         <div class="info">{{ product.name }}</div>
         <div class="price">{{ format(product.price) }}</div>
