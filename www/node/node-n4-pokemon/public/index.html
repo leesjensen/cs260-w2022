@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <meta charset="utf-8">
+  <title>Pokemon</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1> Enter A New Poki</h1>
+    <form v-on:submit.prevent="addItem">
+      Name: <input type="text" v-model="pokiName">
+      URL: <input type="url" v-model="pokiURL">
+      <button type="submit">Add</button>
+    </form>
+    <div v-if='!pokis.length' class='no-pokemon center stretch'>
+      <h1 class='h1'>
+        Set up your endpoint at `/pokemon` to get this view working
+      </h1>
+    </div>
+    <div v-else>
+      <ul>
+        <li v-for="item in pokis">
+          <h1>{{ item.name }}</h1>
+          <img class='avatar' v-bind:src="item.avatarUrl" />
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="javascripts/app.js"></script>
+</body>
+
+</html>
