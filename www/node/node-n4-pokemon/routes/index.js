@@ -1,96 +1,50 @@
-var express = require('express');
-var router = express.Router();
-var mongodb = require('mongodb');
+const express = require('express');
+const router = express.Router();
+const mongodb = require('mongodb');
 
-// We need to work with "MongoClient" interface in order to connect to a mongodb server.
-var MongoClient = mongodb.MongoClient;
-
+// Set up the database
 const userName = process.env.MONGOUSER;
 const password = process.env.MONGOPASSWORD;
 const hostname = process.env.MONGOHOSTNAME;
 const dbName = 'pokemon';
 const colName = 'poke';
 
-// connect to the database
 const dbUrl = `mongodb+srv://${userName}:${password}@${hostname}/${colName}`;
-var collection;
+const client = new mongodb.MongoClient(dbUrl);
+const collection = client.db(dbName).collection(colName);
 
-// Use connect method to connect to the Server
-MongoClient.connect(
-  dbUrl,
-  { useUnifiedTopology: true, useNewUrlParser: true },
-  function (err, client) {
-    if (err) {
-      console.log('Unable to connect to the mongoDB server. Error:', err);
-    } else {
-      var db = client.db('pokemon');
+async function loadDatabase() {
+  await client.connect();
 
-      // const exists = await client
-      //   .db(dbName)
-      //   .listCollections({ name: colName })
-      //   .hasNext();
-      // if (!exists) {
-      //   await client.db(dbName).collection(colName).insertMany(docs);
-      // }
-
-      db.createCollection('poke', function (err, result) {
-        if (err) {
-          collection = db.collection('poke');
-          return; // the database is likely filled anyway, so not worth checking to add to the collection
-        }
-        collection = result;
-
-        collection.stats(function (err, stats) {
-          if (err) {
-            console.log(err);
-          }
-          if (stats.count == 0) {
-            // If we havent inserted before, put the default in
-            collection.insertMany(pokemon, function (err, result) {
-              if (err) {
-                console.log(err);
-              } else {
-                console.log(
-                  'Inserted documents into the "poke" collection. The documents inserted with "_id" are:',
-                  result.length,
-                  result
-                );
-              }
-            });
-          }
-        });
-      });
-    }
+  const exists = await client
+    .db(dbName)
+    .listCollections({ name: colName })
+    .hasNext();
+  if (!exists) {
+    await collection.insertMany(defaultPokemonData);
   }
-);
+}
 
-/* GET home page. */
+loadDatabase().catch(console.error);
+
+// Set up the routes
 router.get('/', function (req, res) {
   res.sendFile('index.html', { root: 'public' });
 });
 
-router.get('/pokemon', function (req, res) {
-  collection.find().toArray(function (err, result) {
-    if (err) {
-      console.log(err);
-    } else if (result.length) {
-      res.send(result);
-    }
-  });
+router.get('/pokemon', async function (req, res) {
+  const result = await collection.find().toArray();
+  res.send(result);
 });
-router.post('/pokemon', function (req, res) {
-  collection.insertOne(req.body, function (err, result) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('Inserted document into the "pokemon" collection.');
-      res.end('{"success" : "Updated Successfully", "status" : 200}');
-    }
-  });
+
+router.post('/pokemon', async function (req, res) {
+  await collection.insertOne(req.body);
+  res.end('{"success" : "Updated Successfully", "status" : 200}');
 });
 module.exports = router;
 
-var pokemon = [
+// Default data
+var defaultPokemonData = [
   {
     name: 'Pikachu',
     avatarUrl:
