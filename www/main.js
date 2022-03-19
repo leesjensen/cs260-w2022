@@ -307,11 +307,6 @@ const content = [
         link: 'vue/vue-router-demo/dist',
       },
       {
-        class: 'demo',
-        title: 'Vue Router Examples',
-        link: 'https://vue-router.cs260.click',
-      },
-      {
         class: 'slide',
         title: '4.5 - Vue+',
         link: 'https://docs.google.com/presentation/d/1QoXvqO6ZeoEwNPNKL97yh66r_-GRqs7EJ2gZIhB8Ils/edit?usp=sharing',
