@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+    <title>Comments</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-model="newComment" />
+      <button @click="addComment">Add</button>
+
+      <li v-for="item in sortedComments">
+        <span @click="incrementUpvotes(item)">&#128077; </span>
+        {{item.title}} - upvotes: {{item.upvotes}}
+      </li>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"
+      integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="vueApp.js"></script>
+  </body>
+</html>
