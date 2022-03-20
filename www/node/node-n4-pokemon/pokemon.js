@@ -9,7 +9,7 @@ const hostname = process.env.MONGOHOSTNAME;
 const dbName = 'pokemon';
 const colName = 'poke';
 
-const dbUrl = `mongodb+srv://${userName}:${password}@${hostname}/${colName}`;
+const dbUrl = `mongodb+srv://${userName}:${password}@${hostname}/${dbName}`;
 const client = new mongodb.MongoClient(dbUrl);
 const collection = client.db(dbName).collection(colName);
 
@@ -23,6 +23,26 @@ async function loadDatabase() {
   if (!exists) {
     await collection.insertMany(defaultPokemonData);
   }
+
+  collection.stats(function (err, stats) {
+    if (err) {
+      console.log(err);
+    }
+    if (stats.count == 0) {
+      // If we havent inserted before, put the default in
+      collection.insertMany(pokemon, function (err, result) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(
+            'Inserted documents into the "poke" collection. The documents inserted with "_id" are:',
+            result.length,
+            result
+          );
+        }
+      });
+    }
+  });
 }
 
 loadDatabase().catch(console.error);
