@@ -2,9 +2,14 @@ const express = require('express');
 
 const mongoose = require('mongoose');
 
+const userName = process.env.MONGOUSER;
+const password = process.env.MONGOPASSWORD;
+const hostname = process.env.MONGOHOSTNAME;
+const dbName = 'n5';
+
 // Replace the connection string if you are not running MongoDB
 // on the machine you are running this code from.
-const dbURL = 'mongodb://localhost/comments';
+const dbURL = `mongodb+srv://${userName}:${password}@${hostname}/${dbName}`;
 mongoose.connect(dbURL);
 
 const Comments = require('../models/Comments');

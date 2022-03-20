@@ -14,10 +14,10 @@ npm install
 
 Let's look at the project structure that was created by the express generator. Remember that there is nothing special about the structure and you are free to modify it in order to simplify things.
 
-- `app.js` - This file is the launching point for our app. We use it to import all other server files including modules, configure routes, open database connections, and just about anything else we can think of.
-- `bin/` - This directory is used to contain useful executable scripts. By default it contains one called www . A quick peak inside reveals that this script actually includes app.js and when invoked and starts the HTTP server.
-- `node_modules/` - This directory is home to all external modules used in the project. These modules are installed when you run `npm install`. You should never need to touch anything here.
-- `package.json` - This file contains a JSON object that defines various properties of our project including things such as name and version number. It can also defined what versions of Node are required and what modules our project depends on. A list of possible options can be found in the npm documentation.
+- `app.js` - This file is the launching point for our app. We use it to call other JavaScript code, configure routes, and open database connections.
+- `bin/` - This directory is used to contain useful executable scripts. By default it contains one called `www`. A quick peak inside reveals that this script actually imports `app.js` and starts the HTTP server.
+- `node_modules/` - This directory is home to all external modules used in the project. These modules are installed when you run `npm install`. You should touch anything here.
+- `package.json` - This file contains a JSON object that defines various properties of our project including things such as the name and version number. It can also defined what versions of Node are required and what modules our project depends on. A list of possible options can be found in the NPM documentation.
 - `public/` - As the name alludes to, anything in this folder will be made publicly available by the server. This is where we are going to store HTML, CSS, and images we want to serve up as static content.
 - `routes/` - This directory houses our Node controllers and is usually where most of the backend code will be stored.
 - `views/` - This is for server side rendered content. We will not be using this.
@@ -28,14 +28,13 @@ You can start the HTTP server, on the default port 3000, with the following comm
 npm start
 ```
 
-Alternatively if you are using VS Code, you can press F5 to start a debug session (complete with the ability to have breakpoints) and then select `Node.js` to
+Alternatively, if you are using VS Code, you can press F5 to start a debug session (complete with the ability to have breakpoints) and then select `Node.js` to start debugging your server when prompted.
 
-Check to make sure you can view the generated contenct by pointing your browser to `localhost:3000`.
-start your server when prompted.
+Check to make sure you can view the generated content by pointing your browser to `http://localhost:3000`.
 
-Stop the server by pressing `CTRL-C` if you started your server from the terminal, or `SHIFT-F5` to stop it if you started it from VS Code.
+Stop the server by pressing `CTRL-C`, if you started your server from the terminal, or `SHIFT-F5` to stop it if you started it from VS Code.
 
-Take a look at the JavaScript file `bin/www`. This code lanches our HTTP server and is what is called when you first run run `npm start`. Files in the `public` directory will be served by the node server because we are using the express middleware defined in `app.js`.
+Take a look at the JavaScript file `bin/www`. This code lanches our HTTP server and is what is called when you first run `npm start`. Files in the `public` directory will be served by the node server because we are using the `express.static` middleware defined in `app.js`.
 
 ```js
 app.use(express.static(path.join(__dirname, 'public')));
@@ -90,7 +89,7 @@ Modify `index.html` so that the comments get displayed by replacing `<div id="ap
 </div>
 ```
 
-Execute `npm start` and open your browser to `localhost:3000`. Verify that everything works. It should display the following:
+Execute `npm start` and open your browser to `http://localhost:3000`. Verify that everything works. It should display the following:
 
 ```
 Comment 1 - upvotes: 5
@@ -130,7 +129,7 @@ methods: {
         this.comments.push({ title: this.newComment, upvotes: 0 });
         this.newComment = "";
     },
-}
+},
 ```
 
 And add a newComment variable to the Vue data.
@@ -149,7 +148,7 @@ Then add an input and button element to `index.html` that calls the `addComment`
 
 Make sure everything is working. After adding a new comment it should show up in your list.
 
-Now that we have the ability to add comments, we ought to allow the user to upvote the comments. Next to each comment, we will place a click-able character that the user can select to increment the upvotes. Notice that the parameter to incrementUpvotes is passed by reference so the list is automatically rearranged.
+Now that we have the ability to add comments, we can allow the user to upvote the comments. Next to each comment, we will place a click-able character that the user can select to increment the upvotes. Notice that the parameter to incrementUpvotes is passed by reference so the list is automatically rearranged.
 
 First, modify the list html to have the clickable character: 👍.
 
@@ -168,25 +167,17 @@ incrementUpvotes(item){
 }
 ```
 
-Test the front end to make sure everything is working. Notice that clicking on 👍 in the browser changed the item upvotes and that in turn cases the computed method `sortedComments` to recalculate the sort order.
+Test the front end to make sure everything is working. Notice that clicking on 👍 in the browser changed the item upvotes, and that in turn causes the computed method `sortedComments` to recalculate the sort order.
 
 If you are stuck, you might want to refer to the working code in this repository.
 
 ## Add Database Support
 
-Now we will install Mongoose which will provide schema support and allow us to talk to MongoDB.
+Now we will install Mongoose which will provide schema support and help us to talk to our MongoDB database. First install the `mongoose` package.
 
 ```sh
 npm install mongoose
 ```
-
-In addition to the above file structure, we are going to add one more folder. Create a new folder called `models`.
-
-```sh
-mkdir models
-```
-
-This folder will contain our Mongoose schema definitions.
 
 Now we are going to set up the mongo database using mongoose.
 
@@ -201,9 +192,15 @@ const dbURL = 'mongodb://localhost/comments';
 mongoose.connect(dbURL);
 ```
 
-If you are not connection to a MongoDB that is running locally on your computer, then replace `mongodb://localhost` with the connection string for your MongoDB server.
+If you are not connecting to a MongoDB that is running locally on your computer, then replace `mongodb://localhost` with the connection string for your MongoDB server.
 
-Create the file `Comments.js` in the `models` directory with the following content.
+Add a new folder named `models` to the root of the project. This will contain the models for our data as represented by modMongoose schema definitions.
+
+```sh
+mkdir models
+```
+
+Create the file `Comments.js` in the `models` folder with the following content.
 
 ```js
 const mongoose = require('mongoose');
@@ -223,23 +220,23 @@ const Comment = mongoose.model('Comment');
 
 ## Create Service Routes
 
-Now we need to open up REST routes to the database. We want the user to be able to perform the following tasks:
+Now we need to open up REST routes to access the database. We want the user to be able to perform the following tasks:
 
-1. List comments
-1. Get a specific comment
-1. Add a comment
-1. Upvote a comment
+1. List Comments
+1. Get Comment
+1. Add Comment
+1. Upvote Comment
 
 These tasks correspond to the following routes:
 
 ```
-GET /comments - return a list of comments
-GET /comments/:id - return a specific comment
-POST /comments - create a new comment
-PUT /comments/:id/upvote - upvote a comment
+GET /comments - Get a list of comments
+GET /comments/:id - Get a specific comment
+POST /comments - Add a new comment
+PUT /comments/:id/upvote - Upvote a comment
 ```
 
-Let's start by creating a GET route in `routes/index.js`.
+Let's start by creating the `List Comments` route in `routes/index.js`.
 
 ```js
 router.get('/comments', function (req, res, next) {
@@ -252,9 +249,9 @@ router.get('/comments', function (req, res, next) {
 });
 ```
 
-Notice that the Comment variable refers to the Comment model we defined earlier.
+Notice that the Comment variable refers to the Comment model we imported earlier.
 
-Before we can test that the route works, we need data in the mongo database, so let's create a POST route in routes/index.js
+Before we can test that the route works, we need data in the Mongo database, so let's create the `Add Comment` route in routes/index.js
 
 ```js
 router.post('/comments', function (req, res, next) {
@@ -280,7 +277,7 @@ This should return something like this:
 {"__v":0,"title":"test","_id":"563ba5ac1a761cf149c0b258","upvotes":0}
 ```
 
-Run it multiple times to create multiple comments, and then call the GET route.
+Run it multiple times to create multiple comments, and then call the `List Comments`.
 
 ```sh
 curl http://localhost:3000/comments
@@ -292,9 +289,9 @@ This should return something like the following.
 [{ _id: '563ae37a13190ba93fc96a34', title: 'test', __v: 0, upvotes: 1 }];
 ```
 
-You can also access the GET route through the URL in your browser. Test it to make sure everything is working.
+You can also access the `List Comments` route through your browser. Test it to make sure everything is working.
 
-When we want to create a route for upvoting a comment the client will need to provide the comment's ID. In order to make this easier, we can use Express's ability to manipulate parameters by creating a `param` mapping on our router in `routes/index.js`.
+For the `Upvoting Comment` route, the front end will need to provide the comment's ID. In order to make this easier, we can use Express's ability to manipulate parameters by creating a `param` mapping on our router in `routes/index.js`.
 
 ```js
 router.param('comment', function (req, res, next, id) {
@@ -309,9 +306,9 @@ router.param('comment', function (req, res, next, id) {
 });
 ```
 
-Now, whenever we create a route with a `:comment` parameter, this function will get the comment out of the database before the route function is called and place the comment object on the `req` object received by the route handler.
+Now, whenever we create a route with a `:comment` parameter, this function will retrieve the comment object from the database, before the route handler is called, and place the comment object on the `req` object passed to the route handler.
 
-With this in place we can create a route for returning a single comment
+With this in place we can create the `Get Comment` route, that returns an individual comment.
 
 ```js
 router.get('/comments/:comment', function (req, res) {
@@ -319,11 +316,9 @@ router.get('/comments/:comment', function (req, res) {
 });
 ```
 
-Since the :comment part of the route was interpreted by the middleware that put the result from mongoose into the `req.comment` object, all we have to do is to return the JSON back to the client in the GET route.
+Since the :comment route parameter was automatically inserted into the `req.comment` object, all we have to do is to return the JSON back to the client in the `Get Comment` route.
 
-The :comment part of the URL will be the ID given to the comment in mongo. So, you should be able to list all the objects in the database using the GET `/comments` route and request a specific comment using the GET `comments/:comment` route.
-
-Use curl to try it out and make sure it is working. (_Note: your IDs will be different._)
+Use curl to try it out and make sure it is working. You will need to restart your server to make sure the latest code is running. (_Note: your IDs will be different._)
 
 ```sh
 ➜  ~ curl http://localhost:3000/comments
@@ -332,9 +327,9 @@ Use curl to try it out and make sure it is working. (_Note: your IDs will be dif
 ➜  ~ curl http://localhost:3000/comments/62363c3df2f16b1b9e5e7913
 ```
 
-Now let's implement the route to allow upvoting. We will use our middleware to convert the comment parameter ID into a comment object, and then create a schema method to add the upvote.
+Now let's implement the `Upvote Comment` route. This will use `:comment` parameter conversion again to get the comment object from the database, and then use a new schema method to add the upvote to the comment object.
 
-Add the upvote method to the `models/Comments.js` schema. Make sure this goes before `mongoose.model('Comment', CommentSchema);` so that it is defined before the model is created.
+Add the following upvote schema method to `models/Comments.js`. Make sure this goes before `mongoose.model('Comment', CommentSchema);` so that it is defined before the model is created.
 
 ```js
 CommentSchema.methods.upvote = function (cb) {
@@ -343,7 +338,7 @@ CommentSchema.methods.upvote = function (cb) {
 };
 ```
 
-Then create a PUT route in routes/index.js
+Then create the `Upvote Comment` route in routes/index.js
 
 ```js
 router.put('/comments/:comment/upvote', function (req, res, next) {
@@ -356,7 +351,7 @@ router.put('/comments/:comment/upvote', function (req, res, next) {
 });
 ```
 
-Now we can call our route using curl. First access the route to GET all of the comments. Find the id of one of the comments, and use curl to upvote it. Hit the upvote route multiple times to see the vote go up (_Note: your IDs will be different_).
+Now we can call our `Upvote Comment` route using curl. Don't forget to restart your server. Then call the `List Comments` route to list all of the comments. Find the id of one of the comments, and use curl again to upvote it with the `Upvote Comment` route. Hit the upvote route multiple times to see the vote go up. (_Note: your IDs will be different_).
 
 ```sh
 ➜  ~ curl http://localhost:3000/comments
@@ -371,7 +366,7 @@ curl -X PUT http://localhost:3000/comments/62363c3df2f16b1b9e5e7913/upvote
 
 ## Connect the Vue Application to the HTTP Service
 
-With our HTTP service, we just need to wire it up to our Vue application. First create an new method called getAll() on our Vue application in `vueApp.js`.
+With our HTTP service working, the final step is to wire it up to our Vue application. First create an new method called `getAll` on our Vue application in `vueApp.js`. This will call the `List Comments` route on our backend service.
 
 ```js
 getAll() {
@@ -384,7 +379,7 @@ getAll() {
 },
 ```
 
-We want to load all of the comments when we create our Vue application and se we call it on the `created` lifecycle event.
+We want to load all of the comments when we create our Vue application and so we call it from the `created` lifecycle event.
 
 ```js
 created: function() {
@@ -392,15 +387,16 @@ created: function() {
 },
 ```
 
-Use your browser to make sure that this is all working correctly.
+Use your browser to make sure that this is all working correctly. If it is then you will see the data that you inserted while testing the backend routes.
 
-Now that you have implemented one service request, the others should be easy. Let's modify the addComment method to call the service route that writes to the Mongo database.
+Now that you have implemented one service request, the others should be easy. Let's modify the `addComment` method to call the service route that writes to the Mongo database.
 
 ```js
 addComment() {
   const comment = { title: this.newComment, upvotes: 0 };
   fetch('/comments', {
     method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(comment),
   })
     .then((r) => r.json())
@@ -410,11 +406,11 @@ addComment() {
 },
 ```
 
-When the call to the POST /comments is successful, a comment object, with an \_id field, will be returned in response. We then push the new comment object onto the array so that appears in the list of comments.
+When the call to the POST /comments is successful, a comment object, with an \_id field, will be returned in response. We then push the new comment object onto the comment array, so that it appears in the list of comments.
 
-Test this to make sure you can create new comments and see them displayed. You should be able to refresh the page and still see them since it is reading the list from the database.
+Test this to make sure you can create new comments and see them displayed. You should be able to refresh the page and still see them since it is reading the list of persisted comments from the database.
 
-Now you need to be able to upvote your comments. Follow the same process of making a fecth request for your PUT REST route on the `incrementUpvotes` method. Since the database data is potentially changed by multiple users updating the data at the same time, we will replace our view of the number of upvotes with the response data.
+Finally, we just need to be able to upvote comments. Follow the same process of making a fecth request to the `Upvote Comment` route in the `incrementUpvotes` method. Since the database data is potentially changed by multiple users updating the data at the same time, we will replace our view of the number of upvotes with the response data so that we can see what others users have voted.
 
 ```js
 incrementUpvotes(item) {
@@ -428,10 +424,10 @@ incrementUpvotes(item) {
 },
 ```
 
-Test to make sure the upvotes are maintained across refreshes.
+Restart your server and test to make sure the upvotes are maintained across refreshes.
 
 ## Conclusion
 
-You just created a full stack application that includes a `web application` that reacts dynamically to changes in data, a `REST service` that provides multiple endpoints, and a database that persists data.
+You just created a full stack application that includes a `web application` that reacts dynamically to changes in data, a `REST service` that provides multiple endpoints from an HTTP server, and a database that persists data.
 
-👍 Way to go! Go get yourself a treat and celebrate success.
+👍 Way to go! Go get yourself some chocolate and celebrate success.

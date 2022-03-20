@@ -1,8 +1,23 @@
 body {
   padding: 50px;
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font: 25px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  background: #edeed5;
 }
 
-a {
-  color: #00b7ff;
+input {
+  height: 30px;
+  margin: 10px;
+  width: 20em;
+  font-size: 25px;
+}
+
+button {
+  display: block;
+  height: 30px;
+  margin: 10px;
+  width: 5em;
+}
+
+li {
+  white-space: nowrap;
 }
