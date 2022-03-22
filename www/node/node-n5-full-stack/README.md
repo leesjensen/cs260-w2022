@@ -15,9 +15,9 @@ npm install
 Let's look at the project structure that was created by the express generator. Remember that there is nothing special about the structure and you are free to modify it in order to simplify things.
 
 - `app.js` - This file is the launching point for our app. We use it to call other JavaScript code, configure routes, and open database connections.
-- `bin/` - This directory is used to contain useful executable scripts. By default it contains one called `www`. A quick peak inside reveals that this script actually imports `app.js` and starts the HTTP server.
+- `bin/` - This directory is used to contain useful executable scripts. By default it contains one called `www`. A quick peek inside reveals that this script actually imports `app.js` and starts the HTTP server.
 - `node_modules/` - This directory is home to all external modules used in the project. These modules are installed when you run `npm install`. You should touch anything here.
-- `package.json` - This file contains a JSON object that defines various properties of our project including things such as the name and version number. It can also defined what versions of Node are required and what modules our project depends on. A list of possible options can be found in the NPM documentation.
+- `package.json` - This file contains a JSON object that defines various properties of our project including things such as the name and version number. It can also define what versions are required and what modules our project depends on. A list of possible options can be found in the NPM documentation.
 - `public/` - As the name alludes to, anything in this folder will be made publicly available by the server. This is where we are going to store HTML, CSS, and images we want to serve up as static content.
 - `routes/` - This directory houses our Node controllers and is usually where most of the backend code will be stored.
 - `views/` - This is for server side rendered content. We will not be using this.
@@ -308,7 +308,7 @@ router.param('comment', function (req, res, next, id) {
 
 Now, whenever we create a route with a `:comment` parameter, this function will retrieve the comment object from the database, before the route handler is called, and place the comment object on the `req` object passed to the route handler.
 
-With this in place we can create the `Get Comment` route, that returns an individual comment.
+With this in place we can create the `Get Comment` route and return an individual comment.
 
 ```js
 router.get('/comments/:comment', function (req, res) {
@@ -410,7 +410,7 @@ When the call to the POST /comments is successful, a comment object, with an \_i
 
 Test this to make sure you can create new comments and see them displayed. You should be able to refresh the page and still see them since it is reading the list of persisted comments from the database.
 
-Finally, we just need to be able to upvote comments. Follow the same process of making a fecth request to the `Upvote Comment` route in the `incrementUpvotes` method. Since the database data is potentially changed by multiple users updating the data at the same time, we will replace our view of the number of upvotes with the response data so that we can see what others users have voted.
+Finally, we just need to be able to upvote comments. Follow the same process of making a fetch request to the `Upvote Comment` route in the `incrementUpvotes` method. Since the database data is potentially changed by multiple users updating the data at the same time, we will replace our view of the number of upvotes with the response data so that we can see what other users have voted.
 
 ```js
 incrementUpvotes(item) {
