@@ -1,19 +1,7 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 
 const app = express();
-app.use(bodyParser.json());
-
-// Not used
-// app.use(bodyParser.urlencoded({
-//   extended: false
-// }));
-
-// LSJ added for debugging
-app.use(function (req, res, next) {
-  console.log(req.method, req.url);
-  next();
-});
+app.use(express.json());
 
 const mongoose = require('mongoose');
 

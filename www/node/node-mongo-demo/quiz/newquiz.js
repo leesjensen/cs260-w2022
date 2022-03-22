@@ -14,7 +14,7 @@ const docs = [
 ];
 
 async function main() {
-  const url = `mongodb+srv://${userName}:${password}@${hostname}/admin`;
+  const url = `mongodb+srv://${userName}:${password}@${hostname}/${dbName}`;
   console.log(url);
   const client = new MongoClient(url);
 

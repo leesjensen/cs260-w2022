@@ -9,12 +9,12 @@ const password = process.env.MONGOPASSWORD;
 const hostname = process.env.MONGOHOSTNAME;
 
 const dbName = 'bnb';
-const collectionName = 'listingsAndReviews';
+const colName = 'listings';
 
 async function createListing(client, newListing) {
   const result = await client
     .db(dbName)
-    .collection(collectionName)
+    .collection(colName)
     .insertOne(newListing);
   console.log(
     `New listing created with the following id: ${result.insertedId}`
@@ -24,7 +24,7 @@ async function createListing(client, newListing) {
 async function createMultipleListings(client, newListings) {
   const result = await client
     .db(dbName)
-    .collection(collectionName)
+    .collection(colName)
     .insertMany(newListings);
 
   console.log(
@@ -36,7 +36,7 @@ async function createMultipleListings(client, newListings) {
 async function findOneListingByName(client, nameOfListing) {
   const result = await client
     .db(dbName)
-    .collection(collectionName)
+    .collection(colName)
     .findOne({ name: nameOfListing });
 
   if (result) {
@@ -59,12 +59,12 @@ async function findListingsWithMinimumBedroomsBathroomsAndMostRecentReviews(
 ) {
   const cursor = client
     .db(dbName)
-    .collection(collectionName)
+    .collection(colName)
     .find({
       bedrooms: { $gte: minimumNumberOfBedrooms },
       bathrooms: { $gte: minimumNumberOfBathrooms },
     })
-    .sort({ last_review: -1 })
+    .sort({ lastReview: -1 })
     .limit(maximumNumberOfResults);
 
   const results = await cursor.toArray();
@@ -74,7 +74,7 @@ async function findListingsWithMinimumBedroomsBathroomsAndMostRecentReviews(
       `Found listing(s) with at least ${minimumNumberOfBedrooms} bedrooms and ${minimumNumberOfBathrooms} bathrooms:`
     );
     results.forEach((result, i) => {
-      date = new Date(result.last_review).toDateString();
+      date = new Date(result.lastReview).toDateString();
 
       console.log();
       console.log(`${i + 1}. name: ${result.name}`);
@@ -83,7 +83,7 @@ async function findListingsWithMinimumBedroomsBathroomsAndMostRecentReviews(
       console.log(`   bathrooms: ${result.bathrooms}`);
       console.log(
         `   most recent review date: ${new Date(
-          result.last_review
+          result.lastReview
         ).toDateString()}`
       );
     });
@@ -95,11 +95,15 @@ async function findListingsWithMinimumBedroomsBathroomsAndMostRecentReviews(
 }
 
 async function main() {
-  const url = `mongodb+srv://${userName}:${password}@${hostname}/x`;
+  const url = `mongodb+srv://${userName}:${password}@${hostname}/${dbName}`;
   const client = new MongoClient(url);
 
   try {
     await client.connect();
+
+    const result = await client.db(dbName).collection(colName).find();
+    console.log(result);
+    result.forEach((i) => console.log(i));
 
     await createListing(client, {
       name: 'Lovely Loft',
@@ -112,14 +116,14 @@ async function main() {
       {
         name: 'Infinite Views',
         summary: 'Modern home with infinite views from the infinity pool',
-        property_type: 'House',
+        propertyType: 'House',
         bedrooms: 5,
         bathrooms: 4.5,
         beds: 5,
       },
       {
         name: 'Private room in London',
-        property_type: 'Apartment',
+        propertyType: 'Apartment',
         bedrooms: 1,
         bathroom: 1,
       },
@@ -130,7 +134,7 @@ async function main() {
         bedrooms: 4,
         bathrooms: 2.5,
         beds: 7,
-        last_review: new Date(),
+        lastReview: new Date(),
       },
     ]);
 

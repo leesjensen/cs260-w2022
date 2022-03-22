@@ -5,12 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Mongoose",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/index.js",
-      "env": { "MONGOUSER": "cs260mongo", "MONGOPASSWORD": "eFyT6SaX6ElqMqsx" }
+      "program": "${workspaceFolder}/simpleMongoose.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Insert Data",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/simpleInsert.js"
     }
   ]
 }
