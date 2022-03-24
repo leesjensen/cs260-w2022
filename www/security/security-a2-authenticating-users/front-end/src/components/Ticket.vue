@@ -40,7 +40,7 @@ export default {
     },
     async respond() {
       try {
-        let response = await axios.put('/api/tickets/' + this.ticket._id, {
+        let response = await axios.put('api/tickets/' + this.ticket._id, {
           status: 'closed',
           response: this.response,
         });

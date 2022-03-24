@@ -37,7 +37,7 @@ export default {
   methods: {
     async logout() {
       try {
-        await axios.delete('/api/users');
+        await axios.delete('api/users');
         this.$root.$data.user = null;
       } catch (error) {
         this.$root.$data.user = null;
@@ -45,11 +45,11 @@ export default {
     },
     async getTickets() {
       try {
-        let response = await axios.get('/api/tickets');
+        let response = await axios.get('api/tickets');
         this.tickets = response.data.tickets;
         return true;
       } catch (error) {
-        console.log(error);
+        return false;
       }
     },
   },
