@@ -35,14 +35,18 @@ app.use('/api/users', users.routes);
 const tickets = require('./tickets.js');
 app.use('/api/tickets', tickets.routes);
 
+const userName = process.env.MONGOUSER;
+const password = process.env.MONGOPASSWORD;
+const hostname = process.env.MONGOHOSTNAME;
+const dbName = 'pagliaccio';
+
+const url = `mongodb+srv://${userName}:${password}@${hostname}/${dbName}`;
+
 // connect to the mongodb database
-mongoose.connect(
-  'mongodb+srv://cs260mongo:eFyT6SaX6ElqMqsx@cluster0.2iaao.mongodb.net/pagliaccio',
-  {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  }
-);
+mongoose.connect(url, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+});
 
 // listen on port 3000
 app.listen(3000, () => console.log('Server listening on port 3000!'));

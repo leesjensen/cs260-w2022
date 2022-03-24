@@ -4,14 +4,18 @@ const users = require('./users.js');
 
 const User = users.model;
 
+const userName = process.env.MONGOUSER;
+const dbPassword = process.env.MONGOPASSWORD;
+const hostname = process.env.MONGOHOSTNAME;
+const dbName = 'pagliaccio';
+
+const url = `mongodb+srv://${userName}:${dbPassword}@${hostname}/${dbName}`;
+
 // connect to Mongo
-mongoose.connect(
-  'mongodb+srv://cs260mongo:eFyT6SaX6ElqMqsx@cluster0.2iaao.mongodb.net/pagliaccio',
-  {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  }
-);
+mongoose.connect(url, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+});
 
 // get the needed info
 let firstName = reader.question('First name: ');

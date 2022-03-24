@@ -448,7 +448,7 @@ const content = [
       {
         class: 'exercise',
         title: 'A2: Authenticating',
-        link: 'security/security-a2-auth',
+        link: 'security/security-a2-authenticating-users',
       },
       {
         class: 'slide',
