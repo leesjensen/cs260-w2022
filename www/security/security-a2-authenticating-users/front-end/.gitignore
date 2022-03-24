@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-/dist
+# /dist # we want to use this as content for the backend to host
 
 # local env files
 .env.local

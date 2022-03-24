@@ -46,6 +46,7 @@
         </fieldset>
       </form>
       <p v-if="errorLogin" class="error">{{ errorLogin }}</p>
+      <p>hint - admin:cs260 cs260:cs260</p>
     </div>
   </div>
 </template>

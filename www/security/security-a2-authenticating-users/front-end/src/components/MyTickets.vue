@@ -74,17 +74,13 @@ export default {
       this.creating = false;
     },
     async addTicket() {
-      try {
-        await axios.post('/api/tickets', {
-          problem: this.problem,
-        });
-        this.problem = '';
-        this.creating = false;
-        this.getTickets();
-        return true;
-      } catch (error) {
-        console.log(error);
-      }
+      await axios.post('/api/tickets', {
+        problem: this.problem,
+      });
+      this.problem = '';
+      this.creating = false;
+      this.getTickets();
+      return true;
     },
     async logout() {
       try {
@@ -95,13 +91,9 @@ export default {
       }
     },
     async getTickets() {
-      try {
-        let response = await axios.get('/api/tickets');
-        this.tickets = response.data.tickets;
-        return true;
-      } catch (error) {
-        console.log(error);
-      }
+      let response = await axios.get('/api/tickets');
+      this.tickets = response.data.tickets;
+      return true;
     },
   },
 };

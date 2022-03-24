@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 // setup express
 const app = express();
 
+app.use(express.static('../front-end/dist'));
+
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
@@ -48,5 +50,4 @@ mongoose.connect(url, {
   useNewUrlParser: true,
 });
 
-// listen on port 3000
-app.listen(3000, () => console.log('Server listening on port 3000!'));
+app.listen(6020, () => console.log('listening on port 6020'));
