@@ -10,7 +10,7 @@ const app = new Vue({
   methods: {
     addComment() {
       const comment = { title: this.newComment, upvotes: 0 };
-      fetch('/comments', {
+      fetch('comments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ const app = new Vue({
         });
     },
     incrementUpvotes(item) {
-      fetch(`/comments/${item._id}/upvote`, {
+      fetch(`comments/${item._id}/upvote`, {
         method: 'PUT',
       })
         .then((r) => r.json())
@@ -32,7 +32,7 @@ const app = new Vue({
         });
     },
     getAll() {
-      const url = '/comments';
+      const url = 'comments';
       fetch(url)
         .then((r) => r.json())
         .then((response) => {
