@@ -400,13 +400,8 @@ const content = [
       },
       {
         class: 'exercise',
-        title: 'N4: Mongo Pokemon',
-        link: 'node/node-n4-mongo-pokemon',
-      },
-      {
-        class: 'exercise',
         title: 'N5: Full Stack',
-        link: 'node/node-n5-full-stack',
+        link: 'node-n5-full-stack',
       },
       {
         class: 'slide',
@@ -448,7 +443,7 @@ const content = [
       {
         class: 'exercise',
         title: 'A2: Authenticating',
-        link: 'security/security-a2-authenticating-users',
+        link: 'security-a2-authenticating-users',
       },
       {
         class: 'slide',
