@@ -12,6 +12,7 @@
   "author": "Lee S Jensen",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "ws": "^8.5.0"
   }
 }
