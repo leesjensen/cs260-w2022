@@ -82,4 +82,15 @@ app.get('/api/items', async (req, res) => {
   }
 });
 
+// Get a list of all of the items in the museum.
+app.delete('/api/items/:id', async (req, res) => {
+  try {
+    await Item.deleteOne({ _id: req.params.id });
+    res.send({ action: 'deleted', id: req.params.id });
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
 app.listen(3000, () => console.log('Server listening on port 3000!'));

@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <!-- <div class="heading">
+    <div class="heading">
       <div class="circle">2</div>
       <h2>Edit/Delete an Item</h2>
     </div>
@@ -44,7 +44,7 @@
       <div class="actions" v-if="findItem">
         <button @click="deleteItem(findItem)">Delete</button>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -58,11 +58,38 @@ export default {
       title: '',
       file: null,
       addItem: null,
+      items: [],
+      findTitle: '',
+      findItem: null,
     };
   },
+  created() {
+    this.getItems();
+  },
+  computed: {
+    suggestions() {
+      let items = this.items.filter((item) =>
+        item.title.toLowerCase().startsWith(this.findTitle.toLowerCase())
+      );
+      return items.sort((a, b) => a.title > b.title);
+    },
+  },
   methods: {
+    selectItem(item) {
+      this.findTitle = '';
+      this.findItem = item;
+    },
     fileChanged(event) {
       this.file = event.target.files[0];
+    },
+    async getItems() {
+      try {
+        let response = await axios.get('/api/items');
+        this.items = response.data;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
     },
     async upload() {
       try {
@@ -74,6 +101,16 @@ export default {
           path: r1.data.path,
         });
         this.addItem = r2.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async deleteItem(item) {
+      try {
+        await axios.delete('/api/items/' + item._id);
+        this.findItem = null;
+        this.getItems();
+        return true;
       } catch (error) {
         console.log(error);
       }
