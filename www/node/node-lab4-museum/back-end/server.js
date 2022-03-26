@@ -34,6 +34,10 @@ const itemSchema = new mongoose.Schema({
 // Create a model for items in the museum.
 const Item = mongoose.model('Item', itemSchema);
 
+app.use(
+  express.static(path.join(path.dirname(__filename), '../front-end/dist'))
+);
+
 // Configure multer so that it will upload to '../front-end/public/images'
 const multer = require('multer');
 const upload = multer({
