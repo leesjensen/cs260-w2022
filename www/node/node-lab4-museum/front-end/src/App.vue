@@ -1,22 +1,23 @@
 <template>
-<div id="app">
-  <div class="header">
-    <router-link to="/">
-      <div class="logo">
-        <img src="/ordinary.png">
+  <div id="app">
+    <div class="header">
+      <router-link to="/">
+        <div class="logo">
+          <img src="/ordinary.png" />
+        </div>
+      </router-link>
+      <div class="title">
+        <h1>Museum of Ordinary Objects</h1>
       </div>
-    </router-link>
-    <div class="title">
-      <h1>Museum of Ordinary Objects</h1>
+    </div>
+    <div class="content">
+      <router-view />
+    </div>
+    <div class="footer">
+      <router-link to="/">Museum</router-link> |
+      <router-link to="/admin">Admin</router-link>
     </div>
   </div>
-  <div class="content">
-    <router-view />
-  </div>
-  <div class="footer">
-    <router-link to="/admin">Admin</router-link>
-  </div>
-</div>
 </template>
 
 <style>
@@ -36,8 +37,8 @@ body {
 .header {
   display: flex;
   padding: 10px 100px 0px 100px;
-  background-color: #5BDEFF;
-  color: #1C454F;
+  background-color: #5bdeff;
+  color: #1c454f;
 }
 
 .title {

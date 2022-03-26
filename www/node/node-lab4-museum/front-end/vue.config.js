@@ -3,6 +3,6 @@ module.exports = {
     devtool: 'eval-source-map',
   },
   devServer: {
-    proxy: 'http://localhost:3000',
+    proxy: 'http://localhost:5400',
   },
 };

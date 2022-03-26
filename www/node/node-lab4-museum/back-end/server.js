@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 app.use(bodyParser.json());
@@ -47,10 +48,15 @@ const u = upload.single('photo');
 // Upload a photo. Uses the multer middleware for the upload and then returns
 // the path where the photo is stored in the file system.
 app.post('/api/photos', u, async (req, res, next) => {
+  console.log('photo received');
   // Just a safety check
   if (!req.file) {
+    console.log('error saving');
     return res.sendStatus(400);
   }
+
+  console.log('photo received', req.file.path);
+
   res.send({
     path: '/images/' + req.file.filename,
   });
@@ -93,4 +99,15 @@ app.delete('/api/items/:id', async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log('Server listening on port 3000!'));
+// Get the API version.
+app.get('/api/version', (req, res) => {
+  fs.readFile(
+    path.join(path.dirname(__filename), 'version.txt'),
+    (err, data) => {
+      const version = err ? 'unknown' : String.fromCharCode(...data);
+      res.send({ version: version });
+    }
+  );
+});
+
+app.listen(5400, () => console.log('Server listening on port 5400!'));

@@ -101,6 +101,7 @@ export default {
           path: r1.data.path,
         });
         this.addItem = r2.data;
+        this.getItems();
       } catch (error) {
         console.log(error);
       }
