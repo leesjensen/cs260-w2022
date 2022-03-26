@@ -19,18 +19,12 @@ wss.on('connection', function connection(ws) {
   connections.push({ id: connectionId, conn: ws });
   ws.on('message', function message(data) {
     const msg = String.fromCharCode(...data);
-    console.log('received: %s', msg);
-
     connections.forEach((client) => {
       if (client.id !== connectionId) {
-        client.conn.send(`${connectionId} said "${msg}"`);
+        client.conn.send(msg);
       }
     });
   });
-
-  ws.send('Hello from server');
-
-  setInterval(() => ws.send(`Hey ${connectionId} talk to me`), 30000);
 });
 
 let nextId = 0;

@@ -4,10 +4,6 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, './public')));
 
-app.get('/dynamic', (req, res, next) => {
-  res.send(process.cwd());
-});
-
 app.listen(5090, () => {
   console.log(`Listening on port 5090`);
 });
