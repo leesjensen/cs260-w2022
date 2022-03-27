@@ -7,7 +7,7 @@ const { WebSocketServer } = require('ws');
 app.use(express.static(path.join(__dirname, './public')));
 
 server = app.listen(5090, () => {
-  console.log(`Listening on port 5090`);
+  console.log(`Listening on 5090`);
 });
 
 // Create a websocket object
@@ -20,30 +20,47 @@ server.on('upgrade', (request, socket, head) => {
   });
 });
 
-// Keep track of all the connections so we can forward messages.
+// Keep track of all the connections so we can forward messages
 let connections = [];
 
-// Use a simple counter for the connection ID.
-let nextId = 0;
-
 wss.on('connection', (ws) => {
-  const connectionId = ++nextId;
-  connections.push({ id: connectionId, conn: ws });
+  const connection = { id: connections.length + 1, alive: true, ws: ws };
+  connections.push(connection);
 
-  // Forward messages to everyone except the sender.
+  // Forward messages to everyone except the sender
   ws.on('message', function message(data) {
-    connections.forEach((client) => {
-      if (client.id !== connectionId) {
-        client.conn.send(data);
+    connections.forEach((c) => {
+      if (c.id !== connection.id) {
+        c.ws.send(data);
       }
     });
   });
 
-  // Remove the closed connection so we don't try to forward anymore.
+  // Remove the closed connection so we don't try to forward anymore
   ws.on('close', () => {
-    var index = connections.findIndex(function (o) {
-      return o.id === connectionId;
+    connections.findIndex((o, i) => {
+      if (o.id === connection.id) {
+        connections.splice(i, 1);
+        return true;
+      }
     });
-    if (index !== -1) connections.splice(index, 1);
+  });
+
+  // Respond to pong messages by marking the connection alive
+  ws.on('pong', () => {
+    connection.alive = true;
   });
 });
+
+// Keep active connections alive
+setInterval(() => {
+  connections.forEach((c) => {
+    // Kill any connection that didn't respond to the ping last time
+    if (!c.alive) {
+      c.ws.terminate();
+    } else {
+      c.alive = false;
+      c.ws.ping();
+    }
+  });
+}, 10000);

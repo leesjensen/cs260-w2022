@@ -418,6 +418,11 @@ const content = [
         title: '5.6 - WebSockets',
         link: 'https://docs.google.com/presentation/d/1sAgGf_oMJqbkmThUmULstVYwK91kKWibtpLSd6DFZWo/edit?usp=sharing',
       },
+      {
+        class: 'demo',
+        title: 'WebSocket Chat',
+        link: 'chat.cs260.click',
+      },
     ],
   },
   {
