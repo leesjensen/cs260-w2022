@@ -32,10 +32,9 @@ wss.on('connection', (ws) => {
 
   // Forward messages to everyone except the sender.
   ws.on('message', function message(data) {
-    const msg = String.fromCharCode(...data);
     connections.forEach((client) => {
       if (client.id !== connectionId) {
-        client.conn.send(msg);
+        client.conn.send(data);
       }
     });
   });

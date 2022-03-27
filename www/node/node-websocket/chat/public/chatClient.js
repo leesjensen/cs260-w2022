@@ -6,8 +6,9 @@ socket.onopen = (event) => {
 };
 
 // Display messages we receive from our friends
-socket.onmessage = (event) => {
-  const chat = JSON.parse(event.data);
+socket.onmessage = async (event) => {
+  const text = await event.data.text();
+  const chat = JSON.parse(text);
   appendMsg('friend', chat.name, chat.msg);
 };
 
