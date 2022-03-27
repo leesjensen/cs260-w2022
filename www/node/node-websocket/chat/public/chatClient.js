@@ -7,8 +7,8 @@ socket.onopen = (event) => {
 
 // Display messages we receive from our friends
 socket.onmessage = (event) => {
-  [friendName, ...friendMsg] = event.data.split(' ');
-  appendMsg('friend', friendName, friendMsg.join(' '));
+  const chat = JSON.parse(event.data);
+  appendMsg('friend', chat.name, chat.msg);
 };
 
 // If the webSocket is closed then disable the interface
@@ -24,8 +24,8 @@ function sendMessage() {
   const msg = msgEl.value;
   if (!!msg) {
     appendMsg('me', 'me', msg);
-    const name = getMyName();
-    socket.send(`${name} ${msg}`);
+    const name = document.querySelector('#my-name').value;
+    socket.send(`{"name":"${name}", "msg":"${msg}"}`);
     msgEl.value = '';
   }
 }
@@ -38,14 +38,7 @@ function appendMsg(cls, from, msg) {
     chatText.innerHTML;
 }
 
-// Helper function to read my name from the interace
-// We don't allow spaces because of how we parse sent messages.
-function getMyName() {
-  const myName = document.querySelector('#my-name').value;
-  return myName.replace(/\s/g, '_');
-}
-
-// Enable send if text to send
+// Send message on enter keystroke
 const input = document.querySelector('#new-msg');
 input.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
