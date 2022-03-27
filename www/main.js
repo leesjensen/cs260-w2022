@@ -421,7 +421,7 @@ const content = [
       {
         class: 'demo',
         title: 'WebSocket Chat',
-        link: 'chat.cs260.click',
+        link: 'https://chat.cs260.click',
       },
     ],
   },
