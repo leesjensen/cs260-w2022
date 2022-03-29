@@ -19,3 +19,27 @@ ssh -i ~/keys/cs260/id_rsa root@cs260.click "curl -i -s localhost:5400/api/versi
 
 # Check out the result
 open -a "Google Chrome" "https://lab4.cs260.click"
+
+
+# server {
+
+#     root /var/www/lab4/front-end/public;
+
+#     index index.html;
+#     server_name lab4.cs260.click; # managed by Certbot
+
+#     location / {
+#         try_files $uri $uri/ /index.html;
+#     }
+
+#     location /api {
+#         proxy_pass http://localhost:5400;
+#     }
+
+#     listen 443 ssl; # managed by Certbot
+#     ssl_certificate /etc/letsencrypt/live/lab4.cs260.click/fullchain.pem; # managed by Certbot
+#     ssl_certificate_key /etc/letsencrypt/live/lab4.cs260.click/privkey.pem; # managed by Certbot
+#     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+# }
