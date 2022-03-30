@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <div>{{ user.email }}</div>
     <ul>
       <li v-for="candidate in candidates" v-bind:key="candidate.url">
         <CandiateCard :msg="candidate.name" />
@@ -9,6 +10,9 @@
 </template>
 
 <script>
+import router from '@/router.js';
+import userService from '@/model/user.js';
+import candidateService from '@/model/candidates.js';
 import CandiateCard from '@/components/CandidateCard.vue';
 
 export default {
@@ -16,22 +20,18 @@ export default {
   components: {
     CandiateCard,
   },
+  created: function () {
+    this.user = userService.user;
+    this.candidates = candidateService.candidates;
+
+    if (!userService.loggedIn) {
+      router.push('/');
+    }
+  },
   data: function () {
     return {
-      candidates: [
-        {
-          name: 'joe',
-          url: 'https://cs260.click',
-        },
-        {
-          name: 'cindy',
-          url: 'https://cs260.click',
-        },
-        {
-          name: 'lara',
-          url: 'https://cs260.click',
-        },
-      ],
+      user: {},
+      candidates: [],
     };
   },
 };

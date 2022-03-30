@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import LoginView from '../views/LoginView.vue';
-import VoterView from '../views/VoterView.vue';
-import AdminView from '../views/AdminView.vue';
+import LoginView from './views/LoginView.vue';
+import VoterView from './views/VoterView.vue';
+import AdminView from './views/AdminView.vue';
 
 const routes = [
   {
