@@ -1,10 +1,15 @@
 <template>
   <div>
-    <!-- <router-link class="nav-link" to="/">Login</router-link> |
-    <router-link class="nav-link" to="/voter">Voter</router-link> |
-    <router-link class="nav-link" to="/admin">Admin</router-link> -->
+    <header>
+      <div>Connected: {{ connected }}</div>
+
+      <div v-if="false">
+        <router-link class="nav-link" to="/">Login</router-link> |
+        <router-link class="nav-link" to="/voter">Voter</router-link> |
+        <router-link class="nav-link" to="/admin">Admin</router-link>
+      </div>
+    </header>
     <router-view />
-    <div>Connected: {{ connected }}</div>
   </div>
 </template>
 
@@ -14,6 +19,7 @@ export default {
   data: function () {
     return {
       connected: false,
+      user: {},
     };
   },
   created() {

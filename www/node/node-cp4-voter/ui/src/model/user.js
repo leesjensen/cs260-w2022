@@ -2,7 +2,7 @@ import candidateSevice from '@/model/candidate.js';
 
 export default {
   _user: {
-    email: '',
+    email: 'joe@g.com',
     id: '',
     votes: [],
   },
@@ -22,6 +22,10 @@ export default {
 
   get loggedIn() {
     return this._user.email !== '';
+  },
+
+  get isAdmin() {
+    return this.loggedIn && this._user.email === 'lsj@byu.edu';
   },
 
   votedFor(candidateId) {

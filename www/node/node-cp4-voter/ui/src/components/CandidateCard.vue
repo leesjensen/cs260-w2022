@@ -6,7 +6,15 @@
     <span :class="['ranking', { 'top-rank': ranking <= 3 }]">{{
       ranking
     }}</span>
-    {{ candidateName }} - {{ votes }}
+    {{ candidateName }} ({{ votes }})<span
+      ><a
+        class="site-link"
+        :href="candidate.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        >view</a
+      ></span
+    >
   </div>
 </template>
 
@@ -71,5 +79,14 @@ export default {
 .top-rank {
   background: #ffde69;
   color: #898787;
+}
+
+.site-link {
+  color: #010101;
+  background: #676a7b;
+  float: right;
+  text-decoration: none;
+  border: black thin solid;
+  padding: 0 0.2em;
 }
 </style>

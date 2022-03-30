@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <div>{{ user.email }}</div>
     <ul>
       <li v-for="candidate in candidates" v-bind:key="candidate.url">
         <CandiateCard :candidate="candidate" />
@@ -41,5 +40,7 @@ export default {
 ul {
   padding: 0;
   list-style-type: none;
+}
+.user-name {
 }
 </style>
