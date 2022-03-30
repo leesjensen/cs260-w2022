@@ -5,4 +5,8 @@
   <router-view />
 </template>
 
-<style></style>
+<style>
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>

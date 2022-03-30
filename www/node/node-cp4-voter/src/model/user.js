@@ -1,6 +1,8 @@
+import candidateSevice from '@/model/candidates.js';
+
 export default {
   _user: {
-    email: '',
+    email: 'joe@cow.com',
     id: '',
     votes: [],
   },
@@ -22,14 +24,20 @@ export default {
     return this._user.email !== '';
   },
 
-  vote(candidateId) {
-    if (this._user.votes.length < 5) {
-      console.log(`voted for ${candidateId}`);
-      this._user.votes.push(candidateId);
-    }
+  votedFor(candidateId) {
+    return this._user.votes.includes(candidateId);
   },
 
-  unvote(candidateId) {
-    this._user.votes = this._user.votes.filter((c) => c !== candidateId);
+  vote(candidateId, addVote) {
+    const prevVotedFor = this._user.votes.includes(candidateId);
+    if (addVote && !prevVotedFor) {
+      if (this._user.votes.length < 5) {
+        this._user.votes.push(candidateId);
+        candidateSevice.vote(candidateId, true);
+      }
+    } else if (!addVote && prevVotedFor) {
+      this._user.votes = this._user.votes.filter((c) => c !== candidateId);
+      candidateSevice.vote(candidateId, false);
+    }
   },
 };
