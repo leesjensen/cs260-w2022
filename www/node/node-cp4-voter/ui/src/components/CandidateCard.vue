@@ -3,12 +3,16 @@
     :class="['candidate-card', { 'voted-for': votedFor }]"
     @click="changeVote"
   >
-    {{ candidate.name }} - {{ candidate.votes }}
+    <span :class="['ranking', { 'top-rank': ranking <= 3 }]">{{
+      ranking
+    }}</span>
+    {{ candidateName }} - {{ votes }}
   </div>
 </template>
 
 <script>
 import userService from "@/model/user.js";
+import candidateService from "@/model/candidate.js";
 export default {
   name: "CandiateCard",
   props: {
@@ -16,10 +20,22 @@ export default {
   },
   created() {
     this.votedFor = userService.votedFor(this.candidate.id);
+    this.candidateName = this.candidate.name;
+    this.votes = this.candidate.votes;
+    this.ranking = this.candidate.ranking;
+    candidateService.onupdate((candidate) => {
+      if (candidate.id == this.candidate.id) {
+        this.votes = candidate.votes;
+        this.ranking = candidate.ranking;
+      }
+    });
   },
   data: function () {
     return {
       votedFor: false,
+      candidateName: "",
+      votes: 0,
+      ranking: 0,
     };
   },
   methods: {
@@ -42,6 +58,18 @@ export default {
   border-radius: 10px;
 }
 .voted-for {
-  background: red;
+  background: #973f82;
+}
+
+.ranking {
+  padding: 0.8em;
+  background: #484d67;
+  /* border: 3px solid white; */
+  margin: 0 1em 0 0;
+}
+
+.top-rank {
+  background: #ffde69;
+  color: #898787;
 }
 </style>

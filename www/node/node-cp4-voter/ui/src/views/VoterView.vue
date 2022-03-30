@@ -12,7 +12,7 @@
 <script>
 import router from "@/router.js";
 import userService from "@/model/user.js";
-import candidateService from "@/model/candidates.js";
+import candidateService from "@/model/candidate.js";
 import CandiateCard from "@/components/CandidateCard.vue";
 
 export default {
@@ -20,9 +20,9 @@ export default {
   components: {
     CandiateCard,
   },
-  created: function () {
+  created: async function () {
     this.user = userService.user;
-    this.candidates = candidateService.candidates;
+    this.candidates = await candidateService.candidates();
 
     if (!userService.loggedIn) {
       router.push("/");
@@ -38,7 +38,8 @@ export default {
 </script>
 
 <style scoped>
-li {
+ul {
+  padding: 0;
   list-style-type: none;
 }
 </style>

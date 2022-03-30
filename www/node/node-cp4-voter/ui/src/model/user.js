@@ -1,14 +1,14 @@
-import candidateSevice from '@/model/candidates.js';
+import candidateSevice from '@/model/candidate.js';
 
 export default {
   _user: {
-    email: 'joe@cow.com',
+    email: '',
     id: '',
     votes: [],
   },
 
   login(email) {
-    if (email && email.match(/.+@.+/)) {
+    if (email && email.match(/.+@.+\..+/)) {
       this._user.email = email;
       // get user from server
     } else {
