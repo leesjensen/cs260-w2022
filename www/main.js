@@ -423,6 +423,11 @@ const content = [
         title: 'WebSocket Chat',
         link: 'https://chat.cs260.click',
       },
+      {
+        class: 'demo',
+        title: 'WebSocket Chat Code',
+        link: 'https://github.com/leesjensen/cs260/tree/main/www/node/node-websocket-demo',
+      },
     ],
   },
   {
