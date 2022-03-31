@@ -7,15 +7,40 @@ const { candidate } = require('./finalists.js');
 // Serve up our application UI
 app.use(express.static(path.join(__dirname, './public')));
 
+app.use(express.json());
+
 app.get('/api/candidate', (req, res) => {
   res.send({ candidate: candidate });
 });
 
+let users = {};
+
+app.put('/api/login', (req, res) => {
+  const email = req.body.email;
+  let user = users[email];
+  if (!user) {
+    user = {
+      email: email,
+      id: '3',
+      votes: [],
+    };
+    users[email] = user;
+  }
+  res.send(user);
+});
+
+// app.use((req, res, err) => {
+//   res.status(404);
+// });
+
 function updateCandidates(buffer) {
-  //    { id: candidateId, addVote: addVote }
+  //    { user: {user}, id: candidateId, addVote: addVote }
   const msg = JSON.parse(buffer.toString());
   const updated = candidate.find((c) => c.id === msg.id);
   if (updated) {
+    users[msg.user.email] = msg.user;
+    console.log(users);
+
     msg.addVote ? updated.votes++ : updated.votes--;
   }
 }

@@ -15,7 +15,7 @@ function _updateRankings() {
   });
 }
 
-function _vote(candidateId, addVote, broadcast) {
+function _vote(user, candidateId, addVote, broadcast) {
   const candidate = _candidates.find((c) => c.id == candidateId);
   if (candidate) {
     addVote ? candidate.votes++ : candidate.votes--;
@@ -23,28 +23,29 @@ function _vote(candidateId, addVote, broadcast) {
     _updateRankings();
 
     if (broadcast) {
-      api.sendMessage({ id: candidateId, addVote: addVote });
+      api.sendMessage({ user: user, id: candidateId, addVote: addVote });
     }
   }
 }
 
 api.onmessage((msg) => {
-  _vote(msg.id, msg.addVote, false);
+  _vote(msg.user, msg.id, msg.addVote, false);
 });
 
 export default {
   async candidates() {
     const response = await fetch('/api/candidate');
     const j = await response.json();
-    _candidates = j.candidate.sort((a, b) => b.votes - a.votes);
-    _candidates.forEach((c, i) => {
+    _candidates = j.candidate;
+    const sorted = [..._candidates].sort((a, b) => b.votes - a.votes);
+    sorted.forEach((c, i) => {
       c.ranking = i + 1;
     });
     return _candidates;
   },
 
-  vote(candidateId, addVote) {
-    _vote(candidateId, addVote, true);
+  vote(user, candidateId, addVote) {
+    _vote(user, candidateId, addVote, true);
   },
 
   onupdate(callback) {

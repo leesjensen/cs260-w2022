@@ -26,9 +26,9 @@ export default {
     };
   },
   methods: {
-    login() {
+    async login() {
       try {
-        userService.login(this.userEmail);
+        await userService.login(this.userEmail);
         router.push("/voter");
       } catch (error) {
         this.loginError = error;

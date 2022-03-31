@@ -1,7 +1,7 @@
 <template>
   <div
     :class="['candidate-card', { 'voted-for': votedFor }]"
-    @click="changeVote"
+    @click.self="changeVote"
   >
     <span :class="['ranking', { 'top-rank': ranking <= 3 }]">{{
       ranking
@@ -12,9 +12,8 @@
         :href="candidate.url"
         target="_blank"
         rel="noopener noreferrer"
-        >view</a
-      ></span
-    >
+        ><img src="link.png" /></a
+    ></span>
   </div>
 </template>
 
@@ -58,7 +57,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .candidate-card {
-  border: thin black solid;
   background: rgb(89, 88, 106);
   color: whitesmoke;
   margin: 1em 0;
@@ -88,5 +86,9 @@ export default {
   text-decoration: none;
   border: black thin solid;
   padding: 0 0.2em;
+}
+
+.site-link img {
+  width: 1em;
 }
 </style>

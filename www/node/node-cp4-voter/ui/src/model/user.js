@@ -2,15 +2,19 @@ import candidateSevice from '@/model/candidate.js';
 
 export default {
   _user: {
-    email: 'joe@g.com',
+    email: '',
     id: '',
     votes: [],
   },
 
-  login(email) {
+  async login(email) {
     if (email && email.match(/.+@.+\..+/)) {
-      this._user.email = email;
-      // get user from server
+      const response = await fetch('/api/login', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email }),
+      });
+      this._user = await response.json();
     } else {
       throw 'Invalid email for login';
     }
@@ -35,13 +39,13 @@ export default {
   vote(candidateId, addVote) {
     const prevVotedFor = this._user.votes.includes(candidateId);
     if (addVote && !prevVotedFor) {
-      if (this._user.votes.length < 5) {
+      if (this._user.votes.length < 3) {
         this._user.votes.push(candidateId);
-        candidateSevice.vote(candidateId, true);
+        candidateSevice.vote(this._user, candidateId, true);
       }
     } else if (!addVote && prevVotedFor) {
       this._user.votes = this._user.votes.filter((c) => c !== candidateId);
-      candidateSevice.vote(candidateId, false);
+      candidateSevice.vote(this._user, candidateId, false);
     }
   },
 };
