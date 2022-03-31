@@ -14,6 +14,7 @@ app.get('/api/candidate', (req, res) => {
 });
 
 let users = {};
+let nextId = 0;
 
 app.put('/api/login', (req, res) => {
   const email = req.body.email;
@@ -21,17 +22,14 @@ app.put('/api/login', (req, res) => {
   if (!user) {
     user = {
       email: email,
-      id: '3',
+      id: nextId++,
       votes: [],
     };
     users[email] = user;
   }
+  res.cookie('voter', nextId);
   res.send(user);
 });
-
-// app.use((req, res, err) => {
-//   res.status(404);
-// });
 
 function updateCandidates(buffer) {
   //    { user: {user}, id: candidateId, addVote: addVote }
