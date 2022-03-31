@@ -21,7 +21,7 @@
 import userService from "@/model/user.js";
 import candidateService from "@/model/candidate.js";
 export default {
-  name: "CandiateCard",
+  name: "CandidateCard",
   props: {
     candidate: {},
   },
