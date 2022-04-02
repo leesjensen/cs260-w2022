@@ -21,7 +21,7 @@ export default {
   },
   async created() {
     try {
-      console.log('creaeted');
+      console.log('created');
       let response = await axios.get('api/users');
       this.$root.$data.user = response.data.user;
     } catch (error) {

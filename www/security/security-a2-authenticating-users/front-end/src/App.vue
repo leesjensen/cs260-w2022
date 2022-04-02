@@ -1,15 +1,15 @@
 <template>
-<div id="app">
-  <div class="header">
-    <div class="brand">
-      <h1>Pagliaccio</h1>
-      <h2>Ticket System</h2>
+  <div id="app">
+    <div class="header">
+      <div class="brand">
+        <h1>Pagliaccio</h1>
+        <h2>Ticket System+</h2>
+      </div>
+    </div>
+    <div class="content">
+      <router-view />
     </div>
   </div>
-  <div class="content">
-    <router-view />
-  </div>
-</div>
 </template>
 
 <style>
@@ -17,7 +17,7 @@
 /* 96ceb4 ffeead d9534f ffad60 */
 body {
   margin: 0px;
-  background: #F7F5F7;
+  background: #f7f5f7;
 }
 
 #app {
@@ -25,7 +25,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 .brand {
   display: flex;
@@ -35,7 +34,7 @@ body {
 
 .brand h1 {
   display: inline-block;
-  background: #DB9964;
+  background: #db9964;
   padding: 10px;
   border-radius: 30px;
   font-size: 14px;
