@@ -2,7 +2,7 @@
   <div class="hero">
     <div class="heroBox">
       <h1>Your Problems are no Laughing Matter to Us</h1>
-      <p><img src="/decoration.png" /></p>
+      <p><img src="decoration.png" /></p>
       <form class="pure-form">
         <fieldset>
           <legend>Register for an account</legend>
@@ -24,7 +24,7 @@
         </fieldset>
       </form>
       <p v-if="error" class="error">{{ error }}</p>
-      <p><img src="/decoration.png" /></p>
+      <p><img src="decoration.png" /></p>
       <form class="pure-form">
         <fieldset>
           <legend>Login</legend>
@@ -129,7 +129,7 @@ h1 {
 
 .hero::after {
   content: '';
-  background-image: url('/pagliacci.jpg');
+  background-image: url('pagliacci.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
   top: 0;
