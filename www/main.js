@@ -36,6 +36,11 @@ const content = [
         link: 'https://docs.google.com/presentation/d/1S5nLhokdBJeBUSW051a_BtwMKD7UA6w-vtvNrSw7qjU/edit?usp=sharing',
       },
       {
+        class: 'demo',
+        link: 'https://git.cs260.click/',
+        title: 'Hosting on GitHub pages',
+      },
+      {
         class: 'exercise',
         title: 'D3, D4, D9, A1: Server Setup Video',
         link: 'https://youtu.be/KMgST_v4qlM',
@@ -106,11 +111,6 @@ const content = [
         class: 'exercise',
         link: 'css/css-c2-responsive',
         title: 'C2: Responsive',
-      },
-      {
-        class: 'demo',
-        link: 'https://git.cs260.click/',
-        title: 'Hosting on GitHub pages',
       },
       {
         class: 'project',
@@ -331,7 +331,7 @@ const content = [
   {
     name: 'Unit 5: Backend',
     description: 'Node, Express &amp; MongoDB',
-    collapsed: false,
+    collapsed: true,
     item: [
       {
         class: 'note',
@@ -433,7 +433,7 @@ const content = [
   {
     name: 'Unit 6: Security',
     description: 'Authentication, Exploit Prevention',
-    collapsed: true,
+    collapsed: false,
     item: [
       {
         class: 'note',

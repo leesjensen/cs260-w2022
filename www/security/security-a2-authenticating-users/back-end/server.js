@@ -1,11 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path');
 
 // setup express
 const app = express();
 
-app.use(express.static('../front-end/dist'));
+app.use(
+  express.static(path.join(path.dirname(__filename), '../front-end/dist'))
+);
 
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());

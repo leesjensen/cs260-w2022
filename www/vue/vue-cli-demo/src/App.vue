@@ -3,16 +3,16 @@
     <centered-div
       :class="['fill-view', { highlight: clicked }]"
       @click="toggleClicked"
-      >I am simple.</centered-div
+      >I am webocket simple.</centered-div
     >
   </div>
 </template>
 
 <script>
-import CenteredDiv from "./components/CenteredDiv";
+import CenteredDiv from './components/CenteredDiv';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     CenteredDiv,
   },
