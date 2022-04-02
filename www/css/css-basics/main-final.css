@@ -1,0 +1,109 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box; /* default content-box */
+}
+
+body {
+  border: solid 5px #ffcf6d;
+  margin: 0;
+  height: 100vh;
+}
+
+/* Color: hue, saturation, light */
+h1 {
+  border-right: #be7800 solid 1em;
+  padding: 0.5em 1em 0.5em 0;
+  background-color: hsl(202deg 30% 29%);
+  color: white;
+  text-align: right;
+  width: 95%;
+  margin: 20px auto;
+}
+
+/* Margin colapse */
+section {
+  padding: 1em;
+  border-left: solid 10px #16195e;
+  border-radius: 10px 0 0 10px;
+  background: rgb(172, 195, 216);
+  margin: 1em 2em;
+}
+
+/* Display block, inline, none, grid, flex */
+section p {
+  color: #213d67;
+  padding: 1em;
+  display: block;
+}
+
+/* Pseudo classes */
+#section1:hover {
+  background: #f0f099;
+  color: brown;
+}
+
+.new-content:before {
+  display: block;
+  padding: 0.25em 1em;
+  background: rgb(255, 255, 170);
+  color: black;
+  border-radius: 10px;
+  content: '🧑‍🏫 New content - please review';
+}
+
+footer > a {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 3em;
+  text-decoration: none;
+  background: rgb(51, 79, 95);
+  color: hsl(60, 62%, 85%);
+  padding: 1em;
+  width: 100%;
+}
+
+a:link,
+a:visited,
+a:focus {
+  color: #efefef;
+}
+
+footer > a:hover {
+  background: #be7800;
+}
+
+/* Animate */
+footer > a:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: 2;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px);
+  }
+  50% {
+    transform: translate(-1px, -1px) rotate(0.2deg);
+  }
+  100% {
+    transform: translate(1px, 1px) rotate(-0.2deg);
+  }
+}
+
+/* Background-image */
+.wallpaper {
+  background-image: url('PinecreekCanyon.jpg');
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: -100;
+
+  background-size: cover;
+  filter: grayscale(1);
+  opacity: 0.25;
+}
