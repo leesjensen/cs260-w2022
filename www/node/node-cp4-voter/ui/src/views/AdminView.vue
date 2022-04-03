@@ -5,15 +5,15 @@
 </template>
 
 <script>
-import router from "@/router.js";
-import userService from "@/model/user.js";
+import router from '@/router.js';
+import userService from '@/model/user.js';
 
 export default {
-  name: "AdminView",
+  name: 'AdminView',
   created: async function () {
-    this.user = userService.user;
+    this.user = await userService.user();
     if (!userService.isAdmin) {
-      router.push("/");
+      router.push('/');
     }
   },
   data: function () {

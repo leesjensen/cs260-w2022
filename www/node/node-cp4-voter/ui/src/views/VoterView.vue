@@ -9,22 +9,22 @@
 </template>
 
 <script>
-import router from "@/router.js";
-import userService from "@/model/user.js";
-import candidateService from "@/model/candidate.js";
-import CandidateCard from "@/components/CandidateCard.vue";
+import router from '@/router.js';
+import userService from '@/model/user.js';
+import candidateService from '@/model/candidate.js';
+import CandidateCard from '@/components/CandidateCard.vue';
 
 export default {
-  name: "VoterView",
+  name: 'VoterView',
   components: {
     CandidateCard,
   },
   created: async function () {
-    this.user = userService.user;
+    this.user = userService.user();
     this.candidates = await candidateService.candidates();
 
     if (!userService.loggedIn) {
-      router.push("/");
+      router.push('/');
     }
   },
   data: function () {

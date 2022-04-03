@@ -8,28 +8,34 @@
         <div class="error" v-show="loginError">{{ loginError }}</div>
       </fieldset>
     </form>
+    <BouncyBall />
   </div>
 </template>
 
 <script>
-import router from "@/router.js";
-import userService from "@/model/user.js";
+import router from '@/router.js';
+import userService from '@/model/user.js';
+import BouncyBall from '@/components/BouncyBall.vue';
 export default {
-  name: "LoginView",
-  created: function () {
-    this.userEmail = userService.user.email;
+  name: 'LoginView',
+  components: {
+    BouncyBall,
+  },
+  created: async function () {
+    const user = await userService.user();
+    this.userEmail = user.email;
   },
   data: function () {
     return {
-      userEmail: "",
-      loginError: "",
+      userEmail: '',
+      loginError: '',
     };
   },
   methods: {
     async login() {
       try {
         await userService.login(this.userEmail);
-        router.push("/voter");
+        router.push('/voter');
       } catch (error) {
         this.loginError = error;
       }

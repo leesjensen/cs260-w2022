@@ -1,11 +1,9 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const fs = require('fs');
 const { WebSocketServer } = require('ws');
 const { candidate } = require('./finalists.js');
-
-// Serve up our application UI
-app.use(express.static(path.join(__dirname, './public')));
 
 app.use(express.json());
 
@@ -30,6 +28,24 @@ app.put('/api/login', (req, res) => {
   res.cookie('voter', nextId);
   res.send(user);
 });
+
+// Get the API version.
+app.get('/api/version', (req, res) => {
+  fs.readFile(
+    path.join(path.dirname(__filename), 'version.txt'),
+    (err, data) => {
+      const version = err ? 'unknown' : String.fromCharCode(...data);
+      res.send({ version: version });
+    }
+  );
+});
+
+app.get(/^[^\.]+$/, (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+// Serve up our application UI
+app.use(express.static(path.join(__dirname, './public')));
 
 function updateCandidates(buffer) {
   //    { user: {user}, id: candidateId, addVote: addVote }
