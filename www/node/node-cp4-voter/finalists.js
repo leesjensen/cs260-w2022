@@ -1,3 +1,12 @@
+const actual = [
+  {
+    name: 'BJ Foutz & Jared Black',
+    url: 'https://thesaurdle.bjfoutz.space/',
+    votes: 0,
+    id: 'thesaurdle',
+  },
+]
+
 exports.candidate = [
   {
     name: 'joe',
