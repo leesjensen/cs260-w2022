@@ -4,6 +4,7 @@ const app = express();
 const fs = require('fs');
 const { WebSocketServer } = require('ws');
 const { candidate } = require('./finalists.js');
+const { strict } = require('assert');
 
 app.use(express.json());
 
@@ -25,7 +26,15 @@ app.put('/api/login', (req, res) => {
     };
     users[email] = user;
   }
-  res.cookie('voter', nextId);
+
+  // Set a cookie representing the logged in user.
+  // We don't actually use this since we use localStorage instead,
+  // but it does demonstrate safe cookies.
+  res.cookie('voter', email, {
+    httpOnly: true,
+    sameSite: 'Strict',
+    secure: true,
+  });
   res.send(user);
 });
 
@@ -35,17 +44,19 @@ app.get('/api/version', (req, res) => {
     path.join(path.dirname(__filename), 'version.txt'),
     (err, data) => {
       const version = err ? 'unknown' : String.fromCharCode(...data);
+      res.header('Access-Control-Allow-Origin', '*');
       res.send({ version: version });
     }
   );
 });
 
-app.get(/^[^\.]+$/, (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
-});
-
 // Serve up our application UI
 app.use(express.static(path.join(__dirname, './public')));
+
+// If no API, or exact file, was found then return the Vue app
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
 
 function updateCandidates(buffer) {
   //    { user: {user}, id: candidateId, addVote: addVote }

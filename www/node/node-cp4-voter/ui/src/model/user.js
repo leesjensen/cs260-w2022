@@ -1,8 +1,6 @@
 import candidateSevice from '@/model/candidate.js';
 
-let _user = undefined;
-
-const _defaultUser = {
+let _user = {
   email: '',
   id: '',
   votes: [],
@@ -25,12 +23,10 @@ export default {
   },
 
   async user() {
-    if (!_user) {
+    if (!_user.email) {
       const email = localStorage.getItem('email');
       if (email) {
         await this.login(email);
-      } else {
-        _user = _defaultUser;
       }
     }
     return _user;
@@ -45,19 +41,21 @@ export default {
   },
 
   votedFor(candidateId) {
-    return _user.votes.includes(candidateId);
+    return this.loggedIn && _user.votes.includes(candidateId);
   },
 
   vote(candidateId, addVote) {
-    const prevVotedFor = _user.votes.includes(candidateId);
-    if (addVote && !prevVotedFor) {
-      if (_user.votes.length < 3) {
-        _user.votes.push(candidateId);
-        candidateSevice.vote(_user, candidateId, true);
+    if (this.loggedIn) {
+      const prevVotedFor = _user.votes.includes(candidateId);
+      if (addVote && !prevVotedFor) {
+        if (_user.votes.length < 3) {
+          _user.votes.push(candidateId);
+          candidateSevice.vote(_user, candidateId, true);
+        }
+      } else if (!addVote && prevVotedFor) {
+        _user.votes = _user.votes.filter((c) => c !== candidateId);
+        candidateSevice.vote(_user, candidateId, false);
       }
-    } else if (!addVote && prevVotedFor) {
-      _user.votes = _user.votes.filter((c) => c !== candidateId);
-      candidateSevice.vote(_user, candidateId, false);
     }
   },
 };

@@ -5,6 +5,7 @@
         <CandidateCard :candidate="candidate" />
       </li>
     </ul>
+    <BouncyBall />
   </div>
 </template>
 
@@ -13,11 +14,13 @@ import router from '@/router.js';
 import userService from '@/model/user.js';
 import candidateService from '@/model/candidate.js';
 import CandidateCard from '@/components/CandidateCard.vue';
+import BouncyBall from '@/components/BouncyBall.vue';
 
 export default {
   name: 'VoterView',
   components: {
     CandidateCard,
+    BouncyBall,
   },
   created: async function () {
     this.user = userService.user();

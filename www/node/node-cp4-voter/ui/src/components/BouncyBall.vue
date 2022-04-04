@@ -1,7 +1,14 @@
 <template>
   <div class="bouncing-ball">
     <div id="ball"></div>
-    <div id="ground"></div>
+    <div id="ground">
+      <div id="source">
+        <a
+          href="https://github.com/leesjensen/cs260/tree/main/www/node/node-cp4-voter"
+          >GitHub</a
+        >
+      </div>
+    </div>
     <div id="shadow"></div>
   </div>
 </template>
@@ -29,6 +36,19 @@ export default {
   right: 0;
   bottom: 0;
   z-index: 0;
+}
+
+#ground #source {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+  justify-content: right;
+  height: 100%;
+}
+
+#ground #source a {
+  text-decoration: none;
+  color: darkgray;
 }
 
 #shadow {
