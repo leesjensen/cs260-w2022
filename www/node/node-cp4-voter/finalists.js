@@ -5,6 +5,12 @@ const actual = [
     votes: 0,
     id: 'thesaurdle',
   },
+  {
+    name: 'Raina Jones & Jared Kitchen',
+    url: 'https://zen.reinajones.com/',
+    votes: 0,
+    id: 'zenplants',
+  },
 ]
 
 exports.candidate = [
