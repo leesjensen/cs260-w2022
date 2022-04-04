@@ -460,6 +460,11 @@ const content = [
         title: '6.3 - Demo Day',
         link: 'https://docs.google.com/presentation/d/1Xgs9R8o5C4Fx-qtqqXUeQEh1pXwpaakeFiX52N1ILrk/edit?usp=sharing',
       },
+      {
+        class: 'project',
+        title: 'CP 4: Voter',
+        link: 'https://cp4.cs260.click',
+      },
     ],
   },
 ];
