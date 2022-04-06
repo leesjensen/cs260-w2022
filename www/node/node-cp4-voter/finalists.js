@@ -11,7 +11,31 @@ const actual = [
     votes: 0,
     id: 'zenplants',
   },
-]
+  {
+    name: 'Daniel Blanchard',
+    url: 'https://listly.do.danielblanchard.click/',
+    votes: 0,
+    id: 'recipies',
+  },
+  {
+    name: 'Alex Mercer',
+    url: 'https://heywow.alexmercer.net/',
+    votes: 0,
+    id: 'heywow',
+  },
+  {
+    name: 'Camren Taylor',
+    url: 'https://game.camrentaylor.me',
+    votes: 0,
+    id: 'game',
+  },
+  {
+    name: 'Abigail Spigarelli',
+    url: 'http://vuecp.abbyspig.click/',
+    votes: 0,
+    id: 'houses',
+  },
+];
 
 exports.candidate = [
   {
