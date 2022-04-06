@@ -35,6 +35,24 @@ const actual = [
     votes: 0,
     id: 'houses',
   },
+  {
+    name: 'Heath Woodruff',
+    url: 'https://woodsofarreth.heathbar.click/',
+    votes: 0,
+    id: 'arreth',
+  },
+  {
+    name: 'Keaton Folsom',
+    url: 'https://mk-records.goodegg.click/',
+    votes: 0,
+    id: 'mariokart',
+  },
+  {
+    name: '',
+    url: '',
+    votes: 0,
+    id: '',
+  },
 ];
 
 exports.candidate = [
