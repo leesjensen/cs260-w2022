@@ -451,6 +451,11 @@ const content = [
         link: 'https://docs.google.com/presentation/d/1MlsyQjK6mbKl_kIq1t5ZixzJC8eieXcLjnoPpfjMkE0/edit?usp=sharing',
       },
       {
+        class: 'demo',
+        title: 'Final Prep',
+        link: 'https://create.kahoot.it/share/cs260-final-review/acfdeda2-6d8e-48e6-8ba8-4d803e96e506',
+      },
+      {
         class: 'exercise',
         title: 'A2: Authenticating',
         link: 'security-a2-authenticating-users',

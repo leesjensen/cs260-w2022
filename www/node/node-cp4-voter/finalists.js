@@ -48,6 +48,30 @@ const actual = [
     id: 'mariokart',
   },
   {
+    name: 'Cole Draper',
+    url: 'https://journey2.tycodra.com',
+    votes: 0,
+    id: 'bucketlist',
+  },
+  {
+    name: 'Emma Harrington',
+    url: 'https://belmont.emmaharrington.click/ ',
+    votes: 0,
+    id: 'belmont',
+  },
+  {
+    name: 'Fritz Carl',
+    url: 'project4.cs260.fritzcarl.com',
+    votes: 0,
+    id: 'haiti',
+  },
+  {
+    name: 'Rachel Perrier',
+    url: 'http://cp4.happicookieco.com/',
+    votes: 0,
+    id: 'goals',
+  },
+  {
     name: '',
     url: '',
     votes: 0,
@@ -65,19 +89,19 @@ exports.candidate = [
   {
     name: 'cindy',
     url: 'https://cs260.click',
-    votes: 5,
+    votes: 1,
     id: 'cindy',
   },
   {
     name: 'lara',
     url: 'https://cs260.click',
-    votes: 5,
+    votes: 1,
     id: 'lara',
   },
   {
     name: 'bud',
     url: 'https://cs260.click',
-    votes: 5,
+    votes: 1,
     id: 'bud',
   },
   {
@@ -95,7 +119,7 @@ exports.candidate = [
   {
     name: 'sue',
     url: 'https://cs260.click',
-    votes: 5,
+    votes: 1,
     id: 'sue',
   },
 ];
