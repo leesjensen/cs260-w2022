@@ -72,6 +72,12 @@ const actual = [
     id: 'goals',
   },
   {
+    name: 'Craig Harris',
+    url: 'youwerehere.craigdanielharris.com',
+    votes: 0,
+    id: '',
+  },
+  {
     name: '',
     url: '',
     votes: 0,
