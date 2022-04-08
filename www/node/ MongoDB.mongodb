@@ -1,5 +1,0 @@
-// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
-use('university');
-
-db.students.find();
-

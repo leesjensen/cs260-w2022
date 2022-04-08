@@ -3,39 +3,36 @@ const path = require('path');
 const app = express();
 const fs = require('fs');
 const { WebSocketServer } = require('ws');
-const { candidate } = require('./finalists.js');
-const { strict } = require('assert');
+const DB = require('./database.js');
+
+//const { candidate } = require('./finalists.js');
+//DB.CandidateCol.insertMany(candidate);
 
 app.use(express.json());
 
 app.get('/api/candidate', (req, res) => {
-  res.send({ candidate: candidate });
+  DB.CandidateCol.find(function (error, candidate) {
+    res.send({ candidate: candidate });
+  });
 });
 
-let users = {};
-let nextId = 0;
-
-app.put('/api/login', (req, res) => {
+app.put('/api/login', function (req, res) {
   const email = req.body.email;
-  let user = users[email];
-  if (!user) {
-    user = {
-      email: email,
-      id: nextId++,
-      votes: [],
-    };
-    users[email] = user;
-  }
 
-  // Set a cookie representing the logged in user.
-  // We don't actually use this since we use localStorage instead,
-  // but it does demonstrate safe cookies.
-  res.cookie('voter', email, {
-    httpOnly: true,
-    sameSite: 'Strict',
-    secure: true,
+  DB.UserCol.findOne({ email: email }, async (error, user) => {
+    if (!user) {
+      user = await new DB.UserCol({ email: email, votes: [] }).save();
+    }
+    // Set a cookie representing the logged in user.
+    // We don't actually use this since we use localStorage instead,
+    // but it does demonstrate safe cookies.
+    res.cookie('voter', email, {
+      httpOnly: true,
+      sameSite: 'Strict',
+      secure: true,
+    });
+    res.send(user);
   });
-  res.send(user);
 });
 
 // Get the API version.
@@ -58,16 +55,24 @@ app.use((req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-function updateCandidates(buffer) {
-  //    { user: {user}, id: candidateId, addVote: addVote }
+async function updateCandidates(buffer) {
+  // Example msg:    { user: {user}, id: candidateId, addVote: addVote }
   const msg = JSON.parse(buffer.toString());
-  const updated = candidate.find((c) => c.id === msg.id);
-  if (updated) {
-    users[msg.user.email] = msg.user;
-    console.log(users);
 
-    msg.addVote ? updated.votes++ : updated.votes--;
-  }
+  const amount = msg.addVote ? 1 : -1;
+  DB.CandidateCol.updateOne({ id: msg.id }, { $inc: { votes: amount } }).exec();
+
+  DB.UserCol.findOneAndUpdate(
+    { _id: msg.user._id },
+    { votes: msg.user.votes },
+    {
+      upsert: true,
+      new: true,
+    },
+    function (err, doc) {
+      console.log(err, doc);
+    }
+  );
 }
 
 server = app.listen(20400, () => {
@@ -92,8 +97,8 @@ wss.on('connection', (ws) => {
   connections.push(connection);
 
   // Forward messages to everyone except the sender
-  ws.on('message', function message(data) {
-    updateCandidates(data);
+  ws.on('message', async function message(data) {
+    await updateCandidates(data);
     connections.forEach((c) => {
       if (c.id !== connection.id) {
         c.ws.send(data);
