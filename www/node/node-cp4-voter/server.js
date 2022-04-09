@@ -5,8 +5,8 @@ const fs = require('fs');
 const { WebSocketServer } = require('ws');
 const DB = require('./database.js');
 
-//const { candidate } = require('./finalists.js');
-//DB.CandidateCol.insertMany(candidate);
+// const { candidate } = require('./finalists.js');
+// DB.CandidateCol.insertMany(candidate);
 
 app.use(express.json());
 

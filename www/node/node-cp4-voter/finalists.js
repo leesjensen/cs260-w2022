@@ -1,27 +1,40 @@
-const actual = [
-  {
-    name: 'BJ Foutz & Jared Black',
-    url: 'https://thesaurdle.bjfoutz.space/',
-    votes: 0,
-    id: 'thesaurdle',
-  },
-  {
-    name: 'Raina Jones & Jared Kitchen',
-    url: 'https://zen.reinajones.com/',
-    votes: 0,
-    id: 'zenplants',
-  },
-  {
-    name: 'Daniel Blanchard',
-    url: 'https://listly.do.danielblanchard.click/',
-    votes: 0,
-    id: 'recipies',
-  },
+const cut = [
   {
     name: 'Alex Mercer',
     url: 'https://heywow.alexmercer.net/',
     votes: 0,
     id: 'heywow',
+  },
+  {
+    name: 'Emma Harrington',
+    url: 'https://belmont.emmaharrington.click/ ',
+    votes: 0,
+    id: 'belmont',
+    note: 'Need to save the quotes',
+  },
+  {
+    name: 'Abigail Spigarelli',
+    url: 'http://vuecp.abbyspig.click/',
+    votes: 0,
+    id: 'houses',
+    note: 'Need HTTPS',
+    discord: 'abbY',
+  },
+  {
+    name: 'Craig Harris',
+    url: 'https://youwerehere.craigdanielharris.com',
+    votes: 0,
+    id: 'ipaddress',
+    discord: 'ragiarc',
+  },
+];
+
+exports.candidate = [
+  {
+    name: 'Raina Jones & Jared Kitchen',
+    url: 'https://zen.reinajones.com/',
+    votes: 0,
+    id: 'zenplants',
   },
   {
     name: 'Camren Taylor',
@@ -30,22 +43,24 @@ const actual = [
     id: 'game',
   },
   {
-    name: 'Abigail Spigarelli',
-    url: 'http://vuecp.abbyspig.click/',
-    votes: 0,
-    id: 'houses',
-  },
-  {
     name: 'Heath Woodruff',
     url: 'https://woodsofarreth.heathbar.click/',
     votes: 0,
     id: 'arreth',
   },
   {
+    name: 'Daniel Blanchard',
+    url: 'https://listly.do.danielblanchard.click/',
+    votes: 0,
+    id: 'recipies',
+    discord: 'danny_boi_13',
+  },
+  {
     name: 'Keaton Folsom',
     url: 'https://mk-records.goodegg.click/',
     votes: 0,
     id: 'mariokart',
+    discord: 'kabobby',
   },
   {
     name: 'Cole Draper',
@@ -54,78 +69,35 @@ const actual = [
     id: 'bucketlist',
   },
   {
-    name: 'Emma Harrington',
-    url: 'https://belmont.emmaharrington.click/ ',
-    votes: 0,
-    id: 'belmont',
-  },
-  {
-    name: 'Fritz Carl',
-    url: 'project4.cs260.fritzcarl.com',
-    votes: 0,
-    id: 'haiti',
-  },
-  {
     name: 'Rachel Perrier',
     url: 'http://cp4.happicookieco.com/',
     votes: 0,
     id: 'goals',
   },
   {
-    name: 'Craig Harris',
-    url: 'youwerehere.craigdanielharris.com',
+    name: 'BJ Foutz & Jared Black',
+    url: 'https://thesaurdle.bjfoutz.space/',
     votes: 0,
-    id: 'ipaddress',
+    id: 'thesaurdle',
+  },
+  {
+    name: 'Dallon Gunn',
+    url: 'https://story.dallongunn.com/',
+    votes: 0,
+    id: 'stories',
   },
   {
     name: 'Jake Mullins',
-    url: 'codele.jake-mullins.net',
+    url: 'http://codele.jake-mullins.net',
     votes: 0,
     id: 'calculator',
-  },
-];
-
-exports.candidate = [
-  {
-    name: 'joe',
-    url: 'https://cs260.click',
-    votes: 1,
-    id: 'joe',
+    note: 'HTTPS, Additional view',
   },
   {
-    name: 'cindy',
-    url: 'https://cs260.click',
-    votes: 1,
-    id: 'cindy',
-  },
-  {
-    name: 'lara',
-    url: 'https://cs260.click',
-    votes: 1,
-    id: 'lara',
-  },
-  {
-    name: 'bud',
-    url: 'https://cs260.click',
-    votes: 1,
-    id: 'bud',
-  },
-  {
-    name: 'marc',
-    url: 'https://cs260.click',
-    votes: 1,
-    id: 'marc',
-  },
-  {
-    name: 'gary',
-    url: 'https://cs260.click',
-    votes: 1,
-    id: 'gary',
-  },
-  {
-    name: 'sue',
-    url: 'https://cs260.click',
-    votes: 1,
-    id: 'sue',
+    name: 'Fritz Morlant',
+    url: 'https://project4.cs260.fritzcarl.com',
+    votes: 0,
+    id: 'haiti',
+    discord: 'prince_fritzcarl',
   },
 ];
