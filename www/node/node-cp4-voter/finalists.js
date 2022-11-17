@@ -83,6 +83,12 @@ const actual = [
     votes: 0,
     id: 'calculator',
   },
+  {
+    name: 'Dallon Gunn',
+    url: 'https://story.dallongunn.com/',
+    votes: 0,
+    id: 'stories',
+  },
 ];
 
 exports.candidate = [
