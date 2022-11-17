@@ -22,10 +22,11 @@ export default {
 <style scoped>
 .bouncing-ball {
   position: absolute;
-  top: calc(100vh - 300px);
+  top: calc(100vh - 200px);
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: -2;
 }
 
 #ground {
@@ -35,7 +36,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 0;
+  z-index: -2;
 }
 
 #ground #source {
@@ -44,11 +45,13 @@ export default {
   margin-right: 1em;
   justify-content: right;
   height: 100%;
+  z-index: -2;
 }
 
 #ground #source a {
   text-decoration: none;
   color: darkgray;
+  z-index: -2;
 }
 
 #shadow {
@@ -61,6 +64,7 @@ export default {
   background: #333;
   border-radius: 50%;
   animation: pulse 0.5s infinite alternate;
+  z-index: -2;
 }
 
 @keyframes pulse {
@@ -86,7 +90,7 @@ export default {
   height: 3em;
   border-radius: 50%;
   margin: 0 auto;
-  z-index: 2;
+  z-index: -1;
   animation: bounce 0.5s cubic-bezier(0.63, 0.09, 0.75, 0.46) infinite alternate;
 }
 

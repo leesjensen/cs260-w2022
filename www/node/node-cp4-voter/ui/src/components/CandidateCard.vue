@@ -18,10 +18,10 @@
 </template>
 
 <script>
-import userService from "@/model/user.js";
-import candidateService from "@/model/candidate.js";
+import userService from '@/model/user.js';
+import candidateService from '@/model/candidate.js';
 export default {
-  name: "CandidateCard",
+  name: 'CandidateCard',
   props: {
     candidate: {},
   },
@@ -40,7 +40,7 @@ export default {
   data: function () {
     return {
       votedFor: false,
-      candidateName: "",
+      candidateName: '',
       votes: 0,
       ranking: 0,
     };
@@ -49,6 +49,10 @@ export default {
     changeVote(e) {
       userService.vote(this.candidate.id, !this.votedFor);
       this.votedFor = userService.votedFor(this.candidate.id);
+      if (this.votedFor) {
+        var audio = new Audio('ding.mp3');
+        audio.play();
+      }
     },
   },
 };
@@ -62,6 +66,7 @@ export default {
   margin: 1em 0;
   padding: 0.5em 1em;
   border-radius: 10px;
+  user-select: none;
 }
 .voted-for {
   background: #973f82;
